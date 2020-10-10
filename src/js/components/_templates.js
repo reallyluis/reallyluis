@@ -2,7 +2,9 @@
 const AppFooterTemplate = document.createElement('template');
 AppFooterTemplate.innerHTML = `
   <footer class="footer">
-    <a href="mailto:contact@emaildomain.com" class="footer__link">contact@emaildomain.com</a>
+    <a href="mailto:contact@emaildomain.com" class="footer__link">
+      contact@emaildomain.com
+    </a>
 
     <ul class="social-list">
       <li class="social-list__item"><a href="codepen" class="social-list__link">

@@ -1,0 +1,27 @@
+{
+  "name": "reallyluis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/main.js",
+  "scripts": {
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint './src/css/**/*.css'",
+    "lint:js": "eslint './src/js/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reallyluis/reallyluis.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reallyluis/reallyluis/issues"
+  },
+  "homepage": "https://github.com/reallyluis/reallyluis#readme",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-google": "^0.14.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}
