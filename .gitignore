@@ -1,4 +1,8 @@
-.DS_Store
-.pytest_cache
+.DS_*
+.*_cache
+*-lock.json
 
+.env
+
+dist
 node_modules
