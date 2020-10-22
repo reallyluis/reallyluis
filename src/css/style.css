@@ -284,7 +284,7 @@ nav {
 
 .my-services {
   background-color: var(--clr-dark);
-  background-image: url('../img/section_wallpaper.jpg');
+  /* background-image: url('../img/section_wallpaper.webp'); */
   background-size: cover;
   background-blend-mode: luminosity;
   color: var(--clr-light);
