@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A personal website by reallyluis.",
   "scripts": {
-    "prebuild": "rm -rf ./dist; mkdir dist; mkdir dist/css; mkdir dist/js; cp -R ./src/img ./dist/img",
+    "prebuild": "rm -rf ./dist; mkdir dist; mkdir dist/css; mkdir dist/js; cp -R ./src/img ./dist/img; cp ./src/manifest.webmanifest ./dist/manifest.webmanifest",
     "build": "npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js && npm run minify:pwa",
     "minify:html": "minify ./src/index.html > ./dist/index.html",
     "minify:css": "minify ./src/css/style.css > ./dist/css/style.css",

@@ -1,0 +1,26 @@
+{
+  "short_name": "reallyluis",
+  "name": "reallyluis: Personal website.",
+  "description": "reallyluis' personal website to detail knowledge, skills and interests in software engineering and web and mobile development.",
+  "icons": [
+    {
+      "src": "/img/logo.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/index.html?source=pwa",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFFFFF",
+  "shortcuts": [
+    {
+      "name": "Portfolio Item",
+      "short_name": "Portfolio",
+      "description": "View a porfolio item.",
+      "url": "/portfolio-item.html?source=pwa",
+      "icons": [{ "src": "/img/logo.png", "sizes": "192x192" }]
+    }
+  ]
+}
