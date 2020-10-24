@@ -8,7 +8,7 @@
     "minify:html": "minify ./src/index.html > ./dist/index.html",
     "minify:css": "minify ./src/css/style.css > ./dist/css/style.css",
     "minify:js": "minify ./src/js/index.js > ./dist/js/index.js",
-    "minify:pwa": "minify ./src/service-worker.js > ./dist/service-worker.js",
+    "minify:pwa": "cp ./src/service-worker.js ./dist/service-worker.js",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint './src/css/**/*.css'",
     "lint:js": "eslint './src/js/**/*.js'"

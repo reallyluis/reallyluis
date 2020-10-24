@@ -9,7 +9,9 @@ services:
     container_name: nginx
     restart: unless-stopped
     ports:
-      - 8080:80
+      - 80:80
+    hostname: localhost
     volumes:
       - ./dist:/usr/share/nginx/html
       - ./nginx-conf:/etc/nginx/conf.d
+      - ./nginx-conf/ssl:/etc/nginx/ssl

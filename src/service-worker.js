@@ -1,7 +1,34 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+const staticCacheName = 'site-static-v1';
+const assets = [
+  '/',
+  '/index.html',
+  '/postfolio-item.html',
+  '/css/style.css',
+  '/js/index.js',
+  '/img/about_me.webp',
+  '/img/logo.webp',
+  '/img/project_1.webp',
+  '/img/section_wallpaper.webp',
+  '/img/self.webp',
+  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+  'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap',
+  'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2',
+  'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu3cOWxw.woff2',
+];
 
-if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
-} else {
-  console.log(`Boo! Workbox didn't load 😬`);
-}
+// install event
+self.addEventListener('install', (evt) => {
+  evt.waitUntil(caches.open(staticCacheName).then((cache) => {
+    cache.addAll(assets);
+  }));
+});
+
+// // activate event
+// self.addEventListener('activate', (evt) => {});
+
+// fetch event
+self.addEventListener('fetch', (evt) => {
+  evt.respondWith(caches.match(evt.request).then((cacheRes) => {
+    return cacheRes || fetch(evt.request);
+  }));
+});
