@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v0';
+const staticCacheName = 'site-static-v1';
 const assets = [
   '/',
   '/index.html',
@@ -7,6 +7,9 @@ const assets = [
   '/js/index.js',
   '/img/about_me.webp',
   '/img/logo.webp',
+  '/img/icons/icon_32x32.png',
+  '/img/icons/icon_48x48.png',
+  '/img/icons/icon_180x180.png',
   '/img/project_1.webp',
   '/img/section_wallpaper.webp',
   '/img/self.webp',

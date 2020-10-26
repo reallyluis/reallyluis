@@ -11,9 +11,9 @@
   --ff-secondary: monospace;
   --fw-reg: 300;
   --fw-bold: 900;
-  --clr-light: white;
-  --clr-dark: black;
-  --clr-accent: #cfcfcf;
+  --clr-light: #ffffff;
+  --clr-dark: #333333;
+  --clr-accent: #0d85ff;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
   --fs-h3: 1.25rem;
@@ -133,10 +133,6 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1em;
-}
-
-.logo {
-  max-width: 32px;
 }
 
 nav {
