@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v0';
 const assets = [
   '/',
   '/index.html',
@@ -11,6 +11,7 @@ const assets = [
   '/img/icons/icon_48x48.png',
   '/img/icons/icon_180x180.png',
   '/img/project_1.webp',
+  '/img/code.webp',
   '/img/section_wallpaper.webp',
   '/img/self.webp',
   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',

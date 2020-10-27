@@ -12,7 +12,7 @@
   --fw-reg: 300;
   --fw-bold: 900;
   --clr-light: #fff;
-  --clr-dark: #333;
+  --clr-dark: #111;
   --clr-accent: #0d85ff;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
@@ -280,10 +280,8 @@ nav {
 
 .my-services {
   background-color: var(--clr-dark);
-
-  /* background-image: url('../img/section_wallpaper.webp'); */
   background-size: cover;
-  background-blend-mode: luminosity;
+  background-blend-mode: color-dodge;
   color: var(--clr-light);
   text-align: center;
 }
@@ -314,6 +312,10 @@ nav {
 
 .service p {
   text-align: left;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: var(--clr-dark);
+  padding: 16px;
+  border-radius: 0 0.5em;
 }
 
 @media (min-width: 800px) {
@@ -413,7 +415,7 @@ nav {
   background: #111;
   color: var(--clr-accent);
   text-align: center;
-  padding: 2.5em 0;
+  padding: 1.5em 0;
   font-size: var(--fs-h3);
 }
 
@@ -434,7 +436,7 @@ nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 2em 0 0;
+  margin: 0;
   padding: 0;
 }
 
