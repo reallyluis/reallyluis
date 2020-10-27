@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "A personal website by reallyluis.",
   "scripts": {
-    "prebuild": "rm -rf ./dist; mkdir dist; mkdir dist/css; mkdir dist/js; cp -R ./src/img ./dist/img; cp ./src/manifest.webmanifest ./dist/manifest.webmanifest",
-    "build": "npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js && npm run minify:pwa",
-    "minify:html": "minify ./src/index.html > ./dist/index.html",
-    "minify:css": "minify ./src/css/style.css > ./dist/css/style.css",
-    "minify:js": "minify ./src/js/index.js > ./dist/js/index.js",
-    "minify:pwa": "minify ./src/service-worker.js > ./dist/service-worker.js",
+    "prebuild": "bash ./scripts/prebuild.sh",
+    "build": "npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js && docker restart nginx",
+    "minify:html": "node ./scripts/minify-html.js",
+    "minify:css": "node ./scripts/minify-css.js",
+    "minify:js": "node ./scripts/minify-js.js",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint './src/css/**/*.css'",
     "lint:js": "eslint './src/js/**/*.js'"
