@@ -1,5 +1,6 @@
 const staticCacheName = 'site-static-v1';
 const dynamicCacheName = 'site-dynamic-v0';
+const CACHE_MAX_SIZE = 20;
 const assets = [
   '/',
   '/index.html',
@@ -21,6 +22,17 @@ const assets = [
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu3cOWxw.woff2',
 ];
 
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(open).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
 // install event
 self.addEventListener('install', (evt) => {
   evt.waitUntil(caches.open(staticCacheName).then((cache) => {
@@ -41,8 +53,17 @@ self.addEventListener('fetch', (evt) => {
     return cacheRes || fetch(evt.request).then((fetchRes) => {
       return caches.open(dynamicCacheName).then((cache) => {
         cache.put(evt.request.url, fetchRes.clone());
+        limitCacheSize(dynamicCacheName, CACHE_MAX_SIZE);
         return fetchRes;
       });
     });
-  }).catch(() => caches.match('/fallback.html')));
+  }).catch(() => {
+    // fallback for html
+    if (evt.request.url.indexOf('.html') > -1) {
+      return caches.match('/fallback.html');
+    }
+    // TODO: add fallback for other file types
+
+    return null;
+  }));
 });
