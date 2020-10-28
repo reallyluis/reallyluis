@@ -114,7 +114,8 @@ h3 { font-size: var(--fs-h3); }
 }
 
 .section__subtitle--intro,
-.section__subtitle--about {
+.section__subtitle--about,
+.section__subtitle--contact {
   background: var(--clr-accent);
   padding: 0.25em 1em;
   font-family: var(--ff-secondary);
@@ -407,6 +408,74 @@ nav {
 .portfolio__item:focus .portfolio__img {
   transform: scale(1.2);
   opacity: 0.75;
+}
+
+/* Contact me section */
+
+.contact-me {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-me__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-me__form input,
+.contact-me__form textarea,
+.contact-me__form button {
+  margin: 0.25em 0 1em;
+}
+
+.contact-me__form label,
+.contact-me__form button {
+  font-weight: var(--fw-bold);
+}
+
+.contact-me__form button {
+  color: var(--clr-dark);
+  background-color: var(--clr-accent);
+  padding: 0.5em;
+  border: 0;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+}
+
+.contact-me__img {
+  box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+  .contact-me {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-areas:
+      "title img"
+      "subtitle img"
+      "text img";
+    grid-column-gap: 2em;
+  }
+
+  .section__title--contact {
+    grid-area: title;
+  }
+
+  .section__subtitle--contact {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: relative;
+    left: -1em;
+    width: calc(100% + 2em);
+    padding-left: 1em;
+    padding-right: calc(200px + 4em);
+  }
+
+  .contact-me__img {
+    grid-area: img;
+    position: relative;
+    z-index: 2;
+  }
 }
 
 /* Footer */
