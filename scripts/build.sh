@@ -7,10 +7,14 @@ else
   echo "Error: Unable to process build."
 fi
 
-# Restart docker if available
+# Restart docker if available and exists
 if [ -x "$(command -v docker)" ]; then
-  printf "\nRestarting container...\n"
-  docker restart nginx
+  if [ "$(docker ps -a | grep nginx)" ]; then
+    printf "\nRestarting container...\n"
+    docker restart nginx
+  else
+    printf "\nContainer does not exist."
+  fi
 else
   printf "\nDocker is not available."
 fi
