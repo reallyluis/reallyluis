@@ -4,7 +4,7 @@
   "description": "A personal website by reallyluis.",
   "scripts": {
     "prebuild": "bash ./scripts/prebuild.sh",
-    "build": "npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js",
+    "build": "bash ./scripts/build.sh",
     "minify:html": "node ./scripts/minify-html.js",
     "minify:css": "node ./scripts/minify-css.js",
     "minify:js": "node ./scripts/minify-js.js",
