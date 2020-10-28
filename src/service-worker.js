@@ -1,9 +1,9 @@
-const staticCacheName = 'site-static-v0';
-const dynamicCache = 'site-dynamic-v1';
+const staticCacheName = 'site-static-v1';
+const dynamicCacheName = 'site-dynamic-v0';
 const assets = [
   '/',
   '/index.html',
-  '/postfolio-item.html',
+  '/fallback.html',
   '/css/style.css',
   '/js/index.js',
   '/img/about_me.webp',
@@ -31,7 +31,7 @@ self.addEventListener('install', (evt) => {
 // activate event
 self.addEventListener('activate', (evt) => {
   evt.waitUntil(caches.keys().then((keys) => Promise.all(keys
-      .filter((key) => key !== staticCacheName)
+      .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
       .map((key) => caches.delete(key)))));
 });
 
@@ -39,10 +39,10 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
   evt.respondWith(caches.match(evt.request).then((cacheRes) => {
     return cacheRes || fetch(evt.request).then((fetchRes) => {
-      return caches.open(dynamicCache).then((cache) => {
+      return caches.open(dynamicCacheName).then((cache) => {
         cache.put(evt.request.url, fetchRes.clone());
         return fetchRes;
       });
     });
-  }));
+  }).catch(() => caches.match('/fallback.html')));
 });

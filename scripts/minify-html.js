@@ -11,9 +11,19 @@ const options = {
 minify('./src/index.html', options)
     .then((content) => {
       fs.writeFile('./dist/index.html', content, 'utf8', () => {
-        console.log('minify HTML done!');
+        console.log('minify index.html done!');
       });
     })
     .catch((err) => {
-      console.log('minify HTML failed!');
+      console.log('minify index.html failed!');
+    });
+
+minify('./src/fallback.html', options)
+    .then((content) => {
+      fs.writeFile('./dist/fallback.html', content, 'utf8', () => {
+        console.log('minify fallback.html done!');
+      });
+    })
+    .catch((err) => {
+      console.log('minify fallback.html failed!');
     });
