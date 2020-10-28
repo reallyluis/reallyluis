@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v0';
 const dynamicCacheName = 'site-dynamic-v0';
 const CACHE_MAX_SIZE = 20;
 const assets = [
@@ -12,7 +12,12 @@ const assets = [
   '/img/icons/icon_32x32.png',
   '/img/icons/icon_48x48.png',
   '/img/icons/icon_180x180.png',
-  '/img/project_1.webp',
+  '/img/concert.webp',
+  '/img/business-coffee-shop.webp',
+  '/img/telecom.webp',
+  '/img/capital.webp',
+  '/img/code-two-screens.webp',
+  '/img/circuit-board.webp',
   '/img/code.webp',
   '/img/section_wallpaper.webp',
   '/img/self.webp',
