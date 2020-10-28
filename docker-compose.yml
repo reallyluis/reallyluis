@@ -12,6 +12,6 @@ services:
       - 80:80
     hostname: localhost
     volumes:
-      - ./dist:/usr/share/nginx/html
+      - ./public:/usr/share/nginx/html
       - ./nginx-conf:/etc/nginx/conf.d
       - ./nginx-conf/ssl:/etc/nginx/ssl

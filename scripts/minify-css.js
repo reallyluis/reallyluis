@@ -9,7 +9,7 @@ const options = {
 
 minify('./src/css/style.css', options)
     .then((content) => {
-      fs.writeFile('./dist/css/style.css', content, 'utf8', () => {
+      fs.writeFile('./public/css/style.css', content, 'utf8', () => {
         console.log('minify CSS done!');
       });
     })

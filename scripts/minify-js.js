@@ -10,7 +10,7 @@ const options = {
 // Service workder js
 minify('./src/service-worker.js', options)
     .then((content) => {
-      fs.writeFile('./dist/service-worker.js', content, 'utf8', () => {
+      fs.writeFile('./public/service-worker.js', content, 'utf8', () => {
         console.log('minify SW done!');
       });
     })
@@ -21,7 +21,7 @@ minify('./src/service-worker.js', options)
 // Main app js
 minify('./src/js/index.js', options)
     .then((content) => {
-      fs.writeFile('./dist/js/index.js', content, 'utf8', () => {
+      fs.writeFile('./public/js/index.js', content, 'utf8', () => {
         console.log('minify index.js done!');
       });
     })

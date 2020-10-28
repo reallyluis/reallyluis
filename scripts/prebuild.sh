@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Clear previous builds
-rm -rf ./dist
+rm -rf ./public
 
 # Create build and assets directories
-mkdir dist
-mkdir dist/css
-mkdir dist/js
+mkdir public
+mkdir public/css
+mkdir public/js
 
 # Copy image and manifest files to build directory
-cp -R ./src/img ./dist/img
-cp ./src/manifest.webmanifest ./dist/manifest.webmanifest
+cp -R ./src/img ./public/img
+cp ./src/manifest.webmanifest ./public/manifest.webmanifest

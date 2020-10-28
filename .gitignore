@@ -5,6 +5,7 @@
 
 .env
 
+dist
 public
 ssl
 node_modules

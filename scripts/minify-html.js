@@ -10,7 +10,7 @@ const options = {
 
 minify('./src/index.html', options)
     .then((content) => {
-      fs.writeFile('./dist/index.html', content, 'utf8', () => {
+      fs.writeFile('./public/index.html', content, 'utf8', () => {
         console.log('minify index.html done!');
       });
     })
@@ -20,7 +20,7 @@ minify('./src/index.html', options)
 
 minify('./src/fallback.html', options)
     .then((content) => {
-      fs.writeFile('./dist/fallback.html', content, 'utf8', () => {
+      fs.writeFile('./public/fallback.html', content, 'utf8', () => {
         console.log('minify fallback.html done!');
       });
     })
