@@ -14,6 +14,10 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" type="image/png" href="/img/icons/icon_32x32.png">
   <link rel="apple-touch-icon" href="/img/icons/icon_180x180.png">
+  <link rel="preconnect" href="https://firebase.googleapis.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com">
   <meta name="apple-mobile-web-app-bar" content="#AAAAAA">
   <meta name="theme-color" content="#FFFFFF">
 </head>
@@ -148,11 +152,11 @@
   </footer>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script defer src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>  
-  <script defer src="/js/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+  <script src="/js/firebase.js" defer></script>
 
-  <script defer src="/js/index.js"></script>
+  <script src="/js/index.js" defer></script>
 </body>
 </html>

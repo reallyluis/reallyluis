@@ -1,6 +1,7 @@
-const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
-const CACHE_MAX_SIZE = 25;
+const version = 0;
+const staticCacheName = 'site-static-v' + version;
+const dynamicCacheName = 'site-dynamic-v' + version;
+const CACHE_MAX_SIZE = 30;
 const assets = [
   '/',
   '/index.html',
@@ -13,12 +14,12 @@ const assets = [
   '/img/icons/icon_32x32.png',
   '/img/icons/icon_48x48.png',
   '/img/icons/icon_180x180.png',
-  // '/img/concert.webp',
-  // '/img/business-coffee-shop.webp',
-  // '/img/telecom.webp',
-  // '/img/capital.webp',
-  // '/img/code-two-screens.webp',
-  // '/img/circuit-board.webp',
+  '/img/concert.webp',
+  '/img/business-coffee-shop.webp',
+  '/img/telecom.webp',
+  '/img/capital.webp',
+  '/img/code-two-screens.webp',
+  '/img/circuit-board.webp',
   '/img/code.webp',
   '/img/section_wallpaper.webp',
   '/img/self.webp',
@@ -58,7 +59,8 @@ self.addEventListener('activate', (evt) => {
 
 // fetch event
 self.addEventListener('fetch', (evt) => {
-  if (evt.request.url.indexOf('firestore.googleapis.com') === -1) {
+  if (evt.request.url.indexOf('firestore.googleapis.com') === -1 &&
+    evt.request.url.indexOf('www.google-analytics.com') === -1) {
     evt.respondWith(caches.match(evt.request).then((cacheRes) => {
       return cacheRes || fetch(evt.request).then((fetchRes) => {
         return caches.open(dynamicCacheName).then((cache) => {
