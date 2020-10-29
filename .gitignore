@@ -2,10 +2,12 @@
 .*_cache
 *-lock.json
 *.prod.conf
+*.log
 
 .env
 .firebase
 
+logs
 dist
 public
 ssl
