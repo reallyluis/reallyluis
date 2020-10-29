@@ -8,8 +8,6 @@
 .firebase*
 
 logs
-dist
 public
-functions
 ssl
 node_modules
