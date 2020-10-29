@@ -330,6 +330,10 @@ nav {
   .service + .service {
     margin-left: 2em;
   }
+
+  .service p {
+    min-height: 350px;
+  }
 }
 
 /* About me section */

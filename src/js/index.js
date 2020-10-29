@@ -1,3 +1,5 @@
+const services = document.querySelector('.services');
+
 /**
  * Navigation
  */
@@ -14,19 +16,21 @@ navLinks.forEach((link) => {
 });
 
 /**
- * Contact Form
+ * renderSkill: Render skillls content
+ * @param {string} id The document data id.
+ * @param {object} data The document data.
  */
-const contactForm = document.querySelector('#contact');
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+window.renderSkill = (id, data) => {
+  const {title, description} = data;
+  const html = `
+    <div class="service" data-id="${id}">
+      <h3>${title}</h3>
+      <p>${description}</p>
+    </div>
+  `;
 
-  // TODO: Use firestore to store (offline) then submit when back online
-
-  // Reset form fields
-  contactForm.querySelector('#name').value = '';
-  contactForm.querySelector('#email').value = '';
-  contactForm.querySelector('#comment').value = '';
-});
+  services.innerHTML += html;
+};
 
 /**
  * Service worker
