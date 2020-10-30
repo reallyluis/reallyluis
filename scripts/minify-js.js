@@ -18,17 +18,6 @@ minify('./src/service-worker.js', options)
       console.log('minify SW failed!');
     });
 
-// Init firebase js
-minify('./src/js/firebase.js', options)
-    .then((content) => {
-      fs.writeFile('./public/js/firebase.js', content, 'utf8', () => {
-        console.log('minify firebase.js done!');
-      });
-    })
-    .catch((err) => {
-      console.log('minify index.js failed!');
-    });
-
 // Main app js
 minify('./src/js/index.js', options)
     .then((content) => {

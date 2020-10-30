@@ -7,7 +7,6 @@ const assets = [
   '/index.html',
   '/fallback.html',
   '/css/style.css',
-  '/js/firebase.js',
   '/js/index.js',
   '/img/about_me.webp',
   '/img/logo.webp',
@@ -28,8 +27,8 @@ const assets = [
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2',
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu3cOWxw.woff2',
   // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js',
-  // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js',
   // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js',
+  // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js',
 ];
 
 // cache size limit function
