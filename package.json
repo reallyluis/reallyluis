@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A personal website by reallyluis.",
   "scripts": {
+    "emulators": "firebase emulators:start",
     "prebuild": "bash ./scripts/prebuild.sh",
     "build": "bash ./scripts/build.sh",
     "minify:html": "node ./scripts/minify-html.js",

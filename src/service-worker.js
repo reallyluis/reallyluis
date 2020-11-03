@@ -22,13 +22,14 @@ const assets = [
   '/img/code.webp',
   '/img/section_wallpaper.webp',
   '/img/self.webp',
+  '/__/firebase/8.0.0/firebase-app.js',
+  '/__/firebase/8.0.0/firebase-analytics.js',
+  '/__/firebase/8.0.0/firebase-firestore.js',
+  '/__/firebase/init.js',
   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
   'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap',
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2',
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu3cOWxw.woff2',
-  // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js',
-  // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js',
-  // 'https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js',
 ];
 
 // cache size limit function
