@@ -393,8 +393,18 @@ nav {
 }
 
 .portfolio__item {
+  position: relative;
   background: var(--clr-accent);
   overflow: hidden;
+}
+
+.portfolio__title {
+  position: absolute;
+  top: calc(50% - 1.5em);
+  width: 100%;
+  color: var(--clr-light);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
 }
 
 .portfolio__img {
@@ -404,7 +414,6 @@ nav {
 }
 
 .portfolio__item:focus {
-  position: relative;
   z-index: 2;
 }
 
@@ -497,14 +506,6 @@ nav {
   text-decoration: none;
 }
 
-.footer__link {
-  font-weight: var(--fw-bold);
-}
-
-.footer__link:hover {
-  text-decoration: underline;
-}
-
 .social-list {
   list-style: none;
   display: flex;
@@ -518,7 +519,6 @@ nav {
   width: 1.25em;
 }
 
-.footer__link:hover,
 .social-list__link:hover {
   opacity: 0.7;
 }
