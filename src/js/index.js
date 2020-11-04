@@ -76,6 +76,23 @@ navLinks.forEach((link) => {
 });
 
 /**
+ * Modal
+ */
+const workContainer = document.querySelector('#work');
+const modalContainer = document.querySelector('.portfolio__modal');
+const modalToggleLinks = document.querySelectorAll('.portfolio__item');
+modalToggleLinks.forEach((link) => {
+  link.addEventListener('click', (el) => {
+    el.stopPropagation();
+    modalContainer.classList.toggle('modal-show');
+    // console.log(el.target.parentElement.dataset.portfolio);
+  });
+});
+workContainer.addEventListener('click', () => {
+  modalContainer.classList.remove('modal-show');
+});
+
+/**
  * Render skills content
  * @param {string} id The document data id.
  * @param {object} data The document data.
