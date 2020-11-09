@@ -413,11 +413,14 @@ nav {
   margin: 3em;
   background-color: var(--clr-light);
   color: var(--clr-dark);
-  border-radius: 1em;
+  border-radius: 0.25em;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  text-align: left;
+  padding: 2em;
+  overflow: scroll;
 }
 
 .portfolio__item {
