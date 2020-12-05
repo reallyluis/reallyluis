@@ -1,4 +1,4 @@
-const version = 0;
+const version = 3;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
@@ -8,7 +8,7 @@ const assets = [
   '/fallback.html',
   '/css/style.css',
   '/js/index.js',
-  '/img/about_me.webp',
+  '/img/photos/about-me.webp',
   '/img/logo.webp',
   '/img/icons/icon_32x32.png',
   '/img/icons/icon_48x48.png',
@@ -21,11 +21,12 @@ const assets = [
   '/img/circuit-board.webp',
   '/img/code.webp',
   '/img/section_wallpaper.webp',
-  '/img/self.webp',
+  '/img/photos/self.webp',
+  '/img/photos/contact.webp',
   '/__/firebase/8.0.0/firebase-app.js',
   '/__/firebase/8.0.0/firebase-analytics.js',
   '/__/firebase/8.0.0/firebase-firestore.js',
-  '/__/firebase/init.js',
+  '/__/firebase/init.js?useEmulator=true',
   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
   'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap',
   'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2',
@@ -60,7 +61,8 @@ self.addEventListener('activate', (evt) => {
 // fetch event
 self.addEventListener('fetch', (evt) => {
   if (evt.request.url.indexOf('firestore.googleapis.com') === -1 &&
-    evt.request.url.indexOf('www.google-analytics.com') === -1) {
+    evt.request.url.indexOf('www.google-analytics.com') === -1 &&
+    evt.request.url.indexOf('google.firestore') === -1) {
     evt.respondWith(caches.match(evt.request).then((cacheRes) => {
       return cacheRes || fetch(evt.request).then((fetchRes) => {
         return caches.open(dynamicCacheName).then((cache) => {
