@@ -5,7 +5,6 @@ const CACHE_MAX_SIZE = 30;
 const assets = [
   '/',
   '/index.html',
-  '/fallback.html',
   '/css/style.css',
   '/js/index.js',
   '/img/photos/about-me.webp',
@@ -73,9 +72,9 @@ self.addEventListener('fetch', (evt) => {
       });
     }).catch(() => {
       // fallback for html
-      if (evt.request.url.indexOf('.html') > -1) {
-        return caches.match('/fallback.html');
-      }
+      // if (evt.request.url.indexOf('.html') > -1) {
+      //   return caches.match('/fallback.html');
+      // }
       // TODO: add fallback for other file types
 
       return null;
