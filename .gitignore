@@ -4,6 +4,7 @@
 *.prod.conf
 *.log
 
+.vscode
 .env
 .firebase*
 
