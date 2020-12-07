@@ -28,7 +28,7 @@ if (db) {
     snapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
         // add the document data to dom
-        // renderSkill(change.doc.id, change.doc.data());
+        renderSkill(change.doc.id, change.doc.data());
       } else if (change.type === 'removed') {
         // remove the document data from dom
         // removeSkill(change.doc.id);
@@ -97,18 +97,18 @@ workContainer.addEventListener('click', () => {
  * @param {string} id The document data id.
  * @param {object} data The document data.
  */
-// const services = document.querySelector('.services');
-// const renderSkill = (id, data) => {
-//   const {title, description} = data;
-//   const html = `
-//     <div class="service" data-id="${id}">
-//       <h3>${title}</h3>
-//       <p>${description}</p>
-//     </div>
-//   `;
+const services = document.querySelector('.services');
+const renderSkill = (id, data) => {
+  const {title, description} = data;
+  const html = `
+    <div class="service" data-id="${id}">
+      <h3>${title}</h3>
+      <p>${description}</p>
+    </div>
+  `;
 
-//   services.innerHTML += html;
-// };
+  services.innerHTML += html;
+};
 
 /**
  * Service worker
