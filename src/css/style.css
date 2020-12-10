@@ -423,6 +423,10 @@ nav {
   overflow: scroll;
 }
 
+.portfolio__content > div {
+  overflow-y: auto;
+}
+
 .portfolio__item {
   position: relative;
   background: var(--clr-accent);
