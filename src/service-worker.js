@@ -1,4 +1,4 @@
-const version = 1;
+const version = 0;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
@@ -12,7 +12,7 @@ const assets = [
   '/img/photos/about-me.webp',
   '/img/logo.webp',
   '/img/icons/icon_32x32.png',
-  '/img/icons/icon_48x48.png',
+  '/img/icons/icon_144x144.png',
   '/img/icons/icon_180x180.png',
   '/img/concert.webp',
   '/img/business-coffee-shop.webp',
