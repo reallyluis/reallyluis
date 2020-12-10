@@ -167,7 +167,7 @@ modalToggleLinks.forEach((link) => {
     const html = `
       <div data-id="${id}">
         <h3>${title}</h3>
-        <p>${description}</p>
+        <p unselectable="on">${description}</p>
       </div>
     `;
 

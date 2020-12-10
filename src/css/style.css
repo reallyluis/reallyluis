@@ -427,6 +427,10 @@ nav {
   overflow-y: auto;
 }
 
+.portfolio__content > div > p {
+  user-select: none;
+}
+
 .portfolio__item {
   position: relative;
   background: var(--clr-accent);
