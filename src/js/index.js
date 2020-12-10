@@ -94,15 +94,45 @@ navLinks.forEach((link) => {
 const workContainer = document.querySelector('#work');
 const modalContainer = document.querySelector('.portfolio__modal');
 const modalToggleLinks = document.querySelectorAll('.portfolio__item');
+const modalContent = document.querySelector('.portfolio__content');
+const portfolio = [{
+  title: 'Entertainment',
+  description: 'Add content here...',
+}, {
+  title: 'Business',
+  description: 'Add content here...',
+}, {
+  title: 'Telecommunications',
+  description: 'Add content here...',
+}, {
+  title: 'Government',
+  description: 'Add content here...',
+}, {
+  title: 'Web',
+  description: 'Add content here...',
+}, {
+  title: 'Electronics',
+  description: 'Add content here...',
+}];
 modalToggleLinks.forEach((link) => {
   link.addEventListener('click', (el) => {
     el.stopPropagation();
+    const id = el.target.parentElement.dataset.portfolio;
+    const {title, description} = portfolio[id];
+    const html = `
+      <div class="service" data-id="${id}">
+        <h3>${title}</h3>
+        <p>${description}</p>
+      </div>
+    `;
+
+    modalContent.innerHTML += html;
     modalContainer.classList.toggle('modal-show');
-    // console.log(el.target.parentElement.dataset.portfolio);
   });
 });
 workContainer.addEventListener('click', () => {
   modalContainer.classList.remove('modal-show');
+  modalContent.innerHTML = '';
 });
 
 /**
