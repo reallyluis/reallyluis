@@ -63,6 +63,7 @@ contactForm.addEventListener('submit', (e) => {
   if (db) {
     db.collection('contacts')
         .add(contact)
+        .then(() => alert('Thanks!  Your message was sent successfully.'))
         .catch((err) => console.log(err));
   }
 
