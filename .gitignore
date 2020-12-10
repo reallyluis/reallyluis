@@ -1,6 +1,5 @@
 .DS_*
 .*_cache
-*-lock.json
 *.prod.conf
 *.log
 

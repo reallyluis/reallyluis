@@ -17,13 +17,3 @@ minify('./src/index.html', options)
     .catch((err) => {
       console.log('minify index.html failed!');
     });
-
-minify('./src/fallback.html', options)
-    .then((content) => {
-      fs.writeFile('./public/fallback.html', content, 'utf8', () => {
-        console.log('minify fallback.html done!');
-      });
-    })
-    .catch((err) => {
-      console.log('minify fallback.html failed!');
-    });

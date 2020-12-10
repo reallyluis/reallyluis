@@ -35,6 +35,18 @@ if (db) {
       }
     });
   });
+
+  db.collection('abouts').onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        // add the document data to dom
+        renderAbout(change.doc.id, change.doc.data());
+      } else if (change.type === 'removed') {
+        // remove the document data from dom
+        // removeSkill(change.doc.id);
+      }
+    });
+  });
 }
 
 // add new contact
@@ -108,6 +120,21 @@ const renderSkill = (id, data) => {
   `;
 
   services.innerHTML += html;
+};
+
+/**
+ * Render about me content
+ * @param {string} id The document data id.
+ * @param {object} data The document data.
+ */
+const abouts = document.querySelector('.about-me__body');
+const renderAbout = (id, data) => {
+  const {description} = data;
+  const html = `
+    <p data-id="${id}">${description}</p>
+  `;
+
+  abouts.innerHTML += html;
 };
 
 /**

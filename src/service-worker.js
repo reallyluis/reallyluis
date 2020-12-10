@@ -1,11 +1,12 @@
-const version = 3;
+const version = 0;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
 const assets = [
   '/',
+  '/robots.txt',
+  '/sitemap-file.xml',
   '/index.html',
-  '/fallback.html',
   '/css/style.css',
   '/js/index.js',
   '/img/photos/about-me.webp',
@@ -73,9 +74,9 @@ self.addEventListener('fetch', (evt) => {
       });
     }).catch(() => {
       // fallback for html
-      if (evt.request.url.indexOf('.html') > -1) {
-        return caches.match('/fallback.html');
-      }
+      // if (evt.request.url.indexOf('.html') > -1) {
+      //   return caches.match('/fallback.html');
+      // }
       // TODO: add fallback for other file types
 
       return null;
