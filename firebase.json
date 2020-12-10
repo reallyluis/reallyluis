@@ -13,10 +13,16 @@
       }
     ],
     "headers": [ {
+      "source": "**/*.@(css|js)",
+      "headers": [ {
+        "key": "Cache-Control",
+        "value": "public, max-age=86400"
+      } ]
+    }, {
       "source": "**/*.@(webp|png)",
       "headers": [ {
         "key": "Cache-Control",
-        "value": "max-age=2592000"
+        "value": "public, max-age=2592000"
       } ]
     } ]
   },
