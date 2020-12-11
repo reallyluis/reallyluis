@@ -51,6 +51,7 @@ if (db) {
 
 // add new contact
 const contactForm = document.querySelector('form');
+const contactSuccess = document.querySelector('.contact-me__success');
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -63,7 +64,15 @@ contactForm.addEventListener('submit', (e) => {
   if (db) {
     db.collection('contacts')
         .add(contact)
-        .then(() => alert('Thanks!  Your message was sent successfully.'))
+        .then(() => {
+          contactForm.classList.add('hide');
+          contactSuccess.classList.remove('hide');
+
+          setTimeout(() => {
+            contactForm.classList.remove('hide');
+            contactSuccess.classList.add('hide');
+          }, 2000);
+        })
         .catch((err) => console.log(err));
   }
 

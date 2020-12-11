@@ -64,6 +64,10 @@ strong { font-weight: var(--fw-bold); }
   outline-offset: 3px;
 }
 
+.hide {
+  display: none;
+}
+
 /* Buttons */
 
 .btn {
