@@ -425,10 +425,17 @@ nav {
 
 .portfolio__content > div {
   overflow-y: auto;
+  height: 100%;
 }
 
 .portfolio__content > div > div {
   user-select: none;
+  margin-top: 0.5em;
+  line-height: 1.4;
+}
+
+.portfolio__content ul {
+  margin: 0.5em;
 }
 
 .portfolio__item {
