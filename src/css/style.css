@@ -485,6 +485,10 @@ nav {
   flex-direction: column;
 }
 
+.contact-me__form.hide {
+  display: none;
+}
+
 .contact-me__form input,
 .contact-me__form textarea,
 .contact-me__form button {
