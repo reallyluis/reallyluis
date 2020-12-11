@@ -427,7 +427,7 @@ nav {
   overflow-y: auto;
 }
 
-.portfolio__content > div > p {
+.portfolio__content > div > div {
   user-select: none;
 }
 
