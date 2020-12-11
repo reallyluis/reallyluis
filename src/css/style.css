@@ -64,6 +64,10 @@ strong { font-weight: var(--fw-bold); }
   outline-offset: 3px;
 }
 
+.hide {
+  display: none;
+}
+
 /* Buttons */
 
 .btn {
@@ -425,10 +429,17 @@ nav {
 
 .portfolio__content > div {
   overflow-y: auto;
+  height: 100%;
 }
 
-.portfolio__content > div > p {
+.portfolio__content > div > div {
   user-select: none;
+  margin-top: 0.5em;
+  line-height: 1.4;
+}
+
+.portfolio__content ul {
+  margin: 0.5em;
 }
 
 .portfolio__item {
@@ -474,6 +485,10 @@ nav {
   flex-direction: column;
 }
 
+.contact-me__form.hide {
+  display: none;
+}
+
 .contact-me__form input,
 .contact-me__form textarea,
 .contact-me__form button {
@@ -492,6 +507,14 @@ nav {
   border: 0;
   margin-bottom: 1.5em;
   text-transform: uppercase;
+}
+
+.contact-me__success {
+  margin: 6.5em 0;
+}
+
+.contact-me__success b {
+  padding-right: 0.25em;
 }
 
 .contact-me__img {
