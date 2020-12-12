@@ -8,6 +8,7 @@
 .firebase*
 
 logs
+conf.d
 public
 ssl
 node_modules
