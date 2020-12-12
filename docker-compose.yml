@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    hostname: localhost
+    volumes:
+      - ./public:/usr/share/nginx/html
+      - ./conf.d:/etc/nginx/conf.d
