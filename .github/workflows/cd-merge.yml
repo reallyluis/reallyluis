@@ -1,0 +1,19 @@
+name: Docker CD
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  Build-and-Push-Docker-Image:
+    runs-on: ubuntu-latest
+    name: Docker Build, Tag, Push
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci && npm run build
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+          registry: docker.pkg.github.com
+          repository: reallyluis/reallyluis/reallyluis
+          tag_with_sha: true
