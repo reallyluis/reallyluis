@@ -1,3 +1,3 @@
 FROM nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY public /usr/share/nginx/html
-COPY conf.d /etc/nginx/conf.d
