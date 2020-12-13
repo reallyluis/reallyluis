@@ -6,6 +6,7 @@
     "emulators": "firebase emulators:start",
     "prebuild": "bash ./scripts/prebuild.sh",
     "build": "bash ./scripts/build.sh",
+    "build:local": "bash ./scripts/build.sh local",
     "minify:html": "node ./scripts/minify-html.js",
     "minify:css": "node ./scripts/minify-css.js",
     "minify:js": "node ./scripts/minify-js.js",
