@@ -20,8 +20,59 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://firestore.googleapis.com">
   <link rel="preconnect" href="https://firebaseinstallations.googleapis.com">
+  <style type="text/css">
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+      padding: 5em 2em;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    .hide {
+      display: none;
+    }
+    .page-loading {
+      position: fixed;
+      background: white;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .spinner {
+      margin: 20% auto;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      border: 8px solid #f3f3f3; /* Light grey */
+      border-top: 8px solid #4299e1; /* Blue */
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 1.25s linear infinite, fadeIn 3s ease normal;
+    }
+  </style>
 </head>
 <body>
+  <div class="page-loading">
+    <div class="spinner"></div>
+  </div>
   <header>
     <!-- website logo -->
     <div class="logo">

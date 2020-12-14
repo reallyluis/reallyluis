@@ -13,13 +13,15 @@ if [ "$1" = "local" ]; then
     if [ "$(docker ps -a | grep reallyluis_local)" ]; then
       printf "\nRemove container if it already exists...\n"
       docker stop reallyluis_local
-      docker rm --force reallyluis_local
+      docker rm reallyluis_local
+      docker image rm --force reallyluis:local
     else
       printf "\nContainer does not exist."
     fi
 
     printf "\nBuild and run new container."
-    docker build -t reallyluis:local . && docker run --name reallyluis_local -d -p 80:80 reallyluis:local
+    docker build -t reallyluis:local .
+    docker run --name reallyluis_local -d -p 80:80 reallyluis:local
   else
     printf "\nDocker is not available."
   fi
