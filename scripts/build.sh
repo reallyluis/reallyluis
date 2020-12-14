@@ -7,14 +7,22 @@ else
   echo "Error: Unable to process build."
 fi
 
-# # Restart docker if available and exists
-# if [ -x "$(command -v docker)" ]; then
-#   if [ "$(docker ps -a | grep nginx)" ]; then
-#     printf "\nRestarting container...\n"
-#     docker restart nginx
-#   else
-#     printf "\nContainer does not exist."
-#   fi
-# else
-#   printf "\nDocker is not available."
-# fi
+if [ "$1" = "local" ]; then
+  # Remove old container before rebuilding
+  if [ -x "$(command -v docker)" ]; then
+    if [ "$(docker ps -a | grep reallyluis_local)" ]; then
+      printf "\nRemove container if it already exists...\n"
+      docker stop reallyluis_local
+      docker rm reallyluis_local
+      docker image rm --force reallyluis:local
+    else
+      printf "\nContainer does not exist."
+    fi
+
+    printf "\nBuild and run new container."
+    docker build -t reallyluis:local .
+    docker run --name reallyluis_local -d -p 80:80 reallyluis:local
+  else
+    printf "\nDocker is not available."
+  fi
+fi
