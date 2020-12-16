@@ -1,6 +1,5 @@
+let logEvent = () => {};
 const initialPage = () => {
-  let logEvent = () => {};
-
   /**
    * Initialize Firebase features
    */
@@ -287,14 +286,14 @@ if ('serviceWorker' in navigator) {
   // Use the window load event to keep the page load performant
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js');
-    logEvent('service_worker_registered');
     initialPage();
+    logEvent('service_worker_registered');
     // .then((reg) => console.log('service worker registered', reg))
     // .catch((err) => console.log('service worker not registered', err));
   });
 } else {
   window.addEventListener('load', () => {
-    logEvent('service_worker_failure');
     initialPage();
+    logEvent('service_worker_failure');
   });
 }
