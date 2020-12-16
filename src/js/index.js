@@ -1,16 +1,29 @@
 const initialPage = () => {
+  let logEvent = () => {};
+
   /**
-   * Enable offline mode
+   * Initialize Firebase features
    */
-  firebase.firestore().enablePersistence().catch((err) => {
-    if (err.code == 'failed-precondition') {
-      // probably multiple tabs open
-      console.log('persistence failed');
-    } else if (err.code == 'unimplemented') {
-      // lack of browser support
-      console.log('persistence not available');
-    }
-  });
+  if (typeof firebase !== 'undefined') {
+    /**
+     * Enable Analytics
+     */
+    firebase.analytics();
+    logEvent = firebase.analytics().logEvent;
+
+    /**
+     * Enable offline mode
+     */
+    firebase.firestore().enablePersistence().catch((err) => {
+      if (err.code == 'failed-precondition') {
+        // probably multiple tabs open
+        console.log('persistence failed');
+      } else if (err.code == 'unimplemented') {
+        // lack of browser support
+        console.log('persistence not available');
+      }
+    });
+  }
 
   /**
    * Connect to firestore.
@@ -53,13 +66,23 @@ const initialPage = () => {
   // add new contact
   const contactForm = document.querySelector('form');
   const contactSuccess = document.querySelector('.contact-me__success');
+  const contactSubmitBtn = document.getElementById('contact-submit');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    contactSubmitBtn.disabled = true;
+    logEvent('contact_submitted');
 
     const contact = {
       name: contactForm.name.value,
       email: contactForm.email.value,
       comment: contactForm.comment.value,
+    };
+    const resetForm = () => {
+      // Reset form fields
+      contactForm.name.value = '';
+      contactForm.email.value = '';
+      contactForm.comment.value = '';
+      contactSubmitBtn.disabled = false;
     };
 
     if (db) {
@@ -68,6 +91,8 @@ const initialPage = () => {
           .then(() => {
             contactForm.classList.add('hide');
             contactSuccess.classList.remove('hide');
+            resetForm();
+            logEvent('contact_successful');
 
             setTimeout(() => {
               contactForm.classList.remove('hide');
@@ -75,12 +100,10 @@ const initialPage = () => {
             }, 2000);
           })
           .catch((err) => console.log(err));
+    } else {
+      resetForm();
+      logEvent('contact_failure');
     }
-
-    // Reset form fields
-    contactForm.name.value = '';
-    contactForm.email.value = '';
-    contactForm.comment.value = '';
   });
 
   /**
@@ -89,12 +112,14 @@ const initialPage = () => {
   const navToggle = document.querySelector('.nav-toggle');
   navToggle.addEventListener('click', () => {
     document.body.classList.toggle('nav-open');
+    logEvent('navigation_opened');
   });
 
   const navLinks = document.querySelectorAll('.nav__link');
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       document.body.classList.remove('nav-open');
+      logEvent('navigation_closed');
     });
   });
 
@@ -262,12 +287,14 @@ if ('serviceWorker' in navigator) {
   // Use the window load event to keep the page load performant
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js');
+    logEvent('service_worker_registered');
     initialPage();
     // .then((reg) => console.log('service worker registered', reg))
     // .catch((err) => console.log('service worker not registered', err));
   });
 } else {
   window.addEventListener('load', () => {
+    logEvent('service_worker_failure');
     initialPage();
   });
 }
