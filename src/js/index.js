@@ -8,8 +8,8 @@ const initialPage = () => {
     /**
      * Enable Analytics
      */
-    firebase.analytics();
-    logEvent = firebase.analytics().logEvent;
+    const analytics = firebase.analytics();
+    logEvent = analytics.logEvent;
 
     /**
      * Enable offline mode
