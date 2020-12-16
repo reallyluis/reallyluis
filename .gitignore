@@ -4,11 +4,7 @@
 *.log
 
 .vscode
-.env
 .firebase*
 
-logs
-conf.d
 public
-ssl
 node_modules
