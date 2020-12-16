@@ -12,26 +12,39 @@
         "destination": "/index.html"
       }
     ],
-    "headers": [ {
-      "source": "**/*.@(html|css|js)",
-      "headers": [ {
-        "key": "Cache-Control",
-        "value": "public, max-age=2592000"
+    "headers": [
+      {
+        "source": "**/*.@(html|css|js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          },
+          {
+            "key": "Content-Encoding",
+            "value": "br"
+          }
+        ]
       },
       {
-        "key": "Content-Encoding",
-        "value": "br"
-      } ]
-    }, {
-      "source": "**/*.@(webp|png)",
-      "headers": [ {
-        "key": "Cache-Control",
-        "value": "public, max-age=31536000"
-      },
-      {
-        "key": "Content-Encoding",
-        "value": "br"
-      } ]
-    } ]
+        "source": "**/*.@(webp|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000"
+          },
+          {
+            "key": "Content-Encoding",
+            "value": "br"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
   }
 }

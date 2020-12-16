@@ -483,6 +483,12 @@ nav {
   border: 0;
   margin-bottom: 1.5em;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-me__form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .contact-me__success {
