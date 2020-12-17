@@ -1,5 +1,10 @@
+'use strict';
+
 let logEvent = () => {};
+
 const initialPage = () => {
+  const works = {};
+
   /**
    * Initialize Firebase features
    */
@@ -57,6 +62,19 @@ const initialPage = () => {
         } else if (change.type === 'removed') {
           // remove the document data from dom
           // removeSkill(change.doc.id);
+        }
+      });
+    });
+
+    db.collection('works').onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          // add the document data to dom
+          works[change.doc.id] = change.doc.data();
+          renderAbout(change.doc.id, change.doc.data());
+        } else if (change.type === 'removed') {
+          // remove the document data from dom
+          delete works[change.doc.id];
         }
       });
     });
@@ -217,6 +235,7 @@ const initialPage = () => {
     link.addEventListener('click', (el) => {
       el.stopPropagation();
       const id = el.target.parentElement.dataset.portfolio;
+      const workId = el.target.parentElement.dataset.workId;
       const {title, description} = portfolio[id];
       const html = `
         <div data-id="${id}">
@@ -225,6 +244,7 @@ const initialPage = () => {
         </div>
       `;
 
+      console.log(works, workId);
       modalContent.innerHTML += html;
       modalContainer.classList.toggle('modal-show');
     });
