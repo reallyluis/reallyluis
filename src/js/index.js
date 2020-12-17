@@ -71,7 +71,6 @@ const initialPage = () => {
         if (change.type === 'added') {
           // add the document data to dom
           works[change.doc.id] = change.doc.data();
-          renderAbout(change.doc.id, change.doc.data());
         } else if (change.type === 'removed') {
           // remove the document data from dom
           delete works[change.doc.id];
@@ -235,7 +234,7 @@ const initialPage = () => {
     link.addEventListener('click', (el) => {
       el.stopPropagation();
       const id = el.target.parentElement.dataset.portfolio;
-      const workId = el.target.parentElement.dataset.workId;
+      const workId = el.target.parentElement.dataset;
       const {title, description} = portfolio[id];
       const html = `
         <div data-id="${id}">
