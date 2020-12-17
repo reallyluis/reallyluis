@@ -146,104 +146,23 @@ const initialPage = () => {
   const modalContainer = document.querySelector('.portfolio__modal');
   const modalToggleLinks = document.querySelectorAll('.portfolio__item');
   const modalContent = document.querySelector('.portfolio__content');
-  const portfolio = [{
-    title: 'Entertainment',
-    description: `Software Engineer at a large international entertainment
-      company where my responsibilities and accomplishments included:
-      <ul>
-        <li>convert legacy Backbone and Angular code to React</li>
-        <li>develop and maintain Jasmine and Jest testing</li>
-        <li>develop React Native application to run on iOS and
-          Android mobile devices</li>
-        <li>develop Slackbot running on AWS services</li>
-        <li>implement Cucumber tests for integration testing</li>
-        <li>perform code reviews on a regular basis</li>
-        <li>work in a Scrum agile software development environment</li>
-      </ul>`,
-  }, {
-    title: 'Business',
-    description: `Software Engineer at a medium national business services
-      company where my responsibilities and accomplishments included:
-      <ul>
-        <li>convert Blue-Ridge JavaScript test suites to JSpec and later
-          convert to Jasmine</li>
-        <li>develop high-traffic and high-visibility company website homepage,
-          search result page, and clients' more information pages</li>
-        <li>develop lightweight, custom jQuery plugins to handle lazy loading
-          JavaScript and other assets to optimize page loads</li>
-        <li>work in a large team following best practices, code reviews
-          and pair programming</li>
-      </ul>`,
-  }, {
-    title: 'Telecommunications',
-    description: `Senior Web Developer at a small telecommunications company
-      where my responsibilities and accomplishments included:
-      <ul>
-        <li>develop an email management application with logging, read
-          count, and click tracking that dramatically improve Customer Service
-          Representatives' ability to respond to customer calls</li>
-        <li>develop a customizable, reusable input field hints package
-          that improve user experience and reduce bad data entry</li>
-        <li>develop and document a custom Selenium web application testing
-          solution that provide a foundation for a solid and reliable QA
-          process</li>
-        <li>work in a Scrum agile software development environment</li>
-      </ul>`,
-  }, {
-    title: 'Government',
-    description: `Senior Web Developer at small government services company
-      where my responsibilities and accomplishments included:
-      <ul>
-        <li>work in a team made up of onsite and remote stakeholders</li>
-        <li>develop proof-of-concepts and R&D projects</li>
-        <li>lead code refactor improving average speed on internal applications
-          by 66% and external applications by 80%</li>
-        <li>develop cross-browser components using code libraries such as
-          qForms, Yahoo UI Library, Ext JS, jQuery, Spry, and custom
-          JavaScript</li>
-        <li>develop optimized SQL queries, stored procedures, views,
-          replication, triggers, and scheduled jobs</li>
-      </ul>`,
-  }, {
-    title: 'Web',
-    description: `Interactive Services Manager at a small web services company
-      where my responsibilities and accomplishments included:
-      <ul>
-        <li>manage content and functionality for large clients' internal
-          training websites</li>
-        <li>lead developer for reports involving SQL queries, stored procedures,
-          views, and scheduled jobs on SQL Server</li>
-        <li>manage error and help email inboxes for all portals and client
-          specific websites</li>
-        <li>build JavaScript application to improve client usability</li>
-        <li>lead migration for client ColdFusion MX applications to .NET
-          development</li>
-      </ul>`,
-  }, {
-    title: 'Electronics',
-    description: `Technician at a large international electronics company where
-      my responsibilities and accomplishments included:
-      <ul>
-        <li>document incoming and outgoing hardware</li>
-        <li>run diagonostics to debug circuit boards</li>
-        <li>work with engineers to debug and repair electronics</li>
-        <li>QA repaired electronics for verifications</li>
-      </ul>`,
-  }];
   modalToggleLinks.forEach((link) => {
     link.addEventListener('click', (el) => {
       el.stopPropagation();
-      const id = el.target.parentElement.dataset.portfolio;
-      const workId = el.target.parentElement.dataset;
-      const {title, description} = portfolio[id];
+      const workid = el.target.parentElement.dataset.workid;
+      const {title, description} = works[workid] ?
+        works[workid] :
+        {
+          title: 'Oopss!',
+          description: 'Something went wrong.  Try again later.',
+        };
       const html = `
-        <div data-id="${id}">
+        <div data-id="${workid}">
           <h3>${title}</h3>
           <div unselectable="on">${description}</div>
         </div>
       `;
 
-      console.log(works, workId);
       modalContent.innerHTML += html;
       modalContainer.classList.toggle('modal-show');
     });
