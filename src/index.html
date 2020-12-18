@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="reallyluis' personal website to detail knowledge, skills and interests in software engineering and web and mobile development.">
-  <meta name="apple-mobile-web-app-bar" content="#AAAAAA">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="reallyluis' personal website to detail knowledge, skills and interests in software engineering and web and mobile development." />
+  <meta name="apple-mobile-web-app-bar" content="#AAAAAA" />
+  <meta name="theme-color" content="#FFFFFF" />
   <title>reallyluis</title>
-  <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icons/icon_32x32.png">
-  <link rel="apple-touch-icon" href="/img/icons/icon_180x180.png">
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="/img/icons/icon_32x32.png" />
+  <link rel="apple-touch-icon" href="/img/icons/icon_180x180.png" />
   <!-- Preloads -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="image" href="/img/code.webp" />
   <!-- Preconnects -->
-  <link rel="preconnect" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://firebase.googleapis.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://firestore.googleapis.com">
-  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com">
+  <link rel="preconnect" href="https://www.gstatic.com" />
+  <link rel="preconnect" href="https://firebase.googleapis.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://firestore.googleapis.com" />
+  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
   <style type="text/css">
     *,
     *::before,
@@ -34,7 +35,13 @@
     }
     img {
       display: block;
-      max-width: 100%;
+      aspect-ratio: attr(width) / attr(height);
+      height: auto;
+      width: 100%;
+    }
+    .logo img {
+      width: 48px;
+      height: 48px;
     }
     .hide {
       display: none;
@@ -76,7 +83,7 @@
   <header>
     <!-- website logo -->
     <div class="logo">
-      <img src="/img/icons/icon_144x144.png" width="48" height="48" alt="" />
+      <a href="/#top"><img src="/img/icons/icon_144x144.png" width="48" height="48" alt="" /></a>
     </div>
 
     <!-- navigation button to toggle on smaller screens -->
@@ -134,29 +141,29 @@
       <div class="portfolio__modal">
         <div class="portfolio__content"></div>
       </div>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="0">
+      <a href="/#portfolio" class="portfolio__item" data-workid="KOoNKHZeUKb7mtNwBzl2">
         <div class="portfolio__title">Entertainment</div>
-        <img src="/img/concert.webp" alt="" class="portfolio__img" />
+        <img src="/img/concert.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="1">
+      <a href="/#portfolio" class="portfolio__item" data-workid="Uw8uxjJHOEyF5HQu2g3w">
         <div class="portfolio__title">Business</div>
-        <img src="/img/business-coffee-shop.webp" alt="" class="portfolio__img" />
+        <img src="/img/business-coffee-shop.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="2">
+      <a href="/#portfolio" class="portfolio__item" data-workid="12d7SL9dYztRqcA4JfB8">
         <div class="portfolio__title">Telecommunications</div>
-        <img src="/img/telecom.webp" alt="" class="portfolio__img" />
+        <img src="/img/telecom.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="3">
+      <a href="/#portfolio" class="portfolio__item" data-workid="H6VcWQATrqqRaLRIAJyJ">
         <div class="portfolio__title">Government</div>
-        <img src="/img/capital.webp" alt="" class="portfolio__img" />
+        <img src="/img/capital.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="4">
+      <a href="/#portfolio" class="portfolio__item" data-workid="qv5FWeganRirtEsZKdMd">
         <div class="portfolio__title">Web</div>
-        <img src="/img/code-two-screens.webp" alt="" class="portfolio__img" />
+        <img src="/img/code-two-screens.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
-      <a href="/#portfolio" class="portfolio__item" data-portfolio="5">
+      <a href="/#portfolio" class="portfolio__item" data-workid="v7k1IlelLCtYEgCDKr13">
         <div class="portfolio__title">Electronics</div>
-        <img src="/img/circuit-board.webp" alt="" class="portfolio__img" />
+        <img src="/img/circuit-board.webp" width="372" height="248" alt="" class="portfolio__img" />
       </a>
     </div>
   </section>
@@ -222,12 +229,12 @@
   </footer>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://reallyluis.com/__/firebase/8.0.0/firebase-app.js"></script>
-  <script src="https://reallyluis.com/__/firebase/8.0.0/firebase-analytics.js"></script>
-  <script src="https://reallyluis.com/__/firebase/8.0.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+  <script src="/__/firebase/8.0.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/8.0.0/firebase-firestore.js"></script>
 
   <!-- Initialize Firebase -->
-  <script src="https://reallyluis.com/__/firebase/init.js"></script>
+  <script src="/__/firebase/init.js"></script>
 
   <!-- Website js -->
   <script src="/js/index.js"></script>
