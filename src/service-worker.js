@@ -1,4 +1,4 @@
-const version = 22;
+const version = 23;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
