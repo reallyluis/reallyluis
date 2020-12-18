@@ -213,7 +213,7 @@ const initialPage = () => {
   pageLoading.classList.add('hide');
   setTimeout(() => {
     navContainer.classList.remove('hide');
-  }, 300);
+  }, 250);
 };
 
 /**
