@@ -1,14 +1,15 @@
-### [Reallyluis.com](https://reallyluis.com)
+[![Reallyluis.com Logo](https://reallyluis.com/img/icons/icon_48x48.png)](https://reallyluis.com)
+### reallyluis.com
 
-A personal site by me running on Firebase using basic (aka vanilla):
+My personal site running on Firebase using:
 
+- HTML
 - JavaScript
 - CSS
-- HTML
-- bash scripts (to handle build and test/lint processes)
+- GitHub actions and Bash scripts (to handle testing, building, and deploying)
 - TypeScript (in Firebase serverless Functions)
 
-The images are mine or available from https://unsplash.com/.  Feel free to contact me via my email or using the contact form on my site https://reallyluis.com.  Enjoy!
+The images are either mine or free from https://unsplash.com/.  For any questions, contact me via email or use the contact form at [https://reallyluis.com](https://reallyluis.com#contact).  Enjoy!
 
 <!--
 ### Hi there 👋
