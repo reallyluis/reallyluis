@@ -1,4 +1,4 @@
-const version = 20;
+const version = 21;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
@@ -24,9 +24,9 @@ const assets = [
   '/img/section_wallpaper.webp',
   '/img/photos/self.webp',
   '/img/photos/contact.webp',
-  '/__/firebase/8.0.0/firebase-app.js',
-  '/__/firebase/8.0.0/firebase-analytics.js',
-  '/__/firebase/8.0.0/firebase-firestore.js',
+  '/__/firebase/8.2.1/firebase-app.js',
+  '/__/firebase/8.2.1/firebase-analytics.js',
+  '/__/firebase/8.2.1/firebase-firestore.js',
   '/__/firebase/init.js',
   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
   'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap',
