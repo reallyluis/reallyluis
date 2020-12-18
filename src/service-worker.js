@@ -1,37 +1,21 @@
-const version = 27;
+const version = 28;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
-const CACHE_MAX_SIZE = 30;
+const CACHE_MAX_SIZE = 20;
 const assets = [
   '/',
+  '/index.html',
   '/robots.txt',
   '/sitemap-file.xml',
-  '/index.html',
   '/css/style.css',
-  '/js/index.js',
-  '/img/photos/about-me.webp',
-  '/img/logo.webp',
-  '/img/icons/icon_32x32.png',
   '/img/icons/icon_144x144.png',
-  '/img/icons/icon_180x180.png',
-  '/img/concert.webp',
-  '/img/business-coffee-shop.webp',
-  '/img/telecom.webp',
-  '/img/capital.webp',
-  '/img/code-two-screens.webp',
-  '/img/circuit-board.webp',
-  '/img/code.webp',
-  '/img/section_wallpaper.webp',
   '/img/photos/self.webp',
-  '/img/photos/contact.webp',
+  '/img/code.webp',
   '/__/firebase/8.2.1/firebase-app.js',
   '/__/firebase/8.2.1/firebase-analytics.js',
   '/__/firebase/8.2.1/firebase-firestore.js',
   '/__/firebase/init.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
-  'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;900&display=swap',
-  'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2',
-  'https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu3cOWxw.woff2',
+  '/js/index.js',
 ];
 
 // cache size limit function
