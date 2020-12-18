@@ -154,7 +154,7 @@ const initialPage = () => {
         works[workid] :
         {
           title: 'Oopss!',
-          description: 'Something went wrong.  Try again later.',
+          description: 'Something went wrong.  Please try again.',
         };
       const html = `
         <div data-id="${workid}">
@@ -213,7 +213,7 @@ const initialPage = () => {
   pageLoading.classList.add('hide');
   setTimeout(() => {
     navContainer.classList.remove('hide');
-  }, 300);
+  }, 250);
 };
 
 /**
