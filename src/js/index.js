@@ -102,6 +102,7 @@ const initialPage = () => {
     };
 
     if (db) {
+      // TODO: Reuse then function with message for online/offline scenarios
       db.collection('contacts')
           .add(contact)
           .then(() => {
