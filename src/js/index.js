@@ -212,9 +212,9 @@ const initialPage = () => {
   const pageLoading = document.querySelector('.page-loading');
   const navContainer = document.querySelector('.nav');
   pageLoading.classList.add('hide');
-  setTimeout(() => {
-    navContainer.classList.remove('hide');
-  }, 250);
+  // setTimeout(() => {
+  navContainer.classList.remove('hide');
+  // }, 250);
 };
 
 /**
