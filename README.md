@@ -8,6 +8,7 @@ My personal site running on Firebase using:
 - CSS
 - GitHub actions and Bash scripts (to handle testing, building, and deploying)
 - TypeScript (in Firebase serverless Functions)
+- Docker (for packages and running anywhere)
 
 The images are either mine or free from https://unsplash.com/.  For any questions, contact me via email or use the contact form at [https://reallyluis.com](https://reallyluis.com#contact).  Enjoy!
 
