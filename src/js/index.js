@@ -1,6 +1,15 @@
 'use strict';
 
-let logEvent = () => {};
+const firebaseConfig = {
+  apiKey: 'AIzaSyDgTYW7KIAmjew2W5tE1u1fzOarOBZ1zpw',
+  authDomain: 'reallyluis-13b43.firebaseapp.com',
+  databaseURL: 'https://reallyluis-13b43.firebaseio.com',
+  projectId: 'reallyluis-13b43',
+  storageBucket: 'reallyluis-13b43.appspot.com',
+  messagingSenderId: '641332133381',
+  appId: '1:641332133381:web:77c83f2ffc96f51d7da66c',
+  measurementId: 'G-LY8BFQ097C',
+};
 
 const initialPage = () => {
   const works = {};
@@ -10,10 +19,9 @@ const initialPage = () => {
    */
   if (typeof firebase !== 'undefined') {
     /**
-     * Enable Analytics
+     * Initialize Firebase
      */
-    const analytics = firebase.analytics();
-    logEvent = analytics.logEvent;
+    firebase.initializeApp(firebaseConfig);
 
     /**
      * Enable offline mode
@@ -86,8 +94,6 @@ const initialPage = () => {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     contactSubmitBtn.disabled = true;
-    logEvent('contact_submitted');
-
     const contact = {
       name: contactForm.name.value,
       email: contactForm.email.value,
@@ -102,23 +108,21 @@ const initialPage = () => {
     };
 
     if (db) {
+      // TODO: Reuse then function with message for online/offline scenarios
       db.collection('contacts')
           .add(contact)
-          .then(() => {
+          .finally(() => {
             contactForm.classList.add('hide');
             contactSuccess.classList.remove('hide');
             resetForm();
-            logEvent('contact_successful');
 
             setTimeout(() => {
               contactForm.classList.remove('hide');
               contactSuccess.classList.add('hide');
             }, 2000);
-          })
-          .catch((err) => console.log(err));
+          });
     } else {
       resetForm();
-      logEvent('contact_failure');
     }
   });
 
@@ -128,14 +132,12 @@ const initialPage = () => {
   const navToggle = document.querySelector('.nav-toggle');
   navToggle.addEventListener('click', () => {
     document.body.classList.toggle('nav-open');
-    logEvent('navigation_opened');
   });
 
   const navLinks = document.querySelectorAll('.nav__link');
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       document.body.classList.remove('nav-open');
-      logEvent('navigation_closed');
     });
   });
 
@@ -211,9 +213,9 @@ const initialPage = () => {
   const pageLoading = document.querySelector('.page-loading');
   const navContainer = document.querySelector('.nav');
   pageLoading.classList.add('hide');
-  setTimeout(() => {
-    navContainer.classList.remove('hide');
-  }, 250);
+  // setTimeout(() => {
+  navContainer.classList.remove('hide');
+  // }, 250);
 };
 
 /**
@@ -224,14 +226,12 @@ if ('serviceWorker' in navigator) {
   // Use the window load event to keep the page load performant
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js');
-    initialPage();
-    logEvent('service_worker_registered');
     // .then((reg) => console.log('service worker registered', reg))
     // .catch((err) => console.log('service worker not registered', err));
+    initialPage();
   });
 } else {
   window.addEventListener('load', () => {
     initialPage();
-    logEvent('service_worker_failure');
   });
 }
