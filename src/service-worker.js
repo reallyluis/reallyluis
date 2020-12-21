@@ -1,4 +1,4 @@
-const version = 0;
+const version = 1;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 30;
@@ -24,8 +24,8 @@ const assets = [
   '/img/code-two-screens.webp',
   '/img/circuit-board.webp',
   '/img/photos/contact.webp',
-  'https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js',
-  'https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js',
+  // 'https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js',
+  // 'https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js',
   '/js/index.js',
 ];
 
