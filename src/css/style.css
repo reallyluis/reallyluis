@@ -8,7 +8,7 @@
   --clr-light: #fff;
   --clr-dark: #111;
   --clr-accent: #0d85ff;
-  --clr-dm-light: #fafafa;
+  --clr-dm-light: #f9f9f9;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
   --fs-h3: 1.25rem;
@@ -17,7 +17,7 @@
     0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-mod: rgba(20, 20, 20, 0.75);
-  --gs-filter: grayscale(0.6);
+  --gs-filter: grayscale(0.7);
 }
 
 @media (min-width: 800px) {
@@ -49,6 +49,7 @@ body.darkmode img {
 
 body.scrolled .logo {
   opacity: 0.25;
+  transition: opacity 0.3s ease-out;
 }
 
 strong { font-weight: var(--fw-bold); }
