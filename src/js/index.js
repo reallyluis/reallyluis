@@ -209,9 +209,7 @@ const initialPage = () => {
   const pageLoading = document.querySelector('.page-loading');
   const navContainer = document.querySelector('.nav');
   pageLoading.classList.add('hide');
-  // setTimeout(() => {
   navContainer.classList.remove('hide');
-  // }, 250);
 };
 
 /**
@@ -230,4 +228,34 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     initialPage();
   });
+}
+
+/**
+ * Style changes based on scenarios
+ */
+// Update style based on scroll position
+window.addEventListener('scroll', () => {
+  if (typeof window.scrollY === 'number' && window.scrollY > 100) {
+    document.body.classList.add('scrolled');
+  } else {
+    document.body.classList.remove('scrolled');
+  }
+});
+
+// Update style based on dark mode
+const updatePerDarkMode = (isDarkMode) => {
+  if (isDarkMode) {
+    document.body.classList.add('darkmode');
+  } else {
+    document.body.classList.remove('darkmode');
+  }
+};
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (e) => {
+        updatePerDarkMode(e.matches);
+      });
+  updatePerDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+} else {
+  updatePerDarkMode(false);
 }

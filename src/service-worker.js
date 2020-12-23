@@ -1,4 +1,4 @@
-const version = 4;
+const version = SERVICE_WORKER_VERSION || '00000';
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
 const CACHE_MAX_SIZE = 25;
