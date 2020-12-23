@@ -378,7 +378,7 @@ nav {
 .portfolio {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .portfolio__modal {
@@ -457,6 +457,12 @@ nav {
 .portfolio__item:focus .portfolio__img {
   transform: scale(1.2);
   opacity: 0.75;
+}
+
+@media (min-width: 600px) {
+  .portfolio {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 @media (min-width: 800px) {
