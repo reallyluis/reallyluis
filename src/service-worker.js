@@ -1,7 +1,7 @@
-const version = 1;
+const version = 4;
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
-const CACHE_MAX_SIZE = 30;
+const CACHE_MAX_SIZE = 25;
 const assets = [
   '/',
   '/index.html',
@@ -24,8 +24,8 @@ const assets = [
   '/img/code-two-screens.webp',
   '/img/circuit-board.webp',
   '/img/photos/contact.webp',
-  // 'https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js',
-  // 'https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js',
+  '/__/firebase/8.2.1/firebase-app.js',
+  '/__/firebase/8.2.1/firebase-firestore.js',
   '/js/index.js',
 ];
 
@@ -57,7 +57,6 @@ self.addEventListener('activate', (evt) => {
 // fetch event
 self.addEventListener('fetch', (evt) => {
   if (evt.request.url.indexOf('firestore.googleapis.com') === -1 &&
-    evt.request.url.indexOf('www.google-analytics.com') === -1 &&
     evt.request.url.indexOf('google.firestore') === -1) {
     evt.respondWith(caches.match(evt.request).then((cacheRes) => {
       return cacheRes || fetch(evt.request).then((fetchRes) => {

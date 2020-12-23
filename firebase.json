@@ -14,6 +14,21 @@
     ],
     "headers": [
       {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self' 'unsafe-inline' *.cloudflare.com *.googleapis.com *.gstatic.com"
+          },
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          { "key": "X-XSS-Protection", "value": "1; mode=block" }
+        ]
+      },
+      {
         "source": "**/*.@(html|css|js)",
         "headers": [
           {
