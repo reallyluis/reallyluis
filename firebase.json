@@ -18,7 +18,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' *.cloudflare.com *.googleapis.com *.gstatic.com; script-src '25ac8fd44cdf22314e1902eb4ead5116551e33f3885b26bc04dd5d2ba3ac6c05'"
+            "value": "default-src 'self' *.cloudflare.com *.googleapis.com *.gstatic.com; script-src 'sha256-25ac8fd44cdf22314e1902eb4ead5116551e33f3885b26bc04dd5d2ba3ac6c05'"
           },
           { "key": "X-Content-Type-Options", "value": "nosniff" },
           {
