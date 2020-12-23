@@ -18,7 +18,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' *.cloudflare.com *.googleapis.com *.gstatic.com"
+            "value": "default-src 'self' 'unsafe-inline' *.cloudflare.com *.googleapis.com *.gstatic.com"
           },
           { "key": "X-Content-Type-Options", "value": "nosniff" },
           {
