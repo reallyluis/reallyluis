@@ -31,7 +31,7 @@
 
 /* General Styles */
 body {
-  background: var(--clr-light);
+  background-color: var(--clr-light);
   color: var(--clr-dark);
   margin: 0;
   font-family: var(--ff-primary);
@@ -40,7 +40,7 @@ body {
 }
 
 body.darkmode {
-  background: var(--clr-dm-light);
+  background-color: var(--clr-dm-light);
 }
 
 body.darkmode img {
@@ -64,7 +64,7 @@ strong { font-weight: var(--fw-bold); }
 .btn {
   display: inline-block;
   padding: 0.5em 2.5em;
-  background: var(--clr-accent);
+  background-color: var(--clr-accent);
   color: var(--clr-dark);
   text-decoration: none;
   cursor: pointer;
@@ -112,7 +112,7 @@ h3 { font-size: var(--fs-h3); }
 .section__subtitle--intro,
 .section__subtitle--about,
 .section__subtitle--contact {
-  background: var(--clr-accent);
+  background-color: var(--clr-accent);
   padding: 0.25em 1em;
   font-family: var(--ff-secondary);
   margin-bottom: 1em;
@@ -140,7 +140,7 @@ header {
 
 nav {
   position: fixed;
-  background: var(--clr-dark);
+  background-color: var(--clr-dark);
   color: var(--clr-light);
   top: 0;
   bottom: 0;
@@ -175,7 +175,7 @@ nav {
 
 .nav-toggle {
   padding: 0.75em;
-  background: transparent;
+  background-color: transparent;
   border: 0;
   cursor: pointer;
   position: absolute;
@@ -204,7 +204,7 @@ nav {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  background: var(--clr-accent);
+  background-color: var(--clr-accent);
   width: 2em;
   height: 3px;
   border-radius: 1em;
@@ -302,7 +302,7 @@ nav {
   width: 2em;
   height: 1px;
   margin: 0.5em auto 1em;
-  background: var(--clr-light);
+  background-color: var(--clr-light);
   opacity: 0.25;
 }
 
@@ -426,6 +426,10 @@ nav {
   overflow: scroll;
 }
 
+body.darkmode .portfolio__content {
+  background-color: var(--clr-dm-light);
+}
+
 .portfolio__content > div {
   overflow-y: auto;
   height: 100%;
@@ -445,7 +449,7 @@ nav {
 
 .portfolio__item {
   position: relative;
-  background: var(--clr-accent);
+  background-color: var(--clr-accent);
   overflow: hidden;
 }
 
@@ -575,7 +579,7 @@ nav {
 /* Footer */
 
 .footer {
-  background: #111;
+  background-color: var(--clr-dark);
   color: var(--clr-accent);
   text-align: center;
   padding: 1.25em 0;
