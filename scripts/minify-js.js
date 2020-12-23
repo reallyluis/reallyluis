@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const minify = require('minify');
 const fs = require('fs');
 
@@ -6,6 +8,8 @@ const options = {
     ecma: 5,
   },
 };
+
+const regex = /process\.env\.FIREBASE\_API\_KEY/g;
 
 // Service workder js
 minify('./src/service-worker.js', options)
@@ -25,9 +29,13 @@ minify('./src/service-worker.js', options)
 // Main app js
 minify('./src/js/index.js', options)
     .then((content) => {
-      fs.writeFile('./public/js/index.js', content, 'utf8', () => {
-        console.log('minify index.js done!');
-      });
+      fs.writeFile(
+          './public/js/index.js',
+          content.replace(regex, `'${process.env.FIREBASE_API_KEY}'`),
+          'utf8',
+          () => {
+            console.log('minify index.js done!');
+          });
     })
     .catch((err) => {
       console.log('minify index.js failed!');

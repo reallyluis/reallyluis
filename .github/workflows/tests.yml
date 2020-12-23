@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci && npm run build && npm run lint
+    - name: Run Tests (linters)
+      run: npm ci && npm run build && npm run lint
       env:
         CI: true
+        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}

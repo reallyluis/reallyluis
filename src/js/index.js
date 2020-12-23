@@ -1,14 +1,13 @@
 'use strict';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDgTYW7KIAmjew2W5tE1u1fzOarOBZ1zpw',
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: 'reallyluis-13b43.firebaseapp.com',
   databaseURL: 'https://reallyluis-13b43.firebaseio.com',
   projectId: 'reallyluis-13b43',
   storageBucket: 'reallyluis-13b43.appspot.com',
   messagingSenderId: '641332133381',
   appId: '1:641332133381:web:77c83f2ffc96f51d7da66c',
-  measurementId: 'G-LY8BFQ097C',
 };
 
 const initialPage = () => {
@@ -108,19 +107,16 @@ const initialPage = () => {
     };
 
     if (db) {
-      // TODO: Reuse then function with message for online/offline scenarios
-      db.collection('contacts')
-          .add(contact)
-          .finally(() => {
-            contactForm.classList.add('hide');
-            contactSuccess.classList.remove('hide');
-            resetForm();
+      db.collection('contacts').add(contact);
 
-            setTimeout(() => {
-              contactForm.classList.remove('hide');
-              contactSuccess.classList.add('hide');
-            }, 2000);
-          });
+      contactForm.classList.add('hide');
+      contactSuccess.classList.remove('hide');
+      resetForm();
+
+      setTimeout(() => {
+        contactForm.classList.remove('hide');
+        contactSuccess.classList.add('hide');
+      }, 2000);
     } else {
       resetForm();
     }
