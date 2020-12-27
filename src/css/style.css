@@ -129,13 +129,14 @@ h3 { font-size: var(--fs-h3); }
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0.25em 0.7em;
+  padding: 0.50em 0.7em;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 5;
   background-color: transparent;
+  backdrop-filter: blur(10px);
 }
 
 nav {
@@ -182,6 +183,10 @@ nav {
   top: 0.65em;
   right: 1em;
   z-index: 1000;
+}
+
+.nav-open header {
+  backdrop-filter: unset;
 }
 
 .nav-open nav {
