@@ -129,7 +129,7 @@ h3 { font-size: var(--fs-h3); }
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0.50em 0.7em;
+  padding: 0.5em 0.7em;
   position: fixed;
   top: 0;
   left: 0;
