@@ -2,7 +2,7 @@
 
 # Process files for build
 if [ -x "$(command -v npm)" ]; then
-  npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js
+  npm run prebuild && npm run minify:html && npm run minify:css && npm run minify:js && npm run test
 else
   echo "Error: Unable to process build."
 fi

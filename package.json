@@ -12,7 +12,26 @@
     "minify:js": "node ./scripts/minify-js.js",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint './src/css/**/*.css'",
-    "lint:js": "eslint './src/js/**/*.js'"
+    "lint:js": "eslint './src/js/**/*.js'",
+    "test": "jest ./tests/*.test.js",
+    "test:coverage": "jest ./tests/*.test.js --coverage"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "src/js/**",
+      "!**/node_modules/**",
+      "!**/public/**",
+      "!**/tests/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 50,
+        "branches": 50,
+        "functions": 50,
+        "lines": 75
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -27,6 +46,7 @@
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-config-google": "^0.14.0",
+    "jest": "^26.6.3",
     "minify": "^6.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
