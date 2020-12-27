@@ -188,6 +188,7 @@ nav {
 
 .nav-open header {
   backdrop-filter: unset;
+  -webkit-backdrop-filter: unset;
 }
 
 .nav-open nav {
