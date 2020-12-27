@@ -18,7 +18,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' 'unsafe-inline' *.cloudflare.com *.googleapis.com *.gstatic.com"
+            "value": "script-src 'self' *.googleapis.com *.gstatic.com; style-src 'self' 'sha256-JayP1EzfIjFOGQLrTq1RFlUeM/OIWya8BN1dK6OsbAU=' 'sha256-9nfz2oIUGZvkypnhrSfUjc/09HFxSmtaQpEpJwmLAxs=' *.cloudflare.com *.googleapis.com *.gstatic.com"
           },
           { "key": "X-Content-Type-Options", "value": "nosniff" },
           {
