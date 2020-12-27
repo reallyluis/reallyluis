@@ -18,7 +18,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "script-src 'self' *.googleapis.com *.gstatic.com; style-src 'self' 'sha256-JayP1EzfIjFOGQLrTq1RFlUeM/OIWya8BN1dK6OsbAU=' 'sha256-5gzk8Xix9Azt83Kj0u4hN7w9WrAO2WL/mocwVIzK/EA=' *.cloudflare.com *.googleapis.com *.gstatic.com"
+            "value": "default-src none; connect-src 'self' https://firestore.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; manifest-src 'self'; script-src 'self'; style-src 'self' 'sha256-666eH9EYLj+u/sgmS/hBUtXoAdd5LA5sTjqrVbH19do=' https://cdnjs.cloudflare.com https://fonts.googleapis.com; worker-src 'self'"
           },
           { "key": "X-Content-Type-Options", "value": "nosniff" },
           {
