@@ -137,6 +137,7 @@ header {
   z-index: 5;
   background-color: transparent;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 nav {
