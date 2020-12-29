@@ -1,7 +1,45 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+jobs:
+  build:
+    working_directory: ~/project
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-npm
+      - node/install-packages:
+        app-dir: ~/project
+        cache-path: node_modules
+        override-ci-command: npm i
+      - run:
+        name: Build
+        command: npm run build
+      - persist_to_workspace:
+        root: .
+        paths:
+          - .
+
+  test:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+      - attach_workspace:
+        at: .
+      - run:
+        name: Lint and Test
+        command: |
+          npm run lint
+          npm run test
+      - store_artifacts:
+        path: test-results.xml
+        destination: deliverable.xml
+
 workflows:
-  node-tests:
+  version: 2
+  build_and_test:
     jobs:
-      - node/test
+      - build
+      - test:
+          requires:
+            - build
