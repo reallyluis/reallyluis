@@ -207,9 +207,7 @@ const initialPage = () => {
    * Hide page loading screen at end of initializing page
    */
   const pageLoading = document.querySelector('.page-loading');
-  const navContainer = document.querySelector('.nav');
   pageLoading.classList.add('hide');
-  navContainer.classList.remove('hide');
 };
 
 /**
