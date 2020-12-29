@@ -1,11 +1,15 @@
+# This workflow will do a clean install, build, and create docker image.
+
 name: Docker CD
 'on':
   push:
     branches:
       - main
 jobs:
-  Build-and-Push-Docker-Image:
+  build-and-push-docker-image:
+
     runs-on: ubuntu-latest
+
     name: Docker Build, Tag, Push
     steps:
       - uses: actions/checkout@v2
