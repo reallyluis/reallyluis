@@ -80,7 +80,7 @@
     nav, .hide {
       display: none;
     }
-    .page-loading {
+    .page-loading, .page-error {
       position: fixed;
       background: white;
       top: 0;
@@ -117,6 +117,15 @@
 <body>
   <div class="page-loading">
     <div class="spinner"></div>
+  </div>
+  <div class="page-error hide">
+    <div class="page-error__content">
+      <h3>Oopss!</h3>
+      <div unselectable="on">Something went wrong.  The content on this page
+        requires Firebase and other third-party assets to load correctly.  Please
+        <a href="mailto:reallyluis@gmail.com">contact me</a> if this issue continues.
+      </div>
+    </div>
   </div>
   <header>
     <!-- website logo -->
