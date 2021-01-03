@@ -30,13 +30,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr-light: #fff;
-    --clr-dark: #111;
-    --clr-accent: #0d85ff;
+    --clr-light: #111;
+    --clr-dark: #ddd;
+    --clr-accent: #006f91;
     --bs:
-      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-    --clr-mod: rgba(20, 20, 20, 0.75);
+      0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
+      0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
+    --clr-mod: rgba(120, 120, 120, 0.75);
     --gs-filter: grayscale(0.7);
   }
 }
