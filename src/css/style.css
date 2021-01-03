@@ -5,6 +5,7 @@
   --ff-secondary: monospace;
   --fw-reg: 300;
   --fw-bold: 900;
+  --fc-dark: #111;
   --clr-light: #fff;
   --clr-dark: #111;
   --clr-accent: #0d85ff;
@@ -30,21 +31,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --fc-dark: #ddd;
     --clr-light: #111;
-    --clr-dark: #ddd;
+    --clr-dark: #333;
     --clr-accent: #006f91;
     --bs:
       0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
       0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
     --clr-mod: rgba(120, 120, 120, 0.75);
-    --gs-filter: grayscale(0.7);
+    --gs-filter: grayscale(0.5);
   }
 }
 
 /* General Styles */
 body {
   background-color: var(--clr-light);
-  color: var(--clr-dark);
+  color: var(--fc-dark);
   margin: 0;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
@@ -73,7 +75,7 @@ img {
   display: inline-block;
   padding: 0.5em 2.5em;
   background-color: var(--clr-accent);
-  color: var(--clr-dark);
+  color: var(--fc-dark);
   text-decoration: none;
   cursor: pointer;
   font-size: 0.75rem;
@@ -429,7 +431,7 @@ nav {
   position: absolute;
   margin: 1.5em;
   background-color: var(--clr-light);
-  color: var(--clr-dark);
+  color: var(--fc-dark);
   border-radius: 0.25em;
   top: 0;
   right: 0;
@@ -528,7 +530,7 @@ nav {
 }
 
 .contact-me__form button {
-  color: var(--clr-dark);
+  color: var(--fc-dark);
   background-color: var(--clr-accent);
   padding: 0.5em;
   border: 0;
