@@ -8,7 +8,6 @@
   --clr-light: #fff;
   --clr-dark: #111;
   --clr-accent: #0d85ff;
-  --clr-dm-light: #f9f9f9;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
   --fs-h3: 1.25rem;
@@ -17,7 +16,7 @@
     0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-mod: rgba(20, 20, 20, 0.75);
-  --gs-filter: grayscale(0.3);
+  --gs-filter: grayscale(0);
 }
 
 @media (min-width: 800px) {
@@ -26,6 +25,19 @@
     --fs-h2: 3.75rem;
     --fs-h3: 1.5rem;
     --fs-body: 1.25rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-light: #fff;
+    --clr-dark: #111;
+    --clr-accent: #0d85ff;
+    --bs:
+      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+    --clr-mod: rgba(20, 20, 20, 0.75);
+    --gs-filter: grayscale(0.7);
   }
 }
 
@@ -39,20 +51,16 @@ body {
   line-height: 1.6;
 }
 
-body.darkmode {
-  background-color: var(--clr-dm-light);
-}
-
-body.darkmode img {
-  filter: var(--gs-filter);
-}
-
 body.scrolled .logo {
   opacity: 0.25;
   transition: opacity 0.3s ease-out;
 }
 
 strong { font-weight: var(--fw-bold); }
+
+img {
+  filter: var(--gs-filter);
+}
 
 :focus {
   outline: 3px solid var(--clr-accent);
@@ -430,10 +438,6 @@ nav {
   text-align: left;
   padding: 2em;
   overflow: scroll;
-}
-
-body.darkmode .portfolio__content {
-  background-color: var(--clr-dm-light);
 }
 
 .portfolio__content > div {

@@ -239,21 +239,3 @@ window.addEventListener('scroll', () => {
     document.body.classList.remove('scrolled');
   }
 });
-
-// Update style based on dark mode
-const updatePerDarkMode = (isDarkMode) => {
-  if (isDarkMode) {
-    document.body.classList.add('darkmode');
-  } else {
-    document.body.classList.remove('darkmode');
-  }
-};
-if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (e) => {
-        updatePerDarkMode(e.matches);
-      });
-  updatePerDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-} else {
-  updatePerDarkMode(false);
-}
