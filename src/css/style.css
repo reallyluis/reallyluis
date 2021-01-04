@@ -178,7 +178,7 @@ nav {
 }
 
 .nav__link {
-  color: var(--clr-light);
+  color: var(--fc-light);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h2);
   text-decoration: none;
