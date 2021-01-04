@@ -5,7 +5,9 @@
   --ff-secondary: monospace;
   --fw-reg: 300;
   --fw-bold: 900;
+  --fc-light: #fff;
   --fc-dark: #111;
+  --fc-accent: #0d85ff;
   --clr-light: #fff;
   --clr-dark: #111;
   --clr-accent: #0d85ff;
@@ -31,7 +33,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --fc-light: #fff;
     --fc-dark: #ddd;
+    --fc-accent: #fff;
     --clr-light: #111;
     --clr-dark: #333;
     --clr-accent: #006f91;
@@ -303,12 +307,12 @@ nav {
   background-color: var(--clr-dark);
   background-size: cover;
   background-blend-mode: color-dodge;
-  color: var(--clr-light);
+  color: var(--fc-light);
   text-align: center;
 }
 
 .section__title--services {
-  color: var(--clr-accent);
+  color: var(--fc-accent);
   position: relative;
 }
 
@@ -402,7 +406,7 @@ nav {
 
 .my-work {
   background-color: var(--clr-dark);
-  color: var(--clr-light);
+  color: var(--fc-light);
   text-align: center;
 }
 
