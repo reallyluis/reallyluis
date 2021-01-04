@@ -473,7 +473,7 @@ nav {
   position: absolute;
   top: calc(50% - 1.5em);
   width: 100%;
-  color: var(--clr-light);
+  color: var(--fc-light);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h3);
 }
