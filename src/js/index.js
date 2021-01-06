@@ -1,5 +1,8 @@
 'use strict';
 
+import {resetForm} from './helpers';
+import {renderSkill, renderAbout} from './renderers';
+
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: 'reallyluis-13b43.firebaseapp.com',
@@ -100,27 +103,20 @@ const initialPage = () => {
       email: contactForm.email.value,
       comment: contactForm.comment.value,
     };
-    const resetForm = () => {
-      // Reset form fields
-      contactForm.name.value = '';
-      contactForm.email.value = '';
-      contactForm.comment.value = '';
-      contactSubmitBtn.disabled = false;
-    };
 
     if (db) {
       db.collection('contacts').add(contact);
 
       contactForm.classList.add('hide');
       contactSuccess.classList.remove('hide');
-      resetForm();
+      resetForm(contactForm, contactSubmitBtn);
 
       setTimeout(() => {
         contactForm.classList.remove('hide');
         contactSuccess.classList.add('hide');
       }, 2000);
     } else {
-      resetForm();
+      resetForm(contactForm, contactSubmitBtn);
     }
   });
 
@@ -171,39 +167,6 @@ const initialPage = () => {
     modalContainer.classList.remove('modal-show');
     modalContent.innerHTML = '';
   });
-
-  /**
-   * Render skills content
-   * @param {string} id The document data id.
-   * @param {object} data The document data.
-   */
-  const services = document.querySelector('.services');
-  const renderSkill = (id, data) => {
-    const {title, description} = data;
-    const html = `
-      <div class="service" data-id="${id}">
-        <h3>${title}</h3>
-        <p>${description}</p>
-      </div>
-    `;
-
-    services.innerHTML += html;
-  };
-
-  /**
-   * Render about me content
-   * @param {string} id The document data id.
-   * @param {object} data The document data.
-   */
-  const abouts = document.querySelector('.about-me__body');
-  const renderAbout = (id, data) => {
-    const {description} = data;
-    const html = `
-      <p data-id="${id}">${description}</p>
-    `;
-
-    abouts.innerHTML += html;
-  };
 
   /**
    * Hide page loading screen at end of initializing page
