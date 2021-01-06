@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Render skills content
  * @param {string} id The document data id.

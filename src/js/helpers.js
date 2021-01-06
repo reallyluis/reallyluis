@@ -1,4 +1,4 @@
-
+'use strict';
 const resetForm = (contactForm, contactSubmitBtn) => {
   // Reset form fields
   contactForm.name.value = '';
