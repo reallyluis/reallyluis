@@ -1,7 +1,7 @@
 const version = SERVICE_WORKER_VERSION || '00000';
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
-const CACHE_MAX_SIZE = 25;
+const CACHE_MAX_SIZE = 30;
 const assets = [
   '/',
   '/index.html',
@@ -26,6 +26,8 @@ const assets = [
   '/img/photos/contact.webp',
   '/__/firebase/8.2.1/firebase-app.js',
   '/__/firebase/8.2.1/firebase-firestore.js',
+  '/js/modules/helpers.js',
+  '/js/modules/renderers.js',
   '/js/index.js',
 ];
 

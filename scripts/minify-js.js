@@ -29,10 +29,10 @@ minify('./src/service-worker.js', options)
     });
 
 // Modules js
-minify('./src/js/helpers.js', options)
+minify('./src/js/modules/helpers.js', options)
     .then((content) => {
       fs.writeFile(
-          './public/js/helpers.js', content, 'utf8',
+          './public/js/modules/helpers.js', content, 'utf8',
           () => {
             console.log('minify helpers.js done!');
           });
@@ -40,10 +40,10 @@ minify('./src/js/helpers.js', options)
     .catch((err) => {
       console.log('minify helpers.js failed!');
     });
-minify('./src/js/renderers.js', options)
+minify('./src/js/modules/renderers.js', options)
     .then((content) => {
       fs.writeFile(
-          './public/js/renderers.js', content, 'utf8',
+          './public/js/modules/renderers.js', content, 'utf8',
           () => {
             console.log('minify renderers.js done!');
           });

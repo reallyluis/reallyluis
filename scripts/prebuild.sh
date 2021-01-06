@@ -7,6 +7,7 @@ rm -rf ./public
 mkdir public
 mkdir public/css
 mkdir public/js
+mkdir public/js/modules
 
 # Copy image, manifest and other files to build directory
 cp -R ./src/img ./public/img
