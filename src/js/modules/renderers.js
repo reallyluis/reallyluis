@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * Render skills content
  * @param {string} id The document data id.
@@ -32,7 +33,44 @@ const renderAbout = (id, data) => {
   abouts.innerHTML += html;
 };
 
+/**
+ * Init and render works modal content
+ * @param {object} works The works data
+ */
+const renderModal = (works) => {
+  const workContainer = document.querySelector('#work');
+  const modalContainer = document.querySelector('.portfolio__modal');
+  const modalToggleLinks = document.querySelectorAll('.portfolio__item');
+  const modalContent = document.querySelector('.portfolio__content');
+  modalToggleLinks.forEach((link) => {
+    link.addEventListener('click', (el) => {
+      el.stopPropagation();
+      const workid = el.target.parentElement.dataset.workid;
+      const {title, description} = works[workid] ?
+        works[workid] :
+        {
+          title: 'Oopss!',
+          description: 'Something went wrong.  Please try again.',
+        };
+      const html = `
+        <div data-id="${workid}">
+          <h3>${title}</h3>
+          <div unselectable="on">${description}</div>
+        </div>
+      `;
+
+      modalContent.innerHTML += html;
+      modalContainer.classList.toggle('modal-show');
+    });
+  });
+  workContainer.addEventListener('click', () => {
+    modalContainer.classList.remove('modal-show');
+    modalContent.innerHTML = '';
+  });
+};
+
 export {
   renderSkill,
   renderAbout,
+  renderModal,
 };

@@ -1,6 +1,6 @@
 'use strict';
-import {resetForm} from './modules/helpers.js';
-import {renderSkill, renderAbout} from './modules/renderers.js';
+import {resetForm, mockData} from './modules/helpers.js';
+import {renderSkill, renderAbout, renderModal} from './modules/renderers.js';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -45,7 +45,8 @@ const initialPage = () => {
   let db = null;
 
   try {
-    db = firebase ? firebase.firestore() : null;
+    // db = firebase ? firebase.firestore() : null;
+    db = null;
   } catch (err) {
     // console.log('firebase not loaded.');
     pageError.classList.remove('hide');
@@ -87,6 +88,24 @@ const initialPage = () => {
           delete works[change.doc.id];
         }
       });
+    });
+  } else {
+    const {
+      mockSkills=skills,
+      mockAbout=about,
+      mockWorks=works,
+    } = mockData();
+
+    mockSkills.forEach((obj) => {
+      renderSkill(obj.id, obj.data);
+    });
+
+    mockAbout.forEach((obj) => {
+      renderAbout(obj.id, obj.data);
+    });
+
+    mockWorks.forEach((obj) => {
+      works[obj.id] = obj.data;
     });
   }
 
@@ -135,37 +154,9 @@ const initialPage = () => {
   });
 
   /**
-   * Modal
+   * Init and render modals
    */
-  const workContainer = document.querySelector('#work');
-  const modalContainer = document.querySelector('.portfolio__modal');
-  const modalToggleLinks = document.querySelectorAll('.portfolio__item');
-  const modalContent = document.querySelector('.portfolio__content');
-  modalToggleLinks.forEach((link) => {
-    link.addEventListener('click', (el) => {
-      el.stopPropagation();
-      const workid = el.target.parentElement.dataset.workid;
-      const {title, description} = works[workid] ?
-        works[workid] :
-        {
-          title: 'Oopss!',
-          description: 'Something went wrong.  Please try again.',
-        };
-      const html = `
-        <div data-id="${workid}">
-          <h3>${title}</h3>
-          <div unselectable="on">${description}</div>
-        </div>
-      `;
-
-      modalContent.innerHTML += html;
-      modalContainer.classList.toggle('modal-show');
-    });
-  });
-  workContainer.addEventListener('click', () => {
-    modalContainer.classList.remove('modal-show');
-    modalContent.innerHTML = '';
-  });
+  renderModal(works);
 
   /**
    * Hide page loading screen at end of initializing page
