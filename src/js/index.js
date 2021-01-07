@@ -45,10 +45,9 @@ const initialPage = () => {
   let db = null;
 
   try {
-    // db = firebase ? firebase.firestore() : null;
-    db = null;
+    db = firebase ? firebase.firestore() : null;
   } catch (err) {
-    // console.log('firebase not loaded.');
+    // console.log('firebase failed to load.');
     pageError.classList.remove('hide');
   }
 
