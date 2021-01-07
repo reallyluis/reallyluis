@@ -28,6 +28,30 @@ minify('./src/service-worker.js', options)
       console.log('minify SW failed!');
     });
 
+// Modules js
+minify('./src/js/modules/helpers.js', options)
+    .then((content) => {
+      fs.writeFile(
+          './public/js/modules/helpers.js', content, 'utf8',
+          () => {
+            console.log('minify helpers.js done!');
+          });
+    })
+    .catch((err) => {
+      console.log('minify helpers.js failed!');
+    });
+minify('./src/js/modules/renderers.js', options)
+    .then((content) => {
+      fs.writeFile(
+          './public/js/modules/renderers.js', content, 'utf8',
+          () => {
+            console.log('minify renderers.js done!');
+          });
+    })
+    .catch((err) => {
+      console.log('minify renderers.js failed!');
+    });
+
 // Main app js
 minify('./src/js/index.js', options)
     .then((content) => {

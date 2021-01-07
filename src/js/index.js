@@ -1,4 +1,6 @@
 'use strict';
+import {resetForm, mockData} from './modules/helpers.js';
+import {renderSkill, renderAbout, renderModal} from './modules/renderers.js';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -12,7 +14,7 @@ const firebaseConfig = {
 
 const initialPage = () => {
   const works = {};
-  const pageError = document.querySelector('.page-error');
+  // const pageError = document.querySelector('.page-error');
 
   /**
    * Initialize Firebase features
@@ -45,8 +47,8 @@ const initialPage = () => {
   try {
     db = firebase ? firebase.firestore() : null;
   } catch (err) {
-    // console.log('firebase not loaded.');
-    pageError.classList.remove('hide');
+    console.log('firebase failed to load.');
+    // pageError.classList.remove('hide');
   }
 
   if (db) {
@@ -86,6 +88,20 @@ const initialPage = () => {
         }
       });
     });
+  } else {
+    const mData = mockData();
+
+    mData.skills.forEach((obj) => {
+      renderSkill(obj.id, obj.data);
+    });
+
+    mData.about.forEach((obj) => {
+      renderAbout(obj.id, obj.data);
+    });
+
+    mData.works.forEach((obj) => {
+      works[obj.id] = obj.data;
+    });
   }
 
   // add new contact
@@ -100,27 +116,20 @@ const initialPage = () => {
       email: contactForm.email.value,
       comment: contactForm.comment.value,
     };
-    const resetForm = () => {
-      // Reset form fields
-      contactForm.name.value = '';
-      contactForm.email.value = '';
-      contactForm.comment.value = '';
-      contactSubmitBtn.disabled = false;
-    };
 
     if (db) {
       db.collection('contacts').add(contact);
 
       contactForm.classList.add('hide');
       contactSuccess.classList.remove('hide');
-      resetForm();
+      resetForm(contactForm, contactSubmitBtn);
 
       setTimeout(() => {
         contactForm.classList.remove('hide');
         contactSuccess.classList.add('hide');
       }, 2000);
     } else {
-      resetForm();
+      resetForm(contactForm, contactSubmitBtn);
     }
   });
 
@@ -140,70 +149,9 @@ const initialPage = () => {
   });
 
   /**
-   * Modal
+   * Init and render modals
    */
-  const workContainer = document.querySelector('#work');
-  const modalContainer = document.querySelector('.portfolio__modal');
-  const modalToggleLinks = document.querySelectorAll('.portfolio__item');
-  const modalContent = document.querySelector('.portfolio__content');
-  modalToggleLinks.forEach((link) => {
-    link.addEventListener('click', (el) => {
-      el.stopPropagation();
-      const workid = el.target.parentElement.dataset.workid;
-      const {title, description} = works[workid] ?
-        works[workid] :
-        {
-          title: 'Oopss!',
-          description: 'Something went wrong.  Please try again.',
-        };
-      const html = `
-        <div data-id="${workid}">
-          <h3>${title}</h3>
-          <div unselectable="on">${description}</div>
-        </div>
-      `;
-
-      modalContent.innerHTML += html;
-      modalContainer.classList.toggle('modal-show');
-    });
-  });
-  workContainer.addEventListener('click', () => {
-    modalContainer.classList.remove('modal-show');
-    modalContent.innerHTML = '';
-  });
-
-  /**
-   * Render skills content
-   * @param {string} id The document data id.
-   * @param {object} data The document data.
-   */
-  const services = document.querySelector('.services');
-  const renderSkill = (id, data) => {
-    const {title, description} = data;
-    const html = `
-      <div class="service" data-id="${id}">
-        <h3>${title}</h3>
-        <p>${description}</p>
-      </div>
-    `;
-
-    services.innerHTML += html;
-  };
-
-  /**
-   * Render about me content
-   * @param {string} id The document data id.
-   * @param {object} data The document data.
-   */
-  const abouts = document.querySelector('.about-me__body');
-  const renderAbout = (id, data) => {
-    const {description} = data;
-    const html = `
-      <p data-id="${id}">${description}</p>
-    `;
-
-    abouts.innerHTML += html;
-  };
+  renderModal(works);
 
   /**
    * Hide page loading screen at end of initializing page
