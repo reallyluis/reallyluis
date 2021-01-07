@@ -90,21 +90,17 @@ const initialPage = () => {
       });
     });
   } else {
-    const {
-      mockSkills=skills,
-      mockAbout=about,
-      mockWorks=works,
-    } = mockData();
+    const mData = mockData();
 
-    mockSkills.forEach((obj) => {
+    mData.skills.forEach((obj) => {
       renderSkill(obj.id, obj.data);
     });
 
-    mockAbout.forEach((obj) => {
+    mData.about.forEach((obj) => {
       renderAbout(obj.id, obj.data);
     });
 
-    mockWorks.forEach((obj) => {
+    mData.works.forEach((obj) => {
       works[obj.id] = obj.data;
     });
   }
