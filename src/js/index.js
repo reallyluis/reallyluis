@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const initialPage = () => {
   const works = {};
-  const pageError = document.querySelector('.page-error');
+  // const pageError = document.querySelector('.page-error');
 
   /**
    * Initialize Firebase features
@@ -47,8 +47,8 @@ const initialPage = () => {
   try {
     db = firebase ? firebase.firestore() : null;
   } catch (err) {
-    // console.log('firebase failed to load.');
-    pageError.classList.remove('hide');
+    console.log('firebase failed to load.');
+    // pageError.classList.remove('hide');
   }
 
   if (db) {
