@@ -19,7 +19,7 @@ const resetForm = (contactForm, contactSubmitBtn) => {
  */
 const mockData = () => {
   const placeholderText = `This is placeholder text since the primary data
-    source is not available.`;
+    source is not available. `.repeat(5);
 
   return {
     skills: [
