@@ -491,7 +491,7 @@ nav {
 .portfolio__img:hover,
 .portfolio__item:focus .portfolio__img {
   transform: scale(1.2);
-  opacity: 0.75;
+  opacity: 0.45;
 }
 
 @media (min-width: 600px) {

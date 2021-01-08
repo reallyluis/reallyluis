@@ -1,6 +1,6 @@
 {
   "name": "reallyluis",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "A personal website by reallyluis.",
   "scripts": {
     "emulators": "firebase emulators:start",
