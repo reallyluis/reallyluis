@@ -28,43 +28,21 @@ minify('./src/service-worker.js', options)
       console.log('minify SW failed!');
     });
 
-// Modules js
-minify('./src/js/helpers.js', options)
-    .then((content) => {
-      fs.writeFile(
-          './public/js/helpers.js', content, 'utf8',
-          () => {
-            console.log('minify helpers.js done!');
-          });
-    })
-    .catch((err) => {
-      console.log('minify helpers.js failed!');
-    });
-minify('./src/js/renderers.js', options)
-    .then((content) => {
-      fs.writeFile(
-          './public/js/renderers.js', content, 'utf8',
-          () => {
-            console.log('minify renderers.js done!');
-          });
-    })
-    .catch((err) => {
-      console.log('minify renderers.js failed!');
-    });
+// App js files
+['helpers.js', 'renderers.js', 'index.js'].forEach((fileName) => {
+  minify(`./src/js/${fileName}`, options)
+      .then((content) => {
+        const regexAPI = /process\.env\.FIREBASE\_API\_KEY/g;
 
-// Main app js
-minify('./src/js/index.js', options)
-    .then((content) => {
-      const regexAPI = /process\.env\.FIREBASE\_API\_KEY/g;
-
-      fs.writeFile(
-          './public/js/index.js',
-          content.replace(regexAPI, `'${process.env.FIREBASE_API_KEY}'`),
-          'utf8',
-          () => {
-            console.log('minify index.js done!');
-          });
-    })
-    .catch((err) => {
-      console.log('minify index.js failed!');
-    });
+        fs.writeFile(
+            `./public/js/${fileName}`,
+            content.replace(regexAPI, `'${process.env.FIREBASE_API_KEY}'`),
+            'utf8',
+            () => {
+              console.log(`minify ${fileName} done!`);
+            });
+      })
+      .catch((err) => {
+        console.log(`minify ${fileName} failed!`);
+      });
+});
