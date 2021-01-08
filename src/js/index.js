@@ -1,5 +1,5 @@
 'use strict';
-import {resetForm, mockData} from './helpers.js';
+import {scrollOnLoad, resetForm, mockData} from './helpers.js';
 import {renderSkill, renderAbout, renderModal} from './renderers.js';
 
 const firebaseConfig = {
@@ -158,6 +158,9 @@ const initialPage = () => {
    */
   const pageLoading = document.querySelector('.page-loading');
   pageLoading.classList.add('hide');
+
+  // Force hash link scroll to position on load
+  scrollOnLoad();
 };
 
 /**

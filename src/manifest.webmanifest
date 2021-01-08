@@ -1,7 +1,7 @@
 {
   "short_name": "reallyluis",
-  "name": "reallyluis: Personal website.",
-  "description": "reallyluis' personal website to detail knowledge, skills and interests in software engineering and web and mobile development.",
+  "name": "Luis' Professional Website",
+  "description": "Luis' professional website to detail his knowledge, skills and interests in software engineering and web and mobile development.",
   "icons": [
     {
       "src": "/img/icons/manifest-whitebg-192.png",
