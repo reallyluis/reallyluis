@@ -21,5 +21,16 @@
   "display": "standalone",
   "scope": "/",
   "theme_color": "#111111",
-  "shortcuts": []
+  "shortcuts": [
+    {
+      "name": "Review My Work",
+      "url": "/#work",
+      "description": "Review details of my previous work."
+    },
+    {
+      "name": "Contact Me",
+      "url": "/#contact",
+      "description": "Send me a message via my contact form."
+    }
+  ]
 }
