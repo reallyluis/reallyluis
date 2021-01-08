@@ -1,6 +1,6 @@
 'use strict';
-import {resetForm, mockData} from './modules/helpers.js';
-import {renderSkill, renderAbout, renderModal} from './modules/renderers.js';
+import {resetForm, mockData} from './helpers.js';
+import {renderSkill, renderAbout, renderModal} from './renderers.js';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
