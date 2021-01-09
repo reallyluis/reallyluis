@@ -1,6 +1,17 @@
 'use strict';
 
 /**
+ * Handle Scroll to Position since direct links do not always work
+ */
+const scrollOnLoad = () => {
+  const urlHash = window.location.hash;
+
+  if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
+    window.scrollTo(0, document.querySelector(urlHash).offsetTop);
+  }
+};
+
+/**
  * Resets contact form
  * @param {object} contactForm The form dom
  * @param {object} contactSubmitBtn The form submit button
@@ -106,4 +117,4 @@ const mockData = () => {
   };
 };
 
-export {resetForm, mockData};
+export {scrollOnLoad, resetForm, mockData};
