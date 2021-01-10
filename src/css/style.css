@@ -157,12 +157,12 @@ h3 { font-size: var(--fs-h3); }
   box-shadow: var(--bs);
 }
 
-.page-controls__comment > svg {
+.page-controls__comment .icon-comment {
   fill: var(--fc-light);
   transition: var(--std-transform);
 }
 
-.page-controls__comment:hover > svg {
+.page-controls__comment:hover .icon-comment {
   transform: scale(1.1);
 }
 
@@ -649,13 +649,13 @@ nav {
   width: 1.25em;
 }
 
-.social-list__link svg {
+.social-list__link .icon-social {
   transition:
     var(--std-transform),
     opacity 200ms linear;
 }
 
-.social-list__link:hover svg {
+.social-list__link:hover .icon-social {
   transform: translateY(-0.25em);
   opacity: 0.7;
 }
