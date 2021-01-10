@@ -139,13 +139,25 @@ h3 { font-size: var(--fs-h3); }
 }
 
 /* Page */
+.page-controls a {
+  text-decoration: none;
+}
+
 .page-controls__comment {
   position: fixed;
   width: 3em;
-  padding: 1em;
+  height: 3em;
+  padding: 0.75em;
   right: 2em;
   bottom: 2em;
+  border-radius: 1.5em;
   background-color: var(--clr-accent);
+  z-index: 5;
+  box-shadow: var(--bs);
+}
+
+.page-controls__comment > svg {
+  fill: var(--clr-light);
 }
 
 /* Header */
