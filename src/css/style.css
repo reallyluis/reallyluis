@@ -20,6 +20,7 @@
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-mod: rgba(20, 20, 20, 0.75);
   --gs-filter: grayscale(0);
+  --std-transform: transform 200ms ease-in-out;
 }
 
 @media (min-width: 800px) {
@@ -86,7 +87,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: var(--fw-bold);
-  transition: transform 200ms ease-in-out;
+  transition: var(--std-transform);
 }
 
 .btn:hover {
@@ -136,6 +137,33 @@ h3 { font-size: var(--fs-h3); }
   color: var(--clr-accent);
   font-weight: var(--fw-bold);
   margin-bottom: 2em;
+}
+
+/* Page */
+.page-controls a {
+  text-decoration: none;
+}
+
+.page-controls__comment {
+  position: fixed;
+  width: 3em;
+  height: 3em;
+  padding: 0.75em;
+  right: 2em;
+  bottom: 2em;
+  border-radius: 1.5em;
+  background-color: var(--clr-accent);
+  z-index: 5;
+  box-shadow: var(--bs);
+}
+
+.page-controls__comment .icon-comment {
+  fill: var(--fc-light);
+  transition: var(--std-transform);
+}
+
+.page-controls__comment:hover .icon-comment {
+  transform: scale(1.1);
 }
 
 /* Header */
@@ -332,6 +360,7 @@ nav {
 
 .service {
   max-width: 500px;
+  min-width: 16em;
   margin: 0 auto;
 }
 
@@ -621,6 +650,13 @@ nav {
   width: 1.25em;
 }
 
-.social-list__link:hover {
+.social-list__link .icon-social {
+  transition:
+    var(--std-transform),
+    opacity 200ms linear;
+}
+
+.social-list__link:hover .icon-social {
+  transform: translateY(-0.25em);
   opacity: 0.7;
 }

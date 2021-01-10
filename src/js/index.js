@@ -159,6 +159,9 @@ const initialPage = () => {
   const pageLoading = document.querySelector('.page-loading');
   pageLoading.classList.add('hide');
 
+  const pageControls = document.querySelector('.page-controls');
+  pageControls.classList.remove('hide');
+
   // Force hash link scroll to position on load
   scrollOnLoad();
 };
