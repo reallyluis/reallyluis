@@ -643,13 +643,13 @@ nav {
   width: 1.25em;
 }
 
-.social-list__link {
+.social-list__link svg {
   transition:
     transform 200ms ease-in-out,
     opacity 200ms linear;
 }
 
-.social-list__link:hover {
+.social-list__link:hover svg {
   transform: translateY(-15px);
   opacity: 0.7;
 }
