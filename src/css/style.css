@@ -157,7 +157,7 @@ h3 { font-size: var(--fs-h3); }
 }
 
 .page-controls__comment > svg {
-  fill: var(--clr-light);
+  fill: var(--fc-light);
 }
 
 /* Header */
