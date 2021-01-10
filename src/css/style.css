@@ -20,6 +20,7 @@
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-mod: rgba(20, 20, 20, 0.75);
   --gs-filter: grayscale(0);
+  --std-transform: transform 200ms ease-in-out;
 }
 
 @media (min-width: 800px) {
@@ -86,7 +87,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: var(--fw-bold);
-  transition: transform 200ms ease-in-out;
+  transition: var(--std-transform);
 }
 
 .btn:hover {
@@ -158,6 +159,11 @@ h3 { font-size: var(--fs-h3); }
 
 .page-controls__comment > svg {
   fill: var(--fc-light);
+  transition: var(--std-transform);
+}
+
+.page-controls__comment:hover > svg {
+  transform: scale(1.1);
 }
 
 /* Header */
@@ -645,11 +651,11 @@ nav {
 
 .social-list__link svg {
   transition:
-    transform 200ms ease-in-out,
+    var(--std-transform),
     opacity 200ms linear;
 }
 
 .social-list__link:hover svg {
-  transform: translateY(-15px);
+  transform: translateY(-0.25em);
   opacity: 0.7;
 }
