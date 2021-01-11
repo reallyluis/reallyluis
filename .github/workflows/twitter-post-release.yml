@@ -4,21 +4,22 @@ name: Twitter Post Release
 'on':
   push:
     branches:
-      - "!*"
+      - '!*'
     tags:
-      - 'v*'
+      - 'v*.*.*'
 jobs:
   tweet-release:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - id: tag
-        run: echo "::set-output name=message::$(git describe --tags `git rev-list --tags --max-count=1`)"
+      - uses: actions/checkout@v2
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - uses: ethomson/send-tweet-action@v1
         with:
-          status: "NEW RELEASE: https://github.com/reallyluis/reallyluis/releases/tag/${{ steps.tag.output.message }}"
+          status: "NEW RELEASE: https://github.com/reallyluis/reallyluis/releases/tag/${{ steps.vars.outputs.tag }}"
           consumer-key: ${{ secrets.TWITTER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
