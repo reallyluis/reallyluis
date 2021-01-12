@@ -159,7 +159,7 @@ h3 { font-size: var(--fs-h3); }
 }
 
 .page-controls__comment.animate-out {
-  transform: translateX(5em) translateY(10em);
+  transform: translateX(4em) translateY(5em);
 }
 
 .page-controls__comment .icon-comment {

@@ -196,10 +196,10 @@ window.addEventListener('scroll', () => {
     document.body.scrollHeight;
 
   // Style change to Header
-  if (!isScrolled && scrollY > 100) {
-    document.body.classList.add('scrolled');
+  if (scrollY > 100) {
+    if (!isScrolled) document.body.classList.add('scrolled');
   } else {
-    document.body.classList.remove('scrolled');
+    if (isScrolled) document.body.classList.remove('scrolled');
   }
 
   // Style change to contact button
