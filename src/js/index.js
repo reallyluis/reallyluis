@@ -198,7 +198,7 @@ window.addEventListener('scroll', () => {
   // Style change to Header
   if (!isScrolled && scrollY > 100) {
     document.body.classList.add('scrolled');
-  } else if (isScrolled) {
+  } else {
     document.body.classList.remove('scrolled');
   }
 
