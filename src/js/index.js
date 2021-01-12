@@ -189,9 +189,24 @@ if ('serviceWorker' in navigator) {
  */
 // Update style based on scroll position
 window.addEventListener('scroll', () => {
-  if (typeof window.scrollY === 'number' && window.scrollY > 100) {
-    document.body.classList.add('scrolled');
+  const isScrolled = document.body.classList.contains &&
+    document.body.classList.contains('scrolled');
+  const scrollY = typeof window.scrollY === 'number' && window.scrollY;
+  const scrollHeight = typeof document.body.scrollHeight === 'number' &&
+    document.body.scrollHeight;
+
+  // Style change to Header
+  if (scrollY > 100) {
+    if (!isScrolled) document.body.classList.add('scrolled');
   } else {
-    document.body.classList.remove('scrolled');
+    if (isScrolled) document.body.classList.remove('scrolled');
+  }
+
+  // Style change to contact button
+  const commentBtn = document.querySelector('.page-controls__comment');
+  if (scrollY && scrollHeight && scrollY/scrollHeight > 0.75) {
+    commentBtn.classList.add('animate-out');
+  } else {
+    commentBtn.classList.remove('animate-out');
   }
 });
