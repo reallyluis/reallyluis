@@ -1,7 +1,7 @@
 const version = SERVICE_WORKER_VERSION || '00000';
 const staticCacheName = 'site-static-v' + version;
 const dynamicCacheName = 'site-dynamic-v' + version;
-const CACHE_MAX_SIZE = 30;
+const CACHE_MAX_SIZE = 35;
 const assets = [
   '/',
   '/index.html',
@@ -16,8 +16,10 @@ const assets = [
   '/css/style.css',
   '/img/icons/manifest-icon-192.png',
   '/img/icons/manifest-whitebg-192.png',
-  '/img/icons/contact-icon-192.png',
-  '/img/icons/work-icon-192.png',
+  '/img/icons/contact-icon-256.png',
+  '/img/icons/contact-icon-512.png',
+  '/img/icons/work-icon-256.png',
+  '/img/icons/work-icon-512.png',
   '/img/self.webp',
   '/img/code.webp',
   '/img/about-me.webp',
