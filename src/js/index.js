@@ -204,7 +204,7 @@ window.addEventListener('scroll', () => {
 
   // Style change to contact button
   const commentBtn = document.querySelector('.page-controls__comment');
-  if (scrollY && scrollHeight && scrollY/scrollHeight > 0.8) {
+  if (scrollY && scrollHeight && scrollY/scrollHeight > 0.75) {
     commentBtn.classList.add('animate-out');
   } else {
     commentBtn.classList.remove('animate-out');

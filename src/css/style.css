@@ -148,35 +148,18 @@ h3 { font-size: var(--fs-h3); }
   position: fixed;
   width: 3em;
   height: 3em;
-  padding: 1em;
+  padding: 0.9em;
   right: 1em;
   bottom: 1.5em;
   border-radius: 1.5em;
   background-color: var(--clr-accent);
   z-index: 5;
   box-shadow: var(--bs);
-}
-
-@keyframes slideRight {
-  0% { right: 1em; }
-  100% { right: -1em; }
-}
-
-@keyframes slideDown {
-  0% { bottom: 1.5em; }
-  100% { bottom: -1.5em; }
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  transition: var(--std-transform);
 }
 
 .page-controls__comment.animate-out {
-  animation:
-    slideRight 1.25s linear normal,
-    slideDown 1.75s ease normal
-    fadeOut 2s linear normal;
+  transform: translateX(-1em) translateY(-1.5em);
 }
 
 .page-controls__comment .icon-comment {
