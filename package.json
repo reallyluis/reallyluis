@@ -1,6 +1,6 @@
 {
   "name": "reallyluis",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "A personal website by reallyluis.",
   "scripts": {
     "emulators": "firebase emulators:start",
@@ -44,14 +44,12 @@
   },
   "homepage": "https://github.com/reallyluis/reallyluis#readme",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^7.11.0",
     "eslint-config-google": "^0.14.0",
     "jest": "^26.6.3",
     "minify": "^6.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0"
   }
 }
