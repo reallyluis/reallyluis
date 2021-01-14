@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`check footer icons 1`] = `
+exports[`check footer renders expected icons 1`] = `
 "
     <ul class=\\"social-list\\">
       <li class=\\"social-list__item\\"><a aria-label=\\"Send Email\\" href=\\"mailto:reallyluis@gmail.com\\" class=\\"social-list__link\\">
@@ -28,4 +28,4 @@ exports[`check footer icons 1`] = `
   "
 `;
 
-exports[`check title rendered text 1`] = `"full stack developer"`;
+exports[`check title renders with expected text 1`] = `"full stack developer"`;

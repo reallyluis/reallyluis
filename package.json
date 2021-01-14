@@ -13,25 +13,8 @@
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint './src/css/**/*.css'",
     "lint:js": "eslint './src/js/**/*.js'",
-    "test": "jest ./tests/*.test.js",
-    "test:coverage": "jest ./tests/*.test.js --coverage"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverageFrom": [
-      "src/js/**",
-      "!**/node_modules/**",
-      "!**/public/**",
-      "!**/tests/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 50,
-        "branches": 50,
-        "functions": 50,
-        "lines": 75
-      }
-    }
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
