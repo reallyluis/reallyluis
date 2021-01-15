@@ -8,13 +8,18 @@ jobs:
       - node/install-packages
       - run:
           command: npm run lint && npm run test
+      - coveralls/upload
       - store_artifacts:
           path: coverage
 
 orbs:
   node: circleci/node@4.1.0
+  coveralls: coveralls/coveralls@1.0.6
 version: 2.1
 workflows:
   test_my_app:
     jobs:
       - test
+    notify:
+      webhooks:
+        - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}
