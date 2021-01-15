@@ -13,7 +13,7 @@
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint './src/css/**/*.css'",
     "lint:js": "eslint './src/js/**/*.js'",
-    "test": "jest --coverage --coverageReporters='json-summary'",
+    "test": "jest --coverage --coverageReporters='lcov'",
     "test:coverage": "jest --coverage"
   },
   "repository": {
