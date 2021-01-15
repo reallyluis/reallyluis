@@ -1,5 +1,6 @@
 [![Reallyluis.com Logo](https://reallyluis.com/img/icons/icon_48x48.png)](https://reallyluis.com)
 ### reallyluis.com
+[![Coverage Status](https://coveralls.io/repos/github/reallyluis/reallyluis/badge.svg?branch=main)](https://coveralls.io/github/reallyluis/reallyluis?branch=main)
 [![reallyluis](https://circleci.com/gh/reallyluis/reallyluis.svg?style=shield)](https://app.circleci.com/pipelines/github/reallyluis)
 [![GitHub issues](https://img.shields.io/github/issues/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/issues)
 [![GitHub license](https://img.shields.io/github/license/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/blob/main/LICENSE)
