@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderAbout updates dom with details 1`] = `
+<body>
+  <div
+    class="about-me__body"
+  >
+    
+    
+    <p
+      data-id="about-id"
+    >
+      Something about me.
+    </p>
+    
+  
+  </div>
+</body>
+`;
+
+exports[`renderModal dom update modal cleared after view 1`] = `
+<body>
+  <div
+    id="work"
+  >
+     
+    <div
+      class="portfolio__modal"
+    >
+         
+      <div
+        class="portfolio__content"
+      />
+       
+    </div>
+     
+    <a
+      class="portfolio__item"
+      data-workid="0"
+      href="#portfolio"
+    >
+         
+      <div
+        class="portfolio__title"
+      >
+        Portfolio
+      </div>
+         
+      <img />
+       
+    </a>
+  </div>
+</body>
+`;
+
+exports[`renderModal dom update modal with error message 1`] = `
+<body>
+  <div
+    id="work"
+  >
+     
+    <div
+      class="portfolio__modal modal-show"
+    >
+         
+      <div
+        class="portfolio__content"
+      >
+        
+          
+        <div
+          data-id="undefined"
+        >
+          
+            
+          <h3>
+            Oopss!
+          </h3>
+          
+            
+          <div
+            unselectable="on"
+          >
+            Something went wrong.  Please try again.
+          </div>
+          
+          
+        </div>
+        
+        
+      </div>
+       
+    </div>
+     
+    <a
+      class="portfolio__item"
+      data-workid="0"
+      href="#portfolio"
+    >
+         
+      <div
+        class="portfolio__title"
+      >
+        Portfolio
+      </div>
+         
+      <img />
+       
+    </a>
+  </div>
+</body>
+`;
+
+exports[`renderModal dom update modal with portfolio details 1`] = `
+<body>
+  <div
+    id="work"
+  >
+     
+    <div
+      class="portfolio__modal modal-show"
+    >
+         
+      <div
+        class="portfolio__content"
+      >
+        
+          
+        <div
+          data-id="undefined"
+        >
+          
+            
+          <h3>
+            Portfolio 1
+          </h3>
+          
+            
+          <div
+            unselectable="on"
+          >
+            Some portfolio details.
+          </div>
+          
+          
+        </div>
+        
+        
+      </div>
+       
+    </div>
+     
+    <a
+      class="portfolio__item"
+      data-workid="0"
+      href="#portfolio"
+    >
+         
+      <div
+        class="portfolio__title"
+      >
+        Portfolio
+      </div>
+         
+      <img />
+       
+    </a>
+  </div>
+</body>
+`;
+
+exports[`renderSkill updates dom with a skill 1`] = `
+<body>
+  <div
+    class="services"
+  >
+    
+    
+    <div
+      class="service"
+      data-id="skill-id"
+    >
+      
+      
+      <h3>
+        Skill 1
+      </h3>
+      
+      
+      <p>
+        One of my skills.
+      </p>
+      
+    
+    </div>
+    
+  
+  </div>
+</body>
+`;
