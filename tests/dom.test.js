@@ -1,25 +1,20 @@
-const jsdom = require('jsdom');
-const {JSDOM} = jsdom;
+const {JSDOM} = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 const html = fs.readFileSync(path.resolve(
     __dirname,
     '../src/index.html',
 ), 'utf8');
-// require('../src/js/index');
 
 let dom;
 let container;
 const options = {
-  // resources: 'usable',
   runScripts: 'dangerously',
 };
 
 beforeEach(() => {
   dom = new JSDOM(html, options);
-  // dom.window.addEventListerner('load', () => {
   container = dom.window.document.body;
-  // });
 });
 
 test('initial body class is empty', () => {
@@ -27,12 +22,19 @@ test('initial body class is empty', () => {
   expect(classes).toHaveLength(0);
 });
 
-test('check title rendered text', () => {
+test('check title renders with expected text', () => {
   const title = container.querySelector('.section__subtitle').innerHTML;
   expect(title).toMatchSnapshot();
 });
 
-test('check footer icons', () => {
+test('check portfolio has correct number of images', () => {
+  const work = container.querySelector('#work');
+  const imgs = work.querySelectorAll('img');
+
+  expect(imgs).toHaveLength(6);
+});
+
+test('check footer renders expected icons', () => {
   const footer = container.querySelector('footer').innerHTML;
   expect(footer).toMatchSnapshot();
 });

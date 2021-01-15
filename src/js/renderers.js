@@ -15,7 +15,9 @@ const renderSkill = (id, data) => {
     </div>
   `;
 
-  services.innerHTML += html;
+  if (services) {
+    services.innerHTML += html;
+  }
 };
 
 /**
@@ -30,7 +32,9 @@ const renderAbout = (id, data) => {
     <p data-id="${id}">${description}</p>
   `;
 
-  abouts.innerHTML += html;
+  if (abouts) {
+    abouts.innerHTML += html;
+  }
 };
 
 /**
@@ -42,31 +46,37 @@ const renderModal = (works) => {
   const modalContainer = document.querySelector('.portfolio__modal');
   const modalToggleLinks = document.querySelectorAll('.portfolio__item');
   const modalContent = document.querySelector('.portfolio__content');
-  modalToggleLinks.forEach((link) => {
-    link.addEventListener('click', (el) => {
-      el.stopPropagation();
-      const workid = el.target.parentElement.dataset.workid;
-      const {title, description} = works[workid] ?
-        works[workid] :
-        {
-          title: 'Oopss!',
-          description: 'Something went wrong.  Please try again.',
-        };
-      const html = `
-        <div data-id="${workid}">
-          <h3>${title}</h3>
-          <div unselectable="on">${description}</div>
-        </div>
-      `;
 
-      modalContent.innerHTML += html;
-      modalContainer.classList.toggle('modal-show');
+  if (modalToggleLinks) {
+    modalToggleLinks.forEach((link) => {
+      link.addEventListener('click', (el) => {
+        el.stopPropagation();
+        const workid = el.target.parentElement.dataset.workid;
+        const {title, description} = works[workid] ?
+          works[workid] :
+          {
+            title: 'Oopss!',
+            description: 'Something went wrong.  Please try again.',
+          };
+        const html = `
+          <div data-id="${workid}">
+            <h3>${title}</h3>
+            <div unselectable="on">${description}</div>
+          </div>
+        `;
+
+        modalContent.innerHTML += html;
+        modalContainer.classList.toggle('modal-show');
+      });
     });
-  });
-  workContainer.addEventListener('click', () => {
-    modalContainer.classList.remove('modal-show');
-    modalContent.innerHTML = '';
-  });
+  }
+
+  if (workContainer) {
+    workContainer.addEventListener('click', () => {
+      modalContainer.classList.remove('modal-show');
+      modalContent.innerHTML = '';
+    });
+  }
 };
 
 export {
