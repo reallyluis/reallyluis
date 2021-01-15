@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mock data 1`] = `
+Object {
+  "about": Array [
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+      },
+      "id": "0",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+      },
+      "id": "1",
+    },
+  ],
+  "skills": Array [
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 1",
+      },
+      "id": "0",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 2",
+      },
+      "id": "1",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 3",
+      },
+      "id": "2",
+    },
+  ],
+  "works": Array [
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 1",
+      },
+      "id": "KOoNKHZeUKb7mtNwBzl2",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 2",
+      },
+      "id": "Uw8uxjJHOEyF5HQu2g3w",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 3",
+      },
+      "id": "12d7SL9dYztRqcA4JfB8",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 4",
+      },
+      "id": "H6VcWQATrqqRaLRIAJyJ",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 5",
+      },
+      "id": "qv5FWeganRirtEsZKdMd",
+    },
+    Object {
+      "data": Object {
+        "description": "This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. This is placeholder text since the primary data
+    source is not available. ",
+        "title": "Placeholder 6",
+      },
+      "id": "v7k1IlelLCtYEgCDKr13",
+    },
+  ],
+}
+`;
