@@ -1,6 +1,6 @@
 [![Reallyluis.com Logo](https://reallyluis.com/img/icons/icon_48x48.png)](https://reallyluis.com)
 ### reallyluis.com
-[![reallyluis](https://circleci.com/gh/reallyluis/reallyluis.svg?style=svg)](https://app.circleci.com/pipelines/github/reallyluis)
+[![reallyluis](https://circleci.com/gh/reallyluis/reallyluis.svg?style=shield)](https://app.circleci.com/pipelines/github/reallyluis)
 [![GitHub issues](https://img.shields.io/github/issues/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/issues)
 [![GitHub license](https://img.shields.io/github/license/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Furl%3Dhttps%253A%252F%252Fgithub.com%252Freallyluis%252Freallyluis)](https://twitter.com/intent/tweet?text=Nice%21:&url=https%3A%2F%2Fgithub.com%2Freallyluis%2Freallyluis)
