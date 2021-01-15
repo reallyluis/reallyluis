@@ -108,45 +108,51 @@ const initialPage = () => {
   const contactForm = document.querySelector('form');
   const contactSuccess = document.querySelector('.contact-me__success');
   const contactSubmitBtn = document.getElementById('contact-submit');
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    contactSubmitBtn.disabled = true;
-    const contact = {
-      name: contactForm.name.value,
-      email: contactForm.email.value,
-      comment: contactForm.comment.value,
-    };
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactSubmitBtn.disabled = true;
+      const contact = {
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        comment: contactForm.comment.value,
+      };
 
-    if (db) {
-      db.collection('contacts').add(contact);
+      if (db) {
+        db.collection('contacts').add(contact);
 
-      contactForm.classList.add('hide');
-      contactSuccess.classList.remove('hide');
-      resetForm(contactForm, contactSubmitBtn);
+        contactForm.classList.add('hide');
+        contactSuccess.classList.remove('hide');
+        resetForm(contactForm, contactSubmitBtn);
 
-      setTimeout(() => {
-        contactForm.classList.remove('hide');
-        contactSuccess.classList.add('hide');
-      }, 2000);
-    } else {
-      resetForm(contactForm, contactSubmitBtn);
-    }
-  });
+        setTimeout(() => {
+          contactForm.classList.remove('hide');
+          contactSuccess.classList.add('hide');
+        }, 2000);
+      } else {
+        resetForm(contactForm, contactSubmitBtn);
+      }
+    });
+  }
 
   /**
    * Navigation
    */
   const navToggle = document.querySelector('.nav-toggle');
-  navToggle.addEventListener('click', () => {
-    document.body.classList.toggle('nav-open');
-  });
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      document.body.classList.toggle('nav-open');
+    });
+  }
 
   const navLinks = document.querySelectorAll('.nav__link');
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
+  if (navLinks) {
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+      });
     });
-  });
+  }
 
   /**
    * Init and render modals
@@ -157,10 +163,14 @@ const initialPage = () => {
    * Hide page loading screen at end of initializing page
    */
   const pageLoading = document.querySelector('.page-loading');
-  pageLoading.classList.add('hide');
+  if (pageLoading) {
+    pageLoading.classList.add('hide');
+  }
 
   const pageControls = document.querySelector('.page-controls');
-  pageControls.classList.remove('hide');
+  if (pageControls) {
+    pageControls.classList.remove('hide');
+  }
 
   // Force hash link scroll to position on load
   scrollOnLoad();
@@ -210,3 +220,8 @@ window.addEventListener('scroll', () => {
     commentBtn.classList.remove('animate-out');
   }
 });
+
+export {
+  firebaseConfig,
+  initialPage,
+};

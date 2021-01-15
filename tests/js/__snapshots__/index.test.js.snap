@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check firebase config 1`] = `
+Object {
+  "apiKey": undefined,
+  "appId": "1:641332133381:web:77c83f2ffc96f51d7da66c",
+  "authDomain": "reallyluis-13b43.firebaseapp.com",
+  "databaseURL": "https://reallyluis-13b43.firebaseio.com",
+  "messagingSenderId": "641332133381",
+  "projectId": "reallyluis-13b43",
+  "storageBucket": "reallyluis-13b43.appspot.com",
+}
+`;
