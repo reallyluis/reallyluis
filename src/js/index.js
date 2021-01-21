@@ -141,24 +141,32 @@ const initialPage = () => {
   const mediaStatus = window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)');
   const darkmodeToggle = document.querySelector('.darkmode-toggle__checkbox');
-  const setDarkmodeToggle = (isOn) => isOn ?
-    document.body.classList.add('darkmode-on') :
-    document.body.classList.remove('darkmode-on');
+  const setDarkmodeToggle = (isOn) => {
+    if (isOn) {
+      document.body.classList.add('darkmode-on');
+    } else {
+      document.body.classList.remove('darkmode-on');
+    }
+
+    if (darkmodeToggle) {
+      darkmodeToggle.checked = isOn;
+    }
+  };
 
   if (darkmodeToggle) {
-    darkmodeToggle.addEventListener('change', () =>
-      setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked));
+    darkmodeToggle.addEventListener(
+        'change',
+        () => setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked),
+    );
   }
 
   if (mediaStatus) {
-    if (mediaStatus.matches && darkmodeToggle && !darkmodeToggle.checked) {
-      darkmodeToggle.checked = true;
-    }
+    setDarkmodeToggle(mediaStatus.matches);
 
-    mediaStatus.addEventListener('change', (e) => {
-      darkmodeToggle.checked = e.matches;
-      setDarkmodeToggle(e.matches);
-    });
+    mediaStatus.addEventListener(
+        'change',
+        (e) => setDarkmodeToggle(e.matches),
+    );
   }
 
   /**
