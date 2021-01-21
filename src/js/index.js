@@ -173,7 +173,9 @@ const initialPage = () => {
   }
 
   // Force hash link scroll to position on load
-  scrollOnLoad();
+  setTimeout(() => {
+    scrollOnLoad();
+  }, 250);
 };
 
 /**
