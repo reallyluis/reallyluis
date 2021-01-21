@@ -44,7 +44,7 @@
       0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
       0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
     --clr-mod: rgba(120, 120, 120, 0.75);
-    --gs-filter: grayscale(0.5);
+    --gs-filter: grayscale(0.25);
   }
 }
 
@@ -185,6 +185,53 @@ header {
   background-color: transparent;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.darkmode-toggle {
+  display: inline-block;
+  padding: 0;
+}
+
+.darkmode-toggle__checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.darkmode-toggle__label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.darkmode-toggle__label::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
+  background: #bada55;
+}
+
+.darkmode-toggle__label:active::after {
+  width: 130px;
+}
+
+.darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
 }
 
 nav {
