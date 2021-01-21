@@ -23,7 +23,10 @@ global.firebase = {
   },
 };
 global.matchMedia = () => {
-  return {matches: true};
+  return {
+    matches: true,
+    addEventListener: jest.fn(),
+  };
 };
 
 let spy;
