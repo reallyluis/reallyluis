@@ -176,7 +176,7 @@ const initialPage = () => {
   setTimeout(() => {
     console.log('scrollOnLoad called!!');
     scrollOnLoad();
-  }, 500);
+  }, 1000);
 };
 
 /**
