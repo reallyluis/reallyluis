@@ -1,7 +1,7 @@
 {
   "name": "reallyluis",
   "version": "1.9.5",
-  "description": "A personal website by reallyluis.",
+  "description": "A portfolio website by reallyluis.",
   "scripts": {
     "emulators": "firebase emulators:start",
     "prebuild": "bash ./scripts/prebuild.sh",
