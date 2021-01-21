@@ -238,13 +238,15 @@ header {
 }
 
 .darkmode-toggle__label::after {
-  content: url('/img/svg/lightbulb.svg');
+  content: '';
   position: absolute;
   top: 0.1em;
   left: 0.1em;
   width: 0.8em;
   height: 0.8em;
   background: var(--clr-light);
+  background-image: url('/img/svg/lightbulb.svg');
+  background-size: cover;
   border-radius: 0.8em;
   transition: 0.3s;
 }
