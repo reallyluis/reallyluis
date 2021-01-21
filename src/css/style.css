@@ -239,7 +239,7 @@ header {
 }
 
 .darkmode-toggle__label::after {
-  content: '';
+  content: url('/img/svg/lightbulb.svg');
   position: absolute;
   top: 0.1em;
   left: 0.1em;
