@@ -262,7 +262,6 @@ header {
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
   left: calc(100% - 0.1em);
   transform: translateX(-100%);
-  background: var(--fc-dark);
 }
 
 nav {
