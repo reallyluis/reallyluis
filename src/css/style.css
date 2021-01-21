@@ -10,6 +10,7 @@
   --fc-accent: #0d85ff;
   --clr-light: #fff;
   --clr-dark: #111;
+  --clr-gray: #bbb;
   --clr-accent: #0d85ff;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
@@ -34,7 +35,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fc-light: #fff;
     --fc-dark: #ddd;
     --fc-accent: #fff;
     --clr-light: #111;
@@ -44,8 +44,23 @@
       0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
       0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
     --clr-mod: rgba(120, 120, 120, 0.75);
-    --gs-filter: grayscale(0.5);
+    --gs-filter: grayscale(0.25);
   }
+}
+
+/* Override media darkmode style based on class on body */
+
+body.darkmode-on {
+  --fc-dark: #ddd;
+  --fc-accent: #fff;
+  --clr-light: #111;
+  --clr-dark: #333;
+  --clr-accent: #006f91;
+  --bs:
+    0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
+    0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
+  --clr-mod: rgba(120, 120, 120, 0.75);
+  --gs-filter: grayscale(0.25);
 }
 
 /* General Styles */
@@ -56,6 +71,19 @@ body {
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
   line-height: 1.6;
+}
+
+body:not(.darkmode-on) {
+  --fc-dark: #111;
+  --fc-accent: #0d85ff;
+  --clr-light: #fff;
+  --clr-dark: #111;
+  --clr-accent: #0d85ff;
+  --bs:
+    0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  --clr-mod: rgba(20, 20, 20, 0.75);
+  --gs-filter: grayscale(0);
 }
 
 body.scrolled .logo {
@@ -185,6 +213,55 @@ header {
   background-color: transparent;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.darkmode-toggle {
+  display: inline-block;
+  margin: 0 5em 0 0;
+  padding-top: 0.7em;
+}
+
+.darkmode-toggle__checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.darkmode-toggle__label {
+  cursor: pointer;
+  width: 2em;
+  height: 1em;
+  background: var(--clr-gray);
+  display: inline-block;
+  border-radius: 1em;
+  position: relative;
+}
+
+.darkmode-toggle__label::after {
+  content: '';
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--fc-light);
+  background-image: url('/img/svg/lightbulb.svg');
+  background-size: cover;
+  border-radius: 0.8em;
+  transition: 0.3s;
+}
+
+.darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
+  background: var(--clr-accent);
+}
+
+.darkmode-toggle__label:active::after {
+  width: 1.1em;
+}
+
+.darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
+  left: calc(100% - 0.1em);
+  transform: translateX(-100%);
 }
 
 nav {

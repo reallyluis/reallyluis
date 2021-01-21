@@ -11,6 +11,7 @@ global.firebase = {
       collection: () => {
         return {
           onSnapshot: jest.fn(),
+          add: jest.fn(),
         };
       },
       enablePersistence: () => {
@@ -21,6 +22,14 @@ global.firebase = {
     };
   },
 };
+global.matchMedia = () => {
+  return {
+    matches: true,
+    addEventListener: jest.fn(),
+  };
+};
+
+let spy;
 
 beforeEach(() => {
   document.body.innerHTML = '';
@@ -30,6 +39,26 @@ test('check firebase config', () => {
   app.initialPage();
 
   expect(app.firebaseConfig).toMatchSnapshot();
+});
+
+describe('darkmode events', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '' +
+      '<div class="darkmode-toggle">' +
+      '  <input type="checkbox" id="darkmode-toggle"' +
+      '    class="darkmode-toggle__checkbox" />' +
+      '  <label for="darkmode-toggle" class="darkmode-toggle__label">' +
+      '    Toggle</label>' +
+      '</div>';
+
+    app.initialPage();
+  });
+
+  test('update body class on darkmode toggled', () => {
+    document.querySelector('.darkmode-toggle__checkbox').click();
+
+    expect(document.body).toMatchSnapshot();
+  });
 });
 
 describe('navigation events', () => {
@@ -64,14 +93,14 @@ describe('contact form events', () => {
   beforeEach(() => {
     document.body.innerHTML = '' +
       '<form id="contact" class="contact-me__form">' +
-      '  <label for="name">' +
+      '  <label for="fname">' +
       '    Name:' +
       '  </label>' +
-      '  <input type="text" id="name" name="name" value="" required />' +
+      '  <input type="text" id="fname" name="fname" value="" required />' +
       '  <label for="email">' +
       '    Email:' +
       '  </label>' +
-      '  <input type="text" id="email" name="email" value="" required />' +
+      '  <input type="email" id="email" name="email" value="" required />' +
       '  <label for="comment">' +
       '    Comment:' +
       '  </label>' +
@@ -87,7 +116,18 @@ describe('contact form events', () => {
   });
 
   test('update contact form on submit', () => {
-    expect(document.body).toMatchSnapshot();
+    const form = document.querySelector('form');
+
+    // Mock form fields
+    form['fname'] = {value: ''};
+    form['email'] = {value: ''};
+    form['comment'] = {value: ''};
+
+    spy = jest.spyOn(global.firebase, 'initializeApp');
+    form.submit();
+
+    // expect(document.body).toMatchSnapshot();
+    expect(spy).toHaveBeenCalled();
   });
 });
 

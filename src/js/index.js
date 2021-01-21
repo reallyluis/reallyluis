@@ -113,7 +113,7 @@ const initialPage = () => {
       e.preventDefault();
       contactSubmitBtn.disabled = true;
       const contact = {
-        name: contactForm.name.value,
+        name: contactForm.fname.value,
         email: contactForm.email.value,
         comment: contactForm.comment.value,
       };
@@ -133,6 +133,40 @@ const initialPage = () => {
         resetForm(contactForm, contactSubmitBtn);
       }
     });
+  }
+
+  /**
+   * Darkmode Switch
+   */
+  const mediaStatus = window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)');
+  const darkmodeToggle = document.querySelector('.darkmode-toggle__checkbox');
+  const setDarkmodeToggle = (isOn) => {
+    if (isOn) {
+      document.body.classList.add('darkmode-on');
+    } else {
+      document.body.classList.remove('darkmode-on');
+    }
+
+    if (darkmodeToggle) {
+      darkmodeToggle.checked = isOn;
+    }
+  };
+
+  if (darkmodeToggle) {
+    darkmodeToggle.addEventListener(
+        'change',
+        () => setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked),
+    );
+  }
+
+  if (mediaStatus) {
+    setDarkmodeToggle(mediaStatus.matches);
+
+    mediaStatus.addEventListener(
+        'change',
+        (e) => setDarkmodeToggle(e.matches),
+    );
   }
 
   /**
@@ -173,7 +207,10 @@ const initialPage = () => {
   }
 
   // Force hash link scroll to position on load
-  scrollOnLoad();
+  // Add a delay since lazy load content can change section position
+  setTimeout(() => {
+    scrollOnLoad();
+  }, 1000);
 };
 
 /**
