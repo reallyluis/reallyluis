@@ -22,6 +22,9 @@ global.firebase = {
     };
   },
 };
+global.matchMedia = () => {
+  return {matches: true};
+};
 
 let spy;
 

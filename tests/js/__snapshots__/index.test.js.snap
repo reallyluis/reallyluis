@@ -13,9 +13,7 @@ Object {
 `;
 
 exports[`darkmode events update body class on darkmode toggled 1`] = `
-<body
-  class="darkmode-on"
->
+<body>
   <div
     class="darkmode-toggle"
   >
@@ -38,7 +36,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
 
 exports[`navigation events update body class on nav clicked 1`] = `
 <body
-  class="darkmode-on"
+  class=""
 >
   <button
     class="nav-toggle"
@@ -70,7 +68,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
 
 exports[`navigation events update body class on nav toggled 1`] = `
 <body
-  class="darkmode-on nav-open"
+  class="nav-open"
 >
   <button
     class="nav-toggle"
@@ -102,7 +100,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
 
 exports[`scroll events update after scroll greater than 75% of view 1`] = `
 <body
-  class="darkmode-on scrolled"
+  class="scrolled"
 >
   <div
     style="height:1000px"
@@ -119,7 +117,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
 
 exports[`scroll events update after scroll greater than 100 1`] = `
 <body
-  class="darkmode-on scrolled"
+  class="scrolled"
 >
   <div
     style="height:1000px"
@@ -136,7 +134,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
 
 exports[`scroll events update after scroll less than 100 1`] = `
 <body
-  class="darkmode-on"
+  class=""
 >
   <div
     style="height:1000px"

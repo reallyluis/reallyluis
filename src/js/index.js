@@ -139,10 +139,19 @@ const initialPage = () => {
    * Darkmode Switch
    */
   const darkmodeToggle = document.querySelector('.darkmode-toggle__checkbox');
+  if (window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches &&
+    darkmodeToggle && !darkmodeToggle.checked) {
+    darkmodeToggle.checked = true;
+  }
+
   if (darkmodeToggle) {
-    darkmodeToggle.addEventListener('change', (e) => {
-      console.log(e, darkmodeToggle);
-      document.body.classList.toggle('darkmode-on');
+    darkmodeToggle.addEventListener('change', () => {
+      if (darkmodeToggle && darkmodeToggle.checked) {
+        document.body.classList.add('darkmode-on');
+      } else {
+        document.body.classList.remove('darkmode-on');
+      }
     });
   }
 
