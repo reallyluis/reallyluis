@@ -229,7 +229,6 @@ header {
 
 .darkmode-toggle__label {
   cursor: pointer;
-  text-indent: -9999px;
   width: 2em;
   height: 1em;
   background: var(--clr-gray);
