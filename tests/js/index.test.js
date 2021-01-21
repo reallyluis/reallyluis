@@ -1,9 +1,9 @@
 import * as app from '../../src/js/index';
 
-// global.console = {
-//   log: jest.fn(),
-//   warn: jest.fn(),
-// };
+global.console = {
+  log: jest.fn(),
+  warn: jest.fn(),
+};
 global.firebase = {
   initializeApp: jest.fn(),
   firestore: () => {
@@ -33,6 +33,26 @@ test('check firebase config', () => {
   app.initialPage();
 
   expect(app.firebaseConfig).toMatchSnapshot();
+});
+
+describe('darkmode events', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '' +
+      '<div class="darkmode-toggle">' +
+      '  <input type="checkbox" id="darkmode-toggle"' +
+      '    class="darkmode-toggle__checkbox" />' +
+      '  <label for="darkmode-toggle" class="darkmode-toggle__label">' +
+      '    Toggle</label>' +
+      '</div>';
+
+    app.initialPage();
+  });
+
+  test('update body class on darkmode toggled', () => {
+    document.querySelector('.darkmode-toggle__checkbox').click();
+
+    expect(document.body).toMatchSnapshot();
+  });
 });
 
 describe('navigation events', () => {

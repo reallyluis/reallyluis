@@ -136,6 +136,17 @@ const initialPage = () => {
   }
 
   /**
+   * Darkmode Switch
+   */
+  const darkmodeToggle = document.querySelector('.darkmode-toggle__checkbox');
+  if (darkmodeToggle) {
+    darkmodeToggle.addEventListener('change', (e) => {
+      console.log(e, darkmodeToggle);
+      document.body.classList.toggle('darkmode-on');
+    });
+  }
+
+  /**
    * Navigation
    */
   const navToggle = document.querySelector('.nav-toggle');
@@ -175,7 +186,6 @@ const initialPage = () => {
   // Force hash link scroll to position on load
   // Add a delay since lazy load content can change section position
   setTimeout(() => {
-    console.log('scrollOnLoad called!!');
     scrollOnLoad();
   }, 1000);
 };
