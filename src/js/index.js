@@ -174,8 +174,9 @@ const initialPage = () => {
 
   // Force hash link scroll to position on load
   setTimeout(() => {
+    console.log('scrollOnLoad called!!');
     scrollOnLoad();
-  }, 250);
+  }, 500);
 };
 
 /**
