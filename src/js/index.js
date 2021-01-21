@@ -155,8 +155,10 @@ const initialPage = () => {
       darkmodeToggle.checked = true;
     }
 
-    mediaStatus.addEventListener('change', (e) =>
-      darkmodeToggle.checked = e.matches);
+    mediaStatus.addEventListener('change', (e) => {
+      darkmodeToggle.checked = e.matches;
+      setDarkmodeToggle(e.matches);
+    });
   }
 
   /**
