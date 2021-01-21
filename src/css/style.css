@@ -201,11 +201,11 @@ header {
 .darkmode-toggle__label {
   cursor: pointer;
   text-indent: -9999px;
-  width: 200px;
-  height: 100px;
-  background: grey;
+  width: 2em;
+  height: 1em;
+  background: var(--clr-dark);
   display: block;
-  border-radius: 100px;
+  border-radius: 1em;
   position: relative;
 }
 
@@ -214,23 +214,23 @@ header {
   position: absolute;
   top: 5px;
   left: 5px;
-  width: 90px;
-  height: 90px;
-  background: #fff;
-  border-radius: 90px;
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--clr-light);
+  border-radius: 0.8em;
   transition: 0.3s;
 }
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
-  background: #bada55;
+  background: var(--clr-accent);
 }
 
 .darkmode-toggle__label:active::after {
-  width: 130px;
+  width: 1.3em;
 }
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
-  left: calc(100% - 5px);
+  left: calc(100% - 0.3em);
   transform: translateX(-100%);
 }
 
