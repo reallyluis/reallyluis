@@ -113,7 +113,7 @@ const initialPage = () => {
       e.preventDefault();
       contactSubmitBtn.disabled = true;
       const contact = {
-        name: contactForm.name.value,
+        name: contactForm.fname.value,
         email: contactForm.email.value,
         comment: contactForm.comment.value,
       };
@@ -173,6 +173,7 @@ const initialPage = () => {
   }
 
   // Force hash link scroll to position on load
+  // Add a delay since lazy load content can change section position
   setTimeout(() => {
     console.log('scrollOnLoad called!!');
     scrollOnLoad();

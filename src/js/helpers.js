@@ -18,7 +18,7 @@ const scrollOnLoad = () => {
  */
 const resetForm = (contactForm, contactSubmitBtn) => {
   // Reset form fields
-  contactForm.name.value = '';
+  contactForm.fname.value = '';
   contactForm.email.value = '';
   contactForm.comment.value = '';
   contactSubmitBtn.disabled = false;

@@ -1,9 +1,9 @@
 import * as app from '../../src/js/index';
 
-global.console = {
-  log: jest.fn(),
-  warn: jest.fn(),
-};
+// global.console = {
+//   log: jest.fn(),
+//   warn: jest.fn(),
+// };
 global.firebase = {
   initializeApp: jest.fn(),
   firestore: () => {
@@ -11,6 +11,7 @@ global.firebase = {
       collection: () => {
         return {
           onSnapshot: jest.fn(),
+          add: jest.fn(),
         };
       },
       enablePersistence: () => {
@@ -21,6 +22,8 @@ global.firebase = {
     };
   },
 };
+
+let spy;
 
 beforeEach(() => {
   document.body.innerHTML = '';
@@ -64,14 +67,14 @@ describe('contact form events', () => {
   beforeEach(() => {
     document.body.innerHTML = '' +
       '<form id="contact" class="contact-me__form">' +
-      '  <label for="name">' +
+      '  <label for="fname">' +
       '    Name:' +
       '  </label>' +
-      '  <input type="text" id="name" name="name" value="" required />' +
+      '  <input type="text" id="fname" name="fname" value="" required />' +
       '  <label for="email">' +
       '    Email:' +
       '  </label>' +
-      '  <input type="text" id="email" name="email" value="" required />' +
+      '  <input type="email" id="email" name="email" value="" required />' +
       '  <label for="comment">' +
       '    Comment:' +
       '  </label>' +
@@ -87,7 +90,18 @@ describe('contact form events', () => {
   });
 
   test('update contact form on submit', () => {
-    expect(document.body).toMatchSnapshot();
+    const form = document.querySelector('form');
+
+    // Mock form fields
+    form['fname'] = {value: ''};
+    form['email'] = {value: ''};
+    form['comment'] = {value: ''};
+
+    spy = jest.spyOn(global.firebase, 'initializeApp');
+    form.submit();
+
+    // expect(document.body).toMatchSnapshot();
+    expect(spy).toHaveBeenCalled();
   });
 });
 

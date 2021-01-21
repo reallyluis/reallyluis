@@ -19,7 +19,7 @@ test('check scrollTo is called', () => {
 
 test('clear contact form on reset', () => {
   const mockForm = {
-    name: {value: 'Test User'},
+    fname: {value: 'Test User'},
     email: {value: 'test@email.com'},
     comment: {value: 'This is a test comment.'},
   };
@@ -29,7 +29,7 @@ test('clear contact form on reset', () => {
 
   resetForm(mockForm, mockSubmitBtn);
 
-  expect(mockForm.name.value).toEqual('');
+  expect(mockForm.fname.value).toEqual('');
   expect(mockForm.email.value).toEqual('');
   expect(mockForm.comment.value).toEqual('');
   expect(mockSubmitBtn.disabled).toEqual(false);
