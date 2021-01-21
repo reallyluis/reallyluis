@@ -218,7 +218,7 @@ header {
 .darkmode-toggle {
   display: inline-block;
   margin: 0 5em 0 0;
-  padding-top: 1em;
+  padding-top: 0.7em;
 }
 
 .darkmode-toggle__checkbox {
@@ -244,7 +244,7 @@ header {
   left: 0.1em;
   width: 0.8em;
   height: 0.8em;
-  background: var(--clr-light);
+  background: var(--fc-light);
   background-image: url('/img/svg/lightbulb.svg');
   background-size: cover;
   border-radius: 0.8em;
