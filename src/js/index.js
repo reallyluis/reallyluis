@@ -145,17 +145,18 @@ const initialPage = () => {
     document.body.classList.add('darkmode-on') :
     document.body.classList.remove('darkmode-on');
 
+  if (darkmodeToggle) {
+    darkmodeToggle.addEventListener('change', () =>
+      setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked));
+  }
+
   if (mediaStatus) {
     if (mediaStatus.matches && darkmodeToggle && !darkmodeToggle.checked) {
       darkmodeToggle.checked = true;
     }
 
-    mediaStatus.addEventListener('change', (e) => setDarkmodeToggle(e.matches));
-  }
-
-  if (darkmodeToggle) {
-    darkmodeToggle.addEventListener('change', () =>
-      setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked));
+    mediaStatus.addEventListener('change', (e) =>
+      darkmodeToggle.checked = e.matches);
   }
 
   /**
