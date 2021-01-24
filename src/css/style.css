@@ -49,6 +49,19 @@
   }
 }
 
+/* Animations */
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Override media darkmode style based on class on body */
 
 body.darkmode-on {
@@ -368,6 +381,7 @@ nav {
 }
 
 .intro__img {
+  animation: 1s ease-in 0s 1 slideInFromBottom;
   box-shadow: var(--bs);
 }
 
