@@ -11,6 +11,7 @@
   --clr-light: #fff;
   --clr-dark: #111;
   --clr-gray: #bbb;
+  --clr-dark-gray: #777;
   --clr-accent: #0d85ff;
   --fs-h1: 3rem;
   --fs-h2: 2.5rem;
@@ -111,7 +112,7 @@ img {
   color: var(--fc-dark);
   text-decoration: none;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: var(--fw-bold);
@@ -174,12 +175,12 @@ h3 { font-size: var(--fs-h3); }
 
 .page-controls__comment {
   position: fixed;
-  width: 3em;
-  height: 3em;
-  padding: 0.9em;
+  width: 3.5em;
+  height: 3.5em;
+  padding: 1em;
   right: 1em;
   bottom: 1.5em;
-  border-radius: 1.5em;
+  border-radius: 1.75em;
   background-color: var(--clr-accent);
   z-index: 5;
   box-shadow: var(--bs);
@@ -229,8 +230,8 @@ header {
 
 .darkmode-toggle__label {
   cursor: pointer;
-  width: 2em;
-  height: 1em;
+  width: 2.5em;
+  height: 1.25em;
   background: var(--clr-gray);
   display: inline-block;
   border-radius: 1em;
@@ -242,21 +243,16 @@ header {
   position: absolute;
   top: 0.1em;
   left: 0.1em;
-  width: 0.8em;
-  height: 0.8em;
+  width: 1em;
+  height: 1em;
   background: var(--fc-light);
   background-image: url('/img/svg/lightbulb.svg');
-  background-size: cover;
   border-radius: 0.8em;
   transition: 0.3s;
 }
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
   background: var(--clr-accent);
-}
-
-.darkmode-toggle__label:active::after {
-  width: 1.1em;
 }
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
@@ -646,6 +642,7 @@ nav {
 .contact-me__form button {
   color: var(--fc-dark);
   background-color: var(--clr-accent);
+  font-size: 1.5rem;
   padding: 0.5em;
   border: 0;
   margin-bottom: 1.5em;
