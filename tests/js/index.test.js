@@ -135,6 +135,9 @@ describe('scroll events', () => {
   beforeEach(() => {
     document.body.innerHTML = '<div style="height:1000px">' +
       ' <div class="page-controls__comment">&nbsp;</div>' +
+      ' <section id="test-section-1">&nbsp;<section>' +
+      ' <section id="test-section-2">&nbsp;<section>' +
+      ' <section id="test-section-3">&nbsp;<section>' +
       '</div>';
 
     Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
