@@ -504,15 +504,15 @@ nav {
   border-color: var(--fc-light);
   border-width: 1px;
   border-style: solid;
-  outline-style: dotted;
+  outline-style: solid;
   outline-width: 1px;
   outline-color: var(--fc-light);
-  transition: outline-offset 250ms ease;
+  transition: outline-offset 150ms ease;
 }
 
-.service p:hover {
-  outline-width: thick;
-  outline-offset: -0.1em;
+.service p:hover,
+.service p:focus {
+  outline-offset: -0.3em;
 }
 
 @media (min-width: 800px) {
