@@ -23,7 +23,7 @@
   "theme_color": "#111111",
   "shortcuts": [
     {
-      "name": "My Work",
+      "name": "Work",
       "short_name": "Work",
       "description": "Review details of my previous work.",
       "url": "/#work",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "name": "Contact Me",
+      "name": "Contact",
       "short_name": "Contact",
       "description": "Send a message via my contact form.",
       "url": "/#contact",
