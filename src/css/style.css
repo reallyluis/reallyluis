@@ -500,7 +500,17 @@ nav {
   text-align: left;
   background-color: var(--clr-mod);
   padding: 16px;
-  border-radius: 0 0.5em;
+  border-radius: 0.5em;
+  border-width: 1px;
+  border-style: solid;
+  height: 100%;
+}
+
+.service p:hover {
+  outline-width: 1px;
+  outline-style: dashed;
+  outline-color: var(--clr-accent);
+  outline-offset: -0.5em;
 }
 
 @media (min-width: 800px) {
