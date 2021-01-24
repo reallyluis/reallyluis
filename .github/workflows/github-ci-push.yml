@@ -1,4 +1,4 @@
-name: Build, lint and test
+name: GitHub CI
 'on': push
 jobs:
   build_and_test:
