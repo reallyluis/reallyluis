@@ -235,6 +235,7 @@ if ('serviceWorker' in navigator) {
  * Style changes based on scenarios
  */
 // Update style based on scroll position
+const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   const isScrolled = document.body.classList.contains &&
     document.body.classList.contains('scrolled');
@@ -256,6 +257,17 @@ window.addEventListener('scroll', () => {
   } else {
     commentBtn.classList.remove('animate-out');
   }
+
+  // Update hash when scrolling to a section
+  let newHash = '';
+  [...sections].filter((elem) => elem.id !== 'home')
+      .map((elem) => {
+        if (elem.offsetTop <= window.scrollY) {
+          newHash = elem.id;
+        }
+      });
+
+  window.location.hash = newHash;
 });
 
 export {
