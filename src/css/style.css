@@ -497,20 +497,22 @@ nav {
 }
 
 .service p {
+  height: 100%;
   text-align: left;
   background-color: var(--clr-mod);
   padding: 16px;
-  border-radius: 0.5em;
+  border-color: var(--fc-light);
   border-width: 1px;
   border-style: solid;
-  height: 100%;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-color: var(--fc-light);
+  transition: outline-offset 250ms ease;
 }
 
 .service p:hover {
-  outline-width: 1px;
-  outline-style: dashed;
-  outline-color: var(--clr-accent);
-  outline-offset: -0.5em;
+  outline-width: thick;
+  outline-offset: -0.1em;
 }
 
 @media (min-width: 800px) {
