@@ -190,7 +190,6 @@ h3 { font-size: var(--fs-h3); }
 }
 
 .section__title--intro {
-  animation: 0.5s ease-in 0s 1 slideInFromRight;
   font-weight: var(--fw-reg);
 }
 
@@ -418,12 +417,10 @@ nav {
 }
 
 .intro__img {
-  animation: 1s ease-in 0s 1 slideInFromTop;
   box-shadow: var(--bs);
 }
 
 .section__subtitle--intro {
-  animation: 1.5s ease-in 0s 1 slideInFromLeft;
   display: inline-block;
 }
 
@@ -441,13 +438,19 @@ nav {
   }
 
   .intro__img {
+    animation: 1s ease-in 0s 1 slideInFromTop;
     grid-area: img;
     min-width: 250px;
     position: relative;
     z-index: 2;
   }
 
+  .section__title--intro {
+    animation: 1s ease-in 0s 1 slideInFromRight;
+  }
+
   .section__subtitle--intro {
+    animation: 1s ease-in 0s 1 slideInFromLeft;
     align-self: start;
     grid-column: -1 / 1;
     grid-row: 2;
