@@ -16,7 +16,9 @@ global.firebase = {
       },
       enablePersistence: () => {
         return {
-          catch: jest.fn(),
+          catch: (fn) => {
+            fn({code: 'unimplemented'});
+          },
         };
       },
     };
@@ -27,6 +29,11 @@ global.matchMedia = () => {
     matches: true,
     addEventListener: jest.fn(),
   };
+};
+global.navigator = {
+  serviceWorker: {
+    register: jest.fn(),
+  },
 };
 
 let spy;
