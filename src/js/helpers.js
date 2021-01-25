@@ -26,10 +26,11 @@ const capitalizeWord = (word) => {
  */
 const updateUrlHash = (newHash='') => {
   const currentHash = window.location.hash.substring(1);
+  const baseTitle = document.title.split(' - ')[0];
 
   if (currentHash !== newHash) {
-    const newTitle = newHash === '' ? document.title :
-      `${document.title} - ${capitalizeWord(newHash)}`;
+    const newTitle = newHash === '' ? baseTitle :
+      `${baseTitle} - ${capitalizeWord(newHash)}`;
     const newUrlPath = newHash === '' ? document.location.pathname :
       `${document.location.pathname}#${newHash}`;
 
