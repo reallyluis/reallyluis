@@ -37,6 +37,8 @@ const updateHashOnScrollStop = () => {
         }
       });
 
+  console.log(currentHash, newHash);
+
   if (['', 'home', 'top'].indexOf(newHash) > -1) {
     resetUrlHash();
   } else if (currentHash !== 'portfolio') {
