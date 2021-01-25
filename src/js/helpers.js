@@ -22,16 +22,18 @@ const capitalizeWord = (word) => {
 
 /**
  * Reset URL hash
- * @param {string} newhash New hash to update in the url
+ * @param {string} newHash New hash to update in the url
  */
-const updateUrlHash = (newhash='') => {
+const updateUrlHash = (newHash='') => {
   const currentHash = window.location.hash.substring(1);
 
-  if (currentHash !== newhash) {
-    const newTitle = newhash === '' ? document.title :
-      `${document.title} - ${capitalizeWord(newhash)}`;
-    const newUrlPath = newhash === '' ? document.location.pathname :
-      `${document.location.pathname}#${newhash}`;
+  console.log(newHash, currentHash);
+
+  if (currentHash !== newHash) {
+    const newTitle = newHash === '' ? document.title :
+      `${document.title} - ${capitalizeWord(newHash)}`;
+    const newUrlPath = newHash === '' ? document.location.pathname :
+      `${document.location.pathname}#${newHash}`;
 
     try {
       history.pushState('', newTitle, newUrlPath);
@@ -51,6 +53,7 @@ const updateHashOnScrollStop = () => {
 
   [...sections].filter((elem) => elem.id !== 'home')
       .map((elem) => {
+        console.log(elem.offsetTop, scrollYPadded);
         if (elem.offsetTop <= scrollYPadded) {
           newHash = elem.id;
         }
