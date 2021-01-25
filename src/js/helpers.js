@@ -12,6 +12,39 @@ const scrollOnLoad = () => {
 };
 
 /**
+ * Reset URL hash
+ */
+const resetUrlHash = () => {
+  try {
+    window.history.pushState('', document.title, document.location.pathname);
+  } catch (err) {
+    console.log('Unable to reset url hash.');
+  }
+};
+
+/**
+ * Update URL Hash when scrolling has stopped
+ */
+const updateHashOnScrollStop = () => {
+  const sections = document.querySelectorAll('section');
+  const currentHash = window.location.hash;
+  let newHash = '';
+
+  [...sections].filter((elem) => elem.id !== 'home')
+      .map((elem) => {
+        if (elem.offsetTop <= window.scrollY) {
+          newHash = elem.id;
+        }
+      });
+
+  if (['', 'home', 'top'].indexOf(newHash) > -1) {
+    resetUrlHash();
+  } else if (currentHash !== 'portfolio') {
+    window.location.hash = newHash;
+  }
+};
+
+/**
  * Resets contact form
  * @param {object} contactForm The form dom
  * @param {object} contactSubmitBtn The form submit button
@@ -117,4 +150,10 @@ const mockData = () => {
   };
 };
 
-export {scrollOnLoad, resetForm, mockData};
+export {
+  scrollOnLoad,
+  resetUrlHash,
+  updateHashOnScrollStop,
+  resetForm,
+  mockData,
+};
