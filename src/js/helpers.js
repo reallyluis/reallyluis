@@ -27,8 +27,6 @@ const capitalizeWord = (word) => {
 const updateUrlHash = (newHash='') => {
   const currentHash = window.location.hash.substring(1);
 
-  console.log(newHash, currentHash);
-
   if (currentHash !== newHash) {
     const newTitle = newHash === '' ? document.title :
       `${document.title} - ${capitalizeWord(newHash)}`;
@@ -36,6 +34,7 @@ const updateUrlHash = (newHash='') => {
       `${document.location.pathname}#${newHash}`;
 
     try {
+      document.title = newTitle;
       history.pushState('', newTitle, newUrlPath);
     } catch (err) {
       console.log('Unable to update url hash.');
@@ -47,14 +46,12 @@ const updateUrlHash = (newHash='') => {
  * Update URL Hash when scrolling has stopped
  */
 const updateHashOnScrollStop = () => {
-  const scrollYPadded = window.scrollY + 10;
   const sections = document.querySelectorAll('section');
   let newHash = '';
 
   [...sections].filter((elem) => elem.id !== 'home')
       .map((elem) => {
-        console.log(elem.offsetTop, scrollYPadded);
-        if (elem.offsetTop <= scrollYPadded) {
+        if (elem.offsetTop <= window.scrollY) {
           newHash = elem.id;
         }
       });
