@@ -267,7 +267,7 @@ window.addEventListener('scroll', () => {
   if (isScrolling) {
     window.clearTimeout(isScrolling);
   }
-  isScrolling = setTimeout(updateHashOnScrollStop, 66);
+  isScrolling = setTimeout(updateHashOnScrollStop, 100);
 });
 
 export {

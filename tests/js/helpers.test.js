@@ -1,6 +1,6 @@
 import {
   scrollOnLoad,
-  resetUrlHash,
+  updateUrlHash,
   updateHashOnScrollStop,
   resetForm,
   mockData,
@@ -8,7 +8,7 @@ import {
 
 global.scrollTo = jest.fn();
 global.history = {
-  pushState: jest.fn(),
+  replaceState: jest.fn(),
 };
 
 let spy;
@@ -28,15 +28,15 @@ describe('scrollOnLoad method', () => {
   });
 });
 
-describe('resetUrlHash method', () => {
+describe('updateUrlHash method', () => {
   beforeEach(() => {
-    spy = jest.spyOn(global.history, 'pushState');
+    spy = jest.spyOn(global.history, 'replaceState');
   });
 
-  test('check pushState is called', () => {
+  test('check replaceState is called', () => {
     global.document.location.hash = 'test';
 
-    resetUrlHash();
+    updateUrlHash();
 
     expect(spy).toHaveBeenCalled();
   });

@@ -13,13 +13,20 @@ const scrollOnLoad = () => {
 
 /**
  * Reset URL hash
+ * @param {string} newhash New hash to update in the url
  */
-const resetUrlHash = () => {
-  if ('pushState' in history) {
+const updateUrlHash = (newhash='') => {
+  const currentHash = window.location.hash.substring(1);
+
+  if (currentHash !== newhash) {
+    const newUrlPath = newhash === '' ?
+      document.location.pathname :
+      `${document.location.pathname}#${hash}`;
+
     try {
-      history.pushState('', document.title, document.location.pathname);
+      history.replaceState('', document.title, newUrlPath);
     } catch (err) {
-      console.log('Unable to reset url hash.');
+      console.log('Unable to update url hash.');
     }
   }
 };
@@ -30,7 +37,6 @@ const resetUrlHash = () => {
 const updateHashOnScrollStop = () => {
   const scrollYPadded = window.scrollY + 10;
   const sections = document.querySelectorAll('section');
-  const currentHash = window.location.hash;
   let newHash = '';
 
   [...sections].filter((elem) => elem.id !== 'home')
@@ -40,21 +46,7 @@ const updateHashOnScrollStop = () => {
         }
       });
 
-  console.log(currentHash, newHash);
-
-  if (['', 'home', 'top', 'portfolio'].indexOf(newHash) > -1) {
-    resetUrlHash();
-  } else if ('replaceState' in history) {
-    try {
-      history.replaceState(
-          '',
-          document.title,
-          `${document.location.pathname}#${newHash}`,
-      );
-    } catch (err) {
-      console.log('Unable to replace url hash.');
-    }
-  }
+  updateUrlHash(newHash);
 };
 
 /**
@@ -165,7 +157,7 @@ const mockData = () => {
 
 export {
   scrollOnLoad,
-  resetUrlHash,
+  updateUrlHash,
   updateHashOnScrollStop,
   resetForm,
   mockData,
