@@ -15,10 +15,12 @@ const scrollOnLoad = () => {
  * Reset URL hash
  */
 const resetUrlHash = () => {
-  try {
-    window.history.pushState('', document.title, document.location.pathname);
-  } catch (err) {
-    console.log('Unable to reset url hash.');
+  if ('pushState' in history) {
+    try {
+      history.pushState('', document.title, document.location.pathname);
+    } catch (err) {
+      console.log('Unable to reset url hash.');
+    }
   }
 };
 
@@ -26,23 +28,32 @@ const resetUrlHash = () => {
  * Update URL Hash when scrolling has stopped
  */
 const updateHashOnScrollStop = () => {
+  const scrollYPadded = window.scrollY + 10;
   const sections = document.querySelectorAll('section');
   const currentHash = window.location.hash;
   let newHash = '';
 
   [...sections].filter((elem) => elem.id !== 'home')
       .map((elem) => {
-        if (elem.offsetTop <= window.scrollY) {
+        if (elem.offsetTop <= scrollYPadded) {
           newHash = elem.id;
         }
       });
 
   console.log(currentHash, newHash);
 
-  if (['', 'home', 'top'].indexOf(newHash) > -1) {
+  if (['', 'home', 'top', 'portfolio'].indexOf(newHash) > -1) {
     resetUrlHash();
-  } else if (currentHash !== 'portfolio') {
-    window.location.hash = newHash;
+  } else if ('replaceState' in history) {
+    try {
+      history.replaceState(
+          '',
+          document.title,
+          `${document.location.pathname}#${newHash}`,
+      );
+    } catch (err) {
+      console.log('Unable to replace url hash.');
+    }
   }
 };
 
