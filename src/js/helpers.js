@@ -28,16 +28,13 @@ const updateUrlHash = (newhash='') => {
   const currentHash = window.location.hash.substring(1);
 
   if (currentHash !== newhash) {
-    const newUrlPath = newhash === '' ?
-      `${document.location.pathname} - ${capitalizeWord(newhash)}` :
+    const newTitle = newhash === '' ? document.title :
+      `${document.title} - ${capitalizeWord(newhash)}`;
+    const newUrlPath = newhash === '' ? document.location.pathname :
       `${document.location.pathname}#${newhash}`;
 
     try {
-      history.pushState(
-          '',
-          document.title,
-          newUrlPath,
-      );
+      history.pushState('', newTitle, newUrlPath);
     } catch (err) {
       console.log('Unable to update url hash.');
     }

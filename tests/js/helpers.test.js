@@ -40,6 +40,14 @@ describe('updateUrlHash method', () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  test('check pushState is called with newHash', () => {
+    global.document.location.hash = 'test';
+
+    updateUrlHash('another');
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
 
 describe('updateHashOnScrollStop method', () => {
