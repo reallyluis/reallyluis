@@ -12,6 +12,55 @@ const scrollOnLoad = () => {
 };
 
 /**
+ * Capitalize word
+ * @param {string} word String to be capitalized.
+ * @return {string} Return capitalized string.
+ */
+const capitalizeWord = (word) => {
+  return word.charAt(0).toUpperCase() + word.substring(1);
+};
+
+/**
+ * Reset URL hash
+ * @param {string} newHash New hash to update in the url
+ */
+const updateUrlHash = (newHash='') => {
+  const currentHash = window.location.hash.substring(1);
+  const baseTitle = document.title.split(' - ')[0];
+
+  if (currentHash !== newHash) {
+    const newTitle = newHash === '' ? baseTitle :
+      `${baseTitle} - ${capitalizeWord(newHash)}`;
+    const newUrlPath = newHash === '' ? document.location.pathname :
+      `${document.location.pathname}#${newHash}`;
+
+    try {
+      document.title = newTitle;
+      history.pushState('', newTitle, newUrlPath);
+    } catch (err) {
+      console.log('Unable to update url hash.');
+    }
+  }
+};
+
+/**
+ * Update URL Hash when scrolling has stopped
+ */
+const updateHashOnScrollStop = () => {
+  const sections = document.querySelectorAll('section');
+  let newHash = '';
+
+  [...sections].filter((elem) => elem.id !== 'home')
+      .map((elem) => {
+        if (elem.offsetTop <= window.scrollY) {
+          newHash = elem.id;
+        }
+      });
+
+  updateUrlHash(newHash);
+};
+
+/**
  * Resets contact form
  * @param {object} contactForm The form dom
  * @param {object} contactSubmitBtn The form submit button
@@ -117,4 +166,10 @@ const mockData = () => {
   };
 };
 
-export {scrollOnLoad, resetForm, mockData};
+export {
+  scrollOnLoad,
+  updateUrlHash,
+  updateHashOnScrollStop,
+  resetForm,
+  mockData,
+};

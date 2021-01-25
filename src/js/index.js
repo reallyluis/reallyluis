@@ -1,5 +1,10 @@
 'use strict';
-import {scrollOnLoad, resetForm, mockData} from './helpers.js';
+import {
+  scrollOnLoad,
+  updateHashOnScrollStop,
+  resetForm,
+  mockData,
+} from './helpers.js';
 import {renderSkill, renderAbout, renderModal} from './renderers.js';
 
 const firebaseConfig = {
@@ -235,6 +240,7 @@ if ('serviceWorker' in navigator) {
  * Style changes based on scenarios
  */
 // Update style based on scroll position
+let isScrolling;
 window.addEventListener('scroll', () => {
   const isScrolled = document.body.classList.contains &&
     document.body.classList.contains('scrolled');
@@ -256,6 +262,12 @@ window.addEventListener('scroll', () => {
   } else {
     commentBtn.classList.remove('animate-out');
   }
+
+  // Update hash when scrolling stops
+  if (isScrolling) {
+    window.clearTimeout(isScrolling);
+  }
+  isScrolling = setTimeout(updateHashOnScrollStop, 250);
 });
 
 export {

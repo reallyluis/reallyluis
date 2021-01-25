@@ -113,6 +113,29 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
     >
        
     </div>
+     
+    <section
+      id="test-section-1"
+    >
+       
+      <section>
+         
+        <section
+          id="test-section-2"
+        >
+           
+          <section>
+             
+            <section
+              id="test-section-3"
+            >
+               
+              <section />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
   </div>
 </body>
 `;
@@ -130,6 +153,29 @@ exports[`scroll events update after scroll greater than 100 1`] = `
     >
        
     </div>
+     
+    <section
+      id="test-section-1"
+    >
+       
+      <section>
+         
+        <section
+          id="test-section-2"
+        >
+           
+          <section>
+             
+            <section
+              id="test-section-3"
+            >
+               
+              <section />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
   </div>
 </body>
 `;
@@ -147,6 +193,29 @@ exports[`scroll events update after scroll less than 100 1`] = `
     >
        
     </div>
+     
+    <section
+      id="test-section-1"
+    >
+       
+      <section>
+         
+        <section
+          id="test-section-2"
+        >
+           
+          <section>
+             
+            <section
+              id="test-section-3"
+            >
+               
+              <section />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
   </div>
 </body>
 `;

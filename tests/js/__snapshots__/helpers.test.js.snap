@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mock data 1`] = `
+exports[`mockData method mock data 1`] = `
 Object {
   "about": Array [
     Object {
@@ -139,4 +139,42 @@ Object {
     },
   ],
 }
+`;
+
+exports[`updateHashOnScrollStop method check dom updates on scroll stop 1`] = `
+<body>
+  <div
+    style="height:1000px"
+  >
+     
+    <div
+      class="page-controls__comment"
+    >
+       
+    </div>
+     
+    <section
+      id="test-section-1"
+    >
+       
+      <section>
+         
+        <section
+          id="test-section-2"
+        >
+           
+          <section>
+             
+            <section
+              id="test-section-3"
+            >
+               
+              <section />
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  </div>
+</body>
 `;

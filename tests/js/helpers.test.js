@@ -1,42 +1,96 @@
-import {scrollOnLoad, resetForm, mockData} from '../../src/js/helpers';
+import {
+  scrollOnLoad,
+  updateUrlHash,
+  updateHashOnScrollStop,
+  resetForm,
+  mockData,
+} from '../../src/js/helpers';
 
 global.scrollTo = jest.fn();
+global.history = {
+  pushState: jest.fn(),
+};
 
 let spy;
 
-beforeEach(() => {
-  spy = jest.spyOn(global, 'scrollTo');
+describe('scrollOnLoad method', () => {
+  beforeEach(() => {
+    spy = jest.spyOn(global, 'scrollTo');
+  });
+
+  test('check scrollTo is called', () => {
+    global.document.location.hash = 'test';
+    global.document.body.innerHTML = '<div id="test"></div>';
+
+    scrollOnLoad();
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
 
-test('check scrollTo is called', () => {
-  global.document.location.hash = 'test';
-  global.document.body.innerHTML = '<div id="test"></div>';
+describe('updateUrlHash method', () => {
+  beforeEach(() => {
+    spy = jest.spyOn(global.history, 'pushState');
+  });
 
-  scrollOnLoad();
+  test('check pushState is called', () => {
+    global.document.location.hash = 'test';
 
-  expect(spy).toHaveBeenCalled();
+    updateUrlHash();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  test('check pushState is called with newHash', () => {
+    global.document.location.hash = 'test';
+
+    updateUrlHash('another');
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
 
-test('clear contact form on reset', () => {
-  const mockForm = {
-    fname: {value: 'Test User'},
-    email: {value: 'test@email.com'},
-    comment: {value: 'This is a test comment.'},
-  };
-  const mockSubmitBtn = {
-    disabled: true,
-  };
+describe('updateHashOnScrollStop method', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '<div style="height:1000px">' +
+      ' <div class="page-controls__comment">&nbsp;</div>' +
+      ' <section id="test-section-1">&nbsp;<section>' +
+      ' <section id="test-section-2">&nbsp;<section>' +
+      ' <section id="test-section-3">&nbsp;<section>' +
+      '</div>';
+  });
 
-  resetForm(mockForm, mockSubmitBtn);
+  test('check dom updates on scroll stop', () => {
+    updateHashOnScrollStop();
 
-  expect(mockForm.fname.value).toEqual('');
-  expect(mockForm.email.value).toEqual('');
-  expect(mockForm.comment.value).toEqual('');
-  expect(mockSubmitBtn.disabled).toEqual(false);
+    expect(document.body).toMatchSnapshot();
+  });
 });
 
-test('mock data', () => {
-  const data = mockData();
+describe('resetForm method', () => {
+  test('clear contact form on reset', () => {
+    const mockForm = {
+      fname: {value: 'Test User'},
+      email: {value: 'test@email.com'},
+      comment: {value: 'This is a test comment.'},
+    };
+    const mockSubmitBtn = {
+      disabled: true,
+    };
 
-  expect(data).toMatchSnapshot();
+    resetForm(mockForm, mockSubmitBtn);
+
+    expect(mockForm.fname.value).toEqual('');
+    expect(mockForm.email.value).toEqual('');
+    expect(mockForm.comment.value).toEqual('');
+    expect(mockSubmitBtn.disabled).toEqual(false);
+  });
+});
+
+describe('mockData method', () => {
+  test('mock data', () => {
+    const data = mockData();
+
+    expect(data).toMatchSnapshot();
+  });
 });
