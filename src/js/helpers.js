@@ -12,6 +12,15 @@ const scrollOnLoad = () => {
 };
 
 /**
+ * Capitalize word
+ * @param {string} word String to be capitalized.
+ * @return {string} Return capitalized string.
+ */
+const capitalizeWord = (word) => {
+  return word.charAt(0).toUpperCase() + word.substring(1);
+};
+
+/**
  * Reset URL hash
  * @param {string} newhash New hash to update in the url
  */
@@ -20,11 +29,15 @@ const updateUrlHash = (newhash='') => {
 
   if (currentHash !== newhash) {
     const newUrlPath = newhash === '' ?
-      document.location.pathname :
-      `${document.location.pathname}#${hash}`;
+      `${document.location.pathname} - ${capitalizeWord(newhash)}` :
+      `${document.location.pathname}#${newhash}`;
 
     try {
-      history.replaceState('', document.title, newUrlPath);
+      history.pushState(
+          '',
+          document.title,
+          newUrlPath,
+      );
     } catch (err) {
       console.log('Unable to update url hash.');
     }

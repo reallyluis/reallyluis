@@ -8,7 +8,7 @@ import {
 
 global.scrollTo = jest.fn();
 global.history = {
-  replaceState: jest.fn(),
+  pushState: jest.fn(),
 };
 
 let spy;
@@ -30,10 +30,10 @@ describe('scrollOnLoad method', () => {
 
 describe('updateUrlHash method', () => {
   beforeEach(() => {
-    spy = jest.spyOn(global.history, 'replaceState');
+    spy = jest.spyOn(global.history, 'pushState');
   });
 
-  test('check replaceState is called', () => {
+  test('check pushState is called', () => {
     global.document.location.hash = 'test';
 
     updateUrlHash();
