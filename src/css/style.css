@@ -802,23 +802,40 @@ nav {
 
 .footer-list {
   display: flex;
+  flex-direction: column;
   list-style-type: none;
-  margin: 2em 0 0;
+  margin: 1em 0.5em 0;
   padding: 0;
   font-size: 1rem;
+  text-align: left;
 }
 
 .footer-list_item {
-  margin: 0;
-  padding: 0.25em 1em;
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
   flex-basis: 100%;
   white-space: nowrap;
 }
 
 .footer-list_item a:hover {
-  font-weight: var(--fw-bold);
+  text-decoration: overline;
 }
 
 .footer-list_item.copy {
   color: var(--fc-light);
+}
+
+@media (min-width: 600px) {
+  .footer-list {
+    flex-direction: row;
+    margin: 2em 1em 0;
+    text-align: center;
+  }
+
+  .footer-list_item {
+    margin: 0;
+    padding: 0.25em 0.5em;
+    flex-basis: 100%;
+    white-space: nowrap;
+  }
 }
