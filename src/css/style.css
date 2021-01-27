@@ -38,13 +38,11 @@
   :root {
     --fc-dark: #ddd;
     --fc-accent: #fff;
-    --clr-light: #111;
-    --clr-dark: #333;
-    --clr-accent: #006f91;
+    --clr-light: #333;
+    --clr-accent: #1093bb;
     --bs:
       0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
       0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
-    --clr-mod: rgba(120, 120, 120, 0.75);
     --gs-filter: grayscale(0.25);
   }
 }
@@ -103,13 +101,11 @@
 body.darkmode-on {
   --fc-dark: #ddd;
   --fc-accent: #fff;
-  --clr-light: #111;
-  --clr-dark: #333;
-  --clr-accent: #006f91;
+  --clr-light: #333;
+  --clr-accent: #1093bb;
   --bs:
     0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
     0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
-  --clr-mod: rgba(120, 120, 120, 0.75);
   --gs-filter: grayscale(0.25);
 }
 
@@ -127,12 +123,10 @@ body:not(.darkmode-on) {
   --fc-dark: #111;
   --fc-accent: #0d85ff;
   --clr-light: #fff;
-  --clr-dark: #111;
   --clr-accent: #0d85ff;
   --bs:
     0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-  --clr-mod: rgba(20, 20, 20, 0.75);
   --gs-filter: grayscale(0);
 }
 
@@ -438,7 +432,7 @@ nav {
   }
 
   .intro__img {
-    animation: 1s ease-in 0s 1 slideInFromTop;
+    animation: 1s ease-in 150ms 1 slideInFromTop;
     grid-area: img;
     min-width: 250px;
     position: relative;
@@ -446,11 +440,11 @@ nav {
   }
 
   .section__title--intro {
-    animation: 1s ease-in 0s 1 slideInFromRight;
+    animation: 1s ease-in 150ms 1 slideInFromRight;
   }
 
   .section__subtitle--intro {
-    animation: 1s ease-in 0s 1 slideInFromLeft;
+    animation: 1s ease-in 150ms 1 slideInFromLeft;
     align-self: start;
     grid-column: -1 / 1;
     grid-row: 2;
