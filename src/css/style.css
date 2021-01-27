@@ -799,3 +799,16 @@ nav {
   transform: translateY(-0.25em);
   opacity: 0.8;
 }
+
+.footer-list {
+  display: flex;
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.footer-list_item {
+  margin: 0 2em;
+  padding: 0.25em 1em;
+}
