@@ -795,7 +795,11 @@ nav {
     opacity 200ms linear;
 }
 
+.social-list__link .icon-social path {
+  fill: currentColor;
+}
+
 .social-list__link:hover .icon-social {
   transform: translateY(-0.25em);
-  opacity: 0.7;
+  opacity: 0.8;
 }
