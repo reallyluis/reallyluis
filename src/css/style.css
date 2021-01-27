@@ -39,7 +39,7 @@
     --fc-dark: #ddd;
     --fc-accent: #fff;
     --clr-light: #333;
-    --clr-accent: #1093bb;
+    --clr-accent: #006f91;
     --bs:
       0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
       0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
@@ -102,7 +102,7 @@ body.darkmode-on {
   --fc-dark: #ddd;
   --fc-accent: #fff;
   --clr-light: #333;
-  --clr-accent: #1093bb;
+  --clr-accent: #006f91;
   --bs:
     0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
     0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
@@ -477,7 +477,7 @@ nav {
   width: 2em;
   height: 1px;
   margin: 0.5em auto 1em;
-  background-color: var(--clr-light);
+  background-color: var(--fc-light);
   opacity: 0.25;
 }
 
