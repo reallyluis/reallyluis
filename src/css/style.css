@@ -646,6 +646,7 @@ nav {
 }
 
 .portfolio__img {
+  aspect-ratio: 3/2;
   transition:
     transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
     opacity 200ms linear;
