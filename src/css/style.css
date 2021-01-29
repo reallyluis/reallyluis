@@ -426,7 +426,7 @@ nav {
   }
 
   .intro__img {
-    animation: 1s ease-in 150ms 1 slideInFromTop;
+    animation: 1s ease-in 250ms 1 slideInFromTop;
     grid-area: img;
     min-width: 250px;
     position: relative;
@@ -434,11 +434,11 @@ nav {
   }
 
   .section__title--intro {
-    animation: 1s ease-in 150ms 1 slideInFromRight;
+    animation: 1s ease-in 250ms 1 slideInFromRight;
   }
 
   .section__subtitle--intro {
-    animation: 1s ease-in 150ms 1 slideInFromLeft;
+    animation: 1s ease-in 250ms 1 slideInFromLeft;
     align-self: start;
     grid-column: -1 / 1;
     grid-row: 2;
