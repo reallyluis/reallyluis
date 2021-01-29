@@ -40,9 +40,6 @@
     --fc-accent: #fff;
     --clr-light: #333;
     --clr-accent: #006f91;
-    --bs:
-      0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
-      0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
     --gs-filter: grayscale(0.25);
   }
 }
@@ -103,9 +100,6 @@ body.darkmode-on {
   --fc-accent: #fff;
   --clr-light: #333;
   --clr-accent: #006f91;
-  --bs:
-    0.25em 0.25em 0.75em rgba(225, 225, 225, 0.25),
-    0.125em 0.125em 0.25em rgba(225, 225, 225, 0.15);
   --gs-filter: grayscale(0.25);
 }
 
@@ -163,7 +157,7 @@ img {
 }
 
 .btn:hover {
-  transform: scale(1.1);
+  transform: scale(0.97);
 }
 
 /* Typography */
@@ -432,7 +426,7 @@ nav {
   }
 
   .intro__img {
-    animation: 1s ease-in 150ms 1 slideInFromTop;
+    animation: 750ms ease-in 250ms 1 slideInFromTop;
     grid-area: img;
     min-width: 250px;
     position: relative;
@@ -440,11 +434,11 @@ nav {
   }
 
   .section__title--intro {
-    animation: 1s ease-in 150ms 1 slideInFromRight;
+    animation: 750ms ease-in 250ms 1 slideInFromRight;
   }
 
   .section__subtitle--intro {
-    animation: 1s ease-in 150ms 1 slideInFromLeft;
+    animation: 750ms ease-in 250ms 1 slideInFromLeft;
     align-self: start;
     grid-column: -1 / 1;
     grid-row: 2;
@@ -823,7 +817,7 @@ nav {
 }
 
 .footer-list_item.copy {
-  color: var(--fc-light);
+  color: var(--clr-dark-gray);
 }
 
 @media (min-width: 600px) {
