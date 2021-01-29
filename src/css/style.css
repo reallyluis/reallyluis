@@ -817,7 +817,7 @@ nav {
 }
 
 .footer-list_item.copy {
-  color: var(--fc-light);
+  color: var(--clr-dark-gray);
 }
 
 @media (min-width: 600px) {
