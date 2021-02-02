@@ -43,7 +43,7 @@ beforeEach(() => {
 });
 
 test('check firebase config', () => {
-  app.initialPage();
+  app.initPage();
 
   expect(app.firebaseConfig).toMatchSnapshot();
 });
@@ -58,7 +58,7 @@ describe('darkmode events', () => {
       '    Toggle</label>' +
       '</div>';
 
-    app.initialPage();
+    app.initPage();
   });
 
   test('update body class on darkmode toggled', () => {
@@ -79,7 +79,7 @@ describe('navigation events', () => {
       '  </ul>' +
       '</nav>';
 
-    app.initialPage();
+    app.initPage();
   });
 
   test('update body class on nav toggled', () => {
@@ -119,7 +119,7 @@ describe('contact form events', () => {
       '  <p><b>Thanks!</b>  Your message was sent successfully.</p>' +
       '</div>';
 
-    app.initialPage();
+    app.initPage();
   });
 
   test('update contact form on submit', () => {
@@ -157,7 +157,7 @@ describe('scroll events', () => {
       },
     });
 
-    app.initialPage();
+    app.initPage();
   });
 
   test('update after scroll less than 100', () => {

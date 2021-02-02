@@ -1,7 +1,47 @@
-import {renderSkill, renderAbout, renderModal} from '../../src/js/renderers';
+import {
+  loadSkillSection,
+  renderSkill,
+  loadAboutSection,
+  renderAbout,
+  loadWorkSection,
+  renderModal,
+  loadContactSection,
+  loadFooterSection,
+} from '../../src/js/renderers';
 
 beforeEach(() => {
   document.body.innerHTML = '';
+});
+
+describe('loading each section', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  test('load skill section', () => {
+    loadSkillSection();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  test('load about section', () => {
+    loadAboutSection();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  test('load work section', () => {
+    loadWorkSection();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  test('load contact section', () => {
+    loadContactSection();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  test('load footer section', () => {
+    loadFooterSection();
+    expect(document.body).toMatchSnapshot();
+  });
 });
 
 test('renderSkill updates dom with a skill', () => {
