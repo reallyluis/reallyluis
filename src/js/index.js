@@ -214,16 +214,6 @@ const initPage = () => {
    */
   renderModal(works);
 
-  /**
-   * Hide page loading screen at end of initializing page
-   */
-  const pageLoading = document.querySelector('.page-loading');
-  if (pageLoading) {
-    setTimeout(() => {
-      pageLoading.classList.add('hide');
-    }, 250);
-  }
-
   const pageControls = document.querySelector('.page-controls');
   if (pageControls) {
     pageControls.classList.remove('hide');
