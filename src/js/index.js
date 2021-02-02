@@ -219,7 +219,9 @@ const initPage = () => {
    */
   const pageLoading = document.querySelector('.page-loading');
   if (pageLoading) {
-    pageLoading.classList.add('hide');
+    setTimeout(() => {
+      pageLoading.classList.add('hide');
+    }, 250);
   }
 
   const pageControls = document.querySelector('.page-controls');
