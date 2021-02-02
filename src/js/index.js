@@ -5,7 +5,16 @@ import {
   resetForm,
   mockData,
 } from './helpers.js';
-import {renderSkill, renderAbout, renderModal} from './renderers.js';
+import {
+  loadSkillSection,
+  renderSkill,
+  loadAboutSection,
+  renderAbout,
+  loadWorkSection,
+  renderModal,
+  loadContactSection,
+  loadFooterSection,
+} from './renderers.js';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -17,7 +26,7 @@ const firebaseConfig = {
   appId: '1:641332133381:web:77c83f2ffc96f51d7da66c',
 };
 
-const initialPage = () => {
+const initPage = () => {
   const works = {};
   // const pageError = document.querySelector('.page-error');
 
@@ -55,6 +64,13 @@ const initialPage = () => {
     console.log('firebase failed to load.');
     // pageError.classList.remove('hide');
   }
+
+  // Lazy Load Sections
+  loadSkillSection();
+  loadAboutSection();
+  loadWorkSection();
+  loadContactSection();
+  loadFooterSection();
 
   if (db) {
     // realtime listener
@@ -228,11 +244,11 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
     // .then((reg) => console.log('service worker registered', reg))
     // .catch((err) => console.log('service worker not registered', err));
-    initialPage();
+    initPage();
   });
 } else {
   window.addEventListener('load', () => {
-    initialPage();
+    initPage();
   });
 }
 
@@ -272,5 +288,5 @@ window.addEventListener('scroll', () => {
 
 export {
   firebaseConfig,
-  initialPage,
+  initPage,
 };
