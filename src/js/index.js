@@ -6,14 +6,14 @@ import {
   mockData,
 } from './helpers.js';
 import {
+  loadSkillSection,
   renderSkill,
+  loadAboutSection,
   renderAbout,
+  loadWorkSection,
   renderModal,
-  // loadSkillSection,
-  // loadAboutSection,
-  // loadWorkSection,
-  // loadContactSection,
-  // loadFooterSection,
+  loadContactSection,
+  loadFooterSection,
 } from './renderers.js';
 
 const firebaseConfig = {
@@ -65,12 +65,12 @@ const initPage = () => {
     // pageError.classList.remove('hide');
   }
 
-  // // Lazy Load Sections
-  // loadSkillSection();
-  // loadAboutSection();
-  // loadWorkSection();
-  // loadContactSection();
-  // loadFooterSection();
+  // Lazy Load Sections
+  loadSkillSection();
+  loadAboutSection();
+  loadWorkSection();
+  loadContactSection();
+  loadFooterSection();
 
   if (db) {
     // realtime listener
