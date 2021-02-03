@@ -139,9 +139,7 @@ exports[`loading each section load contact section 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           

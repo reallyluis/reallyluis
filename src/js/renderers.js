@@ -168,6 +168,7 @@ const renderModal = (works) => {
 };
 
 const loadContactSection = () => {
+  /* eslint-disable max-len */
   const body = document.querySelector('body');
   const html = `
     <section class="contact-me" id="contact">
@@ -190,8 +191,7 @@ const loadContactSection = () => {
           <label for="comment">
             Comment:
           </label>
-          <textarea id="comment" name="comment" cols="30" rows="5" required>
-          </textarea>
+          <textarea id="comment" name="comment" cols="30" rows="5" required></textarea>
 
           <button id="contact-submit" class="btn" type="submit">Send</button>
         </form>
@@ -206,10 +206,11 @@ const loadContactSection = () => {
   `;
 
   body.innerHTML += html;
+  /* eslint-enable max-len */
 };
 
-/* eslint-disable max-len */
 const loadFooterSection = () => {
+  /* eslint-disable max-len */
   const body = document.querySelector('body');
   const html = `
     <footer class="footer">
@@ -274,8 +275,8 @@ const loadFooterSection = () => {
   `;
 
   body.innerHTML += html;
+  /* eslint-enable max-len */
 };
-/* eslint-enable max-len */
 
 export {
   loadSkillSection,

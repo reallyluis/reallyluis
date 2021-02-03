@@ -404,9 +404,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
@@ -1182,9 +1180,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
@@ -1960,9 +1956,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
@@ -2746,9 +2740,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
@@ -3532,9 +3524,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
@@ -4318,9 +4308,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
           name="comment"
           required=""
           rows="5"
-        >
-                    
-        </textarea>
+        />
         
 
           
