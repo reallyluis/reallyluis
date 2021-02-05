@@ -713,7 +713,7 @@ nav {
 
 .contact-me__form input + label,
 .contact-me__form textarea + label {
-  transform: translate(0, -1.45rem);
+  transform: translate(0, -1.6rem);
   width: fit-content;
 }
 
@@ -725,7 +725,7 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left top;
-  transform: translate(0, -2.75rem);
+  transform: translate(0, -3.1rem);
 }
 
 .contact-me__form button {
@@ -781,11 +781,6 @@ nav {
     padding-right: calc(200px + 4em);
   }
 
-  .contact-me__form input:focus + label,
-  .contact-me__form textarea:focus + label {
-    transform: translate(0, -3rem);
-  }
-
   .contact-me__img {
     grid-area: img;
     position: relative;
@@ -796,12 +791,12 @@ nav {
 @media (min-width: 800px) {
   .contact-me__form input + label,
   .contact-me__form textarea + label {
-    transform: translate(0, -1.7rem);
+    transform: translate(0, -2.1rem);
   }
 
   .contact-me__form input:focus + label,
   .contact-me__form textarea:focus + label {
-    transform: translate(0, -3.5rem);
+    transform: translate(0, -3.8rem);
   }
 }
 
