@@ -89,7 +89,6 @@ exports[`loading each section load contact section 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder="Name"
           required=""
           type="text"
           value=""
@@ -109,7 +108,6 @@ exports[`loading each section load contact section 1`] = `
         <input
           id="email"
           name="email"
-          placeholder="Email"
           required=""
           type="email"
           value=""
@@ -130,7 +128,6 @@ exports[`loading each section load contact section 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder="Comment"
           required=""
           rows="5"
         />
