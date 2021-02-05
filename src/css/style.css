@@ -679,6 +679,7 @@ nav {
   display: flex;
   flex-direction: column;
   line-height: 1;
+  padding: 5px;
 }
 
 .contact-me__form.hide {
@@ -708,19 +709,13 @@ nav {
   cursor: text;
   border: 0;
   outline: 1px solid var(--fc-dark);
-  outline-offset: 3px;
+  outline-offset: 4px;
 }
 
 .contact-me__form input + label,
 .contact-me__form textarea + label {
-  transform: translate(0, -1.2rem) scale(1);
-  padding-left: 0.25em;
+  transform: translate(0, -1.45rem);
   width: fit-content;
-}
-
-.contact-me__form input:focus,
-.contact-me__form textarea:focus {
-  outline: none;
 }
 
 .contact-me__form input:focus + label,
@@ -731,7 +726,9 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left top;
-  transform: translate(0, -2.425rem) scale(1.1);
+  transform: translate(0, -2.75rem);
+  font-size: 0.9rem;
+  line-height: 1.3;
 }
 
 .contact-me__form button {
@@ -789,13 +786,27 @@ nav {
 
   .contact-me__form input:focus + label,
   .contact-me__form textarea:focus + label {
-    transform: translate(0, -1.2rem) scale(1);
+    transform: translate(0, -3rem);
+    font-size: 1rem;
   }
 
   .contact-me__img {
     grid-area: img;
     position: relative;
     z-index: 2;
+  }
+}
+
+@media (min-width: 800px) {
+  .contact-me__form input + label,
+  .contact-me__form textarea + label {
+    transform: translate(0, -1.7rem);
+  }
+
+  .contact-me__form input:focus + label,
+  .contact-me__form textarea:focus + label {
+    transform: translate(0, -3.5rem);
+    font-size: 1rem;
   }
 }
 
