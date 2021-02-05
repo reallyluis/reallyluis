@@ -188,7 +188,7 @@ const loadContactSection = () => {
             Email
           </label>
 
-          <textarea id="comment" name="comment" cols="30" rows="5" required></textarea>
+          <textarea id="comment" name="comment" cols="30" rows="5" placeholder="Comment" required></textarea>
           <label for="comment">
             Comment
           </label>

@@ -130,6 +130,7 @@ exports[`loading each section load contact section 1`] = `
           cols="30"
           id="comment"
           name="comment"
+          placeholder="Comment"
           required=""
           rows="5"
         />

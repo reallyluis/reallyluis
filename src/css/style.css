@@ -678,6 +678,7 @@ nav {
 .contact-me__form {
   display: flex;
   flex-direction: column;
+  line-height: 1;
 }
 
 .contact-me__form.hide {
@@ -715,8 +716,9 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left bottom;
-  transform: translate(0, -2.825rem) scale(1.1);
+  transform: translate(0, -2.425rem) scale(1.1);
   padding-left: 0.25em;
+  width: 70%;
 }
 
 .contact-me__form ::-webkit-input-placeholder {
@@ -734,7 +736,7 @@ nav {
 .contact-me__form textarea:not(:placeholder-shown) + label,
 .contact-me__form textarea:focus + label {
   color: var(--fc-dark);
-  transform: translate(0, -1.25rem) scale(1);
+  transform: translate(0, -0.8rem) scale(1);
   cursor: pointer;
 }
 
@@ -789,6 +791,18 @@ nav {
     width: calc(100% + 2em);
     padding-left: 1em;
     padding-right: calc(200px + 4em);
+  }
+
+  .contact-me__form input:placeholder-shown + label,
+  .contact-me__form textarea:placeholder-shown + label {
+    transform: translate(0, -2.825rem) scale(1.1);
+  }
+
+  .contact-me__form input:not(:placeholder-shown) + label,
+  .contact-me__form input:focus + label,
+  .contact-me__form textarea:not(:placeholder-shown) + label,
+  .contact-me__form textarea:focus + label {
+    transform: translate(0, -1.2rem) scale(1);
   }
 
   .contact-me__img {
