@@ -86,52 +86,45 @@ exports[`loading each section load contact section 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -140,6 +133,15 @@ exports[`loading each section load contact section 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           

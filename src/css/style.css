@@ -684,6 +684,12 @@ nav {
   display: none;
 }
 
+.contact-me__form label,
+.contact-me__form input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
 .contact-me__form input,
 .contact-me__form textarea,
 .contact-me__form button {
@@ -693,6 +699,34 @@ nav {
 .contact-me__form label,
 .contact-me__form button {
   font-weight: var(--fw-bold);
+}
+
+.contact-me__form input {
+  cursor: text;
+}
+
+.contact-me__form input:placeholder-shown + label {
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, -2.825rem) scale(1.2);
+}
+
+.contact-me__form ::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+.contact-me__form input:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+
+.contact-me__form input:not(:placeholder-shown) + label,
+.contact-me__form input:focus + label {
+  transform: translate(0, -1.25rem) scale(1);
+  cursor: pointer;
 }
 
 .contact-me__form button {

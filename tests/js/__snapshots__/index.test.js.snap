@@ -351,52 +351,45 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -405,6 +398,15 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           
@@ -1127,52 +1129,45 @@ exports[`navigation events update body class on nav clicked 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -1181,6 +1176,15 @@ exports[`navigation events update body class on nav clicked 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           
@@ -1903,52 +1907,45 @@ exports[`navigation events update body class on nav toggled 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -1957,6 +1954,15 @@ exports[`navigation events update body class on nav toggled 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           
@@ -2687,52 +2693,45 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -2741,6 +2740,15 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           
@@ -3471,52 +3479,45 @@ exports[`scroll events update after scroll greater than 100 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -3525,6 +3526,15 @@ exports[`scroll events update after scroll greater than 100 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           
@@ -4255,52 +4265,45 @@ exports[`scroll events update after scroll less than 100 1`] = `
       >
         
           
-        <label
-          for="fname"
-        >
-          
-            Name:
-          
-        </label>
-        
-          
         <input
           id="fname"
           name="fname"
+          placeholder="Name"
           required=""
           type="text"
           value=""
         />
         
-
           
         <label
-          for="email"
+          for="fname"
         >
           
-            Email:
+            Name
           
         </label>
         
+
           
         <input
           id="email"
           name="email"
+          placeholder="Email"
           required=""
           type="email"
           value=""
         />
         
-
           
         <label
-          for="comment"
+          for="email"
         >
           
-            Comment:
+            Email
           
         </label>
         
+
           
         <textarea
           cols="30"
@@ -4309,6 +4312,15 @@ exports[`scroll events update after scroll less than 100 1`] = `
           required=""
           rows="5"
         />
+        
+          
+        <label
+          for="comment"
+        >
+          
+            Comment
+          
+        </label>
         
 
           

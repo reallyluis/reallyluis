@@ -178,20 +178,20 @@ const loadContactSection = () => {
 
       <div class="contact-me__body">
         <form id="contact" class="contact-me__form">
+          <input type="text" id="fname" name="fname" value="" placeholder="Name" required />
           <label for="fname">
-            Name:
+            Name
           </label>
-          <input type="text" id="fname" name="fname" value="" required />
 
+          <input type="email" id="email" name="email" value="" placeholder="Email" required />
           <label for="email">
-            Email:
+            Email
           </label>
-          <input type="email" id="email" name="email" value="" required />
 
-          <label for="comment">
-            Comment:
-          </label>
           <textarea id="comment" name="comment" cols="30" rows="5" required></textarea>
+          <label for="comment">
+            Comment
+          </label>
 
           <button id="contact-submit" class="btn" type="submit">Send</button>
         </form>
