@@ -695,7 +695,7 @@ nav {
 .contact-me__form input,
 .contact-me__form textarea,
 .contact-me__form button {
-  margin: 0.25em 0 1em;
+  margin: 1em 0 0.25em;
 }
 
 .contact-me__form label,
@@ -706,6 +706,16 @@ nav {
 .contact-me__form input,
 .contact-me__form textarea {
   cursor: text;
+  border: 0;
+  outline: 1px solid var(--fc-dark);
+  outline-offset: 3px;
+}
+
+.contact-me__form input + label,
+.contact-me__form textarea + label {
+  transform: translate(0, -1.2rem) scale(1);
+  padding-left: 0.25em;
+  width: fit-content;
 }
 
 .contact-me__form input:focus,
@@ -720,10 +730,8 @@ nav {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transform-origin: left bottom;
+  transform-origin: left top;
   transform: translate(0, -2.425rem) scale(1.1);
-  padding-left: 0.25em;
-  width: 70%;
 }
 
 .contact-me__form button {
