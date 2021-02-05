@@ -717,6 +717,10 @@ nav {
   width: fit-content;
 }
 
+.contact-me__form textarea + label {
+  transform: translate(0, -1.6rem);
+}
+
 .contact-me__form input:focus + label,
 .contact-me__form textarea:focus + label {
   color: var(--clr-dark);
@@ -725,6 +729,10 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left top;
+  transform: translate(0, -3.1rem);
+}
+
+.contact-me__form textarea:focus + label {
   transform: translate(0, -3.1rem);
 }
 
@@ -794,7 +802,15 @@ nav {
     transform: translate(0, -2.1rem);
   }
 
+  .contact-me__form textarea + label {
+    transform: translate(0, -2.1rem);
+  }
+
   .contact-me__form input:focus + label,
+  .contact-me__form textarea:focus + label {
+    transform: translate(0, -3.8rem);
+  }
+
   .contact-me__form textarea:focus + label {
     transform: translate(0, -3.8rem);
   }
