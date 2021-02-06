@@ -71,10 +71,10 @@ describe('renderModal dom update', () => {
       ' <div class="page-modal">' +
       '   <div class="page-modal__content"></div>' +
       ' </div>' +
-      ' <a href="#portfolio" class="portfolio__item" data-workid="0">' +
+      ' <div class="portfolio__item" data-workid="0">' +
       '   <div class="portfolio__title">Portfolio</div>' +
       '   <img />' +
-      ' </a>' +
+      ' </div>' +
       '</div>';
   });
 

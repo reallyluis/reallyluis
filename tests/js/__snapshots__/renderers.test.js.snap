@@ -580,9 +580,9 @@ exports[`loading each section load work section 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -592,10 +592,9 @@ exports[`loading each section load work section 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -616,13 +615,12 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -643,13 +641,12 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -670,13 +667,12 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -697,13 +693,12 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -724,13 +719,12 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -751,7 +745,7 @@ exports[`loading each section load work section 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -788,19 +782,41 @@ exports[`renderModal dom update modal cleared after view 1`] = `
   >
      
     <div
-      class="page-modal"
+      class="page-modal hide"
     >
          
       <div
         class="page-modal__content"
-      />
+      >
+        
+          
+        <div
+          data-id="undefined"
+        >
+          
+            
+          <h3>
+            Portfolio 1
+          </h3>
+          
+            
+          <div
+            unselectable="on"
+          >
+            Some portfolio details.
+          </div>
+          
+          
+        </div>
+        
+        
+      </div>
        
     </div>
      
-    <a
+    <div
       class="portfolio__item"
       data-workid="0"
-      href="#portfolio"
     >
          
       <div
@@ -811,7 +827,7 @@ exports[`renderModal dom update modal cleared after view 1`] = `
          
       <img />
        
-    </a>
+    </div>
   </div>
 </body>
 `;
@@ -855,10 +871,9 @@ exports[`renderModal dom update modal with error message 1`] = `
        
     </div>
      
-    <a
+    <div
       class="portfolio__item"
       data-workid="0"
-      href="#portfolio"
     >
          
       <div
@@ -869,7 +884,7 @@ exports[`renderModal dom update modal with error message 1`] = `
          
       <img />
        
-    </a>
+    </div>
   </div>
 </body>
 `;
@@ -913,10 +928,9 @@ exports[`renderModal dom update modal with portfolio details 1`] = `
        
     </div>
      
-    <a
+    <div
       class="portfolio__item"
       data-workid="0"
-      href="#portfolio"
     >
          
       <div
@@ -927,7 +941,7 @@ exports[`renderModal dom update modal with portfolio details 1`] = `
          
       <img />
        
-    </a>
+    </div>
   </div>
 </body>
 `;

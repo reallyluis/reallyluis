@@ -156,9 +156,9 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -168,10 +168,9 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -192,13 +191,12 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -219,13 +217,12 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -246,13 +243,12 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -273,13 +269,12 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -300,13 +295,12 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -327,7 +321,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -954,9 +948,9 @@ exports[`navigation events update body class on nav clicked 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -966,10 +960,9 @@ exports[`navigation events update body class on nav clicked 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -990,13 +983,12 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -1017,13 +1009,12 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -1044,13 +1035,12 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -1071,13 +1061,12 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -1098,13 +1087,12 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -1125,7 +1113,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -1752,9 +1740,9 @@ exports[`navigation events update body class on nav toggled 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -1764,10 +1752,9 @@ exports[`navigation events update body class on nav toggled 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -1788,13 +1775,12 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -1815,13 +1801,12 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -1842,13 +1827,12 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -1869,13 +1853,12 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -1896,13 +1879,12 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -1923,7 +1905,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -2558,9 +2540,9 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -2570,10 +2552,9 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -2594,13 +2575,12 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -2621,13 +2601,12 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -2648,13 +2627,12 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -2675,13 +2653,12 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -2702,13 +2679,12 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -2729,7 +2705,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -3364,9 +3340,9 @@ exports[`scroll events update after scroll greater than 100 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -3376,10 +3352,9 @@ exports[`scroll events update after scroll greater than 100 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -3400,13 +3375,12 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -3427,13 +3401,12 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -3454,13 +3427,12 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -3481,13 +3453,12 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -3508,13 +3479,12 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -3535,7 +3505,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>
@@ -4170,9 +4140,9 @@ exports[`scroll events update after scroll less than 100 1`] = `
       
     <p
       class="section__subtitle section__subtitle--work"
-      id="portfolio"
     >
-      A selection of my range of work
+      A selection
+        of my range of work
     </p>
     
 
@@ -4182,10 +4152,9 @@ exports[`scroll events update after scroll less than 100 1`] = `
     >
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
-        href="#portfolio"
       >
         
           
@@ -4206,13 +4175,12 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
-        href="#portfolio"
       >
         
           
@@ -4233,13 +4201,12 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
-        href="#portfolio"
       >
         
           
@@ -4260,13 +4227,12 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
-        href="#portfolio"
       >
         
           
@@ -4287,13 +4253,12 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
-        href="#portfolio"
       >
         
           
@@ -4314,13 +4279,12 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
         
-      <a
+      <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
-        href="#portfolio"
       >
         
           
@@ -4341,7 +4305,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
         />
         
         
-      </a>
+      </div>
       
       
     </div>

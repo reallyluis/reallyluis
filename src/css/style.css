@@ -623,6 +623,8 @@ nav {
   position: relative;
   background-color: var(--clr-accent);
   overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .portfolio__title {

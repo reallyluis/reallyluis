@@ -75,46 +75,46 @@ const loadWorkSection = () => {
     <section class="my-work" id="work">
       <h2 class="section__title section__title--work">My Work</h2>
 
-      <p class="section__subtitle section__subtitle--work"
-          id="portfolio">A selection of my range of work</p>
+      <p class="section__subtitle section__subtitle--work">A selection
+        of my range of work</p>
 
       <div class="portfolio">
-        <a href="#portfolio" class="portfolio__item"
+        <div class="portfolio__item"
             data-workid="KOoNKHZeUKb7mtNwBzl2">
           <div class="portfolio__title">Entertainment</div>
           <img src="/img/concert.webp" loading="lazy" width="372" height="248"
               alt="" class="portfolio__img" />
-        </a>
-        <a href="#portfolio" class="portfolio__item"
+        </div>
+        <div class="portfolio__item"
           data-workid="Uw8uxjJHOEyF5HQu2g3w">
           <div class="portfolio__title">Business</div>
           <img src="/img/business-coffee-shop.webp" loading="lazy" width="372"
             height="248" alt="" class="portfolio__img" />
-        </a>
-        <a href="#portfolio" class="portfolio__item"
+        </div>
+        <div class="portfolio__item"
             data-workid="12d7SL9dYztRqcA4JfB8">
           <div class="portfolio__title">Telecommunications</div>
           <img src="/img/telecom.webp" loading="lazy" width="372" height="248"
               alt="" class="portfolio__img" />
-        </a>
-        <a href="#portfolio" class="portfolio__item"
+        </div>
+        <div class="portfolio__item"
             data-workid="H6VcWQATrqqRaLRIAJyJ">
           <div class="portfolio__title">Government</div>
           <img src="/img/capital.webp" loading="lazy" width="372" height="248"
               alt="" class="portfolio__img" />
-        </a>
-        <a href="#portfolio" class="portfolio__item"
+        </div>
+        <div class="portfolio__item"
             data-workid="qv5FWeganRirtEsZKdMd">
           <div class="portfolio__title">Web</div>
           <img src="/img/code-two-screens.webp" loading="lazy" width="372"
               height="248" alt="" class="portfolio__img" />
-        </a>
-        <a href="#portfolio" class="portfolio__item"
+        </div>
+        <div class="portfolio__item"
             data-workid="v7k1IlelLCtYEgCDKr13">
           <div class="portfolio__title">Electronics</div>
           <img src="/img/circuit-board.webp" loading="lazy" width="372"
               height="248" alt="" class="portfolio__img" />
-        </a>
+        </div>
       </div>
     </section> 
   `;
@@ -127,7 +127,6 @@ const loadWorkSection = () => {
  * @param {object} works The works data
  */
 const renderModal = (works) => {
-  const workContainer = document.querySelector('#work');
   const modalToggleLinks = document.querySelectorAll('.portfolio__item');
   const modalContainer = document.querySelector('.page-modal');
   const modalContent = document.querySelector('.page-modal__content');
@@ -156,8 +155,8 @@ const renderModal = (works) => {
     });
   }
 
-  if (workContainer) {
-    workContainer.addEventListener('click', () => {
+  if (modalContainer) {
+    modalContainer.addEventListener('click', () => {
       modalContainer.classList.remove('hide');
       modalContent.innerHTML = '';
     });
