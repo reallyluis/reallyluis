@@ -157,7 +157,7 @@ const renderModal = (works) => {
 
   if (modalContainer) {
     modalContainer.addEventListener('click', () => {
-      modalContainer.classList.remove('hide');
+      modalContainer.classList.add('hide');
       modalContent.innerHTML = '';
     });
   }
