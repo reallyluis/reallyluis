@@ -10,7 +10,21 @@ global.firebase = {
     return {
       collection: () => {
         return {
-          onSnapshot: jest.fn(),
+          onSnapshot: (fn) => {
+            fn({
+              docChanges: () => [{
+                type: 'added',
+                doc: {id: 1, data: () => [{
+                  title: 'Test Title',
+                  description: 'Test description...',
+                }]},
+              },
+              {
+                type: 'removed',
+                doc: {id: 1, data: jest.fn()},
+              }],
+            });
+          },
           add: jest.fn(),
         };
       },

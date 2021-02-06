@@ -68,13 +68,13 @@ test('renderAbout updates dom with details', () => {
 describe('renderModal dom update', () => {
   beforeEach(() => {
     document.body.innerHTML = '<div id="work">' +
-      ' <div class="portfolio__modal">' +
-      '   <div class="portfolio__content"></div>' +
+      ' <div class="page-modal">' +
+      '   <div class="page-modal__content"></div>' +
       ' </div>' +
-      ' <a href="#portfolio" class="portfolio__item" data-workid="0">' +
+      ' <div class="portfolio__item" data-workid="0">' +
       '   <div class="portfolio__title">Portfolio</div>' +
       '   <img />' +
-      ' </a>' +
+      ' </div>' +
       '</div>';
   });
 
