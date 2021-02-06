@@ -709,6 +709,8 @@ nav {
   border: 0;
   outline: 1px solid var(--fc-dark);
   outline-offset: 4px;
+  color: var(--fc-dark);
+  background-color: transparent;
 }
 
 .contact-me__form textarea {
@@ -719,16 +721,15 @@ nav {
 .contact-me__form textarea + label {
   transform: translate(0, -1.6rem);
   width: fit-content;
-  color: var(--clr-dark);
+  color: var(--fc-dark);
 }
 
 .contact-me__form textarea + label {
-  transform: translate(0, -1.6rem);
+  transform: translate(0, -6rem);
 }
 
 .contact-me__form input:focus + label,
 .contact-me__form textarea:focus + label {
-  color: var(--fc-dark);
   cursor: text;
   white-space: nowrap;
   overflow: hidden;
@@ -738,7 +739,7 @@ nav {
 }
 
 .contact-me__form textarea:focus + label {
-  transform: translate(0, -3.1rem);
+  transform: translate(0, -7.8rem);
 }
 
 .contact-me__form button {
