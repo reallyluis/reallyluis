@@ -711,10 +711,15 @@ nav {
   outline-offset: 4px;
 }
 
+.contact-me__form textarea {
+  resize: none;
+}
+
 .contact-me__form input + label,
 .contact-me__form textarea + label {
   transform: translate(0, -1.6rem);
   width: fit-content;
+  color: var(--clr-dark);
 }
 
 .contact-me__form textarea + label {
@@ -723,7 +728,7 @@ nav {
 
 .contact-me__form input:focus + label,
 .contact-me__form textarea:focus + label {
-  color: var(--clr-dark);
+  color: var(--fc-dark);
   cursor: text;
   white-space: nowrap;
   overflow: hidden;
