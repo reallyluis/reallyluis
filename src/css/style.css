@@ -321,8 +321,8 @@ header {
   left: 0.1em;
   width: 1em;
   height: 1em;
-  background: var(--fc-light);
-  background-image: url('/img/svg/lightbulb-black.svg');
+  background: var(--clr-light);
+  background-image: url('/img/svg/lightbulb-dark.svg');
   border-radius: 0.8em;
   transition: 0.3s;
 }
@@ -333,8 +333,7 @@ header {
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
   left: calc(100% - 0.1em);
-  background: var(--fc-dark);
-  background-image: url('/img/svg/lightbulb-white.svg');
+  background-image: url('/img/svg/lightbulb-light.svg');
   transform: translateX(-100%);
 }
 
