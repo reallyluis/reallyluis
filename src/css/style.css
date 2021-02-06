@@ -717,30 +717,28 @@ nav {
 
 .contact-me__form input + label,
 .contact-me__form textarea + label {
-  transform: translate(0, -1.8rem);
   width: fit-content;
   color: var(--fc-dark);
-}
-
-.contact-me__form textarea + label {
-  transform: translate(0, -6.2rem);
-}
-
-.contact-me__form input:focus + label,
-.contact-me__form input:not(:placeholder-shown) + label,
-.contact-me__form textarea:focus + label,
-.contact-me__form textarea:not(:placeholder-shown) + label {
   cursor: text;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left top;
-  transform: translate(0, -3.3rem);
+  transform: translate(0, -1.8em);
+}
+
+.contact-me__form textarea + label {
+  transform: translate(0, -6.2em);
+}
+
+.contact-me__form input:focus + label,
+.contact-me__form input:not(:placeholder-shown) + label {
+  transform: translate(0, -3.3em);
 }
 
 .contact-me__form textarea:focus + label,
 .contact-me__form textarea:not(:placeholder-shown) + label {
-  transform: translate(0, -7.75rem);
+  transform: translate(0, -7.75em);
 }
 
 .contact-me__form button {
@@ -804,23 +802,22 @@ nav {
 }
 
 @media (min-width: 800px) {
-  .contact-me__form input + label,
-  .contact-me__form textarea + label {
-    transform: translate(0, -2.2rem);
+  .contact-me__form input + label {
+    transform: translate(0, -2.2em);
   }
 
   .contact-me__form textarea + label {
-    transform: translate(0, -8rem);
+    transform: translate(0, -8em);
   }
 
   .contact-me__form input:focus + label,
   .contact-me__form input:not(:placeholder-shown) + label {
-    transform: translate(0, -4rem);
+    transform: translate(0, -4em);
   }
 
   .contact-me__form textarea:focus + label,
   .contact-me__form textarea:not(:placeholder-shown) + label {
-    transform: translate(0, -9.75rem);
+    transform: translate(0, -9.75em);
   }
 }
 
