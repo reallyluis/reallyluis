@@ -79,9 +79,6 @@ const loadWorkSection = () => {
           id="portfolio">A selection of my range of work</p>
 
       <div class="portfolio">
-        <div class="portfolio__modal">
-          <div class="portfolio__content"></div>
-        </div>
         <a href="#portfolio" class="portfolio__item"
             data-workid="KOoNKHZeUKb7mtNwBzl2">
           <div class="portfolio__title">Entertainment</div>
@@ -131,9 +128,9 @@ const loadWorkSection = () => {
  */
 const renderModal = (works) => {
   const workContainer = document.querySelector('#work');
-  const modalContainer = document.querySelector('.portfolio__modal');
   const modalToggleLinks = document.querySelectorAll('.portfolio__item');
-  const modalContent = document.querySelector('.portfolio__content');
+  const modalContainer = document.querySelector('.page-modal');
+  const modalContent = document.querySelector('.page-modal__content');
 
   if (modalToggleLinks) {
     modalToggleLinks.forEach((link) => {
@@ -154,14 +151,14 @@ const renderModal = (works) => {
         `;
 
         modalContent.innerHTML += html;
-        modalContainer.classList.toggle('modal-show');
+        modalContainer.classList.toggle('hide');
       });
     });
   }
 
   if (workContainer) {
     workContainer.addEventListener('click', () => {
-      modalContainer.classList.remove('modal-show');
+      modalContainer.classList.remove('hide');
       modalContent.innerHTML = '';
     });
   }

@@ -136,19 +136,6 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
     >
       
         
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
-      
-        
       <a
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
@@ -915,19 +902,6 @@ exports[`navigation events update body class on nav clicked 1`] = `
     >
       
         
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
-      
-        
       <a
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
@@ -1692,19 +1666,6 @@ exports[`navigation events update body class on nav toggled 1`] = `
     <div
       class="portfolio"
     >
-      
-        
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
       
         
       <a
@@ -2481,19 +2442,6 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
     >
       
         
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
-      
-        
       <a
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
@@ -3268,19 +3216,6 @@ exports[`scroll events update after scroll greater than 100 1`] = `
     >
       
         
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
-      
-        
       <a
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
@@ -4053,19 +3988,6 @@ exports[`scroll events update after scroll less than 100 1`] = `
     <div
       class="portfolio"
     >
-      
-        
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
       
         
       <a

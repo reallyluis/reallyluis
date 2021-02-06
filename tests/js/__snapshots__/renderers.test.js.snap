@@ -592,19 +592,6 @@ exports[`loading each section load work section 1`] = `
     >
       
         
-      <div
-        class="portfolio__modal"
-      >
-        
-          
-        <div
-          class="portfolio__content"
-        />
-        
-        
-      </div>
-      
-        
       <a
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
@@ -801,11 +788,11 @@ exports[`renderModal dom update modal cleared after view 1`] = `
   >
      
     <div
-      class="portfolio__modal"
+      class="page-modal"
     >
          
       <div
-        class="portfolio__content"
+        class="page-modal__content"
       />
        
     </div>
@@ -836,11 +823,11 @@ exports[`renderModal dom update modal with error message 1`] = `
   >
      
     <div
-      class="portfolio__modal modal-show"
+      class="page-modal hide"
     >
          
       <div
-        class="portfolio__content"
+        class="page-modal__content"
       >
         
           
@@ -894,11 +881,11 @@ exports[`renderModal dom update modal with portfolio details 1`] = `
   >
      
     <div
-      class="portfolio__modal modal-show"
+      class="page-modal hide"
     >
          
       <div
-        class="portfolio__content"
+        class="page-modal__content"
       >
         
           
