@@ -354,7 +354,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -374,7 +374,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -395,7 +395,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />
@@ -1133,7 +1133,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -1153,7 +1153,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -1174,7 +1174,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />
@@ -1912,7 +1912,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -1932,7 +1932,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -1953,7 +1953,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />
@@ -2699,7 +2699,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -2719,7 +2719,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -2740,7 +2740,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />
@@ -3486,7 +3486,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -3506,7 +3506,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -3527,7 +3527,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />
@@ -4273,7 +4273,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
         <input
           id="fname"
           name="fname"
-          placeholder=""
+          placeholder="name"
           required=""
           type="text"
           value=""
@@ -4293,7 +4293,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
         <input
           id="email"
           name="email"
-          placeholder=""
+          placeholder="email"
           required=""
           type="email"
           value=""
@@ -4314,7 +4314,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
           cols="30"
           id="comment"
           name="comment"
-          placeholder=""
+          placeholder="comment"
           required=""
           rows="5"
         />

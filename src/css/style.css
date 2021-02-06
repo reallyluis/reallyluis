@@ -1,5 +1,12 @@
 /* Custom properties */
 
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+::placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
 :root {
   --ff-primary: "Source Sans Pro", sans-serif;
   --ff-secondary: monospace;
