@@ -730,7 +730,7 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left top;
-  transform: translate(0, -1.55em);
+  transform: translate(0, -1.5em);
 }
 
 .contact-me__form textarea + label {
@@ -739,7 +739,7 @@ nav {
 
 .contact-me__form input:focus + label,
 .contact-me__form input:not(:placeholder-shown) + label {
-  transform: translate(0, -2.55em) scale(0.9);
+  transform: translate(0, -2.5em) scale(0.9);
 }
 
 .contact-me__form textarea:focus + label,
