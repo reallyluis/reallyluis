@@ -50,7 +50,29 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -90,7 +112,17 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
@@ -816,7 +848,29 @@ exports[`navigation events update body class on nav clicked 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -856,7 +910,17 @@ exports[`navigation events update body class on nav clicked 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
@@ -1582,7 +1646,29 @@ exports[`navigation events update body class on nav toggled 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -1622,7 +1708,17 @@ exports[`navigation events update body class on nav toggled 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
@@ -2356,7 +2452,29 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -2396,7 +2514,17 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
@@ -3130,7 +3258,29 @@ exports[`scroll events update after scroll greater than 100 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -3170,7 +3320,17 @@ exports[`scroll events update after scroll greater than 100 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
@@ -3904,7 +4064,29 @@ exports[`scroll events update after scroll less than 100 1`] = `
       
     <div
       class="services"
-    />
+    >
+      
+    
+      <div
+        class="service"
+        data-id="1"
+      >
+        
+      
+        <h3>
+          undefined
+        </h3>
+        
+      
+        <p>
+          undefined
+        </p>
+        
+    
+      </div>
+      
+  
+    </div>
     
       
     <a
@@ -3944,7 +4126,17 @@ exports[`scroll events update after scroll less than 100 1`] = `
       
     <div
       class="about-me__body"
-    />
+    >
+      
+    
+      <p
+        data-id="1"
+      >
+        undefined
+      </p>
+      
+  
+    </div>
     
 
       
