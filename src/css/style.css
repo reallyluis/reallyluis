@@ -725,7 +725,7 @@ nav {
 }
 
 .contact-me__form textarea + label {
-  transform: translate(0, -6rem);
+  transform: translate(0, -6.2rem);
 }
 
 .contact-me__form input:focus + label,
@@ -739,7 +739,7 @@ nav {
 }
 
 .contact-me__form textarea:focus + label {
-  transform: translate(0, -7.8rem);
+  transform: translate(0, -7.75rem);
 }
 
 .contact-me__form button {
@@ -809,7 +809,7 @@ nav {
   }
 
   .contact-me__form textarea + label {
-    transform: translate(0, -2.1rem);
+    transform: translate(0, -8rem);
   }
 
   .contact-me__form input:focus + label,
@@ -818,7 +818,7 @@ nav {
   }
 
   .contact-me__form textarea:focus + label {
-    transform: translate(0, -3.8rem);
+    transform: translate(0, -9.75rem);
   }
 }
 
