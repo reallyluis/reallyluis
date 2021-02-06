@@ -632,7 +632,7 @@ nav {
 
 .portfolio__title {
   position: absolute;
-  top: calc(50% - 1.5em);
+  top: calc(50% - var(--fs-h3));
   width: 100%;
   color: var(--fc-light);
   font-weight: var(--fw-bold);
