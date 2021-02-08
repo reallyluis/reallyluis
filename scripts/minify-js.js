@@ -46,3 +46,22 @@ minify('./src/service-worker.js', options)
         console.log(`minify ${fileName} failed!`);
       });
 });
+
+// TypeScript -> JavaScript files
+['user.js'].forEach((fileName) => {
+  minify(`./public/js/${fileName}`, options)
+      .then((content) => {
+        const regexAPI = /process\.env\.FIREBASE\_API\_KEY/g;
+
+        fs.writeFile(
+            `./public/js/${fileName}`,
+            content.replace(regexAPI, `'${process.env.FIREBASE_API_KEY}'`),
+            'utf8',
+            () => {
+              console.log(`minify ${fileName} done!`);
+            });
+      })
+      .catch((err) => {
+        console.log(`minify ${fileName} failed!`);
+      });
+});
