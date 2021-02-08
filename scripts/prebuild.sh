@@ -13,3 +13,6 @@ cp -R ./src/img ./public/img
 cp ./src/robots.txt ./public/robots.txt
 cp ./src/sitemap-file.xml ./public/sitemap-file.xml
 cp ./src/manifest.webmanifest ./public/manifest.webmanifest
+
+# Compile TypeScript -> JavaScript
+tsc

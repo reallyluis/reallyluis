@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check user object 1`] = `
+Object {
+  "id": 0,
+  "name": "Someone",
+}
+`;
