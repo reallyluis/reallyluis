@@ -775,6 +775,13 @@ nav {
   box-shadow: var(--bs);
 }
 
+@media (max-width: 400px) {
+  .contact-me__form input:focus + label,
+  .contact-me__form input:not(:placeholder-shown) + label {
+    transform: translate(0, -2.7em) scale(0.9);
+  }
+}
+
 @media (min-width: 600px) {
   .contact-me {
     display: grid;
