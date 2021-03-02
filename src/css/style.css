@@ -444,6 +444,7 @@ nav {
 
   .darkmode-toggle {
     margin-right: 0;
+    z-index: 101;
   }
 
   .nav {
