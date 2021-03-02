@@ -437,6 +437,38 @@ nav {
   opacity: 0;
 }
 
+@media (min-width: 900px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .darkmode-toggle {
+    margin-right: 0;
+    z-index: 101;
+  }
+
+  .nav {
+    display: inline-block;
+    background-color: transparent;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5em;
+    z-index: -1;
+  }
+
+  .nav__link {
+    color: var(--fc-accent);
+    font-size: var(--fs-body);
+  }
+
+  .nav__list > * + * {
+    margin-left: 1em;
+  }
+}
+
 /* Intro section */
 
 .intro {
