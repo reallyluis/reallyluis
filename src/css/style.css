@@ -450,7 +450,6 @@ nav {
   .nav {
     display: inline-block;
     background-color: transparent;
-    color: var(--clr-accent);
   }
 
   .nav__list {
@@ -461,7 +460,7 @@ nav {
   }
 
   .nav__link {
-    color: var(--clr-accent);
+    color: var(--fc-accent);
     font-size: var(--fs-body);
   }
 
