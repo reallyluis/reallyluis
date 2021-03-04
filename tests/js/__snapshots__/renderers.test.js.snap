@@ -3,6 +3,12 @@
 exports[`loading each section load about section 1`] = `
 <body>
   
+      
+  <template
+    id="template-skills"
+  />
+  
+    
     
   <section
     class="about-me"
@@ -52,6 +58,12 @@ exports[`loading each section load about section 1`] = `
 exports[`loading each section load contact section 1`] = `
 <body>
   
+      
+  <template
+    id="template-skills"
+  />
+  
+    
     
   <section
     class="contact-me"
@@ -197,6 +209,12 @@ exports[`loading each section load contact section 1`] = `
 exports[`loading each section load footer section 1`] = `
 <body>
   
+      
+  <template
+    id="template-skills"
+  />
+  
+    
     
   <footer
     class="footer"
@@ -527,25 +545,32 @@ exports[`loading each section load footer section 1`] = `
 exports[`loading each section load skill section 1`] = `
 <body>
   
+      
+  <template
+    id="template-skills"
+  />
+  
     
+  
+        
   <section
     class="my-services"
     id="services"
   >
     
-      
+          
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+          
     <div
       class="services"
     />
     
-      
+          
     <a
       class="btn"
       href="#work"
@@ -553,16 +578,22 @@ exports[`loading each section load skill section 1`] = `
       My Work
     </a>
     
-    
+        
   </section>
   
-  
+      
 </body>
 `;
 
 exports[`loading each section load work section 1`] = `
 <body>
   
+      
+  <template
+    id="template-skills"
+  />
+  
+    
     
   <section
     class="my-work"
@@ -787,30 +818,7 @@ exports[`renderModal dom update modal cleared after view 1`] = `
          
       <div
         class="page-modal__content"
-      >
-        
-          
-        <div
-          data-id="undefined"
-        >
-          
-            
-          <h3>
-            Portfolio 1
-          </h3>
-          
-            
-          <div
-            unselectable="on"
-          >
-            Some portfolio details.
-          </div>
-          
-          
-        </div>
-        
-        
-      </div>
+      />
        
     </div>
      

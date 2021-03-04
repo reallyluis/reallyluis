@@ -2,15 +2,10 @@
 
 const loadSkillSection = () => {
   const body = document.querySelector('body');
-  const html = `
-    <section class="my-services" id="services">
-      <h2 class="section__title section__title--services">What I do</h2>
-      <div class="services"></div>
-      <a href="#work" class="btn">My Work</a>
-    </section>
-  `;
+  const template = body.querySelector('#template-skills');
+  const skill = template.content.cloneNode(true);
 
-  body.innerHTML += html;
+  body.appendChild(skill);
 };
 
 /**

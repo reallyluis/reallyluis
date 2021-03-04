@@ -15,7 +15,15 @@ beforeEach(() => {
 
 describe('loading each section', () => {
   beforeEach(() => {
-    document.body.innerHTML = '';
+    document.body.innerHTML = `
+      <template id="template-skills">
+        <section class="my-services" id="services">
+          <h2 class="section__title section__title--services">What I do</h2>
+          <div class="services"></div>
+          <a href="#work" class="btn">My Work</a>
+        </section>
+      </template>
+    `;
   });
 
   test('load skill section', () => {
@@ -113,7 +121,7 @@ describe('renderModal dom update', () => {
     });
 
     document.querySelector('.portfolio__item').click();
-    document.querySelector('#work').click();
+    document.querySelector('.page-modal').click();
 
     expect(document.body).toMatchSnapshot();
   });
