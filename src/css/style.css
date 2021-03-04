@@ -4,6 +4,7 @@
   --ff-primary: "Source Sans Pro", sans-serif;
   --ff-secondary: monospace;
   --fw-reg: 300;
+  --fw-semi-bold: 700;
   --fw-bold: 900;
   --fc-light: #fff;
   --fc-dark: #111;
@@ -461,6 +462,7 @@ nav {
 
   .nav__link {
     color: var(--fc-accent);
+    font-weight: var(--fw-semi-bold);
     font-size: var(--fs-body);
   }
 
