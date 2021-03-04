@@ -51,9 +51,18 @@ global.navigator = {
 };
 
 let spy;
+const TEMPLATES = `
+<template id="template-skills">
+  <section class="my-services" id="services">
+    <h2 class="section__title section__title--services">What I do</h2>
+    <div class="services"></div>
+    <a href="#work" class="btn">My Work</a>
+  </section>
+</template>
+`;
 
 beforeEach(() => {
-  document.body.innerHTML = '';
+  document.body.innerHTML = TEMPLATES;
 });
 
 test('check firebase config', () => {
@@ -64,7 +73,7 @@ test('check firebase config', () => {
 
 describe('darkmode events', () => {
   beforeEach(() => {
-    document.body.innerHTML = '' +
+    document.body.innerHTML = TEMPLATES +
       '<div class="darkmode-toggle">' +
       '  <input type="checkbox" id="darkmode-toggle"' +
       '    class="darkmode-toggle__checkbox" />' +
@@ -84,7 +93,7 @@ describe('darkmode events', () => {
 
 describe('navigation events', () => {
   beforeEach(() => {
-    document.body.innerHTML = '' +
+    document.body.innerHTML = TEMPLATES +
       '<button class="nav-toggle"></button>' +
       '<nav class="nav">' +
       '  <ul class="nav__list">' +
@@ -112,7 +121,7 @@ describe('navigation events', () => {
 
 describe('contact form events', () => {
   beforeEach(() => {
-    document.body.innerHTML = '' +
+    document.body.innerHTML = TEMPLATES +
       '<form id="contact" class="contact-me__form">' +
       '  <label for="fname">' +
       '    Name:' +
@@ -154,7 +163,8 @@ describe('contact form events', () => {
 
 describe('scroll events', () => {
   beforeEach(() => {
-    document.body.innerHTML = '<div style="height:1000px">' +
+    document.body.innerHTML = TEMPLATES +
+      '<div style="height:1000px">' +
       ' <div class="page-controls__comment">&nbsp;</div>' +
       ' <section id="test-section-1">&nbsp;<section>' +
       ' <section id="test-section-2">&nbsp;<section>' +

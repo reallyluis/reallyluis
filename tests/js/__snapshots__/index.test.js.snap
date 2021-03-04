@@ -16,6 +16,13 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
 <body
   class=""
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <div
     class="darkmode-toggle"
   >
@@ -34,20 +41,20 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
     </label>
   </div>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -74,7 +81,7 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -82,10 +89,10 @@ exports[`darkmode events update body class on darkmode toggled 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
@@ -800,6 +807,13 @@ exports[`navigation events update body class on nav clicked 1`] = `
 <body
   class="darkmode-on"
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <button
     class="nav-toggle"
   />
@@ -826,20 +840,20 @@ exports[`navigation events update body class on nav clicked 1`] = `
     </ul>
   </nav>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -866,7 +880,7 @@ exports[`navigation events update body class on nav clicked 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -874,10 +888,10 @@ exports[`navigation events update body class on nav clicked 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
@@ -1592,6 +1606,13 @@ exports[`navigation events update body class on nav toggled 1`] = `
 <body
   class="darkmode-on nav-open"
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <button
     class="nav-toggle"
   />
@@ -1618,20 +1639,20 @@ exports[`navigation events update body class on nav toggled 1`] = `
     </ul>
   </nav>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -1658,7 +1679,7 @@ exports[`navigation events update body class on nav toggled 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -1666,10 +1687,10 @@ exports[`navigation events update body class on nav toggled 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
@@ -2384,6 +2405,13 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
 <body
   class="darkmode-on scrolled"
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <div
     style="height:1000px"
   >
@@ -2418,20 +2446,20 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
     </section>
   </div>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -2458,7 +2486,7 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -2466,10 +2494,10 @@ exports[`scroll events update after scroll greater than 75% of view 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
@@ -3184,6 +3212,13 @@ exports[`scroll events update after scroll greater than 100 1`] = `
 <body
   class="darkmode-on scrolled"
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <div
     style="height:1000px"
   >
@@ -3218,20 +3253,20 @@ exports[`scroll events update after scroll greater than 100 1`] = `
     </section>
   </div>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -3258,7 +3293,7 @@ exports[`scroll events update after scroll greater than 100 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -3266,10 +3301,10 @@ exports[`scroll events update after scroll greater than 100 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
@@ -3984,6 +4019,13 @@ exports[`scroll events update after scroll less than 100 1`] = `
 <body
   class="darkmode-on"
 >
+  
+
+  <template
+    id="template-skills"
+  />
+  
+
   <div
     style="height:1000px"
   >
@@ -4018,20 +4060,20 @@ exports[`scroll events update after scroll less than 100 1`] = `
     </section>
   </div>
   
-    
+  
   <section
     class="my-services"
     id="services"
   >
     
-      
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-      
+    
     <div
       class="services"
     >
@@ -4058,7 +4100,7 @@ exports[`scroll events update after scroll less than 100 1`] = `
   
     </div>
     
-      
+    
     <a
       class="btn"
       href="#work"
@@ -4066,10 +4108,10 @@ exports[`scroll events update after scroll less than 100 1`] = `
       My Work
     </a>
     
-    
+  
   </section>
   
-  
+
     
   <section
     class="about-me"
