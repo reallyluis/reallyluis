@@ -121,7 +121,7 @@ describe('renderModal dom update', () => {
     });
 
     document.querySelector('.portfolio__item').click();
-    document.querySelector('#work').click();
+    document.querySelector('.page-modal').click();
 
     expect(document.body).toMatchSnapshot();
   });

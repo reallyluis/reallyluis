@@ -818,30 +818,7 @@ exports[`renderModal dom update modal cleared after view 1`] = `
          
       <div
         class="page-modal__content"
-      >
-        
-          
-        <div
-          data-id="undefined"
-        >
-          
-            
-          <h3>
-            Portfolio 1
-          </h3>
-          
-            
-          <div
-            unselectable="on"
-          >
-            Some portfolio details.
-          </div>
-          
-          
-        </div>
-        
-        
-      </div>
+      />
        
     </div>
      
