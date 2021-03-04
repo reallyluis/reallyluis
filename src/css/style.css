@@ -441,6 +441,10 @@ nav {
 }
 
 @media (min-width: 900px) {
+  .logo {
+    z-index: 101;
+  }
+
   .nav-toggle {
     display: none;
   }
