@@ -456,6 +456,7 @@ nav {
 
   .nav {
     display: inline-block;
+    position: absolute;
     background-color: transparent;
   }
 
