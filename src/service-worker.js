@@ -1,6 +1,6 @@
-const version = SERVICE_WORKER_VERSION || '00000';
-const staticCacheName = 'site-static-v' + version;
-const dynamicCacheName = 'site-dynamic-v' + version;
+const VERSION = SERVICE_WORKER_VERSION || '00000';
+const STATIC_CACHE_NAME = 'site-static-v' + VERSION;
+const DYNAMIC_CACHE_NAME = 'site-dynamic-v' + VERSION;
 const CACHE_MAX_SIZE = 35;
 const assets = [
   '/',
@@ -38,19 +38,19 @@ const assets = [
 ];
 
 // cache size limit function
-const limitCacheSize = (name, size) => {
-  caches.open(open).then((cache) => {
-    cache.keys().then((keys) => {
-      if (keys.length > size) {
-        cache.delete(keys[0]).then(limitCacheSize(name, size));
-      }
-    });
+const limitCacheSize = async (name, size) => {
+  const cache = await caches.open(open);
+
+  cache.keys().then((keys) => {
+    if (keys.length > size) {
+      cache.delete(keys[0]).then(limitCacheSize(name, size));
+    }
   });
 };
 
 // install event
 self.addEventListener('install', (evt) => {
-  evt.waitUntil(caches.open(staticCacheName).then((cache) => {
+  evt.waitUntil(caches.open(STATIC_CACHE_NAME).then((cache) => {
     cache.addAll(assets);
   }));
 });
@@ -58,7 +58,7 @@ self.addEventListener('install', (evt) => {
 // activate event
 self.addEventListener('activate', (evt) => {
   evt.waitUntil(caches.keys().then((keys) => Promise.all(keys
-      .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
+      .filter((key) => key !== STATIC_CACHE_NAME && key !== DYNAMIC_CACHE_NAME)
       .map((key) => caches.delete(key)))));
 });
 
@@ -66,22 +66,23 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
   if (evt.request.url.indexOf('firestore.googleapis.com') === -1 &&
     evt.request.url.indexOf('google.firestore') === -1) {
-    evt.respondWith(caches.match(evt.request).then((cacheRes) => {
-      return cacheRes || fetch(evt.request).then((fetchRes) => {
-        return caches.open(dynamicCacheName).then((cache) => {
-          cache.put(evt.request.url, fetchRes.clone());
-          limitCacheSize(dynamicCacheName, CACHE_MAX_SIZE);
-          return fetchRes;
-        });
-      });
-    }).catch(() => {
-      // fallback for html
-      // if (evt.request.url.indexOf('.html') > -1) {
-      //   return caches.match('/fallback.html');
-      // }
-      // TODO: add fallback for other file types
+    evt.respondWith((async () => {
+      const cachedResponse = await caches.match(evt.request);
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
-      return null;
-    }));
+      const response = await fetch(evt.request);
+
+      if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      }
+
+      const cache = await caches.open(DYNAMIC_CACHE_NAME);
+      await cache.put(evt.request, response.clone());
+      limitCacheSize(DYNAMIC_CACHE_NAME, CACHE_MAX_SIZE);
+
+      return response;
+    })());
   }
 });
