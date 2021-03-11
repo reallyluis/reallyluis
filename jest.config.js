@@ -31,7 +31,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "/public/",
-    "/tests/"
+    "/tests/",
+    "service-worker"
   ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -165,7 +166,8 @@ module.exports = {
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
     "/node_modules/",
-    "/public/"
+    "/public/",
+    "service-worker"
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

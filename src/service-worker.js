@@ -1,8 +1,8 @@
-const version = SERVICE_WORKER_VERSION || '00000';
-const staticCacheName = 'site-static-v' + version;
-const dynamicCacheName = 'site-dynamic-v' + version;
+const VERSION = SERVICE_WORKER_VERSION || '00000';
+const STATIC_CACHE_NAME = 'site-static-v' + VERSION;
+const DYNAMIC_CACHE_NAME = 'site-dynamic-v' + VERSION;
 const CACHE_MAX_SIZE = 35;
-const assets = [
+const ASSETS = [
   '/',
   '/index.html',
   '/robots.txt',
@@ -30,58 +30,64 @@ const assets = [
   '/img/code-two-screens.webp',
   '/img/circuit-board.webp',
   '/img/contact.webp',
-  '/__/firebase/8.2.9/firebase-app.js',
-  '/__/firebase/8.2.9/firebase-firestore.js',
+  '/__/firebase/8.3.0/firebase-app.js',
+  '/__/firebase/8.3.0/firebase-firestore.js',
   '/js/helpers.js',
   '/js/renderers.js',
   '/js/index.js',
 ];
 
 // cache size limit function
-const limitCacheSize = (name, size) => {
-  caches.open(open).then((cache) => {
-    cache.keys().then((keys) => {
-      if (keys.length > size) {
-        cache.delete(keys[0]).then(limitCacheSize(name, size));
-      }
-    });
+const limitCacheSize = async (name, size) => {
+  const cache = await caches.open(name);
+
+  cache.keys().then((keys) => {
+    if (keys.length > size) {
+      cache.delete(keys[0]).then(limitCacheSize(name, size));
+    }
   });
 };
 
 // install event
 self.addEventListener('install', (evt) => {
-  evt.waitUntil(caches.open(staticCacheName).then((cache) => {
-    cache.addAll(assets);
-  }));
+  evt.waitUntil(async () => {
+    const cache = await caches.open(STATIC_CACHE_NAME);
+
+    return cache.addAll(ASSETS);
+  });
 });
 
 // activate event
 self.addEventListener('activate', (evt) => {
-  evt.waitUntil(caches.keys().then((keys) => Promise.all(keys
-      .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
-      .map((key) => caches.delete(key)))));
+  evt.waitUntil(async () => {
+    const keys = await caches.keys();
+
+    return keys.filter((key) => key !== STATIC_CACHE_NAME &&
+      key !== DYNAMIC_CACHE_NAME).map((key) => caches.delete(key));
+  });
 });
 
 // fetch event
 self.addEventListener('fetch', (evt) => {
   if (evt.request.url.indexOf('firestore.googleapis.com') === -1 &&
     evt.request.url.indexOf('google.firestore') === -1) {
-    evt.respondWith(caches.match(evt.request).then((cacheRes) => {
-      return cacheRes || fetch(evt.request).then((fetchRes) => {
-        return caches.open(dynamicCacheName).then((cache) => {
-          cache.put(evt.request.url, fetchRes.clone());
-          limitCacheSize(dynamicCacheName, CACHE_MAX_SIZE);
-          return fetchRes;
-        });
-      });
-    }).catch(() => {
-      // fallback for html
-      // if (evt.request.url.indexOf('.html') > -1) {
-      //   return caches.match('/fallback.html');
-      // }
-      // TODO: add fallback for other file types
+    evt.respondWith((async () => {
+      const cachedResponse = await caches.match(evt.request);
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
-      return null;
-    }));
+      const response = await fetch(evt.request);
+
+      if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      }
+
+      const cache = await caches.open(DYNAMIC_CACHE_NAME);
+      await cache.put(evt.request, response.clone());
+      limitCacheSize(DYNAMIC_CACHE_NAME, CACHE_MAX_SIZE);
+
+      return response;
+    })());
   }
 });
