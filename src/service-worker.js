@@ -2,7 +2,7 @@ const VERSION = SERVICE_WORKER_VERSION || '00000';
 const STATIC_CACHE_NAME = 'site-static-v' + VERSION;
 const DYNAMIC_CACHE_NAME = 'site-dynamic-v' + VERSION;
 const CACHE_MAX_SIZE = 35;
-const assets = [
+const ASSETS = [
   '/',
   '/index.html',
   '/robots.txt',
@@ -39,7 +39,7 @@ const assets = [
 
 // cache size limit function
 const limitCacheSize = async (name, size) => {
-  const cache = await caches.open(open);
+  const cache = await caches.open(name);
 
   cache.keys().then((keys) => {
     if (keys.length > size) {
@@ -51,7 +51,7 @@ const limitCacheSize = async (name, size) => {
 // install event
 self.addEventListener('install', (evt) => {
   evt.waitUntil(caches.open(STATIC_CACHE_NAME).then((cache) => {
-    cache.addAll(assets);
+    cache.addAll(ASSETS);
   }));
 });
 
