@@ -50,16 +50,21 @@ const limitCacheSize = async (name, size) => {
 
 // install event
 self.addEventListener('install', (evt) => {
-  evt.waitUntil(caches.open(STATIC_CACHE_NAME).then((cache) => {
+  evt.waitUntil((async () => {
+    const cache = await caches.open(STATIC_CACHE_NAME);
+
     cache.addAll(ASSETS);
-  }));
+  })());
 });
 
 // activate event
 self.addEventListener('activate', (evt) => {
-  evt.waitUntil(caches.keys().then((keys) => Promise.all(keys
-      .filter((key) => key !== STATIC_CACHE_NAME && key !== DYNAMIC_CACHE_NAME)
-      .map((key) => caches.delete(key)))));
+  evt.waitUntil((async () => {
+    const keys = await caches.keys();
+
+    keys.filter((key) => key !== STATIC_CACHE_NAME &&
+      key !== DYNAMIC_CACHE_NAME).map((key) => caches.delete(key));
+  })());
 });
 
 // fetch event
