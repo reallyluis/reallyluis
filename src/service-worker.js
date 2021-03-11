@@ -53,7 +53,7 @@ self.addEventListener('install', (evt) => {
   evt.waitUntil(async () => {
     const cache = await caches.open(STATIC_CACHE_NAME);
 
-    cache.addAll(ASSETS);
+    return cache.addAll(ASSETS);
   });
 });
 
@@ -62,7 +62,7 @@ self.addEventListener('activate', (evt) => {
   evt.waitUntil(async () => {
     const keys = await caches.keys();
 
-    keys.filter((key) => key !== STATIC_CACHE_NAME &&
+    return keys.filter((key) => key !== STATIC_CACHE_NAME &&
       key !== DYNAMIC_CACHE_NAME).map((key) => caches.delete(key));
   });
 });
