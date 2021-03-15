@@ -1,7 +1,7 @@
 const VERSION = SERVICE_WORKER_VERSION || '00000';
 const STATIC_CACHE_NAME = 'site-static-v' + VERSION;
 const DYNAMIC_CACHE_NAME = 'site-dynamic-v' + VERSION;
-const CACHE_MAX_SIZE = 35;
+const CACHE_MAX_SIZE = 30;
 const ASSETS = [
   '/',
   '/index.html',
@@ -11,7 +11,7 @@ const ASSETS = [
   '/img/icons/favicon-196.png',
   '/img/icons/favicon-whitebg-196.png',
   '/img/icons/apple-icon-180.png',
-  // 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
   // 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700:900&display=swap',
   '/css/style.css',
   '/img/icons/manifest-icon-192.png',
