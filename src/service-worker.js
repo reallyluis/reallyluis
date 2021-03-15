@@ -1,7 +1,7 @@
 const VERSION = SERVICE_WORKER_VERSION || '00000';
 const STATIC_CACHE_NAME = 'site-static-v' + VERSION;
 const DYNAMIC_CACHE_NAME = 'site-dynamic-v' + VERSION;
-const CACHE_MAX_SIZE = 35;
+const CACHE_MAX_SIZE = 25;
 const ASSETS = [
   '/',
   '/index.html',
@@ -12,7 +12,7 @@ const ASSETS = [
   '/img/icons/favicon-whitebg-196.png',
   '/img/icons/apple-icon-180.png',
   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
-  'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700:900&display=swap',
+  // 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700:900&display=swap',
   '/css/style.css',
   '/img/icons/manifest-icon-192.png',
   '/img/icons/manifest-whitebg-192.png',
@@ -22,14 +22,14 @@ const ASSETS = [
   '/img/icons/work-icon-512.png',
   '/img/self.webp',
   '/img/code.webp',
-  '/img/about-me.webp',
-  '/img/concert.webp',
-  '/img/business-coffee-shop.webp',
-  '/img/telecom.webp',
-  '/img/capital.webp',
-  '/img/code-two-screens.webp',
-  '/img/circuit-board.webp',
-  '/img/contact.webp',
+  // '/img/about-me.webp',
+  // '/img/concert.webp',
+  // '/img/business-coffee-shop.webp',
+  // '/img/telecom.webp',
+  // '/img/capital.webp',
+  // '/img/code-two-screens.webp',
+  // '/img/circuit-board.webp',
+  // '/img/contact.webp',
   '/__/firebase/8.3.0/firebase-app.js',
   '/__/firebase/8.3.0/firebase-firestore.js',
   '/js/helpers.js',
@@ -50,11 +50,11 @@ const limitCacheSize = async (name, size) => {
 
 // install event
 self.addEventListener('install', (evt) => {
-  evt.waitUntil(async () => {
-    const cache = await caches.open(STATIC_CACHE_NAME);
-
-    return cache.addAll(ASSETS);
-  });
+  evt.waitUntil(
+      caches.open(STATIC_CACHE_NAME).then((cache) => {
+        return cache.addAll(ASSETS);
+      }),
+  );
 });
 
 // activate event
