@@ -50,11 +50,11 @@ const limitCacheSize = async (name, size) => {
 
 // install event
 self.addEventListener('install', (evt) => {
-  evt.waitUntil(async () => {
-    const cache = await caches.open(STATIC_CACHE_NAME);
-
-    return cache.addAll(ASSETS);
-  });
+  evt.waitUntil(
+      caches.open(STATIC_CACHE_NAME).then((cache) => {
+        return cache.addAll(ASSETS);
+      }),
+  );
 });
 
 // activate event
