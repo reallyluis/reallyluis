@@ -111,6 +111,7 @@ body {
   margin: 0;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
+  font-display: optional;
   line-height: 1.6;
 }
 
