@@ -26,13 +26,16 @@
             "value": "DENY"
           },
           { "key": "X-XSS-Protection", "value": "1; mode=block" },
-          { "key": "Set-Cookie", "value": "SameSite=None; Secure" },
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
+          { "key": "Set-Cookie", "value": "SameSite=None; Secure" }
         ]
       },
       {
         "source": "**/*.@(html|css|js)",
         "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
           {
             "key": "Cache-Control",
             "value": "public, max-age=2592000"
