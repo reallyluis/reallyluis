@@ -3,42 +3,64 @@
 exports[`loading each section load about section 1`] = `
 <body>
   
-      
+
   <template
     id="template-skills"
   />
   
-    
-    
+
+
+  <template
+    id="template-about"
+  />
+  
+
+
+  <template
+    id="template-work"
+  />
+  
+
+
+  <template
+    id="template-contact"
+  />
+  
+
+
+  <template
+    id="template-footer"
+  />
+  
+
+  
+  
   <section
     class="about-me"
     id="about"
   >
     
-      
+    
     <h2
       class="section__title section__title--about"
     >
       Who I am
     </h2>
     
-
-      
+    
     <p
       class="section__subtitle section__subtitle--about"
     >
       
-        Working from a remote location
+      Working from a remote location
     </p>
     
-
-      
+    
     <div
       class="about-me__body"
     />
     
-
-      
+    
     <img
       alt="Photo in Venice, Italy."
       class="about-me__img"
@@ -48,56 +70,80 @@ exports[`loading each section load about section 1`] = `
       width="200"
     />
     
-    
+  
   </section>
   
-  
+
 </body>
 `;
 
 exports[`loading each section load contact section 1`] = `
 <body>
   
-      
+
   <template
     id="template-skills"
   />
   
-    
-    
+
+
+  <template
+    id="template-about"
+  />
+  
+
+
+  <template
+    id="template-work"
+  />
+  
+
+
+  <template
+    id="template-contact"
+  />
+  
+
+
+  <template
+    id="template-footer"
+  />
+  
+
+  
+  
   <section
     class="contact-me"
+    data-nosnippet=""
     id="contact"
   >
     
-      
+    
     <h2
       class="section__title section__title--contact"
     >
       Contact Me
     </h2>
     
-
-      
+    
     <p
       class="section__subtitle section__subtitle--contact"
     >
       get in touch
     </p>
     
-
-      
+    
     <div
       class="contact-me__body"
     >
       
-        
+      
       <form
         class="contact-me__form"
         id="contact"
       >
         
-          
+        
         <input
           id="fname"
           name="fname"
@@ -107,17 +153,17 @@ exports[`loading each section load contact section 1`] = `
           value=""
         />
         
-          
+        
         <label
           for="fname"
         >
           
-            Name
-          
+          Name
+        
         </label>
         
 
-          
+        
         <input
           id="email"
           name="email"
@@ -127,17 +173,17 @@ exports[`loading each section load contact section 1`] = `
           value=""
         />
         
-          
+        
         <label
           for="email"
         >
           
-            Email
-          
+          Email
+        
         </label>
         
 
-          
+        
         <textarea
           cols="30"
           id="comment"
@@ -147,17 +193,17 @@ exports[`loading each section load contact section 1`] = `
           rows="5"
         />
         
-          
+        
         <label
           for="comment"
         >
           
-            Comment
-          
+          Comment
+        
         </label>
         
 
-          
+        
         <button
           class="btn"
           id="contact-submit"
@@ -166,15 +212,15 @@ exports[`loading each section load contact section 1`] = `
           Send
         </button>
         
-        
+      
       </form>
       
-        
+      
       <div
         class="contact-me__success hide"
       >
         
-          
+        
         <p>
           <b>
             Thanks!
@@ -182,14 +228,13 @@ exports[`loading each section load contact section 1`] = `
             Your message was sent successfully.
         </p>
         
-        
+      
       </div>
       
-      
+    
     </div>
     
-
-      
+    
     <img
       alt="Photo of smartphone on desk."
       class="contact-me__img"
@@ -199,25 +244,51 @@ exports[`loading each section load contact section 1`] = `
       width="200"
     />
     
-    
+  
   </section>
   
-  
+
 </body>
 `;
 
 exports[`loading each section load footer section 1`] = `
 <body>
   
-      
+
   <template
     id="template-skills"
   />
   
-    
-    
+
+
+  <template
+    id="template-about"
+  />
+  
+
+
+  <template
+    id="template-work"
+  />
+  
+
+
+  <template
+    id="template-contact"
+  />
+  
+
+
+  <template
+    id="template-footer"
+  />
+  
+
+  
+  
   <footer
     class="footer"
+    data-nosnippet=""
   >
     
     
@@ -535,42 +606,66 @@ exports[`loading each section load footer section 1`] = `
     
     </ul>
     
-    
+  
   </footer>
   
-  
+
 </body>
 `;
 
 exports[`loading each section load skill section 1`] = `
 <body>
   
-      
+
   <template
     id="template-skills"
   />
   
-    
+
+
+  <template
+    id="template-about"
+  />
   
-        
+
+
+  <template
+    id="template-work"
+  />
+  
+
+
+  <template
+    id="template-contact"
+  />
+  
+
+
+  <template
+    id="template-footer"
+  />
+  
+
+  
+  
   <section
     class="my-services"
     id="services"
   >
     
-          
+    
     <h2
       class="section__title section__title--services"
     >
       What I do
     </h2>
     
-          
+    
     <div
       class="services"
     />
     
-          
+    
     <a
       class="btn"
       href="#work"
@@ -578,64 +673,87 @@ exports[`loading each section load skill section 1`] = `
       My Work
     </a>
     
-        
+  
   </section>
   
-      
+
 </body>
 `;
 
 exports[`loading each section load work section 1`] = `
 <body>
   
-      
+
   <template
     id="template-skills"
   />
   
-    
-    
+
+
+  <template
+    id="template-about"
+  />
+  
+
+
+  <template
+    id="template-work"
+  />
+  
+
+
+  <template
+    id="template-contact"
+  />
+  
+
+
+  <template
+    id="template-footer"
+  />
+  
+
+  
+  
   <section
     class="my-work"
     id="work"
   >
     
-      
+    
     <h2
       class="section__title section__title--work"
     >
       My Work
     </h2>
     
-
-      
+    
     <p
       class="section__subtitle section__subtitle--work"
     >
       A selection
-        of my range of work
+      of my range of work
     </p>
     
-
-      
+    
     <div
       class="portfolio"
     >
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="KOoNKHZeUKb7mtNwBzl2"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Entertainment
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -645,23 +763,23 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="Uw8uxjJHOEyF5HQu2g3w"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Business
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -671,23 +789,23 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="12d7SL9dYztRqcA4JfB8"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Telecommunications
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -697,23 +815,23 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="H6VcWQATrqqRaLRIAJyJ"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Government
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -723,23 +841,23 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="qv5FWeganRirtEsZKdMd"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Web
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -749,23 +867,23 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-        
+      
       <div
         class="portfolio__item"
         data-workid="v7k1IlelLCtYEgCDKr13"
       >
         
-          
+        
         <div
           class="portfolio__title"
         >
           Electronics
         </div>
         
-          
+        
         <img
           alt=""
           class="portfolio__img"
@@ -775,16 +893,16 @@ exports[`loading each section load work section 1`] = `
           width="372"
         />
         
-        
+      
       </div>
       
-      
+    
     </div>
     
-    
+  
   </section>
    
-  
+
 </body>
 `;
 
