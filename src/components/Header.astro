@@ -1,0 +1,284 @@
+<header data-nosnippet>
+  <!-- website logo -->
+  <div class="logo">
+    <a aria-label="{APP_DOMAIN} Logo" href="#top"><img src="/img/icons/manifest-icon-192.png" width="48" height="48" alt="" /></a>
+  </div>
+
+  <!-- Darkmode toggle -->
+  <div class="darkmode-toggle">
+    <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle__checkbox" />
+    <label for="darkmode-toggle" class="darkmode-toggle__label" />
+  </div>
+
+  <!-- navigation button to toggle on smaller screens -->
+  <button class="nav-toggle" aria-label="Toggle Navigation">
+    <span class="hamburger"></span>
+  </button>
+
+  <!-- website navigation -->
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+      <li class="nav__item"><a href="#services" class="nav__link">Skills</a></li>
+      <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+      <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+      <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0.7em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .darkmode-toggle {
+    display: inline-block;
+    margin: 0 5em 0 0;
+    padding-top: 0.7em;
+  }
+
+  .darkmode-toggle__checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .darkmode-toggle__label {
+    cursor: pointer;
+    width: 2.5em;
+    height: 1.25em;
+    background: var(--clr-gray);
+    display: inline-block;
+    border-radius: 1em;
+    position: relative;
+  }
+
+  .darkmode-toggle__label::after {
+    content: '';
+    position: absolute;
+    top: 0.1em;
+    left: 0.1em;
+    width: 1em;
+    height: 1em;
+    background: var(--clr-light);
+    background-image: url('/img/svg/lightbulb-dark.svg');
+    border-radius: 0.8em;
+    transition: 0.3s;
+  }
+
+  .darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
+    background: var(--clr-accent);
+  }
+
+  .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
+    left: calc(100% - 0.1em);
+    background-image: url('/img/svg/lightbulb-light.svg');
+    transform: translateX(-100%);
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__link {
+    color: var(--fc-light);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+  }
+
+  .nav__link:hover {
+    color: var(--clr-accent);
+  }
+
+  .nav-toggle {
+    padding: 0.75em;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 1000;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    background-color: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .hamburger::before { top: 6px; }
+  .hamburger::after { bottom: 6px; }
+
+  @media (max-width: 899px) {
+    .nav-open header {
+      backdrop-filter: unset;
+      -webkit-backdrop-filter: unset;
+    }
+
+    .nav-open nav {
+      display: block;
+    }
+
+    .nav-open .nav-toggle {
+      position: fixed;
+    }
+
+    .nav-open .nav-toggle:focus {
+      outline: none;
+    }
+
+    .nav-open .hamburger {
+      transform: rotate(0.625turn);
+    }
+
+    .nav-open .hamburger::before {
+      transform: rotate(90deg) translateX(-6px);
+    }
+
+    .nav-open .hamburger::after {
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .logo {
+      z-index: 101;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .darkmode-toggle {
+      margin-right: 0;
+      z-index: 101;
+    }
+
+    .nav {
+      display: inline-block;
+      position: absolute;
+      background-color: transparent;
+    }
+
+    .nav__list {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-right: 5em;
+      z-index: -1;
+    }
+
+    .nav__link {
+      color: var(--fc-accent);
+      font-weight: var(--fw-semi-bold);
+      font-size: var(--fs-body);
+    }
+
+    .nav__list > * + * {
+      margin-left: 1em;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * Darkmode Switch
+   */
+   const mediaStatus = window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)');
+  const darkmodeToggle: HTMLInputElement | null = document.querySelector('.darkmode-toggle__checkbox');
+  const setDarkmodeToggle = (isOn: boolean) => {
+    if (isOn) {
+      document.body.classList.add('darkmode-on');
+    } else {
+      document.body.classList.remove('darkmode-on');
+    }
+
+    if (darkmodeToggle) {
+      darkmodeToggle.checked = isOn;
+    }
+  };
+
+  if (darkmodeToggle) {
+    darkmodeToggle.addEventListener(
+        'change',
+        () => setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked),
+    );
+  }
+
+  if (mediaStatus) {
+    setDarkmodeToggle(mediaStatus.matches);
+
+    mediaStatus.addEventListener(
+        'change',
+        (e) => setDarkmodeToggle(e.matches),
+    );
+  }
+
+  /**
+   * Navigation
+   */
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      document.body.classList.toggle('nav-open');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav__link');
+  if (navLinks) {
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+      });
+    });
+  }
+</script>

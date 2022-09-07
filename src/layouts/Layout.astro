@@ -1,60 +1,325 @@
 ---
 export interface Props {
 	title: string;
+  name: string;
 }
 
-const { title } = Astro.props;
+const { title, name } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{name}' professional website to detail knowledge, skills and interests in software, web and mobile development." />
+  <meta name="keywords" content="{name}, resume, portfolio, professional, HTML, CSS, JavaScript, web, developer, software, engineer, front-end, back-end, mobile, cloud" />
+  <meta name="author" content="{name}" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="googlebot" content="nosnippet" />
+  <meta property="og:site_name" content="reallyluis" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://reallyluis.com" />
+  <meta property="og:description" content="{name}' professional website to detail knowledge, skills and interests in software, web and mobile development." />
+  <meta property="og:image" content="https://reallyluis.com/img/self.webp" />
+  <meta property="og:title" content="{name}' Professional Website" />
+  <title>{name}' {title}</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="196x196" href="/img/icons/favicon-whitebg-196.png" />
+  <link rel="apple-touch-icon" href="/img/icons/apple-icon-180.png" />
+  <!--- Splash Images -->
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/img/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- link rel="preconnect" href="https://firebase.googleapis.com" />
+  <link rel="preconnect" href="https://firestore.googleapis.com" />
+  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" / -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://www.gstatic.com" />
+  <!-- Preloads -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700;900&display=swap" />
+  <link rel="preload" as="image" href="/img/self.webp" />
+  <link rel="preload" as="image" href="/img/code.webp" />
+  <!-- link rel="preload" as="script" href="/__/firebase/9.1.2/firebase-app-compat.js" />
+  <link rel="preload" as="script" href="/__/firebase/9.1.2/firebase-firestore-compat.js" />
+  <link rel="modulepreload" href="/js/helpers.js" />
+  <link rel="modulepreload" href="/js/renderers.js" />
+  <link rel="modulepreload" href="/js/index.js" / -->
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700;900&display=swap" />
+  <!-- link rel="stylesheet" href="/css/style.css" / -->
+</head>
+<body>
+	<slot />
+</body>
 </html>
+
 <style>
+	/* Custom properties */
 	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
+		--ff-primary: "Source Sans Pro", sans-serif;
+		--ff-secondary: monospace;
+		--fw-reg: 300;
+		--fw-semi-bold: 700;
+		--fw-bold: 900;
+		--fc-light: #fff;
+		--fc-dark: #111;
+		--fc-accent: #0d85ff;
+		--clr-light: #fff;
+		--clr-dark: #111;
+		--clr-gray: #bbb;
+		--clr-dark-gray: #777;
+		--clr-accent: #0d85ff;
+		--fs-h1: 3rem;
+		--fs-h2: 2.5rem;
+		--fs-h3: 1.25rem;
+		--fs-body: 1rem;
+		--bs:
+			0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+			0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+		--clr-mod: rgba(20, 20, 20, 0.75);
+		--gs-filter: grayscale(0);
+		--std-transform: transform 200ms ease-in-out;
 	}
 
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
+	@media (min-width: 800px) {
+		:root {
+			--fs-h1: 4rem;
+			--fs-h2: 3.75rem;
+			--fs-h3: 1.5rem;
+			--fs-body: 1.25rem;
+		}
 	}
 
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--fc-dark: #ddd;
+			--fc-accent: #fff;
+			--clr-light: #333;
+			--clr-accent: #006f91;
+			--gs-filter: grayscale(0.25);
+		}
+	}
+
+	/* Override media darkmode style based on class on body */
+
+	body.darkmode-on {
+		--fc-dark: #ddd;
+		--fc-accent: #fff;
+		--clr-light: #333;
+		--clr-accent: #006f91;
+		--gs-filter: grayscale(0.25);
+	}
+
+	/* General Styles */
 	body {
+		background-color: var(--clr-light);
+		color: var(--fc-dark);
 		margin: 0;
+		font-family: var(--ff-primary);
+		font-size: var(--fs-body);
+		font-display: optional;
+		line-height: 1.6;
 	}
 
+	body:not(.darkmode-on) {
+		--fc-dark: #111;
+		--fc-accent: #0d85ff;
+		--clr-light: #fff;
+		--clr-accent: #0d85ff;
+		--bs:
+			0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+			0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+		--gs-filter: grayscale(0);
+	}
 
+	body.scrolled .logo {
+		opacity: 0.25;
+		transition: opacity 0.3s ease-out;
+	}
 </style>
 
 <style is:global>
-	h1 {
-		font-size: var(--font-size-xl);
+	/* Animations */
+	@keyframes slideInFromTop {
+		0% {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
-	h2 {
-		font-size: var(--font-size-lg);
+	@keyframes slideInFromBottom {
+		0% {
+			opacity: 0;
+			transform: translateY(100%);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+	@keyframes slideInFromLeft {
+		0% {
+			opacity: 0;
+			transform: translateX(-100%);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
 	}
+
+	@keyframes slideInFromRight {
+		0% {
+			opacity: 0;
+			transform: translateX(100%);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  section {
+    padding: 5em 2em;
+  }
+  img {
+    display: block;
+    aspect-ratio: auto;
+    aspect-ratio: attr(width) / attr(height);
+    height: auto;
+    width: 100%;
+  }
+  .logo img {
+    width: 48px;
+    height: 48px;
+  }
+  nav, .hide {
+    display: none;
+  }
+  #services {
+    background-image: url('/img/code.webp');
+  }
+
+  strong { font-weight: var(--fw-bold); }
+
+  img {
+    filter: var(--gs-filter);
+  }
+
+  :focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+  }
+
+  /* Buttons */
+
+  .btn {
+    display: inline-block;
+    padding: 0.5em 2.5em;
+    background-color: var(--clr-accent);
+    color: var(--fc-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: var(--std-transform);
+  }
+
+  .btn:hover {
+    transform: scale(0.97);
+  }
+
+  /* Typography */
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1;
+    margin: 0;
+  }
+
+  h1 { font-size: var(--fs-h1); }
+  h2 { font-size: var(--fs-h2); }
+  h3 { font-size: var(--fs-h3); }
+
+  .section__title {
+    margin-bottom: 0.25em;
+  }
+
+  .section__title--intro {
+    font-weight: var(--fw-reg);
+  }
+
+  .section__title--intro strong {
+    display: block;
+  }
+
+  .section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+  }
+
+  .section__subtitle--intro,
+  .section__subtitle--about,
+  .section__subtitle--contact {
+    background-color: var(--clr-accent);
+    padding: 0.25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+  }
+
+  .section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+  }
 </style>

@@ -1,0 +1,66 @@
+{
+  "short_name": "reallyluis",
+  "name": "Luis' Professional Website",
+  "description": "Luis' professional website to detail his knowledge, skills and interests in software engineering and web and mobile development.",
+  "icons": [
+    {
+      "src": "/img/icons/manifest-whitebg-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/img/icons/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#111111",
+  "shortcuts": [
+    {
+      "name": "Work",
+      "short_name": "Work",
+      "description": "Review details of my previous work.",
+      "url": "/#work",
+      "icons": [
+        {
+          "src": "/img/icons/work-icon-256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "maskable any"
+        },
+        {
+          "src": "/img/icons/work-icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable any"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Send a message via my contact form.",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/img/icons/contact-icon-256.png",
+          "sizes": "256x256",
+          "type": "image/png",
+          "purpose": "maskable any"
+        },
+        {
+          "src": "/img/icons/contact-icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable any"
+        }
+      ]
+    }
+  ]
+}

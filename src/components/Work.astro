@@ -1,0 +1,171 @@
+---
+import type { FirebaseApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
+export interface Props {
+	app: FirebaseApp;
+}
+const { app } = Astro.props;
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+const worksCol = collection(db, "works");
+const worksSnapshot = await getDocs(worksCol);
+const works: any = {};
+worksSnapshot.forEach((doc) => {
+  works[doc.id] = doc.data();
+});
+---
+
+<section class="my-work" id="work" data-nosnippet>
+  <div class="my-work__content">
+    <h2 class="section__title section__title--work">My Work</h2>
+    <p class="section__subtitle section__subtitle--work">A selection
+      of my range of work</p>
+    <div class="portfolio">
+      <div class="portfolio__item"
+          data-workid="2jLx5PHgOVzoaumOQh57">
+        <div class="portfolio__title">Fundraising</div>
+        <img src="/img/crowd-fundraising.webp" loading="lazy" width="372" height="248"
+            alt="" class="portfolio__img" />
+      </div>
+      <div class="portfolio__item"
+          data-workid="KOoNKHZeUKb7mtNwBzl2">
+        <div class="portfolio__title">Entertainment</div>
+        <img src="/img/concert.webp" loading="lazy" width="372" height="248"
+            alt="" class="portfolio__img" />
+      </div>
+      <div class="portfolio__item"
+        data-workid="Uw8uxjJHOEyF5HQu2g3w">
+        <div class="portfolio__title">Business</div>
+        <img src="/img/business-coffee-shop.webp" loading="lazy" width="372"
+          height="248" alt="" class="portfolio__img" />
+      </div>
+      <div class="portfolio__item"
+          data-workid="12d7SL9dYztRqcA4JfB8">
+        <div class="portfolio__title">Telecommunications</div>
+        <img src="/img/telecom.webp" loading="lazy" width="372" height="248"
+            alt="" class="portfolio__img" />
+      </div>
+      <div class="portfolio__item"
+          data-workid="H6VcWQATrqqRaLRIAJyJ">
+        <div class="portfolio__title">Government</div>
+        <img src="/img/capital.webp" loading="lazy" width="372" height="248"
+            alt="" class="portfolio__img" />
+      </div>
+      <div class="portfolio__item"
+          data-workid="qv5FWeganRirtEsZKdMd">
+        <div class="portfolio__title">Web</div>
+        <img src="/img/code-two-screens.webp" loading="lazy" width="372"
+            height="248" alt="" class="portfolio__img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .my-work {
+    width: 100%;
+    background-color: var(--clr-dark);
+    color: var(--fc-light);
+    text-align: center;
+  }
+
+  .my-work__content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .portfolio {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .portfolio__item {
+    position: relative;
+    background-color: var(--clr-accent);
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .portfolio__title {
+    position: absolute;
+    top: calc(50% - var(--fs-h3));
+    width: 100%;
+    color: var(--fc-light);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+  }
+
+  .portfolio__img {
+    aspect-ratio: 3/2;
+    transition:
+      transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
+      opacity 200ms linear;
+  }
+
+  .portfolio__item:focus {
+    z-index: 2;
+  }
+
+  .portfolio__img:hover,
+  .portfolio__item:focus .portfolio__img {
+    transform: scale(1.2);
+    opacity: 0.45;
+  }
+
+  @media (min-width: 600px) {
+    .portfolio {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  @media (min-width: 800px) {
+    .portfolio__content {
+      margin: 3em;
+    }
+  }
+</style>
+
+<script define:vars={{works}}>
+  const renderModal = () => {
+    const modalToggleLinks = document.querySelectorAll('.portfolio__item');
+    const modalContainer = document.querySelector('.page-modal');
+    const modalContent = document.querySelector('.page-modal__content');
+
+    if (modalToggleLinks) {
+      modalToggleLinks.forEach((link) => {
+        link.addEventListener('click', (el) => {
+          el.stopPropagation();
+          const workid = el.target.parentElement.dataset.workid;
+          const {title, description} = works[workid] ?
+            works[workid] :
+            {
+              title: 'Oopss!',
+              description: 'Something went wrong.  Please try again.',
+            };
+          const html = `
+            <div data-id="${workid}">
+              <h3>${title}</h3>
+              <div unselectable="on">${description}</div>
+            </div>
+          `;
+
+          modalContent.innerHTML += html;
+          modalContainer.classList.toggle('hide');
+        });
+      });
+    }
+
+    if (modalContainer) {
+      modalContainer.addEventListener('click', () => {
+        modalContainer.classList.add('hide');
+        modalContent.innerHTML = '';
+      });
+    }
+  };
+
+  renderModal();
+</script>

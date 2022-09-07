@@ -1,0 +1,54 @@
+---
+export interface Props {
+	delay: number;
+}
+
+const { delay } = Astro.props;
+---
+
+<div class="page-loading">
+  <div class="spinner"></div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .page-loading {
+    position: fixed;
+    background: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+  }
+
+  .spinner {
+    margin: 20% auto;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #4299e1; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.25s linear infinite, fadeIn 3s ease normal;
+  }
+</style>
+
+<script define:vars={{delay}} is:inline>
+  setTimeout(() => {
+    const pageLoading = document.querySelector('.page-loading');
+    if (pageLoading) {
+      pageLoading.classList.add('hide');
+    }
+  }, delay);
+</script>
