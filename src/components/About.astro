@@ -1,6 +1,8 @@
 ---
-const api = import.meta.env.CONTENT_API;
-const response = await fetch(`${api}?ct=abouts`);
+const api = new URL(import.meta.env.CONTENT_API);
+api.search = new URLSearchParams({ct: "abouts"}).toString();
+
+const response = await fetch(api.toString());
 const about = await response.json();
 ---
 

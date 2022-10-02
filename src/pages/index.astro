@@ -17,7 +17,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
 
 <Layout title="Professional Website" name="Luis">
 	<PageLoad delay={150} />
-	<PageError />
+	<PageError mailToEmail={mailToEmail} />
 	<PageControls />
 	<PageModal />
 	<Header/>

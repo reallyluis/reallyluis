@@ -12,9 +12,9 @@ const { title, name } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{name}' professional website to detail knowledge, skills and interests in software, web and mobile development." />
-  <meta name="keywords" content="{name}, resume, portfolio, professional, HTML, CSS, JavaScript, web, developer, software, engineer, front-end, back-end, mobile, cloud" />
-  <meta name="author" content="{name}" />
+  <meta name="description" content={`${name}' professional website to detail knowledge, skills and interests in software, web and mobile development.`} />
+  <meta name="keywords" content={`${name}, resume, portfolio, professional, HTML, CSS, JavaScript, web, developer, software, engineer, front-end, back-end, mobile, cloud`} />
+  <meta name="author" content={name} />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#111111" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -22,9 +22,9 @@ const { title, name } = Astro.props;
   <meta property="og:site_name" content="reallyluis" />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://reallyluis.com" />
-  <meta property="og:description" content="{name}' professional website to detail knowledge, skills and interests in software, web and mobile development." />
+  <meta property="og:description" content={`${name}' professional website to detail knowledge, skills and interests in software, web and mobile development.`} />
   <meta property="og:image" content="https://reallyluis.com/img/self.webp" />
-  <meta property="og:title" content="{name}' Professional Website" />
+  <meta property="og:title" content={`${name}' Professional Website`} />
   <title>{name}' {title}</title>
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="196x196" href="/img/icons/favicon-whitebg-196.png" />
