@@ -16,116 +16,116 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
 ---
 
 <Layout title="Professional Website" name="Luis">
-	<PageLoad delay={150} />
-	<PageError mailToEmail={mailToEmail} />
-	<PageControls />
-	<PageModal />
-	<Header/>
-	<Introduction name="Luis" title="full stack developer" />
-	<Skills />
-	<About />
-	<Work />
-	<Contact />
-	<Footer mailToEmail={mailToEmail} />
+  <PageLoad delay={150} />
+  <PageError mailToEmail={mailToEmail} />
+  <PageControls />
+  <PageModal />
+  <Header/>
+  <Introduction name="Luis" title="full stack developer" />
+  <Skills />
+  <About />
+  <Work />
+  <Contact />
+  <Footer mailToEmail={mailToEmail} />
 </Layout>
 
 <script>
-	/**
-	 * Handle Scroll to Position since direct links do not always work
-	 */
-	const scrollOnLoad = () => {
-		const urlHash = window.location.hash;
+  /**
+   * Handle Scroll to Position since direct links do not always work
+   */
+  const scrollOnLoad = () => {
+    const urlHash = window.location.hash;
 
-		if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
-			const section: HTMLElement | null = document.querySelector(urlHash);
+    if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
+      const section: HTMLElement | null = document.querySelector(urlHash);
 
-			if (section) {
-				window.scrollTo(0, section.offsetTop);
-			}
-		}
-	};
+      if (section) {
+        window.scrollTo(0, section.offsetTop);
+      }
+    }
+  };
 
-	/**
-	 * Capitalize word
-	 * @param {string} word String to be capitalized.
-	 * @return {string} Return capitalized string.
-	 */
-	const capitalizeWord = (word: string) => {
-		return word.charAt(0).toUpperCase() + word.substring(1);
-	};
+  /**
+   * Capitalize word
+   * @param {string} word String to be capitalized.
+   * @return {string} Return capitalized string.
+   */
+  const capitalizeWord = (word: string) => {
+    return word.charAt(0).toUpperCase() + word.substring(1);
+  };
 
-	/**
-	 * Reset URL hash
-	 * @param {string} newHash New hash to update in the url
-	 */
-	const updateUrlHash = (newHash='') => {
-		const currentHash = window.location.hash.substring(1);
-		const baseTitle = document.title.split(' - ')[0];
+  /**
+   * Reset URL hash
+   * @param {string} newHash New hash to update in the url
+   */
+  const updateUrlHash = (newHash='') => {
+    const currentHash = window.location.hash.substring(1);
+    const baseTitle = document.title.split(' - ')[0];
 
-		if (currentHash !== newHash) {
-			const newTitle = newHash === '' ? baseTitle :
-				`${baseTitle} - ${capitalizeWord(newHash)}`;
-			const newUrlPath = newHash === '' ? document.location.pathname :
-				`${document.location.pathname}#${newHash}`;
+    if (currentHash !== newHash) {
+      const newTitle = newHash === '' ? baseTitle :
+        `${baseTitle} - ${capitalizeWord(newHash)}`;
+      const newUrlPath = newHash === '' ? document.location.pathname :
+        `${document.location.pathname}#${newHash}`;
 
-			try {
-				document.title = newTitle;
-				history.pushState('', newTitle, newUrlPath);
-			} catch (err) {
-				console.log('Unable to update url hash.');
-			}
-		}
-	};
+      try {
+        document.title = newTitle;
+        history.pushState('', newTitle, newUrlPath);
+      } catch (err) {
+        console.log('Unable to update url hash.');
+      }
+    }
+  };
 
-	/**
-	 * Update URL Hash when scrolling has stopped
-	 */
-	const updateHashOnScrollStop = () => {
-		const sections = document.querySelectorAll('section');
-		let newHash = '';
+  /**
+   * Update URL Hash when scrolling has stopped
+   */
+  const updateHashOnScrollStop = () => {
+    const sections = document.querySelectorAll('section');
+    let newHash = '';
 
-		[...sections].filter((elem) => elem.id !== 'home')
-				.map((elem) => {
-					if (elem.offsetTop <= window.scrollY) {
-						newHash = elem.id;
-					}
-				});
+    [...sections].filter((elem) => elem.id !== 'home')
+        .map((elem) => {
+          if (elem.offsetTop <= window.scrollY) {
+            newHash = elem.id;
+          }
+        });
 
-		updateUrlHash(newHash);
-	};
+    updateUrlHash(newHash);
+  };
 
-	// Update style based on scroll position
-	let isScrolling: any;
-	window.addEventListener('scroll', () => {
-		const isScrolled = document.body.classList.contains &&
-			document.body.classList.contains('scrolled');
-		const scrollY = typeof window.scrollY === 'number' && window.scrollY;
-		const scrollHeight = typeof document.body.scrollHeight === 'number' &&
-			document.body.scrollHeight;
+  // Update style based on scroll position
+  let isScrolling: any;
+  window.addEventListener('scroll', () => {
+    const isScrolled = document.body.classList.contains &&
+      document.body.classList.contains('scrolled');
+    const scrollY = typeof window.scrollY === 'number' && window.scrollY;
+    const scrollHeight = typeof document.body.scrollHeight === 'number' &&
+      document.body.scrollHeight;
 
-		// Style change to Header
-		if (scrollY > 100) {
-			if (!isScrolled) document.body.classList.add('scrolled');
-		} else {
-			if (isScrolled) document.body.classList.remove('scrolled');
-		}
+    // Style change to Header
+    if (scrollY > 100) {
+      if (!isScrolled) document.body.classList.add('scrolled');
+    } else {
+      if (isScrolled) document.body.classList.remove('scrolled');
+    }
 
-		// Style change to contact button
-		const commentBtn: HTMLButtonElement | null = document.querySelector('.page-controls__comment');
-		if (commentBtn) {
-			if (scrollY && scrollHeight && scrollY/scrollHeight > 0.75) {
-				commentBtn.classList.add('animate-out');
-			} else {
-				commentBtn.classList.remove('animate-out');
-			}
-		}
+    // Style change to contact button
+    const commentBtn: HTMLButtonElement | null = document.querySelector('.page-controls__comment');
+    if (commentBtn) {
+      if (scrollY && scrollHeight && scrollY/scrollHeight > 0.75) {
+        commentBtn.classList.add('animate-out');
+      } else {
+        commentBtn.classList.remove('animate-out');
+      }
+    }
 
-		// Update hash when scrolling stops
-		if (isScrolling) {
-			window.clearTimeout(isScrolling);
-		}
-		isScrolling = setTimeout(updateHashOnScrollStop, 250);
-	});
+    // Update hash when scrolling stops
+    if (isScrolling) {
+      window.clearTimeout(isScrolling);
+    }
+    isScrolling = setTimeout(updateHashOnScrollStop, 250);
+  });
 
   // Force hash link scroll to position on load
   // Add a delay since lazy load content can change section position

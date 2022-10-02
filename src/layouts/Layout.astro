@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
   name: string;
 }
 
@@ -64,150 +64,158 @@ const { title, name } = Astro.props;
   <!-- Preloads -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700;900&display=swap" />
   <link rel="preload" as="image" href="/img/self.webp" />
-  <link rel="preload" as="image" href="/img/code.webp" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700;900&display=swap" />
 </head>
 <body>
-	<slot />
+  <slot />
 </body>
 </html>
 
 <style>
-	/* Custom properties */
-	:root {
-		--ff-primary: "Source Sans Pro", sans-serif;
-		--ff-secondary: monospace;
-		--fw-reg: 300;
-		--fw-semi-bold: 700;
-		--fw-bold: 900;
-		--fc-light: #fff;
-		--fc-dark: #111;
-		--fc-accent: #0d85ff;
-		--clr-light: #fff;
-		--clr-dark: #111;
-		--clr-gray: #bbb;
-		--clr-dark-gray: #777;
-		--clr-accent: #0d85ff;
-		--fs-h1: 3rem;
-		--fs-h2: 2.5rem;
-		--fs-h3: 1.25rem;
-		--fs-body: 1rem;
-		--bs:
-			0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-			0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-		--clr-mod: rgba(20, 20, 20, 0.75);
-		--gs-filter: grayscale(0);
-		--std-transform: transform 200ms ease-in-out;
-	}
+  /* Custom properties */
+  :root {
+    --ff-primary: "Source Sans Pro", sans-serif;
+    --ff-secondary: monospace;
+    --fw-reg: 300;
+    --fw-semi-bold: 700;
+    --fw-bold: 900;
+    --fc-light: #fff;
+    --fc-dark: #111;
+    --fc-accent: #0d85ff;
+    --clr-light: #fff;
+    --clr-dark: #111;
+    --clr-gray: #bbb;
+    --clr-dark-gray: #777;
+    --clr-accent: #0d85ff;
+    --fs-h1: 3rem;
+    --fs-h2: 2.5rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    --bs:
+      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+    --clr-mod: rgba(20, 20, 20, 0.75);
+    --gs-filter: grayscale(0);
+    --std-transform: transform 200ms ease-in-out;
+  }
 
-	@media (min-width: 800px) {
-		:root {
-			--fs-h1: 4rem;
-			--fs-h2: 3.75rem;
-			--fs-h3: 1.5rem;
-			--fs-body: 1.25rem;
-		}
-	}
+  @media (min-width: 800px) {
+    :root {
+      --fs-h1: 4rem;
+      --fs-h2: 3.75rem;
+      --fs-h3: 1.5rem;
+      --fs-body: 1.25rem;
+    }
+  }
 
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--fc-dark: #ddd;
-			--fc-accent: #fff;
-			--clr-light: #333;
-			--clr-accent: #006f91;
-			--gs-filter: grayscale(0.25);
-		}
-	}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fc-dark: #ddd;
+      --fc-accent: #fff;
+      --clr-light: #333;
+      --clr-accent: #006f91;
+      --gs-filter: grayscale(0.25);
+    }
+  }
 
-	/* Override media darkmode style based on class on body */
+  /* Override media darkmode style based on class on body */
+  body::after{
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    /* css preloading images: add more by url(..) url(..) ...etc */
+    content: url('/img/code.webp');
+  }
 
-	body.darkmode-on {
-		--fc-dark: #ddd;
-		--fc-accent: #fff;
-		--clr-light: #333;
-		--clr-accent: #006f91;
-		--gs-filter: grayscale(0.25);
-	}
+  body.darkmode-on {
+    --fc-dark: #ddd;
+    --fc-accent: #fff;
+    --clr-light: #333;
+    --clr-accent: #006f91;
+    --gs-filter: grayscale(0.25);
+  }
 
-	/* General Styles */
-	body {
-		background-color: var(--clr-light);
-		color: var(--fc-dark);
-		margin: 0;
-		font-family: var(--ff-primary);
-		font-size: var(--fs-body);
-		font-display: optional;
-		line-height: 1.6;
-	}
+  /* General Styles */
+  body {
+    background-color: var(--clr-light);
+    color: var(--fc-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-display: optional;
+    line-height: 1.6;
+  }
 
-	body:not(.darkmode-on) {
-		--fc-dark: #111;
-		--fc-accent: #0d85ff;
-		--clr-light: #fff;
-		--clr-accent: #0d85ff;
-		--bs:
-			0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-			0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-		--gs-filter: grayscale(0);
-	}
+  body:not(.darkmode-on) {
+    --fc-dark: #111;
+    --fc-accent: #0d85ff;
+    --clr-light: #fff;
+    --clr-accent: #0d85ff;
+    --bs:
+      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+    --gs-filter: grayscale(0);
+  }
 
-	body.scrolled .logo {
-		opacity: 0.25;
-		transition: opacity 0.3s ease-out;
-	}
+  body.scrolled .logo {
+    opacity: 0.25;
+    transition: opacity 0.3s ease-out;
+  }
 </style>
 
 <style is:global>
-	/* Animations */
-	@keyframes slideInFromTop {
-		0% {
-			opacity: 0;
-			transform: translateY(-100%);
-		}
+  /* Animations */
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
 
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-	@keyframes slideInFromBottom {
-		0% {
-			opacity: 0;
-			transform: translateY(100%);
-		}
+  @keyframes slideInFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
 
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-	@keyframes slideInFromLeft {
-		0% {
-			opacity: 0;
-			transform: translateX(-100%);
-		}
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
 
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
-	@keyframes slideInFromRight {
-		0% {
-			opacity: 0;
-			transform: translateX(100%);
-		}
+  @keyframes slideInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
 
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
   *,
   *::before,
