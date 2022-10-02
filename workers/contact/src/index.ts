@@ -12,6 +12,12 @@ interface EmailData {
 	comment: string;
 };
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+  "Access-Control-Max-Age": "86400",
+};
+
 const sendEmail = async (data: EmailData, env: Env) => {
 	const {name, email, comment} = data;
 	const {EMAIL_API_KEY, EMAIL_DOMAIN, EMAIL_TO, EMAIL_TEMPLATE_ID, EMAIL_BASE_URL} = env;
@@ -54,7 +60,7 @@ const readRequestBody = async (request: Request) => {
   if (contentType?.includes("application/json")) {
     const body = await request.json();
 
-    return body;
+    return JSON.stringify(body);
   } else if (contentType?.includes("form")) {
     const formData = await request.formData();
     const body: {[key:string]: string | File} = {};
@@ -69,8 +75,42 @@ const readRequestBody = async (request: Request) => {
 	return JSON.stringify({});
 };
 
+const handleOptionsRequest = async (request: Request) => {
+  // Make sure the necessary headers are present
+  // for this to be a valid pre-flight request
+  let headers = request.headers;
+  if (
+    headers.get("Origin") !== null &&
+    headers.get("Access-Control-Request-Method") !== null &&
+    headers.get("Access-Control-Request-Headers") !== null
+  ) {
+    // Handle CORS pre-flight request.
+    // If you want to check or reject the requested method + headers
+    // you can do that here.
+    let respHeaders = {
+      ...corsHeaders,
+      // Allow all future content Request headers to go back to browser
+      // such as Authorization (Bearer) or X-Client-Name-Version
+      "Access-Control-Allow-Headers": request.headers.get("Access-Control-Request-Headers"),
+    };
+
+    return new Response(null, {
+			// @ts-ignore
+      headers: respHeaders,
+    });
+  }
+
+	// Handle standard OPTIONS request.
+	// If you want to allow other HTTP Methods, you can do that here.
+	return new Response(null, {
+		headers: {
+			Allow: "GET, HEAD, POST, OPTIONS",
+		},
+	});
+};
+
 const handlePostRequest = async (request: Request, env: Env) => {
-	try {
+  try {
 		const reqBody: any = await readRequestBody(request);
 		const {name, email, comment} = JSON.parse(reqBody);
 		
@@ -86,13 +126,15 @@ const handlePostRequest = async (request: Request, env: Env) => {
 	return getResponse(200, "Message sent");
 };
 
-const getResponse = (status: number = 404, message: string = "Not found") => {
+const getResponse = (status: number = 405, message: string = "Method Not Allowed") => {
 	const response = JSON.stringify({status, message}, null, 2);
 
 	return new Response(response, {
 		headers: {
+			"Access-Control-Allow-Origin": "*",
 			"Content-Length": response.length.toString(),
 			"Content-Type": "application/json; charset=UTF-8",
+			"Vary": "Origin",
 		},
 		statusText: message,
 		status,
@@ -107,10 +149,12 @@ export default {
 	): Promise<Response> {
 		const {method} = request;
 
-		if (method != "POST") {
-			return getResponse();
+		if (method === "POST") {
+			return handlePostRequest(request, env);
+		} else if (method === "OPTIONS") {
+			return handleOptionsRequest(request);
 		}
 
-		return handlePostRequest(request, env);
+		return getResponse();
 	},
 };

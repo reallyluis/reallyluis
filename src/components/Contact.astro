@@ -1,24 +1,5 @@
 ---
-import type { FirebaseApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-
-interface Contacts {
-  name: string,
-  email: string,
-  comment: string
-}
-
-export interface Props {
-	app: FirebaseApp;
-}
-const { app } = Astro.props;
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-const contactsCollection = collection(db, "contacts");
-const sendContact = async (contact: Contacts) => {
-  await addDoc(contactsCollection, contact);
-};
+const contactAPI = import.meta.env.CONTACT_API;
 ---
 
 <section class="contact-me" id="contact" data-nosnippet>
@@ -206,7 +187,24 @@ const sendContact = async (contact: Contacts) => {
   }
 </style>
 
-<script define:vars={{sendContact, addDoc}}>
+<script define:vars={{contactAPI}}>
+  /**
+   * Send contact form
+   * @param {object} data
+   */
+  const sendContact = async (data) => {
+    const response = await fetch(contactAPI, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(data),
+    });
+
+    return await response.json();
+  };
+
   /**
    * Resets contact form
    * @param {object} contactForm The form dom
@@ -214,17 +212,17 @@ const sendContact = async (contact: Contacts) => {
    */
   const resetForm = (contactForm, contactSubmitBtn) => {
     // Reset form fields
-    contactForm.fname.value = '';
-    contactForm.email.value = '';
-    contactForm.comment.value = '';
+    contactForm.fname.value = "";
+    contactForm.email.value = "";
+    contactForm.comment.value = "";
     contactSubmitBtn.disabled = false;
   };
 
-  const contactForm = document.querySelector('form');
-  const contactSuccess = document.querySelector('.contact-me__success');
-  const contactSubmitBtn = document.getElementById('contact-submit');
+  const contactForm = document.querySelector("form");
+  const contactSuccess = document.querySelector(".contact-me__success");
+  const contactSubmitBtn = document.getElementById("contact-submit");
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       contactSubmitBtn.disabled = true;
       const contact = {
@@ -236,13 +234,13 @@ const sendContact = async (contact: Contacts) => {
       if (sendContact) {
         sendContact(contact);
 
-        contactForm.classList.add('hide');
-        contactSuccess.classList.remove('hide');
+        contactForm.classList.add("hide");
+        contactSuccess.classList.remove("hide");
         resetForm(contactForm, contactSubmitBtn);
 
         setTimeout(() => {
-          contactForm.classList.remove('hide');
-          contactSuccess.classList.add('hide');
+          contactForm.classList.remove("hide");
+          contactSuccess.classList.add("hide");
         }, 2000);
       } else {
         resetForm(contactForm, contactSubmitBtn);

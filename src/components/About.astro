@@ -1,17 +1,7 @@
 ---
-import type { FirebaseApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-
-export interface Props {
-	app: FirebaseApp;
-}
-const { app } = Astro.props;
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-const aboutsCol = collection(db, "abouts");
-const aboutsSnapshot = await getDocs(aboutsCol);
-const aboutsList = aboutsSnapshot.docs.map(doc => doc.data());
+const api = import.meta.env.CONTENT_API;
+const response = await fetch(`${api}?ct=abouts`);
+const about = await response.json();
 ---
 
 <section class="about-me" id="about" data-nosnippet>
@@ -19,8 +9,8 @@ const aboutsList = aboutsSnapshot.docs.map(doc => doc.data());
   <p class="section__subtitle section__subtitle--about">
     Working from a remote location</p>
   <div class="about-me__body">
-    {aboutsList.map(about => (
-      <p>{about.description}</p>
+    {Object.keys(about).map(key => (
+      <p data-key={key}>{about[key]}</p>
     ))}
   </div>
   <img src="/img/about-me.webp" loading="lazy" width="200"

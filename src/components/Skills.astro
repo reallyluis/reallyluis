@@ -1,26 +1,16 @@
 ---
-import type { FirebaseApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-
-export interface Props {
-	app: FirebaseApp;
-}
-const { app } = Astro.props;
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-const skillsCol = collection(db, "skills");
-const skillsSnapshot = await getDocs(skillsCol);
-const skillsList = skillsSnapshot.docs.map(doc => doc.data());
+const api = import.meta.env.CONTENT_API;
+const response = await fetch(`${api}?ct=skills`);
+const skills = await response.json();
 ---
 
 <section class="my-services" id="services" data-nosnippet>
   <h2 class="section__title section__title--services">What I do</h2>
   <div class="services">
-    {skillsList.map(skill => (
-      <div class="service">
-        <h3>{skill.title}</h3>
-        <p>{skill.description}</p>
+    {Object.keys(skills).map(key => (
+      <div data-key={key} class="service">
+        <h3>{key}</h3>
+        <p>{skills[key]}</p>
       </div>
     ))}
   </div>

@@ -1,20 +1,7 @@
 ---
-import type { FirebaseApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-
-export interface Props {
-	app: FirebaseApp;
-}
-const { app } = Astro.props;
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-const worksCol = collection(db, "works");
-const worksSnapshot = await getDocs(worksCol);
-const works: any = {};
-worksSnapshot.forEach((doc) => {
-  works[doc.id] = doc.data();
-});
+const api = import.meta.env.CONTENT_API;
+const response = await fetch(`${api}?ct=works`);
+const works = await response.json();
 ---
 
 <section class="my-work" id="work" data-nosnippet>
@@ -24,37 +11,37 @@ worksSnapshot.forEach((doc) => {
       of my range of work</p>
     <div class="portfolio">
       <div class="portfolio__item"
-          data-workid="2jLx5PHgOVzoaumOQh57">
+          data-workid="Fundraising">
         <div class="portfolio__title">Fundraising</div>
         <img src="/img/crowd-fundraising.webp" loading="lazy" width="372" height="248"
             alt="" class="portfolio__img" />
       </div>
       <div class="portfolio__item"
-          data-workid="KOoNKHZeUKb7mtNwBzl2">
+          data-workid="Entertainment">
         <div class="portfolio__title">Entertainment</div>
         <img src="/img/concert.webp" loading="lazy" width="372" height="248"
             alt="" class="portfolio__img" />
       </div>
       <div class="portfolio__item"
-        data-workid="Uw8uxjJHOEyF5HQu2g3w">
+        data-workid="Business">
         <div class="portfolio__title">Business</div>
         <img src="/img/business-coffee-shop.webp" loading="lazy" width="372"
           height="248" alt="" class="portfolio__img" />
       </div>
       <div class="portfolio__item"
-          data-workid="12d7SL9dYztRqcA4JfB8">
+          data-workid="Telecommunications">
         <div class="portfolio__title">Telecommunications</div>
         <img src="/img/telecom.webp" loading="lazy" width="372" height="248"
             alt="" class="portfolio__img" />
       </div>
       <div class="portfolio__item"
-          data-workid="H6VcWQATrqqRaLRIAJyJ">
+          data-workid="Government">
         <div class="portfolio__title">Government</div>
         <img src="/img/capital.webp" loading="lazy" width="372" height="248"
             alt="" class="portfolio__img" />
       </div>
       <div class="portfolio__item"
-          data-workid="qv5FWeganRirtEsZKdMd">
+          data-workid="Web">
         <div class="portfolio__title">Web</div>
         <img src="/img/code-two-screens.webp" loading="lazy" width="372"
             height="248" alt="" class="portfolio__img" />
@@ -139,15 +126,15 @@ worksSnapshot.forEach((doc) => {
       modalToggleLinks.forEach((link) => {
         link.addEventListener('click', (el) => {
           el.stopPropagation();
-          const workid = el.target.parentElement.dataset.workid;
-          const {title, description} = works[workid] ?
-            works[workid] :
+          const title = el.target.parentElement.dataset.workid;
+          const description = works[title] ?
+            works[title] :
             {
               title: 'Oopss!',
               description: 'Something went wrong.  Please try again.',
             };
           const html = `
-            <div data-id="${workid}">
+            <div data-id="${title}">
               <h3>${title}</h3>
               <div unselectable="on">${description}</div>
             </div>
