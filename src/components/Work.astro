@@ -56,9 +56,14 @@ const works = await response.json();
 
 <script define:vars={{works}}>
   const renderModal = () => {
+    const body = document.querySelector('body');
     const modalToggleLinks = document.querySelectorAll('.portfolio__item');
     const modalContainer = document.querySelector('.page-modal');
-    const modalContent = document.querySelector('.page-modal__content');
+
+    // hide if browser does not support dialog/showModal
+    if (typeof modalContainer.showModal !== 'function') {
+      modalContainer.hidden = true;
+    }
 
     if (modalToggleLinks) {
       modalToggleLinks.forEach((link) => {
@@ -78,16 +83,20 @@ const works = await response.json();
             </div>
           `;
 
-          modalContent.innerHTML += html;
-          modalContainer.classList.toggle('hide');
+          modalContainer.innerHTML += html;
+          if (typeof modalContainer.showModal === "function") {
+            modalContainer.showModal();
+            body.classList.add('disable-scroll');
+          }
         });
       });
     }
 
     if (modalContainer) {
       modalContainer.addEventListener('click', () => {
-        modalContainer.classList.add('hide');
-        modalContent.innerHTML = '';
+        body.classList.remove('disable-scroll');
+        modalContainer.close();
+        modalContainer.innerHTML = '';
       });
     }
   };

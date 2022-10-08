@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0.7em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  background-color: var(--clr-accent);
+  width: 2em;
+  height: 3px;
+  border-radius: 1em;
+  transition: transform ease-in-out 250ms;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
