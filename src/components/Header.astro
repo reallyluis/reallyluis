@@ -74,7 +74,7 @@
     background: var(--clr-light);
     background-image: url('/img/svg/lightbulb-dark.svg');
     border-radius: 0.8em;
-    transition: 0.3s;
+    transition: all ease 0.3s;
   }
 
   .darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
@@ -82,9 +82,8 @@
   }
 
   .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
-    left: calc(100% - 0.1em);
     background-image: url('/img/svg/lightbulb-light.svg');
-    transform: translateX(-100%);
+    transform: translateX(1.25em);  /* TODO: use vars, width - height */
   }
 
   nav {
@@ -144,7 +143,7 @@
     width: 2em;
     height: 3px;
     border-radius: 1em;
-    transition: transform 250ms ease-in-out;
+    transition: transform ease-in-out 250ms;
   }
 
   .hamburger::before,
