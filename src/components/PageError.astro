@@ -1,4 +1,6 @@
 ---
+import './PageError.scss';
+
 export interface Props {
   mailToEmail: string;
 }
@@ -14,17 +16,3 @@ const { mailToEmail } = Astro.props;
     </div>
   </div>
 </div>
-
-<style>
-  .page-error {
-    color: white;
-    padding: 4rem;
-    position: fixed;
-    background: rgba(100,100,0,0.8);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1001;
-  }
-</style>

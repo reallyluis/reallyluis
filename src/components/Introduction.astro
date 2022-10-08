@@ -1,4 +1,6 @@
 ---
+import './Introduction.scss';
+
 export interface Props {
   name: string;
   title: string;
@@ -14,56 +16,3 @@ const { name, title } = Astro.props;
 
   <img src="/img/self.webp" width="250" height="262" alt="Photo of me." class="intro__img" />
 </section>
-
-<style>
-  .intro {
-    position: relative;
-    padding-top: 7em;
-  }
-
-  .intro__img {
-    box-shadow: var(--bs);
-  }
-
-  .section__subtitle--intro {
-    display: inline-block;
-  }
-
-  /* RECOMMENDED SETS TO CONSIDER: 300, 600, 900, 1200 */
-  @media (min-width: 600px) {
-    .intro {
-      display: grid;
-      width: min-content;
-      margin: 0 auto;
-      grid-column-gap: 1em;
-      grid-template-areas:
-        "img title"
-        "img subtitle";
-      grid-template-columns: min-content max-content;
-    }
-
-    .intro__img {
-      animation: 750ms ease-in 250ms 1 slideInFromTop;
-      grid-area: img;
-      min-width: 250px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .section__title--intro {
-      animation: 750ms ease-in 250ms 1 slideInFromRight;
-    }
-
-    .section__subtitle--intro {
-      animation: 750ms ease-in 250ms 1 slideInFromLeft;
-      align-self: start;
-      grid-column: -1 / 1;
-      grid-row: 2;
-      text-align: right;
-      position: relative;
-      left: -1.5em;
-      width: calc(100% + 1.5em);
-      font-size: var(--fs-body);
-    }
-  }
-</style>

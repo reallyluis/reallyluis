@@ -1,3 +1,6 @@
+---
+import './PageControls.scss';
+---
 <div class="page-controls hide" data-nosnippet>
   <a aria-label="Contact Me" href="#contact">
     <div class="page-controls__comment">
@@ -7,36 +10,3 @@
     </div>
   </a>
 </div>
-
-<style>
-  .page-controls a {
-    text-decoration: none;
-  }
-
-  .page-controls__comment {
-    position: fixed;
-    width: 3.5em;
-    height: 3.5em;
-    padding: 1em;
-    right: 1em;
-    bottom: 1.5em;
-    border-radius: 1.75em;
-    background-color: var(--clr-accent);
-    z-index: 5;
-    box-shadow: var(--bs);
-    transition: var(--std-transform);
-  }
-
-  .page-controls__comment.animate-out {
-    transform: translateX(4em) translateY(5em);
-  }
-
-  .page-controls__comment .icon-comment {
-    fill: var(--fc-light);
-    transition: var(--std-transform);
-  }
-
-  .page-controls__comment:hover .icon-comment {
-    transform: scale(1.1);
-  }
-</style>

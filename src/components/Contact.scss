@@ -1,0 +1,152 @@
+.contact-me {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-me__form {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.contact-me__form.hide {
+  display: none;
+}
+
+.contact-me__form ::-webkit-input-placeholder { opacity: 0; }
+
+.contact-me__form ::-moz-placeholder { opacity: 0; }
+
+.contact-me__form :-ms-input-placeholder { opacity: 0; }
+
+.contact-me__form ::placeholder { opacity: 0; }
+
+.contact-me__form label,
+.contact-me__form input,
+.contact-me__form textarea {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+.contact-me__form label,
+.contact-me__form button {
+  font-weight: var(--fw-bold);
+}
+
+.contact-me__form label {
+  line-height: 1;
+  padding: 0 0.25em;
+  background-color: var(--clr-light);
+}
+
+.contact-me__form input,
+.contact-me__form textarea {
+  margin: 1em 0 0.25em;
+  cursor: text;
+  border: 0;
+  outline: 1px solid var(--fc-dark);
+  outline-offset: 4px;
+  color: var(--fc-dark);
+  background-color: transparent;
+}
+
+.contact-me__form textarea {
+  resize: none;
+}
+
+.contact-me__form input + label,
+.contact-me__form textarea + label {
+  width: max-content;
+  color: var(--fc-dark);
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left top;
+  transform: translate(0, -1.5em);
+}
+
+.contact-me__form textarea + label {
+  transform: translate(0, -6.1em);
+}
+
+.contact-me__form input:focus + label,
+.contact-me__form input:not(:placeholder-shown) + label {
+  transform: translate(0, -2.5em) scale(0.9);
+}
+
+.contact-me__form textarea:focus + label,
+.contact-me__form textarea:not(:placeholder-shown) + label {
+  transform: translate(0, -7.1em) scale(0.9);
+}
+
+.contact-me__form button {
+  color: var(--fc-dark);
+  background-color: var(--clr-accent);
+  font-size: 1.5rem;
+  padding: 0.5em;
+  border: 0;
+  margin: 0 0 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-me__form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-me__success {
+  margin: 6.5em 0;
+}
+
+.contact-me__success b {
+  padding-right: 0.25em;
+}
+
+.contact-me__img {
+  box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+  .contact-me {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-areas:
+      "title img"
+      "subtitle img"
+      "text img";
+    grid-column-gap: 2em;
+  }
+
+  .section__title--contact {
+    grid-area: title;
+  }
+
+  .section__subtitle--contact {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: relative;
+    left: -1em;
+    width: calc(100% + 2em);
+    padding-left: 1em;
+    padding-right: calc(200px + 4em);
+  }
+
+  .contact-me__img {
+    grid-area: img;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 2) {
+  .contact-me__form input + label {
+    transform: translate(0, -1.65em);
+  }
+
+  .contact-me__form input:focus + label,
+  .contact-me__form input:not(:placeholder-shown) + label {
+    transform: translate(0, -2.65em) scale(0.9);
+  }
+}
