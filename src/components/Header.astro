@@ -34,7 +34,7 @@ import './Header.scss';
   /**
    * Darkmode Switch
    */
-   const mediaStatus = window.matchMedia &&
+  const mediaStatus = window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)');
   const darkmodeToggle: HTMLInputElement | null = document.querySelector('.darkmode-toggle__checkbox');
   const setDarkmodeToggle = (isOn: boolean) => {

@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,astro}\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,10 @@
     "node": "16.17.0"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-astro": "^0.20.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "sass": "^1.55.0"
   }
 }
