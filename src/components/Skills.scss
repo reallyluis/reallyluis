@@ -1,7 +1,8 @@
 .my-services {
-  background-color: var(--clr-dark);
-  background-size: cover;
   background-blend-mode: color-dodge;
+  background-color: var(--clr-dark);
+  background-image: url('/img/code.webp');
+  background-size: cover;
   color: var(--fc-light);
   text-align: center;
 }
