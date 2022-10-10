@@ -13,13 +13,21 @@
   display: none;
 }
 
-.contact-me__form ::-webkit-input-placeholder { opacity: 0; }
+.contact-me__form ::-webkit-input-placeholder {
+  opacity: 0;
+}
 
-.contact-me__form ::-moz-placeholder { opacity: 0; }
+.contact-me__form ::-moz-placeholder {
+  opacity: 0;
+}
 
-.contact-me__form :-ms-input-placeholder { opacity: 0; }
+.contact-me__form :-ms-input-placeholder {
+  opacity: 0;
+}
 
-.contact-me__form ::placeholder { opacity: 0; }
+.contact-me__form ::placeholder {
+  opacity: 0;
+}
 
 .contact-me__form label,
 .contact-me__form input,

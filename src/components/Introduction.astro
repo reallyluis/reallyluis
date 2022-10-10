@@ -1,5 +1,5 @@
 ---
-import './Introduction.scss';
+import "./Introduction.scss";
 
 export interface Props {
   name: string;
@@ -10,9 +10,17 @@ const { name, title } = Astro.props;
 ---
 
 <section class="intro" id="home" data-nosnippet>
-  <h1 class="section__title section__title--intro">Hello, I am <strong>{name}</strong></h1>
+  <h1 class="section__title section__title--intro">
+    Hello, I am <strong>{name}</strong>
+  </h1>
 
   <p class="section__subtitle section__subtitle--intro">{title}</p>
 
-  <img src="/img/self.webp" width="250" height="262" alt="Me" class="intro__img" />
+  <img
+    src="/img/self.webp"
+    width="250"
+    height="262"
+    alt="Me"
+    class="intro__img"
+  />
 </section>

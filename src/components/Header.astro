@@ -1,16 +1,28 @@
 ---
-import './Header.scss';
+import "./Header.scss";
 ---
+
 <header data-nosnippet>
   <!-- website logo -->
   <div class="logo">
-    <a aria-label="{APP_DOMAIN} Logo" href="#top"><img src="/img/icons/manifest-icon-192.png" width="48" height="48" alt="" /></a>
+    <a aria-label="{APP_DOMAIN} Logo" href="#top"
+      ><img
+        src="/img/icons/manifest-icon-192.png"
+        width="48"
+        height="48"
+        alt=""
+      />
+    </a>
   </div>
 
   <!-- Darkmode toggle -->
   <div class="darkmode-toggle">
     <label for="darkmode-toggle" class="darkmode-toggle__label">
-      <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle__checkbox" />
+      <input
+        type="checkbox"
+        id="darkmode-toggle"
+        class="darkmode-toggle__checkbox"
+      />
     </label>
   </div>
 
@@ -23,10 +35,14 @@ import './Header.scss';
   <nav class="nav">
     <ul class="nav__list">
       <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-      <li class="nav__item"><a href="#services" class="nav__link">Skills</a></li>
+      <li class="nav__item">
+        <a href="#services" class="nav__link">Skills</a>
+      </li>
       <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
       <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-      <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+      <li class="nav__item">
+        <a href="#contact" class="nav__link">Contact</a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -35,14 +51,16 @@ import './Header.scss';
   /**
    * Darkmode Switch
    */
-  const mediaStatus = window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)');
-  const darkmodeToggle = document.querySelector<HTMLInputElement>('.darkmode-toggle__checkbox');
+  const mediaStatus =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+  const darkmodeToggle = document.querySelector<HTMLInputElement>(
+    ".darkmode-toggle__checkbox"
+  );
   const setDarkmodeToggle = (isOn = false) => {
     if (isOn) {
-      document.body.classList.add('darkmode-on');
+      document.body.classList.add("darkmode-on");
     } else {
-      document.body.classList.remove('darkmode-on');
+      document.body.classList.remove("darkmode-on");
     }
 
     if (darkmodeToggle) {
@@ -51,36 +69,32 @@ import './Header.scss';
   };
 
   if (darkmodeToggle) {
-    darkmodeToggle.addEventListener(
-        'change',
-        () => setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked),
+    darkmodeToggle.addEventListener("change", () =>
+      setDarkmodeToggle(darkmodeToggle && darkmodeToggle.checked)
     );
   }
 
   if (mediaStatus) {
     setDarkmodeToggle(mediaStatus.matches);
 
-    mediaStatus.addEventListener(
-        'change',
-        (e) => setDarkmodeToggle(e.matches),
-    );
+    mediaStatus.addEventListener("change", (e) => setDarkmodeToggle(e.matches));
   }
 
   /**
    * Navigation
    */
-  const navToggle = document.querySelector('.nav-toggle');
+  const navToggle = document.querySelector(".nav-toggle");
   if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      document.body.classList.toggle('nav-open');
+    navToggle.addEventListener("click", () => {
+      document.body.classList.toggle("nav-open");
     });
   }
 
-  const navLinks = document.querySelectorAll('.nav__link');
+  const navLinks = document.querySelectorAll(".nav__link");
   if (navLinks) {
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        document.body.classList.remove('nav-open');
+      link.addEventListener("click", () => {
+        document.body.classList.remove("nav-open");
       });
     });
   }

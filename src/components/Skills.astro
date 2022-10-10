@@ -1,8 +1,8 @@
 ---
-import './Skills.scss';
+import "./Skills.scss";
 
 const api = new URL(import.meta.env.CONTENT_API);
-api.search = new URLSearchParams({ct: "skills"}).toString();
+api.search = new URLSearchParams({ ct: "skills" }).toString();
 
 const response = await fetch(api.toString());
 const skills = await response.json();
@@ -12,12 +12,14 @@ const skillsOrder = ["Frontend", "Backend", "Data"];
 <section class="my-services" id="services" data-nosnippet>
   <h2 class="section__title section__title--services">What I do</h2>
   <div class="services">
-    {skillsOrder.map(key => (
-      <div data-key={key} class="service">
-        <h3>{key}</h3>
-        <p>{skills[key]}</p>
-      </div>
-    ))}
+    {
+      skillsOrder.map((key) => (
+        <div data-key={key} class="service">
+          <h3>{key}</h3>
+          <p>{skills[key]}</p>
+        </div>
+      ))
+    }
   </div>
   <a href="#work" class="btn">My Work</a>
 </section>

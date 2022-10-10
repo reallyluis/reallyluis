@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint \"src/**/*.{astro,js,ts}\""
+    "lint": "eslint \"src/**/*.{astro,js,ts}\"",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,8 @@
     "eslint": "^8.25.0",
     "eslint-plugin-astro": "^0.20.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.5",
     "sass": "^1.55.0"
   }
 }

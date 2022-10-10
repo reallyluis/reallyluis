@@ -1,5 +1,5 @@
 ---
-import './Contact.scss';
+import "./Contact.scss";
 
 const contactAPI = import.meta.env.CONTACT_API;
 ---
@@ -10,31 +10,57 @@ const contactAPI = import.meta.env.CONTACT_API;
   <div class="contact-me__body">
     <form id="contact" class="contact-me__form">
       <label for="fname">
-        <input type="text" id="fname" name="fname" value="" placeholder="name" required />
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          value=""
+          placeholder="name"
+          required
+        />
         <span>Name</span>
       </label>
 
       <label for="email">
-        <input type="email" id="email" name="email" value="" placeholder="email" required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value=""
+          placeholder="email"
+          required
+        />
         <span>Email</span>
       </label>
 
       <label for="comment">
-        <textarea id="comment" name="comment" cols="30" rows="5" placeholder="comment" required></textarea>
+        <textarea
+          id="comment"
+          name="comment"
+          cols="30"
+          rows="5"
+          placeholder="comment"
+          required></textarea>
         <span>Comment</span>
       </label>
 
       <button id="contact-submit" class="btn" type="submit">Send</button>
     </form>
     <div class="contact-me__success hide" data-nosnippet>
-      <p><b>Thanks!</b>  Your message was sent successfully.</p>
+      <p><b>Thanks!</b> Your message was sent successfully.</p>
     </div>
   </div>
-  <img src="/img/contact.webp" loading="lazy" width="200" height="366"
-      alt="Smartphone on desk." class="contact-me__img" />
+  <img
+    src="/img/contact.webp"
+    loading="lazy"
+    width="200"
+    height="366"
+    alt="Smartphone on desk."
+    class="contact-me__img"
+  />
 </section>
 
-<script define:vars={{contactAPI}}>
+<script define:vars={{ contactAPI }}>
   /**
    * Send contact form
    * @param {object} data

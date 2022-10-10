@@ -1,98 +1,96 @@
-  /* Custom properties */
+/* Custom properties */
+:root {
+  --ff-primary: "Source Sans Pro", sans-serif;
+  --ff-secondary: monospace;
+  --fw-reg: 300;
+  --fw-semi-bold: 700;
+  --fw-bold: 900;
+  --fc-light: #fff;
+  --fc-dark: #111;
+  --fc-accent: #0d85ff;
+  --clr-light: #fff;
+  --clr-dark: #111;
+  --clr-gray: #bbb;
+  --clr-dark-gray: #777;
+  --clr-accent: #0d85ff;
+  --fs-h1: 3rem;
+  --fs-h2: 2.5rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  --clr-mod: rgba(20, 20, 20, 0.75);
+  --gs-filter: grayscale(0);
+  --std-transform: transform 200ms ease-in-out;
+}
+
+@media (min-width: 800px) {
   :root {
-    --ff-primary: "Source Sans Pro", sans-serif;
-    --ff-secondary: monospace;
-    --fw-reg: 300;
-    --fw-semi-bold: 700;
-    --fw-bold: 900;
-    --fc-light: #fff;
-    --fc-dark: #111;
-    --fc-accent: #0d85ff;
-    --clr-light: #fff;
-    --clr-dark: #111;
-    --clr-gray: #bbb;
-    --clr-dark-gray: #777;
-    --clr-accent: #0d85ff;
-    --fs-h1: 3rem;
-    --fs-h2: 2.5rem;
-    --fs-h3: 1.25rem;
-    --fs-body: 1rem;
-    --bs:
-      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-    --clr-mod: rgba(20, 20, 20, 0.75);
-    --gs-filter: grayscale(0);
-    --std-transform: transform 200ms ease-in-out;
+    --fs-h1: 4rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.25rem;
   }
+}
 
-  @media (min-width: 800px) {
-    :root {
-      --fs-h1: 4rem;
-      --fs-h2: 3.75rem;
-      --fs-h3: 1.5rem;
-      --fs-body: 1.25rem;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --fc-dark: #ddd;
-      --fc-accent: #fff;
-      --clr-light: #333;
-      --clr-accent: #006f91;
-      --gs-filter: grayscale(0.25);
-    }
-  }
-
-  /* Override media darkmode style based on class on body */
-  body::after{
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    /* css preloading images: add more by url(..) url(..) ...etc */
-    content: url('/img/code.webp');
-  }
-
-  body.darkmode-on {
+@media (prefers-color-scheme: dark) {
+  :root {
     --fc-dark: #ddd;
     --fc-accent: #fff;
     --clr-light: #333;
     --clr-accent: #006f91;
     --gs-filter: grayscale(0.25);
   }
+}
 
-  /* General Styles */
-  body {
-    background-color: var(--clr-light);
-    color: var(--fc-dark);
-    margin: 0;
-    font-family: var(--ff-primary);
-    font-size: var(--fs-body);
-    font-display: optional;
-    line-height: 1.6;
-  }
+/* Override media darkmode style based on class on body */
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  /* css preloading images: add more by url(..) url(..) ...etc */
+  content: url("/img/code.webp");
+}
 
-  body:not(.darkmode-on) {
-    --fc-dark: #111;
-    --fc-accent: #0d85ff;
-    --clr-light: #fff;
-    --clr-accent: #0d85ff;
-    --bs:
-      0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
-      0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
-    --gs-filter: grayscale(0);
-  }
+body.darkmode-on {
+  --fc-dark: #ddd;
+  --fc-accent: #fff;
+  --clr-light: #333;
+  --clr-accent: #006f91;
+  --gs-filter: grayscale(0.25);
+}
 
-  body.scrolled .logo {
-    opacity: 0.25;
-    transition: opacity 0.3s ease-out;
-  }
+/* General Styles */
+body {
+  background-color: var(--clr-light);
+  color: var(--fc-dark);
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  font-display: optional;
+  line-height: 1.6;
+}
 
-  body.disable-scroll {
-    overflow-y: hidden;
-  }
+body:not(.darkmode-on) {
+  --fc-dark: #111;
+  --fc-accent: #0d85ff;
+  --clr-light: #fff;
+  --clr-accent: #0d85ff;
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  --gs-filter: grayscale(0);
+}
+
+body.scrolled .logo {
+  opacity: 0.25;
+  transition: opacity 0.3s ease-out;
+}
+
+body.disable-scroll {
+  overflow-y: hidden;
+}
 
 @media (min-width: 900px) {
   body.disable-scroll {
