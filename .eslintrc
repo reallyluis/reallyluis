@@ -12,8 +12,8 @@
       // Parse the script in `.astro` as TypeScript by adding the following configuration.
       // It's the setting you need when using TypeScript.
       "parserOptions": {
-        "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"]
+        "extraFileExtensions": ["*.astro"],
+        "parser": "@typescript-eslint/parser"
       },
       "rules": {
         // override/add rules settings here, such as:

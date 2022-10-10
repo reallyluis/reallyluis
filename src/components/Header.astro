@@ -9,8 +9,9 @@ import './Header.scss';
 
   <!-- Darkmode toggle -->
   <div class="darkmode-toggle">
-    <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle__checkbox" />
-    <label for="darkmode-toggle" class="darkmode-toggle__label" />
+    <label for="darkmode-toggle" class="darkmode-toggle__label">
+      <input type="checkbox" id="darkmode-toggle" class="darkmode-toggle__checkbox" />
+    </label>
   </div>
 
   <!-- navigation button to toggle on smaller screens -->
@@ -36,8 +37,8 @@ import './Header.scss';
    */
   const mediaStatus = window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)');
-  const darkmodeToggle: HTMLInputElement | null = document.querySelector('.darkmode-toggle__checkbox');
-  const setDarkmodeToggle = (isOn: boolean) => {
+  const darkmodeToggle = document.querySelector<HTMLInputElement>('.darkmode-toggle__checkbox');
+  const setDarkmodeToggle = (isOn = false) => {
     if (isOn) {
       document.body.classList.add('darkmode-on');
     } else {
@@ -45,7 +46,7 @@ import './Header.scss';
     }
 
     if (darkmodeToggle) {
-      darkmodeToggle.checked = isOn;
+      darkmodeToggle.checked = !!isOn;
     }
   };
 

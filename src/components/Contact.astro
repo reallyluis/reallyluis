@@ -9,19 +9,19 @@ const contactAPI = import.meta.env.CONTACT_API;
   <p class="section__subtitle section__subtitle--contact">get in touch</p>
   <div class="contact-me__body">
     <form id="contact" class="contact-me__form">
-      <input type="text" id="fname" name="fname" value="" placeholder="name" required />
       <label for="fname">
-        Name
+        <input type="text" id="fname" name="fname" value="" placeholder="name" required />
+        <span>Name</span>
       </label>
 
-      <input type="email" id="email" name="email" value="" placeholder="email" required />
       <label for="email">
-        Email
+        <input type="email" id="email" name="email" value="" placeholder="email" required />
+        <span>Email</span>
       </label>
 
-      <textarea id="comment" name="comment" cols="30" rows="5" placeholder="comment" required></textarea>
       <label for="comment">
-        Comment
+        <textarea id="comment" name="comment" cols="30" rows="5" placeholder="comment" required></textarea>
+        <span>Comment</span>
       </label>
 
       <button id="contact-submit" class="btn" type="submit">Send</button>
