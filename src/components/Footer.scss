@@ -26,9 +26,7 @@
 }
 
 .social-list__link .icon-social {
-  transition:
-    var(--std-transform),
-    opacity 200ms linear;
+  transition: var(--std-transform), opacity 200ms linear;
 }
 
 .social-list__link:hover .icon-social {

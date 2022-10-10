@@ -1,7 +1,6 @@
 /* Setting custom properties ----------------------------------- */
 :root {
-  --bs:
-    0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-accent: #0d85ff;
   --clr-dark: #111;
@@ -53,8 +52,7 @@ body.darkmode-on {
 }
 
 body:not(.darkmode-on) {
-  --bs:
-    0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
   --clr-accent: #0d85ff;
   --clr-light: #fff;
@@ -93,9 +91,9 @@ body {
     transition: opacity 0.3s ease-out;
   }
 
-  &::after{
+  &::after {
     /* css preloading images: add more by url(..) url(..) ...etc */
-    content: url('/img/code.webp');
+    content: url("/img/code.webp");
     height: 0;
     overflow: hidden;
     position: absolute;
@@ -132,7 +130,8 @@ img {
   width: 48px;
 }
 
-nav, .hide {
+nav,
+.hide {
   display: none;
 }
 
@@ -165,11 +164,19 @@ strong {
 }
 
 /* Typography */
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1;
   margin: 0;
 }
@@ -276,9 +283,9 @@ h1, h2, h3 {
 
 .darkmode-toggle__label::after {
   background: var(--clr-light);
-  background-image: url('/img/svg/lightbulb-dark.svg');
+  background-image: url("/img/svg/lightbulb-dark.svg");
   border-radius: 0.8em;
-  content: '';
+  content: "";
   height: 1em;
   left: 0.1em;
   position: absolute;
@@ -292,8 +299,8 @@ h1, h2, h3 {
 }
 
 .darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
-  background-image: url('/img/svg/lightbulb-light.svg');
-  transform: translateX(1.325em);  /* TODO: use vars, (width - height) + 0.075 */
+  background-image: url("/img/svg/lightbulb-light.svg");
+  transform: translateX(1.325em); /* TODO: use vars, (width - height) + 0.075 */
 }
 
 @media (max-width: 899px) {

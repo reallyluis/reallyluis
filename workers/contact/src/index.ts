@@ -4,13 +4,13 @@ export interface Env {
   EMAIL_DOMAIN: string;
   EMAIL_TEMPLATE_ID: string;
   EMAIL_TO: string;
-};
+}
 
 interface EmailData {
   name: string;
   email: string;
   comment: string;
-};
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -19,34 +19,40 @@ const corsHeaders = {
 };
 
 const sendEmail = async (data: EmailData, env: Env) => {
-  const {name, email, comment} = data;
-  const {EMAIL_API_KEY, EMAIL_DOMAIN, EMAIL_TO, EMAIL_TEMPLATE_ID, EMAIL_BASE_URL} = env;
+  const { name, email, comment } = data;
+  const {
+    EMAIL_API_KEY,
+    EMAIL_DOMAIN,
+    EMAIL_TO,
+    EMAIL_TEMPLATE_ID,
+    EMAIL_BASE_URL,
+  } = env;
 
   const opts = {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${EMAIL_API_KEY}`,
+      Authorization: `Bearer ${EMAIL_API_KEY}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      "from": {
-        "email": `no-reply@${EMAIL_DOMAIN}`,
+      from: {
+        email: `no-reply@${EMAIL_DOMAIN}`,
       },
-      "personalizations": [
+      personalizations: [
         {
-          "to": [
+          to: [
             {
-              "email": EMAIL_TO,
+              email: EMAIL_TO,
             },
           ],
-          "dynamic_template_data": {
-            "name": name,
-            "from": email,
-            "comment": comment
+          dynamic_template_data: {
+            name: name,
+            from: email,
+            comment: comment,
           },
         },
       ],
-      "template_id": EMAIL_TEMPLATE_ID,
+      template_id: EMAIL_TEMPLATE_ID,
     }),
   };
 
@@ -63,7 +69,7 @@ const readRequestBody = async (request: Request) => {
     return JSON.stringify(body);
   } else if (contentType?.includes("form")) {
     const formData = await request.formData();
-    const body: {[key:string]: string | File} = {};
+    const body: { [key: string]: string | File } = {};
 
     for (let entry of formData.entries()) {
       body[entry[0]] = entry[1];
@@ -91,7 +97,9 @@ const handleOptionsRequest = async (request: Request) => {
       ...corsHeaders,
       // Allow all future content Request headers to go back to browser
       // such as Authorization (Bearer) or X-Client-Name-Version
-      "Access-Control-Allow-Headers": request.headers.get("Access-Control-Request-Headers"),
+      "Access-Control-Allow-Headers": request.headers.get(
+        "Access-Control-Request-Headers"
+      ),
     };
 
     return new Response(null, {
@@ -112,10 +120,10 @@ const handleOptionsRequest = async (request: Request) => {
 const handlePostRequest = async (request: Request, env: Env) => {
   try {
     const reqBody: any = await readRequestBody(request);
-    const {name, email, comment} = JSON.parse(reqBody);
-    
+    const { name, email, comment } = JSON.parse(reqBody);
+
     if (name && email && comment) {
-      await sendEmail({name, email, comment}, env);
+      await sendEmail({ name, email, comment }, env);
     } else {
       throw new Error("Missing required data");
     }
@@ -126,15 +134,18 @@ const handlePostRequest = async (request: Request, env: Env) => {
   return getResponse(200, "Message sent");
 };
 
-const getResponse = (status: number = 405, message: string = "Method Not Allowed") => {
-  const response = JSON.stringify({status, message}, null, 2);
+const getResponse = (
+  status: number = 405,
+  message: string = "Method Not Allowed"
+) => {
+  const response = JSON.stringify({ status, message }, null, 2);
 
   return new Response(response, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Length": response.length.toString(),
       "Content-Type": "application/json; charset=UTF-8",
-      "Vary": "Origin",
+      Vary: "Origin",
     },
     statusText: message,
     status,
@@ -147,7 +158,7 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
-    const {method} = request;
+    const { method } = request;
 
     if (method === "POST") {
       return handlePostRequest(request, env);
