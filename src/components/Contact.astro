@@ -10,6 +10,7 @@ const contactAPI = import.meta.env.CONTACT_API;
   <div class="contact-me__body">
     <form id="contact" class="contact-me__form">
       <label for="fname">
+        <span>Name</span>
         <input
           type="text"
           id="fname"
@@ -18,10 +19,10 @@ const contactAPI = import.meta.env.CONTACT_API;
           placeholder="name"
           required
         />
-        <span>Name</span>
       </label>
 
       <label for="email">
+        <span>Email</span>
         <input
           type="email"
           id="email"
@@ -30,10 +31,10 @@ const contactAPI = import.meta.env.CONTACT_API;
           placeholder="email"
           required
         />
-        <span>Email</span>
       </label>
 
       <label for="comment">
+        <span>Comment</span>
         <textarea
           id="comment"
           name="comment"
@@ -41,7 +42,6 @@ const contactAPI = import.meta.env.CONTACT_API;
           rows="5"
           placeholder="comment"
           required></textarea>
-        <span>Comment</span>
       </label>
 
       <button id="contact-submit" class="btn" type="submit">Send</button>

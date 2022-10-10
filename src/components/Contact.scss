@@ -42,14 +42,17 @@
 }
 
 .contact-me__form label {
+  width: 100%;
   line-height: 1;
   padding: 0 0.25em;
   background-color: var(--clr-light);
+  margin-bottom: 1em;
 }
 
 .contact-me__form input,
 .contact-me__form textarea {
-  margin: 1em 0 0.25em;
+  width: inherit;
+  margin: 0.25em 0;
   cursor: text;
   border: 0;
   outline: 1px solid var(--fc-dark);
@@ -62,8 +65,7 @@
   resize: none;
 }
 
-.contact-me__form input + label,
-.contact-me__form textarea + label {
+.contact-me__form label > span {
   width: max-content;
   color: var(--fc-dark);
   cursor: text;
@@ -74,9 +76,9 @@
   transform: translate(0, -1.5em);
 }
 
-.contact-me__form textarea + label {
-  transform: translate(0, -6.1em);
-}
+// .contact-me__form textarea + label {
+//   transform: translate(0, -6.1em);
+// }
 
 .contact-me__form input:focus + label,
 .contact-me__form input:not(:placeholder-shown) + label {
