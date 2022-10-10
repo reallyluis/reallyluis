@@ -1,5 +1,5 @@
 ---
-import './PageError.scss';
+import "./PageError.scss";
 
 export interface Props {
   mailToEmail: string;
@@ -10,8 +10,9 @@ const { mailToEmail } = Astro.props;
 <div class="page-error hide" data-nosnippet>
   <div class="page-error__content">
     <h3>Oopss!</h3>
-    <div unselectable="on">Something went wrong.  The content on this page
-      requires JavaScript and other third-party assets to load correctly.  Please
+    <div unselectable="on">
+      Something went wrong. The content on this page requires JavaScript and
+      other third-party assets to load correctly. Please
       <a href={`mailto:${mailToEmail}`}>contact me</a> if this issue continues.
     </div>
   </div>

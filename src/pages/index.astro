@@ -1,16 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageLoad from '../components/PageLoad.astro';
-import PageError from '../components/PageError.astro';
-import PageControls from '../components/PageControls.astro';
-import PageModal from '../components/PageModal.astro';
-import Header from '../components/Header.astro';
-import Introduction from '../components/Introduction.astro';
-import Skills from '../components/Skills.astro';
-import About from '../components/About.astro';
-import Work from '../components/Work.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import PageLoad from "../components/PageLoad.astro";
+import PageError from "../components/PageError.astro";
+import PageControls from "../components/PageControls.astro";
+import PageModal from "../components/PageModal.astro";
+import Header from "../components/Header.astro";
+import Introduction from "../components/Introduction.astro";
+import Skills from "../components/Skills.astro";
+import About from "../components/About.astro";
+import Work from "../components/Work.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
 ---
@@ -20,7 +20,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
   <PageModal />
-  <Header/>
+  <Header />
   <Introduction name="Luis" title="full stack developer" />
   <Skills />
   <About />
@@ -37,7 +37,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
     const urlHash = window.location.hash;
 
     if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
-      const section: HTMLElement | null = document.querySelector(urlHash);
+      const section = document.querySelector<HTMLElement>(urlHash);
 
       if (section) {
         window.scrollTo(0, section.offsetTop);
@@ -50,7 +50,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
    * @param {string} word String to be capitalized.
    * @return {string} Return capitalized string.
    */
-  const capitalizeWord = (word: string) => {
+  const capitalizeWord = (word = "") => {
     return word.charAt(0).toUpperCase() + word.substring(1);
   };
 
@@ -58,21 +58,25 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
    * Reset URL hash
    * @param {string} newHash New hash to update in the url
    */
-  const updateUrlHash = (newHash='') => {
+  const updateUrlHash = (newHash = "") => {
     const currentHash = window.location.hash.substring(1);
-    const baseTitle = document.title.split(' - ')[0];
+    const baseTitle = document.title.split(" - ")[0];
 
     if (currentHash !== newHash) {
-      const newTitle = newHash === '' ? baseTitle :
-        `${baseTitle} - ${capitalizeWord(newHash)}`;
-      const newUrlPath = newHash === '' ? document.location.pathname :
-        `${document.location.pathname}#${newHash}`;
+      const newTitle =
+        newHash === ""
+          ? baseTitle
+          : `${baseTitle} - ${capitalizeWord(newHash)}`;
+      const newUrlPath =
+        newHash === ""
+          ? document.location.pathname
+          : `${document.location.pathname}#${newHash}`;
 
       try {
         document.title = newTitle;
-        history.pushState('', newTitle, newUrlPath);
+        history.pushState("", newTitle, newUrlPath);
       } catch (err) {
-        console.log('Unable to update url hash.');
+        console.log("Unable to update url hash.");
       }
     }
   };
@@ -81,42 +85,47 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
    * Update URL Hash when scrolling has stopped
    */
   const updateHashOnScrollStop = () => {
-    const sections = document.querySelectorAll('section');
-    let newHash = '';
+    const sections = document.querySelectorAll("section");
+    let newHash = "";
 
-    [...sections].filter((elem) => elem.id !== 'home')
-        .map((elem) => {
-          if (elem.offsetTop <= window.scrollY) {
-            newHash = elem.id;
-          }
-        });
+    [...sections]
+      .filter((elem) => elem.id !== "home")
+      .map((elem) => {
+        if (elem.offsetTop <= window.scrollY) {
+          newHash = elem.id;
+        }
+      });
 
     updateUrlHash(newHash);
   };
 
   // Update style based on scroll position
-  let isScrolling: any;
-  window.addEventListener('scroll', () => {
-    const isScrolled = document.body.classList.contains &&
-      document.body.classList.contains('scrolled');
-    const scrollY = typeof window.scrollY === 'number' && window.scrollY;
-    const scrollHeight = typeof document.body.scrollHeight === 'number' &&
+  let isScrolling = setTimeout(() => {}, 0);
+  window.addEventListener("scroll", () => {
+    const isScrolled =
+      document.body.classList.contains &&
+      document.body.classList.contains("scrolled");
+    const scrollY = typeof window.scrollY === "number" && window.scrollY;
+    const scrollHeight =
+      typeof document.body.scrollHeight === "number" &&
       document.body.scrollHeight;
 
     // Style change to Header
     if (scrollY > 100) {
-      if (!isScrolled) document.body.classList.add('scrolled');
+      if (!isScrolled) document.body.classList.add("scrolled");
     } else {
-      if (isScrolled) document.body.classList.remove('scrolled');
+      if (isScrolled) document.body.classList.remove("scrolled");
     }
 
     // Style change to contact button
-    const commentBtn: HTMLButtonElement | null = document.querySelector('.page-controls__comment');
+    const commentBtn = document.querySelector<HTMLButtonElement>(
+      ".page-controls__comment"
+    );
     if (commentBtn) {
-      if (scrollY && scrollHeight && scrollY/scrollHeight > 0.75) {
-        commentBtn.classList.add('animate-out');
+      if (scrollY && scrollHeight && scrollY / scrollHeight > 0.75) {
+        commentBtn.classList.add("animate-out");
       } else {
-        commentBtn.classList.remove('animate-out');
+        commentBtn.classList.remove("animate-out");
       }
     }
 
