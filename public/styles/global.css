@@ -226,14 +226,13 @@ nav {
   background: var(--clr-gray);
   display: inline-block;
   border-radius: 1em;
+  padding: 0.125em;
   position: relative;
 }
 
 .darkmode-toggle__label::after {
   content: "";
   position: absolute;
-  top: 0.1em;
-  left: 0.1em;
   width: 1em;
   height: 1em;
   background: var(--clr-light);
@@ -242,13 +241,13 @@ nav {
   transition: all ease 0.3s;
 }
 
-.darkmode-toggle__checkbox:checked + .darkmode-toggle__label {
+.darkmode-toggle__label:has(.darkmode-toggle__checkbox:checked) {
   background: var(--clr-accent);
 }
 
-.darkmode-toggle__checkbox:checked + .darkmode-toggle__label::after {
+.darkmode-toggle__label:has(.darkmode-toggle__checkbox:checked)::after {
   background-image: url("/img/svg/lightbulb-light.svg");
-  transform: translateX(1.325em); /* TODO: use vars, (width - height) + 0.075 */
+  transform: translateX(1.25em); /* TODO: use vars, width - height */
 }
 
 @media (max-width: 899px) {
