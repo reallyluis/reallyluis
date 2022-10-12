@@ -62,6 +62,7 @@ My portfolio site running on Cloudflare using:
 - CSS
 - HTML
 - JavaScript
+- Sass
 - TypeScript
 
 The images are either mine or free from https://unsplash.com/. For any questions, contact me via the contact form at [https://reallyluis.com](https://reallyluis.com#contact).

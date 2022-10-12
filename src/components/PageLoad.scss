@@ -17,23 +17,23 @@
 }
 
 .page-loading {
-  position: fixed;
   background: white;
-  top: 0;
   bottom: 0;
   left: 0;
+  position: fixed;
   right: 0;
+  top: 0;
   z-index: 1001;
 }
 
 .spinner {
-  margin: 20% auto;
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #4299e1; /* Blue */
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
   animation: spin 1.25s linear infinite, fadeIn 3s ease normal;
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-radius: 50%;
+  border-top: 8px solid #4299e1; /* Blue */
+  height: 80px;
+  margin: 20% auto;
+  transform: translateY(-50%);
+  width: 80px;
 }

@@ -1,7 +1,8 @@
 .my-services {
-  background-color: var(--clr-dark);
-  background-size: cover;
   background-blend-mode: color-dodge;
+  background-color: var(--clr-dark);
+  background-image: url("/img/code.webp");
+  background-size: cover;
   color: var(--fc-light);
   text-align: center;
 }
@@ -9,16 +10,16 @@
 .section__title--services {
   color: var(--fc-accent);
   position: relative;
-}
 
-.section__title--services::after {
-  content: "";
-  display: block;
-  width: 2em;
-  height: 1px;
-  margin: 0.5em auto 1em;
-  background-color: var(--fc-light);
-  opacity: 0.25;
+  &::after {
+    background-color: var(--fc-light);
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    opacity: 0.25;
+    width: 2em;
+  }
 }
 
 .services {
@@ -26,35 +27,35 @@
 }
 
 .service {
-  max-width: 500px;
   margin: 0 auto;
-}
+  max-width: 500px;
 
-.service p {
-  height: 100%;
-  text-align: left;
-  background-color: var(--clr-mod);
-  padding: 16px;
-  border-color: var(--fc-light);
-  border-width: 1px;
-  border-style: solid;
-  outline-style: solid;
-  outline-width: 1px;
-  outline-color: var(--fc-light);
-  transition: outline-offset 150ms ease;
-}
+  p {
+    background-color: var(--clr-mod);
+    border-color: var(--fc-light);
+    border-style: solid;
+    border-width: 1px;
+    height: 100%;
+    outline-color: var(--fc-light);
+    outline-style: solid;
+    outline-width: 1px;
+    padding: 16px;
+    text-align: left;
+    transition: outline-offset 150ms ease;
 
-.service p:hover,
-.service p:focus {
-  outline-offset: -0.3em;
+    &:hover,
+    &:focus {
+      outline-offset: -0.3em;
+    }
+  }
 }
 
 @media (min-width: 800px) {
   .services {
     display: flex;
-    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    max-width: 1000px;
   }
 
   .service + .service {

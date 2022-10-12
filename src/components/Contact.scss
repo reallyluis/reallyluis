@@ -1,16 +1,96 @@
 .contact-me {
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .contact-me__form {
   display: flex;
   flex-direction: column;
+  height: 420px;
   padding: 5px;
-}
 
-.contact-me__form.hide {
-  display: none;
+  &.hide {
+    display: none;
+  }
+
+  label,
+  button {
+    font-weight: var(--fw-bold);
+  }
+
+  label,
+  input,
+  textarea {
+    touch-action: manipulation;
+    transition: all 0.2s;
+  }
+
+  input,
+  textarea {
+    background-color: transparent;
+    border: 0;
+    color: var(--fc-dark);
+    cursor: text;
+    margin: 0.25em 0;
+    outline: 1px solid var(--fc-dark);
+    outline-offset: 4px;
+    width: inherit;
+  }
+
+  button {
+    background-color: var(--clr-accent);
+    border: 0;
+    color: var(--fc-dark);
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0 0 1.5em;
+    padding: 0.5em;
+    text-transform: uppercase;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  input {
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      transform: translate(0, -2.5em) scale(0.9);
+    }
+  }
+
+  label {
+    background-color: var(--clr-light);
+    line-height: 1;
+    margin-bottom: 1em;
+    padding: 0 0.25em;
+    width: 100%;
+
+    > span {
+      color: var(--fc-dark);
+      cursor: text;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform: translate(0, -1.5em);
+      transform-origin: left top;
+      white-space: nowrap;
+      width: max-content;
+    }
+  }
+
+  textarea {
+    resize: none;
+
+    // &:focus + label,
+    // &:not(:placeholder-shown) + label {
+    //   transform: translate(0, -7.1em) scale(0.9);
+    // }
+
+    // .contact-me__form textarea + label {
+    //   transform: translate(0, -6.1em);
+    // }
+  }
 }
 
 .contact-me__form ::-webkit-input-placeholder {
@@ -29,104 +109,29 @@
   opacity: 0;
 }
 
-.contact-me__form label,
-.contact-me__form input,
-.contact-me__form textarea {
-  transition: all 0.2s;
-  touch-action: manipulation;
-}
-
-.contact-me__form label,
-.contact-me__form button {
-  font-weight: var(--fw-bold);
-}
-
-.contact-me__form label {
-  width: 100%;
-  line-height: 1;
-  padding: 0 0.25em;
-  background-color: var(--clr-light);
-  margin-bottom: 1em;
-}
-
-.contact-me__form input,
-.contact-me__form textarea {
-  width: inherit;
-  margin: 0.25em 0;
-  cursor: text;
-  border: 0;
-  outline: 1px solid var(--fc-dark);
-  outline-offset: 4px;
-  color: var(--fc-dark);
-  background-color: transparent;
-}
-
-.contact-me__form textarea {
-  resize: none;
-}
-
-.contact-me__form label > span {
-  width: max-content;
-  color: var(--fc-dark);
-  cursor: text;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transform-origin: left top;
-  transform: translate(0, -1.5em);
-}
-
-// .contact-me__form textarea + label {
-//   transform: translate(0, -6.1em);
-// }
-
-.contact-me__form input:focus + label,
-.contact-me__form input:not(:placeholder-shown) + label {
-  transform: translate(0, -2.5em) scale(0.9);
-}
-
-.contact-me__form textarea:focus + label,
-.contact-me__form textarea:not(:placeholder-shown) + label {
-  transform: translate(0, -7.1em) scale(0.9);
-}
-
-.contact-me__form button {
-  color: var(--fc-dark);
-  background-color: var(--clr-accent);
-  font-size: 1.5rem;
-  padding: 0.5em;
-  border: 0;
-  margin: 0 0 1.5em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.contact-me__form button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 .contact-me__success {
+  height: 420px;
   margin: 6.5em 0;
-}
 
-.contact-me__success b {
-  padding-right: 0.25em;
+  b {
+    padding-right: 0.25em;
+  }
 }
 
 .contact-me__img {
+  border-radius: 0.25rem;
   box-shadow: var(--bs);
 }
 
 @media (min-width: 600px) {
   .contact-me {
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-column-gap: 2em;
     grid-template-areas:
       "title img"
       "subtitle img"
       "text img";
-    grid-column-gap: 2em;
+    grid-template-columns: 1fr 200px;
   }
 
   .section__title--contact {
@@ -136,17 +141,24 @@
   .section__subtitle--contact {
     grid-column: 1 / -1;
     grid-row: 2;
-    position: relative;
     left: -1em;
-    width: calc(100% + 2em);
     padding-left: 1em;
     padding-right: calc(200px + 4em);
+    position: relative;
+    width: calc(100% + 2em);
   }
 
   .contact-me__img {
     grid-area: img;
     position: relative;
+    transform: rotate3d(1, 1, 1, -8deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
     z-index: 2;
+
+    &:hover {
+      transform: rotate3d(1, 1, 1, 0deg);
+    }
   }
 }
 
