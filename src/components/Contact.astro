@@ -8,7 +8,7 @@ const contactAPI = import.meta.env.CONTACT_API;
   <h2 class="section__title section__title--contact">Contact Me</h2>
   <p class="section__subtitle section__subtitle--contact">get in touch</p>
   <div class="contact-me__body">
-    <form id="contact" class="contact-me__form">
+    <form id="contact" action={contactAPI} class="contact-me__form">
       <label for="fname">
         <span>Name</span>
         <input
@@ -60,64 +60,6 @@ const contactAPI = import.meta.env.CONTACT_API;
   />
 </section>
 
-<script define:vars={{ contactAPI }}>
-  /**
-   * Send contact form
-   * @param {object} data
-   */
-  const sendContact = async (data) => {
-    const response = await fetch(contactAPI, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(data),
-    });
-
-    return await response.json();
-  };
-
-  /**
-   * Resets contact form
-   * @param {object} contactForm The form dom
-   * @param {object} contactSubmitBtn The form submit button
-   */
-  const resetForm = (contactForm, contactSubmitBtn) => {
-    // Reset form fields
-    contactForm.fname.value = "";
-    contactForm.email.value = "";
-    contactForm.comment.value = "";
-    contactSubmitBtn.disabled = false;
-  };
-
-  const contactForm = document.querySelector("form");
-  const contactSuccess = document.querySelector(".contact-me__success");
-  const contactSubmitBtn = document.getElementById("contact-submit");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      contactSubmitBtn.disabled = true;
-      const contact = {
-        name: contactForm.fname.value,
-        email: contactForm.email.value,
-        comment: contactForm.comment.value,
-      };
-
-      if (sendContact) {
-        sendContact(contact);
-
-        contactForm.classList.add("hide");
-        contactSuccess.classList.remove("hide");
-        resetForm(contactForm, contactSubmitBtn);
-
-        setTimeout(() => {
-          contactForm.classList.remove("hide");
-          contactSuccess.classList.add("hide");
-        }, 2000);
-      } else {
-        resetForm(contactForm, contactSubmitBtn);
-      }
-    });
-  }
+<script>
+  import "./Contact.js";
 </script>
