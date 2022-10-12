@@ -1,36 +1,36 @@
 .my-work {
-  width: 100%;
   background-color: var(--clr-dark);
   color: var(--fc-light);
   text-align: center;
+  width: 100%;
 }
 
 .my-work__content {
-  max-width: 1000px;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 .portfolio {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  position: relative;
 }
 
 .portfolio__item {
-  position: relative;
   background-color: var(--clr-accent);
-  overflow: hidden;
   cursor: pointer;
   display: inline-block;
+  overflow: hidden;
+  position: relative;
 }
 
 .portfolio__title {
+  color: var(--fc-light);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
   position: absolute;
   top: calc(50% - var(--fs-h3));
   width: 100%;
-  color: var(--fc-light);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
 }
 
 .portfolio__img {
@@ -44,8 +44,8 @@
 
 .portfolio__img:hover,
 .portfolio__item:focus .portfolio__img {
-  transform: scale(1.2);
   opacity: 0.45;
+  transform: scale(1.2);
 }
 
 @media (min-width: 600px) {
