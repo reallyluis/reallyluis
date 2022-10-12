@@ -6,6 +6,7 @@
 .contact-me__form {
   display: flex;
   flex-direction: column;
+  height: 420px;
   padding: 5px;
 
   &.hide {
@@ -109,6 +110,7 @@
 }
 
 .contact-me__success {
+  height: 420px;
   margin: 6.5em 0;
 
   b {
