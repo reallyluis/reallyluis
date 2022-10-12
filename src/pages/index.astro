@@ -91,7 +91,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
     [...sections]
       .filter((elem) => elem.id !== "home")
       .map((elem) => {
-        if (elem.offsetTop <= window.scrollY) {
+        if (elem.offsetTop <= window.scrollY + 10) {
           newHash = elem.id;
         }
       });
