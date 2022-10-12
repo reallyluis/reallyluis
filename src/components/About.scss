@@ -1,21 +1,32 @@
 .about-me {
-  max-width: 1000px;
   margin: 0 auto;
-}
+  max-width: 1000px;
 
-.about-me__img {
-  box-shadow: var(--bs);
+  &__img {
+    border-radius: 0.25rem;
+    box-shadow: var(--bs);
+  }
 }
 
 @media (min-width: 600px) {
   .about-me {
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-column-gap: 2em;
     grid-template-areas:
       "title img"
       "subtitle img"
       "text img";
-    grid-column-gap: 2em;
+    grid-template-columns: 1fr 200px;
+
+    &__img {
+      transform: rotate3d(1, 1, 1, 5deg);
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: rotate3d(1, 1, 1, 0deg);
+      }
+    }
   }
 
   .section__title--about {
@@ -25,11 +36,11 @@
   .section__subtitle--about {
     grid-column: 1 / -1;
     grid-row: 2;
-    position: relative;
     left: -1em;
-    width: calc(100% + 2em);
     padding-left: 1em;
     padding-right: calc(200px + 4em);
+    position: relative;
+    width: calc(100% + 2em);
   }
 
   .about-me__img {
