@@ -4,7 +4,7 @@ import PageLoad from "../components/PageLoad.astro";
 import PageError from "../components/PageError.astro";
 import PageControls from "../components/PageControls.astro";
 import PageModal from "../components/PageModal.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/Header";
 import Introduction from "../components/Introduction.astro";
 import Skills from "../components/Skills.astro";
 import About from "../components/About.astro";
@@ -13,6 +13,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer.astro";
 
 const contactAPI = import.meta.env.CONTACT_API;
+const domain = import.meta.env.DOMAIN;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
 ---
 
@@ -21,7 +22,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
   <PageModal />
-  <Header />
+  <Header domain={domain} client:load />
   <Introduction name="Luis" title="full-stack developer" />
   <Skills />
   <About />

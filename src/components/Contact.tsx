@@ -1,5 +1,5 @@
 import { useRef, useState } from "preact/hooks";
-import "./Contact.scss";
+import "@styles/Contact.scss";
 
 export interface ContactProps {
   contactAPI: string;
