@@ -100,7 +100,7 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
   };
 
   // Update style based on scroll position
-  let isScrolling = setTimeout(() => {}, 0);
+  let isScrolling = setTimeout(() => false, 0);
   window.addEventListener("scroll", () => {
     const isScrolled =
       document.body.classList.contains &&

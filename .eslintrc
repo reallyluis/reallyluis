@@ -4,7 +4,12 @@
     "node": true,
     "es2022": true
   },
-  "extends": ["plugin:astro/recommended", "plugin:astro/jsx-a11y-recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:astro/recommended",
+    "plugin:astro/jsx-a11y-recommended"
+  ],
   "overrides": [
     {
       // Define the configuration for `.astro` file.
@@ -23,5 +28,7 @@
         // "astro/no-set-html-directive": "error"
       }
     }
-  ]
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
 }
