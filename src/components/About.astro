@@ -9,11 +9,9 @@ const about = await response.json();
 ---
 
 <section class="about-me" id="about" data-nosnippet>
-  <h2 class="section__title section__title--about">Who I am</h2>
-  <p class="section__subtitle section__subtitle--about">
-    Working from a remote location
-  </p>
-  <div class="about-me__body">
+  <h2 class="section-title">Who I am</h2>
+  <p class="section-subtitle">Working from a remote location</p>
+  <div>
     {Object.keys(about).map((key) => <p data-key={key}>{about[key]}</p>)}
   </div>
   <img
@@ -22,6 +20,5 @@ const about = await response.json();
     width="200"
     height="387"
     alt="Me in Venice, Italy."
-    class="about-me__img"
   />
 </section>

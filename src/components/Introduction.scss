@@ -1,5 +1,5 @@
 /* Animations */
-@keyframes slideInFromTop {
+@keyframes slide-in-from-top {
   0% {
     opacity: 0;
     transform: translateY(-100%);
@@ -11,19 +11,7 @@
   }
 }
 
-@keyframes slideInFromBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromLeft {
+@keyframes slide-in-from-left {
   0% {
     opacity: 0;
     transform: translateX(-100%);
@@ -35,7 +23,7 @@
   }
 }
 
-@keyframes slideInFromRight {
+@keyframes slide-in-from-right {
   0% {
     opacity: 0;
     transform: translateX(100%);
@@ -50,15 +38,23 @@
 .intro {
   padding-top: 7em;
   position: relative;
-}
 
-.intro__img {
-  border-radius: 0.25rem;
-  box-shadow: var(--bs);
-}
+  img {
+    border-radius: 0.25rem;
+    box-shadow: var(--bs);
+  }
 
-.section__subtitle--intro {
-  display: inline-block;
+  .section-title {
+    font-weight: var(--fw-reg);
+
+    strong {
+      display: block;
+    }
+  }
+
+  .section-subtitle {
+    display: inline-block;
+  }
 }
 
 /* RECOMMENDED SETS TO CONSIDER: 300, 600, 900, 1200 */
@@ -72,36 +68,36 @@
     grid-template-columns: min-content max-content;
     margin: 0 auto;
     width: min-content;
-  }
 
-  .intro__img {
-    animation: 750ms ease-in 250ms 1 slideInFromTop;
-    grid-area: img;
-    min-width: 250px;
-    position: relative;
-    transform: rotate3d(1, 1, 1, 0deg);
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    z-index: 2;
+    img {
+      animation: 750ms ease-in 250ms 1 slide-in-from-top;
+      grid-area: img;
+      min-width: 250px;
+      position: relative;
+      transform: rotate3d(1, 1, 1, 0deg);
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      z-index: 2;
 
-    &:hover {
-      transform: rotate3d(1, 1, 1, -5deg);
+      &:hover {
+        transform: rotate3d(1, 1, 1, -5deg);
+      }
     }
-  }
 
-  .section__title--intro {
-    animation: 750ms ease-in 250ms 1 slideInFromRight;
-  }
+    .section-title {
+      animation: 750ms ease-in 250ms 1 slide-in-from-right;
+    }
 
-  .section__subtitle--intro {
-    align-self: start;
-    animation: 750ms ease-in 250ms 1 slideInFromLeft;
-    font-size: var(--fs-body);
-    grid-column: -1 / 1;
-    grid-row: 2;
-    left: -1.5em;
-    position: relative;
-    text-align: right;
-    width: calc(100% + 1.5em);
+    .section-subtitle {
+      align-self: start;
+      animation: 750ms ease-in 250ms 1 slide-in-from-left;
+      font-size: var(--fs-body);
+      grid-column: -1 / 1;
+      grid-row: 2;
+      left: -1.5em;
+      position: relative;
+      text-align: right;
+      width: calc(100% + 1.5em);
+    }
   }
 }

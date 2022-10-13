@@ -1,7 +1,7 @@
 (() => {
   const mediaStatus =
     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
-  const darkmodeToggle = document.querySelector(".darkmode-toggle__checkbox");
+  const darkmodeToggle = document.querySelector(".darkmode-toggle input");
 
   const setDarkmodeToggle = (isOn = false) => {
     if (isOn) {
@@ -34,7 +34,7 @@
     });
   }
 
-  const navLinks = document.querySelectorAll(".nav__link");
+  const navLinks = document.querySelectorAll(".link");
   if (navLinks) {
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {

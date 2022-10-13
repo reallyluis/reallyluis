@@ -50,11 +50,17 @@ export default function Contact({ contactAPI }: ContactProps) {
 
   return (
     <section class="contact-me" id="contact" data-nosnippet>
-      <h2 class="section__title section__title--contact">Contact Me</h2>
-      <p class="section__subtitle section__subtitle--contact">get in touch</p>
-      <div class="contact-me__body">
-        {!isSending && (
-          <form id="contact" class="contact-me__form" onSubmit={onSubmit}>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-subtitle">get in touch</p>
+      <div>
+        {isSending ? (
+          <div class="success-message" data-nosnippet>
+            <p>
+              <strong>Thanks!</strong> Your message was sent successfully.
+            </p>
+          </div>
+        ) : (
+          <form id="contact" onSubmit={onSubmit}>
             <label for="fname">
               <span>Name</span>
               <input
@@ -104,13 +110,6 @@ export default function Contact({ contactAPI }: ContactProps) {
             </button>
           </form>
         )}
-        {isSending && (
-          <div class="contact-me__success" data-nosnippet>
-            <p>
-              <b>Thanks!</b> Your message was sent successfully.
-            </p>
-          </div>
-        )}
       </div>
       <img
         src="/img/contact.webp"
@@ -118,7 +117,6 @@ export default function Contact({ contactAPI }: ContactProps) {
         width="200"
         height="366"
         alt="Smartphone on desk."
-        class="contact-me__img"
       />
     </section>
   );

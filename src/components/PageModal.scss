@@ -1,5 +1,5 @@
 .page-modal::backdrop {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255 255 255 / 50%);
 }
 
 .page-modal {
@@ -7,7 +7,7 @@
   background-color: var(--clr-light);
   border: 0;
   border-radius: 0.25em;
-  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+  box-shadow: 0 0 1em rgb(0 0 0 / 30%);
   color: var(--fc-dark);
   height: 60vh;
   margin: auto;
