@@ -53,6 +53,53 @@
   }
 }
 
+.page-modal::backdrop {
+  background-color: rgb(255 255 255 / 50%);
+}
+
+.page-modal {
+  -ms-overflow-style: none;
+  background-color: var(--clr-light);
+  border: 0;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em rgb(0 0 0 / 30%);
+  color: var(--fc-dark);
+  height: 60vh;
+  margin: auto;
+  max-width: 1000px;
+  overflow: scroll;
+  padding: 2em;
+  scrollbar-width: none;
+  width: 80%;
+}
+
+.page-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.page-modal > div {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.page-modal > div > div {
+  box-sizing: content-box;
+  height: 100%;
+  margin-top: 0.5em;
+  user-select: none;
+  line-height: 1.4;
+  overflow-y: scroll;
+  padding-right: 17px;
+  width: 100%;
+}
+
+.page-modal ul {
+  list-style: circle;
+  margin: 0.5em 0;
+  padding-left: 1.25em;
+}
+
 @media (min-width: 600px) {
   .portfolio {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
