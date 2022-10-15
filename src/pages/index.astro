@@ -23,7 +23,7 @@ const works = await response.json();
 ---
 
 <Layout title="Professional Website" name="Luis">
-  <PageLoad delay={150} />
+  <PageLoad />
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
   <Header domain={domain} client:load />
@@ -36,78 +36,49 @@ const works = await response.json();
 </Layout>
 
 <script>
-  import { capitalizeWord } from "@utils/index";
+  import { buildThresholdList, getObserver, updateUrlHash } from "@utils/index";
 
-  /**
-   * Handle Scroll to Position since direct links do not always work
-   */
-  const scrollOnLoad = () => {
-    const urlHash = window.location.hash;
+  const sections =
+    document.querySelectorAll<HTMLTableSectionElement>("section");
+  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
+  const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      const sectionId = entry.target.id;
 
-    if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
-      const section = document.querySelector<HTMLElement>(urlHash);
-
-      if (section) {
-        window.scrollTo(0, section.offsetTop);
-      }
-    }
-  };
-
-  /**
-   * Reset URL hash
-   * @param {string} newHash New hash to update in the url
-   */
-  const updateUrlHash = (newHash = "") => {
-    const currentHash = window.location.hash.substring(1);
-    const baseTitle = document.title.split(" - ")[0];
-
-    if (currentHash !== newHash) {
-      const newTitle =
-        newHash === ""
-          ? baseTitle
-          : `${baseTitle} - ${capitalizeWord(newHash)}`;
-      const newUrlPath =
-        newHash === ""
-          ? document.location.pathname
-          : `${document.location.pathname}#${newHash}`;
-
-      try {
-        document.title = newTitle;
-        history.pushState("", newTitle, newUrlPath);
-      } catch (err) {
-        console.log("Unable to update url hash.");
-      }
-    }
-  };
-
-  /**
-   * Update URL Hash when scrolling has stopped
-   */
-  const updateHashOnScrollStop = () => {
-    const sections = document.querySelectorAll("section");
-    let newHash = "";
-
-    [...sections]
-      .filter((elem) => elem.id !== "home")
-      .map((elem) => {
-        if (elem.offsetTop <= window.scrollY + 10) {
-          newHash = elem.id;
+      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        if (sectionId === "home") {
+          updateUrlHash("");
+        } else {
+          updateUrlHash(sectionId);
         }
-      });
 
-    updateUrlHash(newHash);
+        if (sectionId === "contact" && commentBtn) {
+          commentBtn.classList.add("animate-out");
+        }
+      } else {
+        if (sectionId === "contact" && commentBtn) {
+          commentBtn.classList.remove("animate-out");
+        }
+      }
+    });
   };
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: buildThresholdList(),
+  };
+
+  sections.forEach((section) => {
+    const observer = getObserver(handleIntersect, options);
+    observer.observe(section);
+  });
 
   // Update style based on scroll position
-  let isScrolling = setTimeout(() => false, 0);
   window.addEventListener("scroll", () => {
     const isScrolled =
       document.body.classList.contains &&
       document.body.classList.contains("scrolled");
     const scrollY = typeof window.scrollY === "number" && window.scrollY;
-    const scrollHeight =
-      typeof document.body.scrollHeight === "number" &&
-      document.body.scrollHeight;
 
     // Style change to Header
     if (scrollY > 100) {
@@ -115,27 +86,13 @@ const works = await response.json();
     } else {
       if (isScrolled) document.body.classList.remove("scrolled");
     }
-
-    // Style change to contact button
-    const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
-    if (commentBtn) {
-      if (scrollY && scrollHeight && scrollY / scrollHeight > 0.75) {
-        commentBtn.classList.add("animate-out");
-      } else {
-        commentBtn.classList.remove("animate-out");
-      }
-    }
-
-    // Update hash when scrolling stops
-    if (isScrolling) {
-      window.clearTimeout(isScrolling);
-    }
-    isScrolling = setTimeout(updateHashOnScrollStop, 250);
   });
 
-  // Force hash link scroll to position on load
-  // Add a delay since lazy load content can change section position
   setTimeout(() => {
-    scrollOnLoad();
-  }, 1000);
+    const pageLoading = document.querySelector(".page-loading");
+
+    if (pageLoading) {
+      pageLoading.classList.add("hide");
+    }
+  }, 150);
 </script>
