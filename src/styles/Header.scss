@@ -1,5 +1,4 @@
 header {
-  -webkit-backdrop-filter: blur(10px);
   background-color: transparent;
   backdrop-filter: blur(10px);
   display: flex;
@@ -38,6 +37,7 @@ header {
 .hamburger::before {
   top: 6px;
 }
+
 .hamburger::after {
   bottom: 6px;
 }

@@ -1,114 +1,84 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PageLoad from "../components/PageLoad.astro";
-import PageError from "../components/PageError.astro";
-import PageControls from "../components/PageControls.astro";
-import PageModal from "../components/PageModal.astro";
-import Header from "../components/Header.astro";
-import Introduction from "../components/Introduction.astro";
-import Skills from "../components/Skills.astro";
-import About from "../components/About.astro";
-import Work from "../components/Work.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import PageLoad from "@components/PageLoad.astro";
+import PageError from "@components/PageError.astro";
+import PageControls from "@components/PageControls.astro";
+import Header from "@components/Header";
+import Introduction from "@components/Introduction.astro";
+import Skills from "@components/Skills.astro";
+import About from "@components/About.astro";
+import Work from "@components/Work";
+import Contact from "@components/Contact";
+import Footer from "@components/Footer.astro";
 
+const contactAPI = import.meta.env.CONTACT_API;
+const contentAPI = import.meta.env.CONTENT_API;
+const domain = import.meta.env.DOMAIN;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
+const api = new URL(contentAPI);
+api.search = new URLSearchParams({ ct: "works" }).toString();
+
+const response = await fetch(api.toString());
+const works = await response.json();
 ---
 
 <Layout title="Professional Website" name="Luis">
-  <PageLoad delay={150} />
+  <PageLoad />
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
-  <PageModal />
-  <Header />
+  <Header domain={domain} client:load />
   <Introduction name="Luis" title="full-stack developer" />
   <Skills />
   <About />
-  <Work />
-  <Contact />
+  <Work works={works} client:load />
+  <Contact contactAPI={contactAPI} client:load />
   <Footer mailToEmail={mailToEmail} />
 </Layout>
 
 <script>
-  /**
-   * Handle Scroll to Position since direct links do not always work
-   */
-  const scrollOnLoad = () => {
-    const urlHash = window.location.hash;
+  import { buildThresholdList, getObserver, updateUrlHash } from "@utils/index";
 
-    if (urlHash && urlHash.length > 0 && document.querySelector(urlHash)) {
-      const section = document.querySelector<HTMLElement>(urlHash);
+  const sections =
+    document.querySelectorAll<HTMLTableSectionElement>("section");
+  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
+  const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      const sectionId = entry.target.id;
 
-      if (section) {
-        window.scrollTo(0, section.offsetTop);
-      }
-    }
-  };
-
-  /**
-   * Capitalize word
-   * @param {string} word String to be capitalized.
-   * @return {string} Return capitalized string.
-   */
-  const capitalizeWord = (word = "") => {
-    return word.charAt(0).toUpperCase() + word.substring(1);
-  };
-
-  /**
-   * Reset URL hash
-   * @param {string} newHash New hash to update in the url
-   */
-  const updateUrlHash = (newHash = "") => {
-    const currentHash = window.location.hash.substring(1);
-    const baseTitle = document.title.split(" - ")[0];
-
-    if (currentHash !== newHash) {
-      const newTitle =
-        newHash === ""
-          ? baseTitle
-          : `${baseTitle} - ${capitalizeWord(newHash)}`;
-      const newUrlPath =
-        newHash === ""
-          ? document.location.pathname
-          : `${document.location.pathname}#${newHash}`;
-
-      try {
-        document.title = newTitle;
-        history.pushState("", newTitle, newUrlPath);
-      } catch (err) {
-        console.log("Unable to update url hash.");
-      }
-    }
-  };
-
-  /**
-   * Update URL Hash when scrolling has stopped
-   */
-  const updateHashOnScrollStop = () => {
-    const sections = document.querySelectorAll("section");
-    let newHash = "";
-
-    [...sections]
-      .filter((elem) => elem.id !== "home")
-      .map((elem) => {
-        if (elem.offsetTop <= window.scrollY + 10) {
-          newHash = elem.id;
+      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        if (sectionId === "home") {
+          updateUrlHash("");
+        } else {
+          updateUrlHash(sectionId);
         }
-      });
 
-    updateUrlHash(newHash);
+        if (sectionId === "contact" && commentBtn) {
+          commentBtn.classList.add("animate-out");
+        }
+      } else {
+        if (sectionId === "contact" && commentBtn) {
+          commentBtn.classList.remove("animate-out");
+        }
+      }
+    });
   };
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: buildThresholdList(),
+  };
+
+  sections.forEach((section) => {
+    const observer = getObserver(handleIntersect, options);
+    observer.observe(section);
+  });
 
   // Update style based on scroll position
-  let isScrolling = setTimeout(() => {}, 0);
   window.addEventListener("scroll", () => {
     const isScrolled =
       document.body.classList.contains &&
       document.body.classList.contains("scrolled");
     const scrollY = typeof window.scrollY === "number" && window.scrollY;
-    const scrollHeight =
-      typeof document.body.scrollHeight === "number" &&
-      document.body.scrollHeight;
 
     // Style change to Header
     if (scrollY > 100) {
@@ -116,29 +86,13 @@ const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
     } else {
       if (isScrolled) document.body.classList.remove("scrolled");
     }
-
-    // Style change to contact button
-    const commentBtn = document.querySelector<HTMLButtonElement>(
-      ".page-controls__comment"
-    );
-    if (commentBtn) {
-      if (scrollY && scrollHeight && scrollY / scrollHeight > 0.75) {
-        commentBtn.classList.add("animate-out");
-      } else {
-        commentBtn.classList.remove("animate-out");
-      }
-    }
-
-    // Update hash when scrolling stops
-    if (isScrolling) {
-      window.clearTimeout(isScrolling);
-    }
-    isScrolling = setTimeout(updateHashOnScrollStop, 250);
   });
 
-  // Force hash link scroll to position on load
-  // Add a delay since lazy load content can change section position
   setTimeout(() => {
-    scrollOnLoad();
-  }, 1000);
+    const pageLoading = document.querySelector(".page-loading");
+
+    if (pageLoading) {
+      pageLoading.classList.add("hide");
+    }
+  }, 150);
 </script>

@@ -1,22 +1,7 @@
 ---
-import "./PageLoad.scss";
-
-export interface Props {
-  delay: number;
-}
-
-const { delay } = Astro.props;
+import "@styles/PageLoad.scss";
 ---
 
 <div class="page-loading">
   <div class="spinner"></div>
 </div>
-
-<script define:vars={{ delay }} is:inline>
-  setTimeout(() => {
-    const pageLoading = document.querySelector(".page-loading");
-    if (pageLoading) {
-      pageLoading.classList.add("hide");
-    }
-  }, delay);
-</script>

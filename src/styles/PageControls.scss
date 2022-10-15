@@ -1,0 +1,32 @@
+.page-controls {
+  a {
+    text-decoration: none;
+  }
+
+  .comment {
+    background-color: var(--clr-accent);
+    border-radius: 1.75em;
+    bottom: 1.5em;
+    box-shadow: var(--bs);
+    height: 3.5em;
+    padding: 1em;
+    position: fixed;
+    width: 3.5em;
+    right: 1em;
+    transition: var(--std-transform);
+    z-index: 5;
+
+    .icon-comment {
+      fill: var(--fc-light);
+      transition: var(--std-transform);
+    }
+
+    &.animate-out {
+      transform: translateX(4em) translateY(5em);
+    }
+
+    &:hover .icon-comment {
+      transform: scale(1.1);
+    }
+  }
+}

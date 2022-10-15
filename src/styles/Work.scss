@@ -1,0 +1,113 @@
+.my-work {
+  background-color: var(--clr-dark);
+  color: var(--fc-light);
+  text-align: center;
+  width: 100%;
+
+  .content {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  position: relative;
+
+  .item {
+    background-color: var(--clr-accent);
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    .title {
+      color: var(--fc-light);
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-bold);
+      position: absolute;
+      top: calc(50% - var(--fs-h3));
+      width: 100%;
+    }
+
+    img {
+      aspect-ratio: 3/2;
+      transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
+        opacity 200ms linear;
+
+      &:hover {
+        opacity: 0.45;
+        transform: scale(1.2);
+      }
+    }
+
+    &:focus {
+      z-index: 2;
+
+      img {
+        opacity: 0.45;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.page-modal::backdrop {
+  background-color: rgb(255 255 255 / 50%);
+}
+
+.page-modal {
+  -ms-overflow-style: none;
+  background-color: var(--clr-light);
+  border: 0;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em rgb(0 0 0 / 30%);
+  color: var(--fc-dark);
+  height: 60vh;
+  margin: auto;
+  max-width: 1000px;
+  overflow: scroll;
+  padding: 2em;
+  scrollbar-width: none;
+  width: 80%;
+}
+
+.page-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.page-modal > div {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.page-modal > div > div {
+  box-sizing: content-box;
+  height: 100%;
+  margin-top: 0.5em;
+  user-select: none;
+  line-height: 1.4;
+  overflow-y: scroll;
+  padding-right: 17px;
+  width: 100%;
+}
+
+.page-modal ul {
+  list-style: circle;
+  margin: 0.5em 0;
+  padding-left: 1.25em;
+}
+
+@media (min-width: 600px) {
+  .portfolio {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 800px) {
+  .portfolio .content {
+    margin: 3em;
+  }
+}

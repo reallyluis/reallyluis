@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.section__title--services {
+.my-services .section-title {
   color: var(--fc-accent);
   position: relative;
 
@@ -36,9 +36,7 @@
     border-style: solid;
     border-width: 1px;
     height: 100%;
-    outline-color: var(--fc-light);
-    outline-style: solid;
-    outline-width: 1px;
+    outline: solid 1px var(--fc-light);
     padding: 16px;
     text-align: left;
     transition: outline-offset 150ms ease;
