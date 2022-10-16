@@ -97,3 +97,14 @@
     }
   }
 }
+
+@media (prefers-reduced-motion) {
+  .intro {
+    img,
+    .section-title,
+    .section-subtitle {
+      animation: none;
+      opacity: 1;
+    }
+  }
+}
