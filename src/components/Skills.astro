@@ -1,11 +1,10 @@
 ---
 import "@styles/Skills.scss";
 
-const api = new URL(import.meta.env.CONTENT_API);
-api.search = new URLSearchParams({ ct: "skills" }).toString();
-
-const response = await fetch(api.toString());
-const skills = await response.json();
+export interface Props {
+  skills: { [key: string]: string };
+}
+const { skills } = Astro.props;
 const skillsOrder = ["Frontend", "Backend", "Data"];
 ---
 

@@ -39,6 +39,24 @@ export const debounce = (
   };
 };
 
+export const getContent = async (contentAPI: string) => {
+  const data: { [key: string]: { [key: string]: string } } = {
+    abouts: {},
+    skills: {},
+    works: {},
+  };
+
+  for (const key in data) {
+    const api = new URL(contentAPI);
+    api.search = new URLSearchParams({ ct: key }).toString();
+    const response = await fetch(api.toString());
+
+    data[key] = await response.json();
+  }
+
+  return data;
+};
+
 export const getObserver = (
   handleIntersect: (
     entries: IntersectionObserverEntry[],

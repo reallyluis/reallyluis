@@ -1,32 +1,26 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import PageLoad from "@components/PageLoad.astro";
-import PageError from "@components/PageError.astro";
-import PageControls from "@components/PageControls.astro";
-import Header from "@components/Header";
-import Introduction from "@components/Introduction.astro";
-import Skills from "@components/Skills.astro";
 import About from "@components/About.astro";
-import Work from "@components/Work";
 import Contact from "@components/Contact";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header";
+import Introduction from "@components/Introduction.astro";
+import Layout from "@layouts/Layout.astro";
+import PageControls from "@components/PageControls.astro";
+import PageError from "@components/PageError.astro";
+import PageLoad from "@components/PageLoad.astro";
+import Skills from "@components/Skills.astro";
+import Work from "@components/Work";
+import { getContent } from "@utils/index";
 
 const contactAPI = import.meta.env.CONTACT_API;
 const contentAPI = import.meta.env.CONTENT_API;
+const data = JSON.parse(import.meta.env.DATA || {});
 const domain = import.meta.env.DOMAIN;
 const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
 
-let works;
-if (environment === "dev") {
-  works = JSON.parse(import.meta.env.WORKS || {});
-} else {
-  const api = new URL(contentAPI);
-  api.search = new URLSearchParams({ ct: "works" }).toString();
-  const response = await fetch(api.toString());
-
-  works = await response.json();
-}
+const { abouts, skills, works } =
+  environment === "dev" ? data : getContent(contentAPI);
 ---
 
 <Layout title="Professional Website" name="Luis">
@@ -35,8 +29,8 @@ if (environment === "dev") {
   <PageControls />
   <Header domain={domain} client:load />
   <Introduction name="Luis" title="full-stack developer" />
-  <Skills />
-  <About />
+  <Skills skills={skills} />
+  <About abouts={abouts} />
   <Work works={works} client:load />
   <Contact contactAPI={contactAPI} client:load />
   <Footer mailToEmail={mailToEmail} />

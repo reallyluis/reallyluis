@@ -1,18 +1,17 @@
 ---
 import "@styles/About.scss";
 
-const api = new URL(import.meta.env.CONTENT_API);
-api.search = new URLSearchParams({ ct: "abouts" }).toString();
-
-const response = await fetch(api.toString());
-const about = await response.json();
+export interface Props {
+  abouts: { [key: string]: string };
+}
+const { abouts } = Astro.props;
 ---
 
 <section class="about-me" id="about" data-nosnippet>
   <h2 class="section-title">Who I am</h2>
   <p class="section-subtitle">Working from a remote location</p>
   <div>
-    {Object.keys(about).map((key) => <p data-key={key}>{about[key]}</p>)}
+    {Object.keys(abouts).map((key) => <p data-key={key}>{abouts[key]}</p>)}
   </div>
   <img
     src="/img/about-me.webp"
