@@ -35,18 +35,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr-accent: #006f91;
+    --clr-accent: #0030a1;
     --clr-light: #333;
-    --fc-accent: #fff;
+    --fc-accent: #eee;
     --fc-dark: #ddd;
     --gs-filter: grayscale(0.25);
   }
 }
 
 body.darkmode-on {
-  --clr-accent: #006f91;
+  --clr-accent: #0030a1;
   --clr-light: #333;
-  --fc-accent: #fff;
+  --fc-accent: #eee;
   --fc-dark: #ddd;
   --gs-filter: grayscale(0.25);
 }
@@ -201,7 +201,7 @@ h3 {
 }
 
 .my-work .section-subtitle {
-  color: var(--clr-accent);
+  color: var(--fc-accent);
   font-weight: var(--fw-bold);
   margin-bottom: 2em;
 }
@@ -363,5 +363,11 @@ h3 {
 
   .nav-toggle {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .btn {
+    transition: none;
   }
 }
