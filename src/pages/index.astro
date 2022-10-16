@@ -20,7 +20,7 @@ const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
 
 const { abouts, skills, works } =
-  environment === "dev" ? data : getContent(contentAPI);
+  environment === "dev" ? data : await getContent(contentAPI);
 ---
 
 <Layout title="Professional Website" name="Luis">
