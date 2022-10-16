@@ -14,12 +14,19 @@ import Footer from "@components/Footer.astro";
 const contactAPI = import.meta.env.CONTACT_API;
 const contentAPI = import.meta.env.CONTENT_API;
 const domain = import.meta.env.DOMAIN;
+const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
-const api = new URL(contentAPI);
-api.search = new URLSearchParams({ ct: "works" }).toString();
 
-const response = await fetch(api.toString());
-const works = await response.json();
+let works;
+if (environment === "dev") {
+  works = JSON.parse(import.meta.env.WORKS || {});
+} else {
+  const api = new URL(contentAPI);
+  api.search = new URLSearchParams({ ct: "works" }).toString();
+  const response = await fetch(api.toString());
+
+  works = await response.json();
+}
 ---
 
 <Layout title="Professional Website" name="Luis">
