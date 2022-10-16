@@ -36,20 +36,26 @@ const works = await response.json();
 </Layout>
 
 <script>
-  import { buildThresholdList, getObserver, updateUrlHash } from "@utils/index";
+  import {
+    buildThresholdList,
+    debounce,
+    getObserver,
+    updateUrlHash,
+  } from "@utils/index";
 
+  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
+  const debounceUpdateUrlHash = debounce(updateUrlHash, 250);
   const sections =
     document.querySelectorAll<HTMLTableSectionElement>("section");
-  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
   const handleIntersect = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       const sectionId = entry.target.id;
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
         if (sectionId === "home") {
-          updateUrlHash("");
+          debounceUpdateUrlHash("");
         } else {
-          updateUrlHash(sectionId);
+          debounceUpdateUrlHash(sectionId);
         }
 
         if (sectionId === "contact" && commentBtn) {
