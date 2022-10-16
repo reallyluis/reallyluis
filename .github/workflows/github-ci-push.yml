@@ -1,8 +1,7 @@
 name: GitHub CI
-'on': push
+"on": push
 jobs:
   build_lint_test:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -10,7 +9,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '16.17.x'
+          node-version: "16.17.x"
 
       - name: Run Build
         run: |
