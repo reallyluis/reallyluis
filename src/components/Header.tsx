@@ -1,5 +1,4 @@
 import { useEffect, useState } from "preact/hooks";
-import "@styles/Header.scss";
 
 export interface HeaderProps {
   domain: string;

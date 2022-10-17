@@ -1,9 +1,8 @@
 ---
-import "@styles/Skills.scss";
-
 export interface Props {
   skills: { [key: string]: string };
 }
+
 const { skills } = Astro.props;
 const skillsOrder = ["Frontend", "Backend", "Data"];
 ---
