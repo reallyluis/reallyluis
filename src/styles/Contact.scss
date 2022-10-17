@@ -140,3 +140,11 @@
     }
   }
 }
+
+@media (prefers-reduced-motion) {
+  .contact-me {
+    img {
+      transition: none;
+    }
+  }
+}

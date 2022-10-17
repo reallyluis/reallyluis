@@ -34,8 +34,7 @@ export default function Contact({ contactAPI }: ContactProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
-  const onSubmit = (event: Event) => {
-    event.preventDefault();
+  const onSubmit = () => {
     setIsSending(true);
 
     const contact = {

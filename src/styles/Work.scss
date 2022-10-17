@@ -111,3 +111,13 @@
     margin: 3em;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .portfolio {
+    .item {
+      img {
+        transition: none;
+      }
+    }
+  }
+}

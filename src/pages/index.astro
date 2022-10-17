@@ -1,25 +1,26 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import PageLoad from "@components/PageLoad.astro";
-import PageError from "@components/PageError.astro";
-import PageControls from "@components/PageControls.astro";
-import Header from "@components/Header";
-import Introduction from "@components/Introduction.astro";
-import Skills from "@components/Skills.astro";
 import About from "@components/About.astro";
-import Work from "@components/Work";
 import Contact from "@components/Contact";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header";
+import Introduction from "@components/Introduction.astro";
+import Layout from "@layouts/Layout.astro";
+import PageControls from "@components/PageControls.astro";
+import PageError from "@components/PageError.astro";
+import PageLoad from "@components/PageLoad.astro";
+import Skills from "@components/Skills.astro";
+import Work from "@components/Work";
+import { getContent } from "@utils/index";
 
 const contactAPI = import.meta.env.CONTACT_API;
 const contentAPI = import.meta.env.CONTENT_API;
+const data = JSON.parse(import.meta.env.DATA);
 const domain = import.meta.env.DOMAIN;
-const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL || "";
-const api = new URL(contentAPI);
-api.search = new URLSearchParams({ ct: "works" }).toString();
+const environment = import.meta.env.ENVIRONMENT;
+const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
 
-const response = await fetch(api.toString());
-const works = await response.json();
+const { abouts, skills, works } =
+  environment === "dev" ? data : await getContent(contentAPI);
 ---
 
 <Layout title="Professional Website" name="Luis">
@@ -28,28 +29,34 @@ const works = await response.json();
   <PageControls />
   <Header domain={domain} client:load />
   <Introduction name="Luis" title="full-stack developer" />
-  <Skills />
-  <About />
+  <Skills skills={skills} />
+  <About abouts={abouts} />
   <Work works={works} client:load />
   <Contact contactAPI={contactAPI} client:load />
   <Footer mailToEmail={mailToEmail} />
 </Layout>
 
 <script>
-  import { buildThresholdList, getObserver, updateUrlHash } from "@utils/index";
+  import {
+    buildThresholdList,
+    debounce,
+    getObserver,
+    updateUrlHash,
+  } from "@utils/index";
 
+  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
+  const debounceUpdateUrlHash = debounce(updateUrlHash, 250);
   const sections =
     document.querySelectorAll<HTMLTableSectionElement>("section");
-  const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
   const handleIntersect = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       const sectionId = entry.target.id;
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
         if (sectionId === "home") {
-          updateUrlHash("");
+          debounceUpdateUrlHash("");
         } else {
-          updateUrlHash(sectionId);
+          debounceUpdateUrlHash(sectionId);
         }
 
         if (sectionId === "contact" && commentBtn) {

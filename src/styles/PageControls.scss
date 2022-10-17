@@ -30,3 +30,11 @@
     }
   }
 }
+
+@media (prefers-reduced-motion) {
+  .page-controls {
+    .comment {
+      transition: none;
+    }
+  }
+}

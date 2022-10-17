@@ -51,20 +51,32 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
-    const { contentType }: { contentType: string | null } = await getUrlParams(
-      request
-    );
-    const namespace: KVNamespace<string> | null = contentType
-      ? getNamespace(env, contentType)
-      : null;
-    const data: { [key: string]: string } = namespace
-      ? await getData(namespace)
-      : {};
+    const cacheUrl = new URL(request.url);
+    const cacheKey = new Request(cacheUrl.toString(), request);
+    const cache = caches.default;
 
-    return new Response(JSON.stringify(data, null, 2), {
-      headers: {
-        "content-type": "application/json;charset=UTF-8",
-      },
-    });
+    let response = await cache.match(cacheKey);
+
+    if (!response) {
+      const { contentType }: { contentType: string | null } =
+        await getUrlParams(request);
+      const namespace: KVNamespace<string> | null = contentType
+        ? getNamespace(env, contentType)
+        : null;
+      const data: { [key: string]: string } = namespace
+        ? await getData(namespace)
+        : {};
+
+      response = new Response(JSON.stringify(data, null, 2), {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Cache-Control": "public, max-age=86400",
+        },
+      });
+    } else {
+      console.log(`Cache hit for: ${request.url}.`);
+    }
+
+    return response;
   },
 };

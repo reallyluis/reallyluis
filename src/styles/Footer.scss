@@ -7,7 +7,7 @@
   text-align: center;
 
   a {
-    color: inherit;
+    color: var(--fc-accent);
     text-decoration: none;
   }
 }
@@ -28,7 +28,7 @@
     white-space: nowrap;
 
     &.copy {
-      color: var(--clr-dark-gray);
+      color: var(--fc-accent);
     }
 
     a:hover {
@@ -72,6 +72,16 @@
       margin: 0;
       padding: 0.25em 0.5em;
       white-space: nowrap;
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .social-list {
+    .item {
+      .icon-social {
+        transition: none;
+      }
     }
   }
 }
