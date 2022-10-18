@@ -1,15 +1,29 @@
 name: Cypress tests
 "on": push
-
 jobs:
-  checkout-and-test:
+  build_cypress:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
 
-      - name: run cypress tests with firefox
-        uses: cypress-io/github-action@v2
-        timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
         with:
-          browser: firefox
+          node-version: "16.17.x"
+
+      - name: Run Build
+        run: |
+          npm ci
+          npm run build
+        env:
+          CI: true
+          CONTACT_API: ${{ secrets.CONTACT_API }}
+          CONTENT_API: ${{ secrets.CONTENT_API }}
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+          DATA: ${{ secrets.DATA }}
+          DOMAIN: ${{ secrets.DOMAIN }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
+
+      - name: Run cypress
+        run: npm run cypress:run
