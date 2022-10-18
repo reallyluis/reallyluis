@@ -25,5 +25,6 @@ jobs:
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
+      # TODO: run cypress tests against preview url
       - name: Run cypress
         run: npm run cypress:ci --key $CYPRESS_KEY

@@ -1,12 +1,15 @@
 /// <reference types="cypress" />
 
-describe('reallyluis app', () => {
+describe("reallyluis app", () => {
   beforeEach(() => {
-    cy.visit('https://reallyluis.com');
+    cy.visit("https://reallyluis.com");
   });
 
-  it('displays intro title and subtitle', () => {
-    cy.get('.intro .section-title').should('have.text', '\nHello, I am Luis\n');
-    cy.get('.intro .section-subtitle').should('have.text', 'full-stack developer');
+  it("displays intro title and subtitle", () => {
+    cy.get(".intro .section-title").should("have.text", "\nHello, I am Luis\n");
+    cy.get(".intro .section-subtitle").should(
+      "have.text",
+      "full-stack developer"
+    );
   });
 });
