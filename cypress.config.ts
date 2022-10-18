@@ -1,9 +1,11 @@
 import { defineConfig } from "cypress";
 
+const BASE_URL = process.env.BASE_URL || "https://reallyluis.com";
+
 export default defineConfig({
   projectId: "87cut1",
   e2e: {
-    baseUrl: "https://add-testing.reallyluis.pages.dev",
+    baseUrl: BASE_URL,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

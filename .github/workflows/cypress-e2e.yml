@@ -25,4 +25,5 @@ jobs:
       - name: Run cypress
         run: npm run cypress:ci --key $CYPRESS_KEY
         env:
+          BASE_URL: "https://$(echo ${GITHUB_REF#refs/heads/}).reallyluis.pages.dev"
           CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
