@@ -11,7 +11,7 @@
     "lint": "eslint \"src/**/*.{astro,js,ts,tsx}\"",
     "stylelint": "stylelint \"**/*.scss\"",
     "prettier": "prettier --write .",
-    "cypress:open": "cypress open",
+    "cypress:open": "cypress open --config-file=cypress.config.ts",
     "cypress:run": "cypress run --record --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)"
   },
   "repository": {
