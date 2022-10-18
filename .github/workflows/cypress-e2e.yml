@@ -16,15 +16,13 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-      - name: Run Build
-        run: |
-          npm ci
-          npm run build
+      - name: Run Install
+        run: npm ci
         env:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          CYPRESS_HOST: https://${{ steps.extract_branch.outputs.branch }}.reallyluis.pages.dev
+          CYPRESS_HOST: ${{ steps.extract_branch.outputs.branch }}.reallyluis.pages.dev
           CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
           DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
@@ -32,4 +30,4 @@ jobs:
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Run cypress
-        run: CYPRESS_HOST=$CYPRESS_HOST npm run cypress:ci --key $CYPRESS_KEY
+        run: npm run cypress:ci --key $CYPRESS_KEY --env host=$CYPRESS_HOST
