@@ -17,14 +17,12 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          CYPRESS_HOST: $(echo ${GITHUB_REF#refs/heads/}).reallyluis.pages.dev
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
           DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Run cypress
-        run: |
-          echo $CYPRESS_HOST
-          npm run cypress:ci --key $CYPRESS_KEY --env host=$CYPRESS_HOST
+        run: npm run cypress:ci --env host=$(echo ${GITHUB_REF#refs/heads/}).reallyluis.pages.dev --key $CYPRESS_KEY
+        env:
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
