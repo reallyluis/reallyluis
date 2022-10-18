@@ -32,4 +32,6 @@ jobs:
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Run cypress
-        run: npm run cypress:ci --key $CYPRESS_KEY
+        run: |
+          export CYPRESS_HOST=$CYPRESS_HOST
+          npm run cypress:ci --key $CYPRESS_KEY
