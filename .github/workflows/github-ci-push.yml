@@ -5,7 +5,7 @@ on:
       - "**"
 
 jobs:
-  build_lint_test:
+  lints_units:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,6 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
           DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
