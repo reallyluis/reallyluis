@@ -11,20 +11,13 @@ jobs:
         with:
           node-version: "16.17.x"
 
-      - name: Run Build
-        run: |
-          npm ci
-          npm run build
-        env:
-          CI: true
-          CONTACT_API: ${{ secrets.CONTACT_API }}
-          CONTENT_API: ${{ secrets.CONTENT_API }}
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
-          DATA: ${{ secrets.DATA }}
-          DOMAIN: ${{ secrets.DOMAIN }}
-          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
-      # TODO: run cypress tests against preview url
       - name: Run cypress
         run: npm run cypress:ci --key $CYPRESS_KEY
+        env:
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+          CYPRESS_HOST: https://${{ steps.extract_branch.outputs.branch }}.reallyluis.pages.dev
