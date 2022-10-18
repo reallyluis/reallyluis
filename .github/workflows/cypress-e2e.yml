@@ -26,4 +26,4 @@ jobs:
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Run cypress
-        run: npm run cypress:run
+        run: npm run cypress:ci
