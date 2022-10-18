@@ -1,11 +1,11 @@
-name: GitHub CI
+name: Cypress (branches)
 on:
   push:
-    branches:
-      - "**"
+    branches-ignore:
+      - "main"
 
 jobs:
-  build_lint_test:
+  cypress:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,22 +14,20 @@ jobs:
         with:
           node-version: "16.17.x"
 
-      - name: Run Build
-        run: |
-          npm ci
-          npm run build
+      - name: Run Install
+        run: npm ci
         env:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
           DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
-      - name: Run eslint
-        run: npm run lint
-
-      - name: Run stylelint
-        run: npm run stylelint
+      - name: Run cypress
+        run: npm run cypress:ci --key $CYPRESS_KEY
+        env:
+          CI: true
+          BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
