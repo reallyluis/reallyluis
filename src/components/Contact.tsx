@@ -1,5 +1,4 @@
 import { useRef, useState } from "preact/hooks";
-import "@styles/Contact.scss";
 
 export interface ContactProps {
   contactAPI: string;
@@ -34,6 +33,7 @@ export default function Contact({ contactAPI }: ContactProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (event: any) => {
     event.preventDefault();
     setIsSending(true);

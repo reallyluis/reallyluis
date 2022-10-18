@@ -1,5 +1,4 @@
 import { useRef } from "preact/hooks";
-import "@styles/Work.scss";
 
 export interface WorkProps {
   works: { [key: string]: string };
@@ -8,16 +7,21 @@ export interface WorkProps {
 export default function Work({ works }: WorkProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  const onModalClick = (event) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onModalClick = (event: any) => {
     event.stopPropagation();
     const body = document.querySelector<HTMLBodyElement>("body");
 
-    body.classList.remove("disable-scroll");
-    modalRef.current.close();
-    modalRef.current.innerHTML = "";
+    body?.classList.remove("disable-scroll");
+
+    if (modalRef.current) {
+      modalRef.current.close();
+      modalRef.current.innerHTML = "";
+    }
   };
 
-  const onPortfolioClick = (event) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onPortfolioClick = (event: any) => {
     event.stopPropagation();
     const body = document.querySelector<HTMLBodyElement>("body");
 
@@ -35,10 +39,12 @@ export default function Work({ works }: WorkProps) {
       </div>
     `;
 
-    modalRef.current.innerHTML += html;
-    if (typeof modalRef.current.showModal === "function") {
-      modalRef.current.showModal();
-      body.classList.add("disable-scroll");
+    if (modalRef.current) {
+      modalRef.current.innerHTML += html;
+      if (typeof modalRef.current.showModal === "function") {
+        modalRef.current.showModal();
+        body?.classList.add("disable-scroll");
+      }
     }
   };
 
