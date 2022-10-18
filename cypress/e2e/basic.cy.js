@@ -2,7 +2,7 @@
 
 describe("reallyluis app", () => {
   beforeEach(() => {
-    cy.visit("https://reallyluis.com");
+    cy.visit(Cypress.env('HOST'));
   });
 
   it("displays intro title and subtitle", () => {
