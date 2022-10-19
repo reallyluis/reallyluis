@@ -19,6 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/reallyluis/reallyluis.git"
   },
+  "type": "module",
   "author": "reallyluis",
   "license": "MIT",
   "bugs": {
