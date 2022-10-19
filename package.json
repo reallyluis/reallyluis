@@ -13,7 +13,7 @@
     "prettier": "prettier --write .",
     "cypress:open": "cypress open --config-file=cypress.config.ts",
     "cypress:run": "cypress run --record --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
-    "cypress:ci": "cypress run --record"
+    "cypress:ci": "cypress run"
   },
   "repository": {
     "type": "git",
