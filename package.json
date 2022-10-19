@@ -1,40 +1,20 @@
 {
   "name": "reallyluis",
   "version": "1.0.0",
-  "description": "A portfolio website by reallyluis.",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint": "eslint \"src/**/*.{astro,js,ts,tsx}\"",
-    "stylelint": "stylelint \"**/*.scss\"",
-    "prettier": "prettier --write .",
-    "cypress:open": "cypress open --config-file=cypress.config.ts",
-    "cypress:local": "cypress run --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
-    "cypress:ci": "cypress run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reallyluis/reallyluis.git"
-  },
-  "type": "module",
   "author": "reallyluis",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/reallyluis/reallyluis/issues"
   },
+  "description": "A portfolio website by reallyluis.",
   "homepage": "https://github.com/reallyluis/reallyluis#readme",
+  "license": "MIT",
   "dependencies": {
     "@astrojs/preact": "^1.2.0",
     "astro": "1.4.2",
     "preact": "^10.11.1"
   },
-  "volta": {
-    "node": "16.17.0"
-  },
   "devDependencies": {
+    "@types/jest": "^29.2.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "cypress": "^10.10.0",
@@ -42,12 +22,36 @@
     "eslint-plugin-astro": "^0.20.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jsx-a11y": "^6.6.1",
+    "jest": "^29.2.1",
+    "jest-environment-jsdom": "^29.2.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.5",
     "sass": "^1.55.0",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^5.0.0",
+    "ts-jest": "^29.0.3",
     "typescript": "^4.8.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reallyluis/reallyluis.git"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint \"{src,tests}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
+    "stylelint": "stylelint \"src/**/*.scss\"",
+    "prettier": "prettier --write .",
+    "cypress:open": "cypress open --config-file=cypress.config.ts",
+    "cypress:local": "cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "cypress:ci": "cypress run",
+    "test": "jest"
+  },
+  "volta": {
+    "node": "16.17.0"
   }
 }

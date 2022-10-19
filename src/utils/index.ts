@@ -25,7 +25,8 @@ export const debounce = (
   n: number,
   immed = false
 ) => {
-  let timer: number | undefined = undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let timer: any;
 
   return function (this: void, ...args: string[]) {
     if (timer === undefined && immed) {
