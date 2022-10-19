@@ -26,7 +26,7 @@ jobs:
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Run cypress
-        run: npm run cypress:ci --key $CYPRESS_KEY
+        run: npm run cypress:ci -- --key $CYPRESS_KEY
         env:
           CI: true
           BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
