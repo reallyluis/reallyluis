@@ -5,7 +5,7 @@ on:
       - "**"
 
 jobs:
-  lints_units:
+  lints_tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +32,6 @@ jobs:
 
       - name: Run stylelint
         run: npm run stylelint
+
+      - name: Run jest
+        run: npm run test

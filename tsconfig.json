@@ -2,7 +2,12 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react-jsx",
+    "composite": false,
+    "declaration": false,
+    "incremental": false,
+    "outDir": "./dist",
+    "rootDirs": ["./"],
+    "jsx": "preserve",
     "jsxImportSource": "preact",
     "importsNotUsedAsValues": "error",
     "paths": {
@@ -10,7 +15,15 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+      "@tests/*": ["tests/*"],
+      "@utils/*": ["src/utils/*"],
+      "@workers/*": ["workers/*"]
+    },
+    "types": ["cloudflare", "jest", "node"],
+    "typeRoots": ["./**/node_modules/@types"],
+    "lib": ["DOM.Iterable"],
+    "downlevelIteration": true,
+    "isolatedModules": true,
+    "noEmit": true
   }
 }
