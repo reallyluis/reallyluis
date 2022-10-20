@@ -43,11 +43,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint \"{src,tests}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
+    "lint": "eslint \"{src,tests,workers}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "prettier": "prettier --write .",
     "cypress:open": "cypress open --config-file=cypress.config.ts",
-    "cypress:local": "cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "cypress:local": "BASE_URL=http://127.0.0.1:3000 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
     "cypress:ci": "cypress run",
     "test": "jest"
   },

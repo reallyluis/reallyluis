@@ -6,7 +6,7 @@
     "declaration": false,
     "incremental": false,
     "outDir": "./dist",
-    "rootDirs": ["./src"],
+    "rootDirs": ["./"],
     "jsx": "preserve",
     "jsxImportSource": "preact",
     "importsNotUsedAsValues": "error",
@@ -19,7 +19,8 @@
       "@utils/*": ["src/utils/*"],
       "@workers/*": ["workers/*"]
     },
-    "types": ["jest", "node"],
+    "types": ["cloudflare", "jest", "node"],
+    "typeRoots": ["./**/node_modules/@types"],
     "lib": ["DOM.Iterable"],
     "downlevelIteration": true,
     "isolatedModules": true,

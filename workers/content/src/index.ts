@@ -4,7 +4,7 @@ export interface Env {
   works: KVNamespace;
 }
 
-const getUrlParams = async (request: Request) => {
+export const getUrlParams = async (request: Request) => {
   const { searchParams } = new URL(request.url);
   const contentType = searchParams.get("ct") || null;
 
@@ -48,8 +48,8 @@ const getData = async (
 export default {
   async fetch(
     request: Request,
-    env: Env,
-    ctx: ExecutionContext
+    env: Env
+    // ctx: ExecutionContext
   ): Promise<Response> {
     const cacheUrl = new URL(request.url);
     const cacheKey = new Request(cacheUrl.toString(), request);

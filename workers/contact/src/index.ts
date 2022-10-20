@@ -12,7 +12,7 @@ interface EmailData {
   comment: string;
 }
 
-const corsHeaders = {
+export const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
   "Access-Control-Max-Age": "86400",
@@ -71,7 +71,7 @@ const readRequestBody = async (request: Request) => {
     const formData = await request.formData();
     const body: { [key: string]: string | File } = {};
 
-    for (let entry of formData.entries()) {
+    for (const entry of formData.entries()) {
       body[entry[0]] = entry[1];
     }
 
@@ -84,7 +84,7 @@ const readRequestBody = async (request: Request) => {
 const handleOptionsRequest = async (request: Request) => {
   // Make sure the necessary headers are present
   // for this to be a valid pre-flight request
-  let headers = request.headers;
+  const headers = request.headers;
   if (
     headers.get("Origin") !== null &&
     headers.get("Access-Control-Request-Method") !== null &&
@@ -93,7 +93,7 @@ const handleOptionsRequest = async (request: Request) => {
     // Handle CORS pre-flight request.
     // If you want to check or reject the requested method + headers
     // you can do that here.
-    let respHeaders = {
+    const respHeaders = {
       ...corsHeaders,
       // Allow all future content Request headers to go back to browser
       // such as Authorization (Bearer) or X-Client-Name-Version
@@ -134,10 +134,7 @@ const handlePostRequest = async (request: Request, env: Env) => {
   return getResponse(200, "Message sent");
 };
 
-const getResponse = (
-  status: number = 405,
-  message: string = "Method Not Allowed"
-) => {
+const getResponse = (status = 405, message = "Method Not Allowed") => {
   const response = JSON.stringify({ status, message }, null, 2);
 
   return new Response(response, {
@@ -155,8 +152,8 @@ const getResponse = (
 export default {
   async fetch(
     request: Request,
-    env: Env,
-    ctx: ExecutionContext
+    env: Env
+    // ctx: ExecutionContext
   ): Promise<Response> {
     const { method } = request;
 
