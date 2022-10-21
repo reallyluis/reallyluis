@@ -4,8 +4,8 @@ on:
     workflows: [GitHub CI]
     types:
       - completed
-    branches-ignore:
-      - "main"
+  branches-ignore:
+    - "main"
 
 jobs:
   e2e:
