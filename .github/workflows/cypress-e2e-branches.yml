@@ -1,8 +1,8 @@
 name: Cypress (branches)
 on:
-  workflow_run:
-    workflows: ["Cloudflare Pages"]
-    types: [completed]
+  check_suite:
+    types:
+      - completed
     branches-ignore:
       - "main"
 
