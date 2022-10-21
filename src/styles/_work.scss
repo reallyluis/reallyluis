@@ -33,12 +33,15 @@
 
     img {
       aspect-ratio: 3/2;
-      transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
-        opacity 200ms linear;
 
-      &:hover {
-        opacity: 0.45;
-        transform: scale(1.2);
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1),
+          opacity 200ms linear;
+
+        &:hover {
+          opacity: 0.45;
+          transform: scale(1.2);
+        }
       }
     }
 
@@ -109,15 +112,5 @@
 @media (min-width: 800px) {
   .portfolio .content {
     margin: 3em;
-  }
-}
-
-@media (prefers-reduced-motion) {
-  .portfolio {
-    .item {
-      img {
-        transition: none;
-      }
-    }
   }
 }

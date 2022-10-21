@@ -17,13 +17,6 @@
       font-weight: var(--fw-bold);
     }
 
-    label,
-    input,
-    textarea {
-      touch-action: manipulation;
-      transition: all 0.2s;
-    }
-
     input,
     textarea {
       background-color: transparent;
@@ -62,6 +55,7 @@
       > span {
         color: var(--fc-dark);
         cursor: text;
+        margin-left: -0.25em;
         overflow: hidden;
         text-overflow: ellipsis;
         transform: translate(0, -1.5em);
@@ -131,20 +125,15 @@
       position: relative;
       transform: rotate3d(1, 1, 1, -8deg);
       transform-style: preserve-3d;
-      transition: transform 0.5s;
       z-index: 2;
 
-      &:hover {
-        transform: rotate3d(1, 1, 1, 0deg);
-      }
-    }
-  }
-}
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.5s;
 
-@media (prefers-reduced-motion) {
-  .contact-me {
-    img {
-      transition: none;
+        &:hover {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+      }
     }
   }
 }
