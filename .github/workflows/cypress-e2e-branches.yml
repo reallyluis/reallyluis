@@ -1,8 +1,7 @@
 name: Cypress (branches)
-on:
-  workflow_dispatch:
-    branches-ignore:
-      - "main"
+on: workflow_dispatch
+branches-ignore:
+  - "main"
 
 jobs:
   e2e:
