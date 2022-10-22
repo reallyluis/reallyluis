@@ -25,7 +25,6 @@ jobs:
       - name: Run Build
         run: npm run build
         env:
-          CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
           DATA: ${{ secrets.DATA }}
