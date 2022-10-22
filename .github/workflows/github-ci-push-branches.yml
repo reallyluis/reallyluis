@@ -5,9 +5,17 @@ on:
       - "main"
 
 jobs:
-  call-workflow-1-install:
+  install:
     uses: ./.github/workflows/1-install.yml
 
-  call-workflow-2-lint:
-    needs: call-workflow-1-install
-    uses: ./.github/workflows/2-lint.yml
+  lint-and-tests:
+    needs: install
+    uses: ./.github/workflows/2-lint-and-tests.yml
+
+  build-and-deploy:
+    needs: [install, lint-and-tests]
+    uses: ./.github/workflows/3-build-and-deploy.yml
+
+  e2e:
+    needs: [install, lint-and-tests, build-and-deploy]
+    uses: ./.github/workflows/4-e2e.yml

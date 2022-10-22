@@ -1,8 +1,8 @@
-name: Lint
+name: Lint and Tests
 on: workflow_call
 
 jobs:
-  lint:
+  lint-and-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,4 +12,12 @@ jobs:
           node-version: "16.17.x"
 
       - name: Run eslint
-        run: npm run lint
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Run stylelint
+        run: npm run stylelint
+
+      - name: Run jest
+        run: npm run test

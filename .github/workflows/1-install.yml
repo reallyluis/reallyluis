@@ -12,4 +12,4 @@ jobs:
           node-version: "16.17.x"
 
       - name: Run install
-        run:  npm ci
+        run: npm ci
