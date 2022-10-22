@@ -12,12 +12,14 @@ import Skills from "@components/Skills.astro";
 import Work from "@components/Work";
 import { getContent } from "@utils/index";
 
-const contactAPI = process.env.CONTACT_API || import.meta.env.CONTACT_API;
-const contentAPI = process.env.CONTENT_API || import.meta.env.CONTENT_API;
-const data = process.env.DATA || import.meta.env.DATA;
-const domain = process.env.DOMAIN || import.meta.env.DOMAIN;
-const environment = process.env.ENVIRONMENT || import.meta.env.ENVIRONMENT;
-const mailToEmail = process.env.FOOTER_MAILTO_EMAIL || import.meta.env.FOOTER_MAILTO_EMAIL;
+const contactAPI = import.meta.env.CONTACT_API;
+const contentAPI = import.meta.env.CONTENT_API;
+const data = import.meta.env.DATA;
+const domain = import.meta.env.DOMAIN;
+const environment = import.meta.env.ENVIRONMENT;
+const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
+
+console.log(contentAPI);
 
 const { abouts, skills, works } =
   environment === "dev" ? JSON.parse(data) : await getContent(contentAPI);
