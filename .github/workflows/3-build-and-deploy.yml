@@ -11,20 +11,12 @@ jobs:
         with:
           node-version: "16.17.x"
 
-      - name: Cache node_modules
-        id: node-modules
-        uses: actions/cache@v3
-        with:
-          path: "./node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
-
-      - name: Run install
-        if: steps.node-modules.outputs.cache-hit != 'true'
-        run: npm ci
-
       - name: Run Build
-        run: npm run build
+        run: |
+          npm ci
+          npm run build
         env:
+          CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
           DATA: ${{ secrets.DATA }}
