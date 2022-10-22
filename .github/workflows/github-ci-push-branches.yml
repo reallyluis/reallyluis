@@ -1,0 +1,13 @@
+name: CI (branches)
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  call-workflow-1-install:
+    use: ./.github/workflows/1-install.yml
+
+  call-workflow-2-lint:
+    needs: call-workflow-1-install
+    use: ./.github/workflows/2-lint.yml
