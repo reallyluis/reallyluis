@@ -1,0 +1,48 @@
+name: CI (branches)
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  install:
+    uses: ./.github/workflows/1-install.yml
+
+  lint:
+    needs: install
+    uses: ./.github/workflows/2-lint.yml
+
+  test:
+    needs: [install, lint]
+    uses: ./.github/workflows/3-test.yml
+
+  build:
+    needs: [install, lint, test]
+    uses: ./.github/workflows/4-build.yml
+    with:
+      COMMIT_SHA: ${{ github.sha }}
+    secrets:
+      CONTACT_API: ${{ secrets.CONTACT_API }}
+      CONTENT_API: ${{ secrets.CONTENT_API }}
+      DATA: ${{ secrets.DATA }}
+      DOMAIN: ${{ secrets.DOMAIN }}
+      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
+
+  deploy:
+    needs: [install, lint, test, build]
+    uses: ./.github/workflows/5-deploy.yml
+    with:
+      COMMIT_SHA: ${{ github.sha }}
+    secrets:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
+      REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+
+  e2e:
+    needs: [install, lint, test, build, deploy]
+    uses: ./.github/workflows/6-e2e.yml
+    with:
+      BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}

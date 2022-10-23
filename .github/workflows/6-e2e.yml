@@ -21,6 +21,17 @@ jobs:
         with:
           node-version: "16.17.x"
 
+      - name: Cache node_modules
+        id: node-modules
+        uses: actions/cache@v3
+        with:
+          path: "./node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
+
+      - name: Run install
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: npm ci
+
       - name: Run cypress
         run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
         env:
