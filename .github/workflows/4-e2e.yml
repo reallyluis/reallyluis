@@ -5,6 +5,7 @@ on:
       BASE_URL:
         description: "Base url for cypress tests"
         required: true
+        type: string
     secrets:
       CYPRESS_KEY:
         description: "Cypress API key"
