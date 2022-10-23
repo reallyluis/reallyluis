@@ -1,3 +1,5 @@
+export const EMPTY_DATA = '{"abouts":{},"skills":{},"works":{}}';
+
 export interface ObserverOptions {
   root?: Element | null;
   rootMargin?: string;

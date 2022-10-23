@@ -10,11 +10,11 @@ import PageError from "@components/PageError.astro";
 import PageLoad from "@components/PageLoad.astro";
 import Skills from "@components/Skills.astro";
 import Work from "@components/Work";
-import { getContent } from "@utils/index";
+import { EMPTY_DATA, getContent } from "@utils/index";
 
 const contactAPI = import.meta.env.CONTACT_API;
 const contentAPI = import.meta.env.CONTENT_API;
-const data = import.meta.env.DATA;
+const data = import.meta.env.DATA ?? EMPTY_DATA;
 const domain = import.meta.env.DOMAIN;
 const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
