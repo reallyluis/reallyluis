@@ -70,7 +70,7 @@ jobs:
 
   e2e_prod:
     name: e2e
-    needs: production
+    needs: deploy_prod
     uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: https://reallyluis.com
@@ -80,7 +80,7 @@ jobs:
 
   e2e_staging:
     name: e2e
-    needs: staging
+    needs: deploy_staging
     uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
