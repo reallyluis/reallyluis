@@ -1,5 +1,3 @@
-import type { ErrorInfo } from "preact";
-
 export interface ObserverOptions {
   root?: Element | null;
   rootMargin?: string;

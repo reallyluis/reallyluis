@@ -27,7 +27,7 @@ on:
         required: true
 
 jobs:
-  build:
+  astrojs:
     runs-on: ubuntu-latest
 
     steps:

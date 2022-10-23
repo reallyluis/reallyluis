@@ -36,7 +36,7 @@ on:
         required: true
 
 jobs:
-  deploy:
+  cloudflare:
     runs-on: ubuntu-latest
 
     steps:
