@@ -49,6 +49,7 @@ on:
 
 jobs:
   deploy:
+    name: ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.ENVIRONMENT }}

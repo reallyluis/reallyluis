@@ -2,8 +2,12 @@ name: End-to-End
 on:
   workflow_call:
     inputs:
-      BRANCH:
-        description: "Branch name"
+      BASE_URL:
+        description: "Base url"
+        required: true
+        type: string
+      RUN_CMD:
+        description: "Run"
         required: true
         type: string
     secrets:
@@ -21,19 +25,18 @@ jobs:
         with:
           node-version: "16.17.x"
 
+      - name: Cache node_modules
+        id: node-modules
+        uses: actions/cache@v3
+        with:
+          path: "./node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
+
       - name: Run install
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Run cypress (prod)
-        if: inputs.BRANCH == 'main'
-        run: npm run cypress:ci -- --record --key $CYPRESS_KEY
+      - name: Run cypress
+        run: ${{ inputs.RUN_CMD }}
         env:
-          BASE_URL: https://reallyluis.com
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
-
-      - name: Run cypress (preview)
-        if: inputs.BRANCH != 'main'
-        run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
-        env:
-          BASE_URL: https://${{ inputs.BRANCH }}.reallyluis.pages.dev
-          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+          BASE_URL: ${{ inputs.BASE_URL }}

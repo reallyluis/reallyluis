@@ -10,11 +10,11 @@ jobs:
     uses: ./.github/workflows/2-lint.yml
 
   test:
-    needs: [setup, lint]
+    needs: lint
     uses: ./.github/workflows/3-test.yml
 
   build:
-    needs: [setup, lint, test]
+    needs: test
     uses: ./.github/workflows/4-build.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
@@ -26,7 +26,8 @@ jobs:
       ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
-  production:
+  deploy_prod:
+    name: deploy
     if: github.ref_name == 'main'
     needs: build
     uses: ./.github/workflows/5-deploy.yml
@@ -46,7 +47,8 @@ jobs:
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
       REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
-  staging:
+  deploy_staging:
+    name: deploy
     if: github.ref_name != 'main'
     needs: build
     uses: ./.github/workflows/5-deploy.yml
@@ -66,10 +68,18 @@ jobs:
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
       REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
-  e2e:
-    needs: [production, staging]
+  e2e_prod:
+    name: e2e
+    needs: production
     uses: ./.github/workflows/6-e2e.yml
     with:
-      BRANCH: ${{ github.ref_name }}
-    secrets:
-      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+      BASE_URL: https://reallyluis.com
+      RUN_CMD: npm run cypress:ci -- --record --key ${{ secrets.CYPRESS_KEY }}
+
+  e2e_staging:
+    name: e2e
+    needs: staging
+    uses: ./.github/workflows/6-e2e.yml
+    with:
+      BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
+      RUN_CMD: npm run cypress:ci -- --record false --key ${{ secrets.CYPRESS_KEY }}
