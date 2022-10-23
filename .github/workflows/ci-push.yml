@@ -1,23 +1,20 @@
-name: CI (branches)
-on:
-  push:
-    branches-ignore:
-      - "main"
+name: CI
+on: push
 
 jobs:
-  install:
-    uses: ./.github/workflows/1-install.yml
+  setup:
+    uses: ./.github/workflows/1-setup.yml
 
   lint:
-    needs: install
+    needs: setup
     uses: ./.github/workflows/2-lint.yml
 
   test:
-    needs: [install, lint]
+    needs: [setup, lint]
     uses: ./.github/workflows/3-test.yml
 
   build:
-    needs: [install, lint, test]
+    needs: [setup, lint, test]
     uses: ./.github/workflows/4-build.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
@@ -30,7 +27,7 @@ jobs:
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
   deploy:
-    needs: [install, lint, test, build]
+    needs: build
     uses: ./.github/workflows/5-deploy.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
@@ -45,10 +42,20 @@ jobs:
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
       REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
-  e2e:
-    needs: [install, lint, test, build, deploy]
+  e2e_branch:
+    if: github.ref_name != 'main'
+    needs: deploy
     uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+
+  e2e_prod:
+    if: github.ref_name == 'main'
+    needs: deploy
+    uses: ./.github/workflows/6-e2e.yml
+    with:
+      BASE_URL: https://reallyluis.com
     secrets:
       CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}

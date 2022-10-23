@@ -1,4 +1,4 @@
-name: Cypress (preview)
+name: End-to-End
 on:
   workflow_call:
     inputs:
@@ -12,7 +12,7 @@ on:
         required: true
 
 jobs:
-  e2e:
+  cypress:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,19 +21,11 @@ jobs:
         with:
           node-version: "16.17.x"
 
-      - name: Cache node_modules
-        id: node-modules
-        uses: actions/cache@v3
-        with:
-          path: "./node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
-
-      - name: Run install
-        if: steps.node-modules.outputs.cache-hit != 'true'
-        run: npm ci
-
       - name: Run cypress
-        run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
+        run: |
+          npm ci
+          npm run cypress:ci -- --record false --key $CYPRESS_KEY
         env:
+          CI: true
           BASE_URL: ${{ inputs.BASE_URL }}
           CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
