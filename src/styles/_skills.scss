@@ -39,11 +39,14 @@
     outline: solid 1px var(--fc-light);
     padding: 16px;
     text-align: left;
-    transition: outline-offset 150ms ease;
 
-    &:hover,
-    &:focus {
-      outline-offset: -0.3em;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: outline-offset 150ms ease;
+
+      &:hover,
+      &:focus {
+        outline-offset: -0.3em;
+      }
     }
   }
 }
@@ -62,13 +65,5 @@
 
   .service p {
     min-height: 350px;
-  }
-}
-
-@media (prefers-reduced-motion) {
-  .service {
-    p {
-      transition: none;
-    }
   }
 }

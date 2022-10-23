@@ -1,7 +1,5 @@
 export interface Env {
-  abouts: KVNamespace;
-  skills: KVNamespace;
-  works: KVNamespace;
+  [key: string]: KVNamespace;
 }
 
 export const getUrlParams = async (request: Request) => {
@@ -17,8 +15,11 @@ const getNamespace = (
   env: Env,
   contentType: string
 ): KVNamespace<string> | null => {
-  if (env && contentType && env.hasOwnProperty(contentType)) {
-    // @ts-ignore
+  if (
+    env &&
+    contentType &&
+    Object.prototype.hasOwnProperty.call(env, contentType)
+  ) {
     return env[contentType];
   }
 

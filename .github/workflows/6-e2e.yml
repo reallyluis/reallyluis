@@ -1,0 +1,39 @@
+name: End-to-End
+on:
+  workflow_call:
+    inputs:
+      BRANCH:
+        description: "Branch name"
+        required: true
+        type: string
+    secrets:
+      CYPRESS_KEY:
+        description: "Cypress API key"
+        required: true
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.17.x"
+
+      - name: Run install
+        run: npm ci
+
+      - name: Run cypress (prod)
+        if: inputs.BRANCH == 'main'
+        run: npm run cypress:ci -- --record --key $CYPRESS_KEY
+        env:
+          BASE_URL: https://reallyluis.com
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
+
+      - name: Run cypress (preview)
+        if: inputs.BRANCH != 'main'
+        run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
+        env:
+          BASE_URL: https://${{ inputs.BRANCH }}.reallyluis.pages.dev
+          CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}

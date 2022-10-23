@@ -13,28 +13,26 @@
     position: fixed;
     width: 3.5em;
     right: 1em;
-    transition: var(--std-transform);
     z-index: 5;
 
     .icon-comment {
       fill: var(--fc-light);
-      transition: var(--std-transform);
     }
 
     &.animate-out {
       transform: translateX(4em) translateY(5em);
     }
 
-    &:hover .icon-comment {
-      transform: scale(1.1);
-    }
-  }
-}
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--std-transform);
 
-@media (prefers-reduced-motion) {
-  .page-controls {
-    .comment {
-      transition: none;
+      .icon-comment {
+        transition: var(--std-transform);
+      }
+
+      &:hover .icon-comment {
+        transform: scale(1.1);
+      }
     }
   }
 }

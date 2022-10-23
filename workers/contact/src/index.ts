@@ -97,13 +97,11 @@ const handleOptionsRequest = async (request: Request) => {
       ...corsHeaders,
       // Allow all future content Request headers to go back to browser
       // such as Authorization (Bearer) or X-Client-Name-Version
-      "Access-Control-Allow-Headers": request.headers.get(
-        "Access-Control-Request-Headers"
-      ),
+      "Access-Control-Allow-Headers":
+        request.headers.get("Access-Control-Request-Headers") || "Content-Type",
     };
 
     return new Response(null, {
-      // @ts-ignore
       headers: respHeaders,
     });
   }
@@ -119,7 +117,7 @@ const handleOptionsRequest = async (request: Request) => {
 
 const handlePostRequest = async (request: Request, env: Env) => {
   try {
-    const reqBody: any = await readRequestBody(request);
+    const reqBody = await readRequestBody(request);
     const { name, email, comment } = JSON.parse(reqBody);
 
     if (name && email && comment) {
@@ -127,8 +125,10 @@ const handlePostRequest = async (request: Request, env: Env) => {
     } else {
       throw new Error("Missing required data");
     }
-  } catch (e: any) {
-    return getResponse(400, e?.message || "Bad Request");
+  } catch (error) {
+    const errMessage = (error as ErrorEvent)?.message;
+
+    return getResponse(400, errMessage || "Bad Request");
   }
 
   return getResponse(200, "Message sent");

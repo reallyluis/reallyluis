@@ -1,0 +1,67 @@
+name: Build
+on:
+  workflow_call:
+    inputs:
+      COMMIT_SHA:
+        description: "Commit sha"
+        required: true
+        type: string
+    secrets:
+      CONTACT_API:
+        description: "Contact API endpoint"
+        required: true
+      CONTENT_API:
+        description: "Content API endpoint"
+        required: true
+      DATA:
+        description: "Content data"
+        required: false
+      DOMAIN:
+        description: "Website domain"
+        required: true
+      ENVIRONMENT:
+        description: "Host environment"
+        required: true
+      FOOTER_MAILTO_EMAIL:
+        description: "Website mail to email"
+        required: true
+
+jobs:
+  astrojs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.17.x"
+
+      - name: Cache node_modules
+        id: node-modules
+        uses: actions/cache@v3
+        with:
+          path: "./node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
+
+      - name: Run install
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Cache dist
+        id: dist
+        uses: actions/cache@v3
+        with:
+          path: "./dist"
+          key: ${{ runner.os }}-dist-${{ inputs.COMMIT_SHA }}
+
+      - name: Run Build
+        if: steps.dist.outputs.cache-hit != 'true'
+        run: npm run build
+        env:
+          CI: true
+          CONTACT_API: ${{ secrets.CONTACT_API }}
+          CONTENT_API: ${{ secrets.CONTENT_API }}
+          DATA: ${{ secrets.DATA }}
+          DOMAIN: ${{ secrets.DOMAIN }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}

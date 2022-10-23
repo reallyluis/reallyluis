@@ -14,13 +14,13 @@ import { getContent } from "@utils/index";
 
 const contactAPI = import.meta.env.CONTACT_API;
 const contentAPI = import.meta.env.CONTENT_API;
-const data = JSON.parse(import.meta.env.DATA);
+const data = import.meta.env.DATA;
 const domain = import.meta.env.DOMAIN;
 const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
 
 const { abouts, skills, works } =
-  environment === "dev" ? data : await getContent(contentAPI);
+  environment === "dev" ? JSON.parse(data) : await getContent(contentAPI);
 ---
 
 <Layout title="Professional Website" name="Luis">

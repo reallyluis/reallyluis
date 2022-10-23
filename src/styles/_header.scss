@@ -23,7 +23,10 @@ header {
   border-radius: 1em;
   height: 3px;
   width: 2em;
-  transition: transform ease-in-out 250ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform ease-in-out 250ms;
+  }
 }
 
 .hamburger::before,

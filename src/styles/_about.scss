@@ -37,20 +37,15 @@
       position: relative;
       transform: rotate3d(1, 1, 1, 5deg);
       transform-style: preserve-3d;
-      transition: transform 0.5s;
       z-index: 2;
 
-      &:hover {
-        transform: rotate3d(1, 1, 1, 0deg);
-      }
-    }
-  }
-}
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.5s;
 
-@media (prefers-reduced-motion) {
-  .about-me {
-    img {
-      transition: none;
+        &:hover {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+      }
     }
   }
 }
