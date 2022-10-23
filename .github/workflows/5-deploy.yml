@@ -2,6 +2,10 @@ name: Deploy
 on:
   workflow_call:
     inputs:
+      BASE_URL:
+        description: "Cypress base url"
+        required: true
+        type: string
       BRANCH:
         description: "Branch name"
         required: true
@@ -12,6 +16,10 @@ on:
         type: string
       ENVIRONMENT:
         description: "Deploy environment"
+        required: true
+        type: string
+      RUN_CMD:
+        description: "Cypress run command"
         required: true
         type: string
       URL:
@@ -31,6 +39,9 @@ on:
       CONTENT_API:
         description: "Content API endpoint"
         required: true
+      CYPRESS_KEY:
+        description: "Cypress API key"
+        required: true
       DATA:
         description: "Content data"
         required: false
@@ -43,13 +54,9 @@ on:
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
         required: true
-      REPO_TOKEN:
-        description: "Repo access token"
-        required: true
 
 jobs:
   deploy:
-    name: ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.ENVIRONMENT }}
@@ -97,3 +104,12 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages publish ./dist --project-name=reallyluis --branch=${{ inputs.BRANCH }}  --commit-dirty=true --commit-hash=${{ inputs.COMMIT_SHA }}
+
+  e2e:
+    needs: deploy
+    uses: ./.github/workflows/6-e2e.yml
+    with:
+      BASE_URL: ${{ inputs.BASE_URL }}
+      RUN_CMD: ${{ inputs.RUN_CMD }}
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
