@@ -37,6 +37,8 @@ jobs:
         run: npm ci
 
       - name: Run cypress
-        run: ${{ inputs.RUN_CMD }} ${{ secrets.CYPRESS_KEY }}
+        run: |
+          cypress install
+          ${{ inputs.RUN_CMD }} ${{ secrets.CYPRESS_KEY }}
         env:
           BASE_URL: ${{ inputs.BASE_URL }}
