@@ -1,5 +1,14 @@
 name: Cypress (preview)
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      BASE_URL:
+        description: "Base url for cypress tests"
+        required: true
+    secrets:
+      CYPRESS_KEY:
+        description: "Cypress API key"
+        required: true
 
 jobs:
   e2e:
@@ -14,6 +23,5 @@ jobs:
       - name: Run cypress
         run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
         env:
-          CI: true
-          BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
+          BASE_URL: ${{ inputs.BASE_URL }}
           CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}

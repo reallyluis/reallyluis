@@ -1,5 +1,34 @@
 name: Build and Deploy
-on: workflow_call
+on:
+  workflow_call:
+    secrets:
+      CLOUDFLARE_ACCOUNT_ID:
+        description: "Cloudflare account id"
+        required: true
+      CLOUDFLARE_PAGES_API:
+        description: "Cloudflare Pages API key"
+        required: true
+      CONTACT_API:
+        description: "Contact API endpoint"
+        required: true
+      CONTENT_API:
+        description: "Content API endpoint"
+        required: true
+      DATA:
+        description: "Content data"
+        required: false
+      DOMAIN:
+        description: "Website domain"
+        required: true
+      ENVIRONMENT:
+        description: "Host environment"
+        required: true
+      FOOTER_MAILTO_EMAIL:
+        description: "Website mail to email"
+        required: true
+      REPO_TOKEN:
+        description: "Repo access token"
+        required: true
 
 jobs:
   build-and-deploy:
