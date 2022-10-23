@@ -1,3 +1,5 @@
+import type { ErrorInfo } from "preact";
+
 export interface ObserverOptions {
   root?: Element | null;
   rootMargin?: string;
@@ -47,12 +49,16 @@ export const getContent = async (contentAPI: string) => {
     works: {},
   };
 
-  for (const key in data) {
-    const api = new URL(contentAPI);
-    api.search = new URLSearchParams({ ct: key }).toString();
-    const response = await fetch(api.toString());
+  try {
+    for (const key in data) {
+      const api = new URL(contentAPI);
+      api.search = new URLSearchParams({ ct: key }).toString();
+      const response = await fetch(api.toString());
 
-    data[key] = await response.json();
+      data[key] = await response.json();
+    }
+  } catch (error) {
+    console.error((error as Error)?.message);
   }
 
   return data;

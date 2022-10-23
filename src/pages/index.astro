@@ -19,8 +19,6 @@ const domain = import.meta.env.DOMAIN;
 const environment = import.meta.env.ENVIRONMENT;
 const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
 
-console.log(contentAPI);
-
 const { abouts, skills, works } =
   environment === "dev" ? JSON.parse(data) : await getContent(contentAPI);
 ---
