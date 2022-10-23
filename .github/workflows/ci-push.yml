@@ -37,6 +37,12 @@ jobs:
     secrets:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
+      CONTACT_API: ${{ secrets.CONTACT_API }}
+      CONTENT_API: ${{ secrets.CONTENT_API }}
+      DATA: ${{ secrets.DATA }}
+      DOMAIN: ${{ secrets.DOMAIN }}
+      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+      FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
       REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 
   e2e:
