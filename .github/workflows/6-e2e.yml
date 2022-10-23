@@ -26,7 +26,7 @@ jobs:
 
       - name: Run cypress (prod)
         if: inputs.BRANCH == 'main'
-        run: npm run cypress:ci -- --record false --key $CYPRESS_KEY
+        run: npm run cypress:ci -- --record --key $CYPRESS_KEY
         env:
           BASE_URL: https://reallyluis.com
           CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
