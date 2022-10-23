@@ -74,7 +74,9 @@ jobs:
     uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: https://reallyluis.com
-      RUN_CMD: npm run cypress:ci -- --record --key ${{ secrets.CYPRESS_KEY }}
+      RUN_CMD: npm run cypress:ci -- --record --key
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
 
   e2e_staging:
     name: e2e
@@ -82,4 +84,6 @@ jobs:
     uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
-      RUN_CMD: npm run cypress:ci -- --record false --key ${{ secrets.CYPRESS_KEY }}
+      RUN_CMD: npm run cypress:ci -- --record false --key
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
