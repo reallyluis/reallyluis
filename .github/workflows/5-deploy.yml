@@ -2,6 +2,10 @@ name: Deploy
 on:
   workflow_call:
     inputs:
+      BRANCH:
+        description: "Branch name"
+        required: true
+        type: string
       COMMIT_SHA:
         description: "Commit sha"
         required: true
@@ -80,4 +84,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages publish --project-name=reallyluis
+          command: pages publish ./dist --project-name=reallyluis --branch=${{ inputs.BRANCH }} --commit-hash=${{ inputs.COMMIT_SHA }}

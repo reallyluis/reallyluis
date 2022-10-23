@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/2-lint.yml
 
   test:
-    needs: [setup, lint]
+    needs: setup
     uses: ./.github/workflows/3-test.yml
 
   build:
@@ -30,6 +30,7 @@ jobs:
     needs: build
     uses: ./.github/workflows/5-deploy.yml
     with:
+      BRANCH: ${{ github.ref_name }}
       COMMIT_SHA: ${{ github.sha }}
     secrets:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
