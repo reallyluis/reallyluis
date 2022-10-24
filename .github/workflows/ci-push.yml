@@ -36,5 +36,4 @@ jobs:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
       DOMAIN: ${{ secrets.DOMAIN }}
-      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
