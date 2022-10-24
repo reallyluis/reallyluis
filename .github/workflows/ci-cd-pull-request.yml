@@ -1,5 +1,15 @@
 name: CI/CD
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+      - "**/.eslintrc"
+      - "**/.gitignore"
+      - "**/.npmrc"
+      - "**/.stylelintrc.json"
+      - ".vscode/**"
   pull_request:
     branches:
       - main
@@ -62,7 +72,7 @@ jobs:
     uses: ./.github/workflows/5-deploy.yml
     with:
       BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
-      BRANCH: ${{ github.ref_name }}
+      BRANCH: staging
       COMMIT_SHA: ${{ github.sha }}
       ENVIRONMENT: staging
       RUN_CMD: npm run cypress:ci -- --record false --key
