@@ -9,7 +9,7 @@ on:
       DOMAIN:
         description: "Website domain"
         required: true
-        required: true
+        type: string
       ENVIRONMENT:
         description: "Deploy environment"
         required: true
