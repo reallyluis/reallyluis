@@ -16,9 +16,6 @@ on:
       DOMAIN:
         description: "Website domain"
         required: true
-      ENVIRONMENT:
-        description: "Host environment"
-        required: true
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
         required: true
@@ -59,5 +56,4 @@ jobs:
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
           DOMAIN: ${{ secrets.DOMAIN }}
-          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
