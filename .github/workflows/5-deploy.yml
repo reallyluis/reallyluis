@@ -22,10 +22,6 @@ on:
         description: "Cypress run command"
         required: true
         type: string
-      URL:
-        description: "Environment url"
-        required: true
-        type: string
     secrets:
       CLOUDFLARE_ACCOUNT_ID:
         description: "Cloudflare account id"
@@ -45,9 +41,6 @@ on:
       DOMAIN:
         description: "Website domain"
         required: true
-      ENVIRONMENT:
-        description: "Host environment"
-        required: true
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
         required: true
@@ -57,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.ENVIRONMENT }}
-      url: ${{ inputs.URL }}
+      url: ${{ inputs.BASE_URL }}
 
     steps:
       - uses: actions/checkout@v3
@@ -91,7 +84,7 @@ jobs:
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
           DOMAIN: ${{ secrets.DOMAIN }}
-          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
       - name: Publish to Cloudflare Pages
