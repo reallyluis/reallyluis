@@ -13,9 +13,6 @@ on:
       CONTENT_API:
         description: "Content API endpoint"
         required: true
-      DATA:
-        description: "Content data"
-        required: false
       DOMAIN:
         description: "Website domain"
         required: true
@@ -61,7 +58,6 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}

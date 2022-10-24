@@ -38,17 +38,18 @@
     "url": "git+https://github.com/reallyluis/reallyluis.git"
   },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint \"{src,tests,workers}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
-    "stylelint": "stylelint \"src/**/*.scss\"",
-    "prettier": "prettier --write .",
-    "cypress:open": "cypress open --config-file=cypress.config.ts",
-    "cypress:local": "BASE_URL=http://127.0.0.1:3000 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "build": "astro build",
     "cypress:ci": "cypress run",
+    "cypress:install": "cypress install",
+    "cypress:local": "BASE_URL=http://127.0.0.1:3000 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "cypress:open": "cypress open --config-file=cypress.config.ts",
+    "dev": "astro dev",
+    "lint": "eslint \"{src,tests,workers}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
+    "prettier": "prettier --write .",
+    "preview": "astro preview",
+    "start": "astro dev",
+    "stylelint": "stylelint \"src/**/*.scss\"",
     "test": "jest"
   },
   "volta": {

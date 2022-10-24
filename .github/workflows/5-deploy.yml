@@ -2,12 +2,28 @@ name: Deploy
 on:
   workflow_call:
     inputs:
+      BASE_URL:
+        description: "Cypress base url"
+        required: true
+        type: string
       BRANCH:
         description: "Branch name"
         required: true
         type: string
       COMMIT_SHA:
         description: "Commit sha"
+        required: true
+        type: string
+      ENVIRONMENT:
+        description: "Deploy environment"
+        required: true
+        type: string
+      RUN_CMD:
+        description: "Cypress run command"
+        required: true
+        type: string
+      URL:
+        description: "Environment url"
         required: true
         type: string
     secrets:
@@ -23,9 +39,9 @@ on:
       CONTENT_API:
         description: "Content API endpoint"
         required: true
-      DATA:
-        description: "Content data"
-        required: false
+      CYPRESS_KEY:
+        description: "Cypress API key"
+        required: true
       DOMAIN:
         description: "Website domain"
         required: true
@@ -35,17 +51,13 @@ on:
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
         required: true
-      REPO_TOKEN:
-        description: "Repo access token"
-        required: true
 
 jobs:
-  production:
-    if: inputs.BRANCH == 'main'
+  deploy:
     runs-on: ubuntu-latest
     environment:
-      name: production
-      url: https://reallyluis.com
+      name: ${{ inputs.ENVIRONMENT }}
+      url: ${{ inputs.URL }}
 
     steps:
       - uses: actions/checkout@v3
@@ -78,7 +90,6 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          DATA: ${{ secrets.DATA }}
           DOMAIN: ${{ secrets.DOMAIN }}
           ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
@@ -88,54 +99,13 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages publish ./dist --project-name=reallyluis --branch=${{ inputs.BRANCH }} --commit-hash=${{ inputs.COMMIT_SHA }}
+          command: pages publish ./dist --project-name=reallyluis --branch=${{ inputs.BRANCH }}  --commit-dirty=true --commit-hash=${{ inputs.COMMIT_SHA }}
 
-  staging:
-    if: inputs.BRANCH != 'main'
-    runs-on: ubuntu-latest
-    environment:
-      name: staging
-      url: https://${{ inputs.BRANCH }}.reallyluis.pages.dev
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "16.17.x"
-
-      - name: Cache node_modules
-        id: node-modules
-        uses: actions/cache@v3
-        with:
-          path: "./node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
-
-      - name: Run install
-        if: steps.node-modules.outputs.cache-hit != 'true'
-        run: npm ci
-
-      - name: Cache dist
-        id: dist
-        uses: actions/cache@v3
-        with:
-          path: "./dist"
-          key: ${{ runner.os }}-dist-${{ inputs.COMMIT_SHA }}
-
-      - name: Run Build
-        if: steps.dist.outputs.cache-hit != 'true'
-        run: npm run build
-        env:
-          CI: true
-          CONTACT_API: ${{ secrets.CONTACT_API }}
-          CONTENT_API: ${{ secrets.CONTENT_API }}
-          DATA: ${{ secrets.DATA }}
-          DOMAIN: ${{ secrets.DOMAIN }}
-          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
-
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@2.0.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages publish ./dist --project-name=reallyluis --branch=${{ inputs.BRANCH }} --commit-hash=${{ inputs.COMMIT_SHA }}
+  e2e:
+    needs: deploy
+    uses: ./.github/workflows/6-e2e.yml
+    with:
+      BASE_URL: ${{ inputs.BASE_URL }}
+      RUN_CMD: ${{ inputs.RUN_CMD }}
+    secrets:
+      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
