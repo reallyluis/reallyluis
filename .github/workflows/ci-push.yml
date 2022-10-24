@@ -1,7 +1,16 @@
-name: CI/CD
-on: push
+name: CI
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+      - "**/.eslintrc"
+      - "**/.gitignore"
+      - "**/.npmrc"
+      - "**/.stylelintrc.json"
+      - ".vscode/**"
 
 jobs:
+  if: github.event_name != 'pull_request'
   setup:
     uses: ./.github/workflows/1-setup.yml
 
@@ -21,48 +30,6 @@ jobs:
     secrets:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
-      DOMAIN: ${{ secrets.DOMAIN }}
-      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-      FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
-
-  production:
-    if: github.ref_name == 'main'
-    needs: build
-    uses: ./.github/workflows/5-deploy.yml
-    with:
-      BASE_URL: https://reallyluis.com
-      BRANCH: ${{ github.ref_name }}
-      COMMIT_SHA: ${{ github.sha }}
-      ENVIRONMENT: production
-      RUN_CMD: npm run cypress:ci -- --record --key
-      URL: https://reallyluis.com
-    secrets:
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
-      CONTACT_API: ${{ secrets.CONTACT_API }}
-      CONTENT_API: ${{ secrets.CONTENT_API }}
-      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
-      DOMAIN: ${{ secrets.DOMAIN }}
-      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-      FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
-
-  staging:
-    if: github.ref_name != 'main'
-    needs: build
-    uses: ./.github/workflows/5-deploy.yml
-    with:
-      BASE_URL: https://${{ github.ref_name }}.reallyluis.pages.dev
-      BRANCH: ${{ github.ref_name }}
-      COMMIT_SHA: ${{ github.sha }}
-      ENVIRONMENT: staging
-      RUN_CMD: npm run cypress:ci -- --record false --key
-      URL: https://${{ github.ref_name }}.reallyluis.pages.dev
-    secrets:
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
-      CONTACT_API: ${{ secrets.CONTACT_API }}
-      CONTENT_API: ${{ secrets.CONTENT_API }}
-      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
       DOMAIN: ${{ secrets.DOMAIN }}
       ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
