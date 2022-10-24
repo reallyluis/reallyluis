@@ -10,19 +10,21 @@ on:
       - ".vscode/**"
 
 jobs:
-  if: github.event_name != 'pull_request'
   setup:
     uses: ./.github/workflows/1-setup.yml
 
   lint:
+    if: github.event_name != 'pull_request'
     needs: setup
     uses: ./.github/workflows/2-lint.yml
 
   test:
+    if: github.event_name != 'pull_request'
     needs: lint
     uses: ./.github/workflows/3-test.yml
 
   build:
+    if: github.event_name != 'pull_request'
     needs: test
     uses: ./.github/workflows/4-build.yml
     with:
