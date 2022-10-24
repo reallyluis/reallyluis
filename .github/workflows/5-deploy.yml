@@ -14,6 +14,10 @@ on:
         description: "Commit sha"
         required: true
         type: string
+      DOMAIN:
+        description: "Website domain"
+        required: true
+        type: string
       ENVIRONMENT:
         description: "Deploy environment"
         required: true
@@ -37,9 +41,6 @@ on:
         required: true
       CYPRESS_KEY:
         description: "Cypress API key"
-        required: true
-      DOMAIN:
-        description: "Website domain"
         required: true
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
@@ -74,7 +75,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: "./dist"
-          key: ${{ runner.os }}-dist-${{ inputs.COMMIT_SHA }}
+          key: ${{ runner.os }}-${{ inputs.ENVIRONMENT }}-dist-${{ inputs.COMMIT_SHA }}
 
       - name: Run Build
         if: steps.dist.outputs.cache-hit != 'true'
@@ -83,7 +84,7 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          DOMAIN: ${{ secrets.DOMAIN }}
+          DOMAIN: ${{ inputs.DOMAIN }}
           ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 

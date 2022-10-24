@@ -32,8 +32,9 @@ jobs:
     uses: ./.github/workflows/4-build.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
+      DOMAIN: reallyluis.com
+      ENVIRONMENT: staging
     secrets:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
-      DOMAIN: ${{ secrets.DOMAIN }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}

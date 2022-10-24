@@ -38,10 +38,11 @@ jobs:
     uses: ./.github/workflows/4-build.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
+      DOMAIN: reallyluis.com
+      ENVIRONMENT: production
     secrets:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
-      DOMAIN: ${{ secrets.DOMAIN }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
   production:
@@ -52,6 +53,7 @@ jobs:
       BASE_URL: https://reallyluis.com
       BRANCH: ${{ github.ref_name }}
       COMMIT_SHA: ${{ github.sha }}
+      DOMAIN: reallyluis.com
       ENVIRONMENT: production
       RUN_CMD: npm run cypress:ci -- --record --key
     secrets:
@@ -60,7 +62,6 @@ jobs:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
       CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
-      DOMAIN: ${{ secrets.DOMAIN }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
   staging:
@@ -71,6 +72,7 @@ jobs:
       BASE_URL: https://staging.reallyluis.pages.dev
       BRANCH: staging
       COMMIT_SHA: ${{ github.sha }}
+      DOMAIN: reallyluis.com
       ENVIRONMENT: staging
       RUN_CMD: npm run cypress:ci -- --record false --key
     secrets:
@@ -79,5 +81,4 @@ jobs:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
       CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
-      DOMAIN: ${{ secrets.DOMAIN }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}

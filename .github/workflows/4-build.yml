@@ -6,15 +6,20 @@ on:
         description: "Commit sha"
         required: true
         type: string
+      DOMAIN:
+        description: "Website domain"
+        required: true
+        required: true
+      ENVIRONMENT:
+        description: "Deploy environment"
+        required: true
+        type: string
     secrets:
       CONTACT_API:
         description: "Contact API endpoint"
         required: true
       CONTENT_API:
         description: "Content API endpoint"
-        required: true
-      DOMAIN:
-        description: "Website domain"
         required: true
       FOOTER_MAILTO_EMAIL:
         description: "Website mail to email"
@@ -55,5 +60,6 @@ jobs:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
           CONTENT_API: ${{ secrets.CONTENT_API }}
-          DOMAIN: ${{ secrets.DOMAIN }}
+          DOMAIN: ${{ inputs.DOMAIN }}
+          ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
