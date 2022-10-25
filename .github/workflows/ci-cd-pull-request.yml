@@ -23,19 +23,19 @@ on:
 
 jobs:
   setup:
-    uses: ./.github/workflows/1-setup.yml
+    uses: ./.github/workflows/sub/1-setup.yml
 
   lint:
     needs: setup
-    uses: ./.github/workflows/2-lint.yml
+    uses: ./.github/workflows/sub/2-lint.yml
 
   test:
     needs: lint
-    uses: ./.github/workflows/3-test.yml
+    uses: ./.github/workflows/sub/3-test.yml
 
   build:
     needs: test
-    uses: ./.github/workflows/4-build.yml
+    uses: ./.github/workflows/sub/4-build.yml
     with:
       COMMIT_SHA: ${{ github.sha }}
       DOMAIN: reallyluis.com
@@ -47,7 +47,7 @@ jobs:
 
   staging:
     needs: build
-    uses: ./.github/workflows/5-deploy.yml
+    uses: ./.github/workflows/sub/5-deploy.yml
     with:
       BASE_URL: https://staging.reallyluis.pages.dev
       BRANCH: staging
