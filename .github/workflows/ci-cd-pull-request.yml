@@ -39,33 +39,13 @@ jobs:
     with:
       COMMIT_SHA: ${{ github.sha }}
       DOMAIN: reallyluis.com
-      ENVIRONMENT: production
+      ENVIRONMENT: staging
     secrets:
       CONTACT_API: ${{ secrets.CONTACT_API }}
       CONTENT_API: ${{ secrets.CONTENT_API }}
-      FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
-
-  production:
-    if: github.ref_name == 'main'
-    needs: build
-    uses: ./.github/workflows/5-deploy.yml
-    with:
-      BASE_URL: https://reallyluis.com
-      BRANCH: ${{ github.ref_name }}
-      COMMIT_SHA: ${{ github.sha }}
-      DOMAIN: reallyluis.com
-      ENVIRONMENT: production
-      RUN_CMD: npm run cypress:ci -- --record --key
-    secrets:
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
-      CONTACT_API: ${{ secrets.CONTACT_API }}
-      CONTENT_API: ${{ secrets.CONTENT_API }}
-      CYPRESS_KEY: ${{ secrets.CYPRESS_KEY }}
       FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
 
   staging:
-    if: github.ref_name != 'main'
     needs: build
     uses: ./.github/workflows/5-deploy.yml
     with:

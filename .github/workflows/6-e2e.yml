@@ -1,4 +1,4 @@
-name: End-to-End
+name: 6. End-to-End
 on:
   workflow_call:
     inputs:
