@@ -97,7 +97,7 @@ jobs:
 
   e2e:
     needs: deploy
-    uses: ./.github/workflows/sub/6-e2e.yml
+    uses: ./.github/workflows/6-e2e.yml
     with:
       BASE_URL: ${{ inputs.BASE_URL }}
       RUN_CMD: ${{ inputs.RUN_CMD }}
