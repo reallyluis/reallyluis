@@ -1,4 +1,4 @@
-name: 2. Lint
+name: Lint
 on: workflow_call
 
 jobs:

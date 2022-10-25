@@ -1,4 +1,4 @@
-name: 3. Test
+name: Test
 on: workflow_call
 
 jobs:
