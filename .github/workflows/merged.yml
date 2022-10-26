@@ -1,0 +1,49 @@
+name: Scripts
+on:
+  push:
+    branches:
+      - "experiment/**"
+  pull_request:
+    branches:
+      - "experiment/**"
+    types:
+      - closed
+
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Run bump package version
+        run: |
+          python ./scripts/bump-package.py
+
+  # if_merged:
+  #   if: github.event.pull_request.merged == true
+
+      # Per notes in release:
+      #   - update files: package.json version, lastmod date,
+      #     (changelog summary or maybe move to release flow)
+      #   - commit and push those files
+      #   - build and store dist as artifact (to be used in release flow)
+      #   - create tag
+
+      # - name: Run bump package.json
+      #   run: npm run bump:package
+
+      # - name: Run update lastmod
+      #   run: npm run update:lastmod
+
+      # - name: Run update changelog
+      #   run: npm run update:changelog
+
+      # - name: Run commit and push files
+      #   run: npm run commit:files
+
+      # - name: Create tag
+      #   run: npm run tag
