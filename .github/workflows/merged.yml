@@ -20,8 +20,20 @@ jobs:
           python-version: 3.11
 
       - name: Run bump package version
+        # Include release type: major / minor / patch
+        run: python ./scripts/bump-package.py minor
+
+      - name: setup git config
         run: |
-          python ./scripts/bump-package.py
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add ./package.json
+          git commit -m "bump package version"
+          git push origin ${{ github.ref_name }}
 
   # if_merged:
   #   if: github.event.pull_request.merged == true
