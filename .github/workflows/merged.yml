@@ -1,8 +1,5 @@
 name: Scripts
 on:
-  push:
-    branches:
-      - "experiment/**"
   pull_request:
     branches:
       - "experiment/**"
@@ -10,7 +7,8 @@ on:
       - closed
 
 jobs:
-  scripts:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -31,23 +29,20 @@ jobs:
       - name: Run update lastmod
         run: python ./scripts/update-lastmod.py
 
-      - name: setup git config
+      - name: Setup git config
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "349489+reallyluis@users.noreply.github.com"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
 
-      - name: commit
+      - name: Git commit and push
         run: |
           # Stage the file, commit and push
           git add ./package.json ./public/sitemap-file.xml
           git commit -m "bump package version"
           git push origin ${{ github.ref_name }}
 
-      - name: tag
+      - name: Git tag and push
         run: |
           # Create and push new tag
           git tag -a v${{ steps.getVersion.outputs.version }} -m "new minor release v${{ steps.getVersion.outputs.version }}"
           git push origin v${{ steps.getVersion.outputs.version }}
-
-  # if_merged:
-  #   if: github.event.pull_request.merged == true
