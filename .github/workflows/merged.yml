@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.11
 
@@ -25,7 +25,7 @@ jobs:
         # Include release type: major / minor / patch
         run: |
           version=$(python ./scripts/bump-package.py minor)
-          echo "::set-output name=version::$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
 
       # Update ./public/sitemap-file.xml
       - name: Run update lastmod
