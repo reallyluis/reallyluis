@@ -26,7 +26,8 @@ def main():
     json.dump(data, jsonFile, indent=2, sort_keys=True)
     jsonFile.truncate()
 
-  sys.exit(os.EX_OK)
+  # sys.exit(os.EX_OK)
+  return data["version"]
 
 if __name__ == "__main__":
   main()

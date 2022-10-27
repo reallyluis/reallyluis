@@ -19,43 +19,35 @@ jobs:
         with:
           python-version: 3.11
 
+      # Update ./package.json
       - name: Run bump package version
+        id: getVersion
         # Include release type: major / minor / patch
-        run: python ./scripts/bump-package.py minor
+        run: |
+          version=$(python ./scripts/bump-package.py minor)
+          echo "::set-output name=version::$version"
+
+      # Update ./public/sitemap-file.xml
+      - name: Run update lastmod
+        run: python ./scripts/update-lastmod.py
 
       - name: setup git config
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config user.name "github-actions[bot]"
+          git config user.email "42103905+github-actions[bot]@users.noreply.github.com"
 
       - name: commit
         run: |
           # Stage the file, commit and push
-          git add ./package.json
+          git add ./package.json ./public/sitemap-file.xml
           git commit -m "bump package version"
           git push origin ${{ github.ref_name }}
 
+      - name: tag
+        run: |
+          # Create and push new tag
+          git tag -a v${{ steps.getVersion.outputs.version }} -m "new minor release v${{ steps.getVersion.outputs.version }}"
+          git push origin v${{ steps.getVersion.outputs.version }}
+
   # if_merged:
   #   if: github.event.pull_request.merged == true
-
-      # Per notes in release:
-      #   - update files: package.json version, lastmod date,
-      #     (changelog summary or maybe move to release flow)
-      #   - commit and push those files
-      #   - build and store dist as artifact (to be used in release flow)
-      #   - create tag
-
-      # - name: Run bump package.json
-      #   run: npm run bump:package
-
-      # - name: Run update lastmod
-      #   run: npm run update:lastmod
-
-      # - name: Run update changelog
-      #   run: npm run update:changelog
-
-      # - name: Run commit and push files
-      #   run: npm run commit:files
-
-      # - name: Create tag
-      #   run: npm run tag
