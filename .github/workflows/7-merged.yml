@@ -1,0 +1,48 @@
+name: Post merge
+on:
+  workflow_call:
+    inputs:
+      RELEASE_TYPE:
+        description: "Release type"
+        required: true
+        type: string
+
+jobs:
+  post_merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      # Update ./package.json
+      - name: Run bump package version
+        id: getVersion
+        # Include release type: major / minor / patch
+        run: |
+          version=$(python ./scripts/bump-package.py ${{ inputs.RELEASE_TYPE }})
+          echo "version=$version" >> $GITHUB_OUTPUT
+
+      # Update ./public/sitemap-file.xml
+      - name: Run update lastmod
+        run: python ./scripts/update-lastmod.py
+
+      - name: Setup git config
+        run: |
+          git config user.name "reallyluis-bot"
+          git config user.email "<116852088+reallyluis-bot@users.noreply.github.com>"
+
+      - name: Git commit and push
+        run: |
+          # Stage the file, commit and push
+          git add ./package.json ./public/sitemap-file.xml
+          git commit -m "pre-release version, lastmod and tag updates"
+          git push origin ${{ github.ref_name }}
+
+      - name: Git tag and push
+        run: |
+          # Create and push new tag
+          git tag -a v${{ steps.getVersion.outputs.version }} -m "new minor release v${{ steps.getVersion.outputs.version }}"
+          git push origin v${{ steps.getVersion.outputs.version }}
