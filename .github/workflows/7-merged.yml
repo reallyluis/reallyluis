@@ -22,13 +22,13 @@ jobs:
         id: getVersion
         # Include release type: major / minor / patch
         run: |
-          version=$(python ./scripts/bump-package.py ${{ inputs.RELEASE_TYPE }})
+          version=$(python ./scripts/bump_package.py ${{ inputs.RELEASE_TYPE }})
           echo "version=$version" >> $GITHUB_OUTPUT
 
       # Update ./public/sitemap-file.xml
       - name: Run update lastmod
         if: steps.getVersion.outputs.version != ''
-        run: python ./scripts/update-lastmod.py
+        run: python ./scripts/update_lastmod.py
 
       - name: Setup git config
         if: steps.getVersion.outputs.version != ''
