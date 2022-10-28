@@ -1,4 +1,4 @@
-name: Pre-release updates
+name: Pre-release
 on:
   pull_request:
     branches:
