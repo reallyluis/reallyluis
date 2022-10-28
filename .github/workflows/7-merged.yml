@@ -27,14 +27,17 @@ jobs:
 
       # Update ./public/sitemap-file.xml
       - name: Run update lastmod
+        if: steps.getVersion.outputs.version != ''
         run: python ./scripts/update-lastmod.py
 
       - name: Setup git config
+        if: steps.getVersion.outputs.version != ''
         run: |
           git config user.name "reallyluis-bot"
           git config user.email "<116852088+reallyluis-bot@users.noreply.github.com>"
 
       - name: Git commit and push
+        if: steps.getVersion.outputs.version != ''
         run: |
           # Stage the file, commit and push
           git add ./package.json ./public/sitemap-file.xml
@@ -42,6 +45,7 @@ jobs:
           git push origin ${{ github.ref_name }}
 
       - name: Git tag and push
+        if: steps.getVersion.outputs.version != ''
         run: |
           # Create and push new tag
           git tag -a v${{ steps.getVersion.outputs.version }} -m "new minor release v${{ steps.getVersion.outputs.version }}"
