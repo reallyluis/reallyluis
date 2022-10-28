@@ -1,0 +1,26 @@
+name: Pre-release
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  if_major_merged:
+    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.head_ref, 'release/')) }}
+    uses: ./.github/workflows/7-merged.yml
+    with:
+      RELEASE_TYPE: major
+
+  if_minor_merged:
+    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.head_ref, 'feature/')) }}
+    uses: ./.github/workflows/7-merged.yml
+    with:
+      RELEASE_TYPE: minor
+
+  if_patch_merged:
+    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.head_ref, 'hotfix/')) }}
+    uses: ./.github/workflows/7-merged.yml
+    with:
+      RELEASE_TYPE: patch

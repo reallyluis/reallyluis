@@ -5,5 +5,7 @@
     "astro", // Enable .astro
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
-  ]
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }
