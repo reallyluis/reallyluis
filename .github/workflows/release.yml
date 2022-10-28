@@ -25,7 +25,7 @@ jobs:
     uses: ./.github/workflows/5-deploy.yml
     with:
       BASE_URL: https://reallyluis.com
-      BRANCH: ${{ github.ref_name }}
+      BRANCH: main
       COMMIT_SHA: ${{ github.sha }}
       DOMAIN: reallyluis.com
       ENVIRONMENT: production
