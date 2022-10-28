@@ -51,7 +51,7 @@
     "stylelint": "stylelint \"src/**/*.scss\"",
     "test": "jest"
   },
-  "version": "2.2.0",
+  "version": "2.2.1",
   "volta": {
     "node": "16.17.0"
   }
