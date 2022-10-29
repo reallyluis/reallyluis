@@ -1,5 +1,12 @@
 import { describe, expect, jest, test } from "@jest/globals";
-import { buildThresholdList, capitalizeWord, debounce } from "@utils/index";
+import {
+  buildThresholdList,
+  capitalizeWord,
+  debounce,
+  getContent,
+  getObserver,
+  updateUrlHash,
+} from "@utils/index";
 
 describe("utils methods", () => {
   describe("buildThresholdList", () => {
@@ -28,6 +35,51 @@ describe("utils methods", () => {
 
       jest.runAllTimers();
       expect(func).toBeCalledTimes(1);
+    });
+
+    test("call function twice using immed", () => {
+      jest.useFakeTimers();
+      const func = jest.fn();
+      const deFunc = debounce(func, 1000, true);
+
+      deFunc();
+      deFunc();
+      deFunc();
+
+      jest.runAllTimers();
+      expect(func).toBeCalledTimes(2);
+    });
+  });
+
+  describe("getContent", () => {
+    test("returns an IntersectionObserver", async () => {
+      const contentAPI = "http://localhost";
+      const { abouts, skills, works } = await getContent(contentAPI);
+
+      expect(abouts).toEqual({});
+      expect(skills).toEqual({});
+      expect(works).toEqual({});
+    });
+  });
+
+  describe("getObserver", () => {
+    test("returns an IntersectionObserver", () => {
+      const handleIntersect = jest.fn();
+      const observer = getObserver(handleIntersect);
+
+      expect(observer).toHaveProperty("observe");
+    });
+  });
+
+  describe("updateUrlHash", () => {
+    test("update url hash", () => {
+      const newHash = "test";
+      document.title = "Test Site - Home";
+
+      updateUrlHash(newHash);
+
+      expect(window.location.hash).toEqual("#test");
+      expect(document.title).toEqual("Test Site - Test");
     });
   });
 });
