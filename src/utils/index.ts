@@ -27,8 +27,7 @@ export const debounce = (
   n: number,
   immed = false
 ) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let timer: any;
+  let timer: ReturnType<typeof setTimeout>;
 
   return function (this: void, ...args: string[]) {
     if (timer === undefined && immed) {
