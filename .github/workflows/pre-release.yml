@@ -20,7 +20,7 @@ jobs:
       RELEASE_TYPE: minor
 
   if_patch_merged:
-    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.head_ref, 'hotfix/')) }}
+    if: ${{ (github.event.pull_request.merged == true) && (!startsWith(github.head_ref, 'release/')) && (!startsWith(github.head_ref, 'feature/')) }}
     uses: ./.github/workflows/7-merged.yml
     with:
       RELEASE_TYPE: patch
