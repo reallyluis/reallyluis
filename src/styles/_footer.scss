@@ -29,6 +29,19 @@
 
     &.copy {
       color: var(--fc-accent);
+
+      .version {
+        font-size: 0.75rem;
+        opacity: 0.5;
+
+        &::after {
+          content: ")";
+        }
+
+        &::before {
+          content: "(v";
+        }
+      }
     }
 
     a:hover {
