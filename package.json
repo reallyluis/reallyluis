@@ -52,7 +52,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
-  "version": "2.2.2",
+  "version": "2.3.0",
   "volta": {
     "node": "16.17.0"
   }
