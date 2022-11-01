@@ -33,19 +33,27 @@
   p {
     background-color: var(--clr-mod);
     border-color: var(--fc-light);
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      45deg,
+      var(--fc-accent),
+      transparent 50%
+    );
     height: 100%;
-    outline: solid 1px var(--fc-light);
     padding: 16px;
     text-align: left;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: outline-offset 150ms ease;
+      transition: all 150ms ease;
 
-      &:hover,
-      &:focus {
-        outline-offset: -0.3em;
+      &:focus,
+      &:hover {
+        border-image-source: linear-gradient(
+          225deg,
+          var(--fc-accent),
+          transparent 60%
+        );
       }
     }
   }
