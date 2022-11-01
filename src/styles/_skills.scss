@@ -45,7 +45,7 @@
     text-align: left;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: all 150ms ease;
+      transition: border 100ms linear;
 
       &:focus,
       &:hover {
@@ -60,6 +60,38 @@
 }
 
 @media (min-width: 800px) {
+  .my-services {
+    .service p {
+      filter: blur(0.25em);
+      min-height: 350px;
+      opacity: 0;
+      transform: translateX(-100%);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 350ms ease-in, opacity 400ms linear;
+      }
+    }
+
+    &.animate-in {
+      .service p {
+        filter: blur(0);
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .service:nth-child(1) p {
+        transition-delay: 200ms;
+      }
+
+      .service:nth-child(2) p {
+        transition-delay: 400ms;
+      }
+
+      .service:nth-child(3) p {
+        transition-delay: 600ms;
+      }
+    }
+  }
   .services {
     display: flex;
     margin-left: auto;
@@ -69,9 +101,5 @@
 
   .service + .service {
     margin-left: 2em;
-  }
-
-  .service p {
-    min-height: 350px;
   }
 }
