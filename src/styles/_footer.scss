@@ -89,11 +89,10 @@
       flex-basis: 100%;
       margin: 0;
       padding: 0.25em 0.5em;
-      text-align: left;
       white-space: nowrap;
 
       &.copy {
-        text-align: left;
+        text-align: right;
       }
     }
   }
