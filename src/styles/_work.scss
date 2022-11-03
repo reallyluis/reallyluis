@@ -107,6 +107,10 @@
   .portfolio {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
+  .page-modal {
+    height: 60vh;
+  }
 }
 
 @media (min-width: 800px) {
