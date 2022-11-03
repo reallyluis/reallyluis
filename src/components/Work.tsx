@@ -7,8 +7,7 @@ export interface WorkProps {
 export default function Work({ works }: WorkProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onModalClick = (event: any) => {
+  const onModalClick = (event: Event) => {
     event.stopPropagation();
     const body = document.querySelector<HTMLBodyElement>("body");
 
@@ -20,18 +19,18 @@ export default function Work({ works }: WorkProps) {
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onPortfolioClick = (event: any) => {
+  const onPortfolioClick = (event: Event) => {
     event.stopPropagation();
     const body = document.querySelector<HTMLBodyElement>("body");
 
-    const title = event.currentTarget.dataset.workid;
-    const description = works[title]
-      ? works[title]
-      : {
-          title: "Oopss!",
-          description: "Something went wrong.  Please try again.",
-        };
+    const title = (event.currentTarget as HTMLDivElement)?.dataset.workid;
+    const description =
+      title && works[title]
+        ? works[title]
+        : {
+            title: "Oopss!",
+            description: "Something went wrong.  Please try again.",
+          };
     const html = `
       <div data-id="${title}">
         <h3>${title}</h3>
