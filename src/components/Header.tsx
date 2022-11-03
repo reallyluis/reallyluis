@@ -9,13 +9,25 @@ export default function Header({ domain }: HeaderProps) {
     typeof window !== "undefined" &&
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)");
-  const [isDarkMode, setIsDarkMode] = useState(!!mediaStatus);
-  const onChange = () => setIsDarkMode(!isDarkMode);
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("darkmode") == undefined
+      ? !!mediaStatus
+      : localStorage.getItem("darkmode") === "true"
+      ? true
+      : false
+  );
+  const onChange = () => {
+    localStorage.setItem("darkmode", !isDarkMode ? "true" : "false");
+    setIsDarkMode(!isDarkMode);
+  };
   const onOpen = () => document.body.classList.toggle("nav-open");
   const onClose = () => document.body.classList.remove("nav-open");
 
   if (mediaStatus) {
-    mediaStatus.addEventListener("change", (e) => setIsDarkMode(e.matches));
+    mediaStatus.addEventListener("change", (e) => {
+      localStorage.setItem("darkmode", e.matches ? "true" : "false");
+      setIsDarkMode(e.matches);
+    });
   }
 
   useEffect(() => {

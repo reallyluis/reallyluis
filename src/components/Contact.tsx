@@ -33,8 +33,7 @@ export default function Contact({ contactAPI }: ContactProps) {
   const emailRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (event: any) => {
+  const onSubmit = (event: SubmitEvent) => {
     event.preventDefault();
     setIsSending(true);
 

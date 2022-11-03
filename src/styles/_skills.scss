@@ -58,12 +58,11 @@
     }
   }
 }
-
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   .my-services {
     .service p {
       filter: blur(0.25em);
-      min-height: 350px;
+      min-height: 200px;
       opacity: 0;
       transform: translateX(-100%);
 
@@ -92,7 +91,9 @@
       }
     }
   }
-  
+}
+
+@media (min-width: 800px) {
   .services {
     display: flex;
     margin-left: auto;
