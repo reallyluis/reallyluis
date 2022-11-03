@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2022-10-31
+
+### Added
+
+- add animate-in on scroll to skills section
+
+### Changed
+
+- update border on skill blocks
+- update footer version and copyright
+
 ## [2.2.2] - 2022-10-30
 
 ### Added
