@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2022-11-3
+
+### Added
+
+- store selected mode in localStorage
+
+### Changed
+
+- replace Twitter with LinkedIn icon/link
+
+### Fixed
+
+- mobile layout and animation
+
 ## [2.3.0] - 2022-10-31
 
 ### Added
