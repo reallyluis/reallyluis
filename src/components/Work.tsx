@@ -9,9 +9,9 @@ export default function Work({ works }: WorkProps) {
 
   const onModalClick = (event: Event) => {
     event.stopPropagation();
-    const body = document.querySelector<HTMLBodyElement>("body");
+    const main = document.querySelector<HTMLElement>("main");
 
-    body?.classList.remove("disable-scroll");
+    main?.classList.remove("disable-scroll");
 
     if (modalRef.current) {
       modalRef.current.close();
@@ -20,8 +20,9 @@ export default function Work({ works }: WorkProps) {
   };
 
   const onPortfolioClick = (event: Event) => {
+    event.preventDefault();
     event.stopPropagation();
-    const body = document.querySelector<HTMLBodyElement>("body");
+    const main = document.querySelector<HTMLElement>("main");
 
     const title = (event.currentTarget as HTMLDivElement)?.dataset.workid;
     const description =
@@ -42,7 +43,7 @@ export default function Work({ works }: WorkProps) {
       modalRef.current.innerHTML += html;
       if (typeof modalRef.current.showModal === "function") {
         modalRef.current.showModal();
-        body?.classList.add("disable-scroll");
+        main?.classList.add("disable-scroll");
       }
     }
   };
