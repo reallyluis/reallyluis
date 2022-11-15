@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.4.1] - 2022-11-3
+## [2.4.1] - 2022-11-15
+
+### Added
+
+- highlight nav link per section in view
 
 ### Fixed
 
 - disable scrolling on show work details
+- fix color contrast on version number
 
 ## [2.4.0] - 2022-11-3
 
