@@ -3,7 +3,7 @@
   color: var(--clr-accent);
   font-size: var(--fs-h3);
   line-height: 1;
-  padding: 1.25em 0;
+  padding: 1.25em 0 4em;
   position: relative;
   text-align: center;
 
@@ -13,12 +13,12 @@
   }
 
   .version {
-    color: var(--fc-accent);
+    color: var(--fc-dark);
     font-size: 0.75rem;
     left: 0.5rem;
     opacity: 0.75;
     position: absolute;
-    top: 0.5rem;
+    top: -1.25rem;
 
     &::before {
       content: "v";
@@ -80,6 +80,10 @@
 }
 
 @media (min-width: 600px) {
+  .footer {
+    padding-bottom: 1.25em;
+  }
+
   .footer-list {
     flex-direction: row;
     margin: 2em 1em 0;

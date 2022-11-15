@@ -48,13 +48,22 @@ const { abouts, skills, works } =
 
   const commentBtn = document.querySelector<HTMLButtonElement>(".comment");
   const debounceUpdateUrlHash = debounce(updateUrlHash, 250);
-  const sections =
-    document.querySelectorAll<HTMLTableSectionElement>("section");
+  const sections = document.querySelectorAll<HTMLElement>("section");
   const handleIntersect = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry: IntersectionObserverEntry) => {
       const sectionId = entry.target.id;
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        if (sectionId) {
+          const allLinks = document.querySelectorAll("nav .link");
+          const navLink = document.querySelector(
+            `nav .link[href*=${sectionId}]`
+          );
+
+          allLinks.forEach((link) => link.classList.remove("link-selected"));
+          navLink?.classList.add("link-selected");
+        }
+
         if (sectionId === "home") {
           debounceUpdateUrlHash("");
         } else {
@@ -76,7 +85,7 @@ const { abouts, skills, works } =
     });
   };
   const options = {
-    root: null,
+    root: document.querySelector("main"),
     rootMargin: "0px",
     threshold: buildThresholdList(),
   };
@@ -87,17 +96,18 @@ const { abouts, skills, works } =
   });
 
   // Update style based on scroll position
-  window.addEventListener("scroll", () => {
+  const main = document.querySelector<HTMLElement>("main");
+  main?.addEventListener("scroll", (e: Event) => {
+    const main = e.target as HTMLElement;
     const isScrolled =
-      document.body.classList.contains &&
-      document.body.classList.contains("scrolled");
-    const scrollY = typeof window.scrollY === "number" && window.scrollY;
+      main.classList.contains && main.classList.contains("scrolled");
+    const scrollY = typeof main.scrollTop === "number" && main.scrollTop;
 
     // Style change to Header
     if (scrollY > 100) {
-      if (!isScrolled) document.body.classList.add("scrolled");
+      if (!isScrolled) main.classList.add("scrolled");
     } else {
-      if (isScrolled) document.body.classList.remove("scrolled");
+      if (isScrolled) main.classList.remove("scrolled");
     }
   });
 

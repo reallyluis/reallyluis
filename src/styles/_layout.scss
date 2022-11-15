@@ -80,15 +80,7 @@ body {
   font-size: var(--fs-body);
   line-height: 1.6;
   margin: 0;
-
-  &.disable-scroll {
-    overflow-y: hidden;
-  }
-
-  &.scrolled .logo {
-    opacity: 0.25;
-    transition: opacity 0.3s ease-out;
-  }
+  overflow: hidden;
 
   &::after {
     /* css preloading images: add more by url(..) url(..) ...etc */
@@ -98,6 +90,20 @@ body {
     position: absolute;
     width: 0;
     z-index: -1;
+  }
+}
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+
+  &.disable-scroll {
+    overflow: hidden;
+  }
+
+  &.scrolled .logo {
+    opacity: 0.25;
+    transition: opacity 0.3s ease-out;
   }
 }
 
@@ -227,8 +233,13 @@ h3 {
     font-weight: var(--fw-bold);
     text-decoration: none;
 
-    &:hover {
-      color: var(--clr-dark-gray);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color 0.3s ease-in-out;
+
+      &:hover,
+      &.link-selected {
+        color: var(--clr-dark-gray);
+      }
     }
   }
 
