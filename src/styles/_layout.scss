@@ -233,8 +233,13 @@ h3 {
     font-weight: var(--fw-bold);
     text-decoration: none;
 
-    &:hover {
-      color: var(--clr-dark-gray);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color 0.3s ease-in-out;
+
+      &:hover,
+      &.link-selected {
+        color: var(--clr-dark-gray);
+      }
     }
   }
 

@@ -54,6 +54,16 @@ const { abouts, skills, works } =
       const sectionId = entry.target.id;
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        if (sectionId) {
+          const allLinks = document.querySelectorAll("nav .link");
+          const navLink = document.querySelector(
+            `nav .link[href*=${sectionId}]`
+          );
+
+          allLinks.forEach((link) => link.classList.remove("link-selected"));
+          navLink?.classList.add("link-selected");
+        }
+
         if (sectionId === "home") {
           debounceUpdateUrlHash("");
         } else {
