@@ -9,7 +9,7 @@ describe("sections' title and subtitle", () => {
     cy.get(".intro .section-title").contains("Hello");
     cy.get(".intro .section-subtitle").should(
       "have.text",
-      "full stack developer"
+      "full-stack developer"
     );
   });
 
