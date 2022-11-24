@@ -41,7 +41,7 @@ export default function Header({ domain }: HeaderProps) {
   return (
     <header data-nosnippet>
       <div class="logo">
-        <a aria-label={`${domain} Logo`} href="#top">
+        <a aria-label={`${domain} Logo`} href="#home">
           <img
             src="/img/icons/manifest-icon-192.png"
             width="48"
