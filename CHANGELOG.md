@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.2] - 2022-11-23
+
+### Fixed
+
+- fix click logo to top page
+- fix footer top link
+
 ## [2.4.1] - 2022-11-15
 
 ### Added
