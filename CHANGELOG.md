@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 
 - fix click logo to top page
 - fix footer top link
+- minor content fix
+- fix menu in landscape
 
 ## [2.4.1] - 2022-11-15
 
