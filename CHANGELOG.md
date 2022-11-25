@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2022-11-25
+
+### Changed
+
+- use web components
+
 ## [2.4.2] - 2022-11-23
 
 ### Fixed
