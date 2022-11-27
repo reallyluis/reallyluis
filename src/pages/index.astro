@@ -1,15 +1,15 @@
 ---
 import About from "@components/About.astro";
-import Contact from "@components/Contact";
+import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
-import Header from "@components/Header";
+import Header from "@components/Header.astro";
 import Introduction from "@components/Introduction.astro";
 import Layout from "@layouts/Layout.astro";
 import PageControls from "@components/PageControls.astro";
 import PageError from "@components/PageError.astro";
 import PageLoad from "@components/PageLoad.astro";
 import Skills from "@components/Skills.astro";
-import Work from "@components/Work";
+import Work from "@components/Work.astro";
 import { EMPTY_DATA, getContent } from "@utils/index";
 import json from "@root/package.json";
 
@@ -29,12 +29,12 @@ const { abouts, skills, works } =
   <PageLoad />
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
-  <Header domain={domain} client:load />
+  <Header domain={domain} />
   <Introduction name="Luis" title="full-stack developer" />
   <Skills skills={skills} />
   <About abouts={abouts} />
-  <Work works={works} client:load />
-  <Contact contactAPI={contactAPI} client:load />
+  <Work works={works} />
+  <Contact contactAPI={contactAPI} />
   <Footer mailToEmail={mailToEmail} version={version} />
 </Layout>
 

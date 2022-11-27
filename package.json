@@ -4,9 +4,7 @@
     "url": "https://github.com/reallyluis/reallyluis/issues"
   },
   "dependencies": {
-    "@astrojs/preact": "^1.2.0",
-    "astro": "1.4.2",
-    "preact": "^10.11.1"
+    "astro": "1.4.2"
   },
   "description": "A portfolio website by reallyluis.",
   "devDependencies": {
