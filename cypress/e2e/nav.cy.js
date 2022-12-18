@@ -7,23 +7,23 @@ describe("nav menu", () => {
 
   it("display nav links", () => {
     cy.get("header .nav .list .item:nth-child(1) .link").should(
-      "have.text",
+      "contain.text",
       "Home"
     );
     cy.get("header .nav .list .item:nth-child(2) .link").should(
-      "have.text",
+      "contain.text",
       "Skills"
     );
     cy.get("header .nav .list .item:nth-child(3) .link").should(
-      "have.text",
+      "contain.text",
       "About"
     );
     cy.get("header .nav .list .item:nth-child(4) .link").should(
-      "have.text",
+      "contain.text",
       "Work"
     );
     cy.get("header .nav .list .item:nth-child(5) .link").should(
-      "have.text",
+      "contain.text",
       "Contact"
     );
   });

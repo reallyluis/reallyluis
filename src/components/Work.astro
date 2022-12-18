@@ -1,0 +1,124 @@
+---
+export interface Props {
+  works: { [key: string]: string };
+}
+const { works } = Astro.props;
+---
+
+<dialog class="page-modal" data-nosnippet></dialog>
+<section class="my-work" id="work" data-nosnippet>
+  <div class="content">
+    <h2 class="section-title">My Work</h2>
+    <p class="section-subtitle">A selection of my range of work</p>
+    <div class="portfolio">
+      <div class="item" data-workid="Fundraising">
+        <div class="title">Fundraising</div>
+        <img
+          src="/img/crowd-fundraising.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+      <div class="item" data-workid="Entertainment">
+        <div class="title">Entertainment</div>
+        <img
+          src="/img/concert.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+      <div class="item" data-workid="Business">
+        <div class="title">Business</div>
+        <img
+          src="/img/business-coffee-shop.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+      <div class="item" data-workid="Telecommunications">
+        <div class="title">Telecommunications</div>
+        <img
+          src="/img/telecom.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+      <div class="item" data-workid="Government">
+        <div class="title">Government</div>
+        <img
+          src="/img/capital.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+      <div class="item" data-workid="Web">
+        <div class="title">Web</div>
+        <img
+          src="/img/code-two-screens.webp"
+          loading="lazy"
+          width="372"
+          height="248"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ works }}>
+  const modal = document.querySelector(".page-modal");
+  const items = document.querySelectorAll(".portfolio .item");
+
+  modal.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const main = document.querySelector("main");
+
+    main?.classList.remove("disable-scroll");
+
+    if (modal) {
+      modal.close();
+      modal.innerHTML = "";
+    }
+  });
+
+  items.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const main = document.querySelector("main");
+
+      const title = event.currentTarget?.dataset.workid;
+      const description =
+        title && works[title]
+          ? works[title]
+          : {
+              title: "Oopss!",
+              description: "Something went wrong.  Please try again.",
+            };
+      const html = `
+        <div data-id="${title}">
+          <h3>${title}</h3>
+          <div unselectable="on">${description}</div>
+        </div>
+      `;
+
+      if (modal) {
+        modal.innerHTML += html;
+        if (typeof modal.showModal === "function") {
+          modal.showModal();
+          main?.classList.add("disable-scroll");
+        }
+      }
+    });
+  });
+</script>

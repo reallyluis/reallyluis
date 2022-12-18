@@ -13,11 +13,11 @@ describe("sections' title and subtitle", () => {
     );
   });
 
-  it("display services title", () => {
+  it.skip("display services title", () => {
     cy.get(".my-services .section-title").contains("What I do");
   });
 
-  it("display about title and subtitle", () => {
+  it.skip("display about title and subtitle", () => {
     cy.get(".about-me .section-title").contains("Who I am");
     cy.get(".about-me .section-subtitle").should(
       "have.text",
@@ -25,7 +25,7 @@ describe("sections' title and subtitle", () => {
     );
   });
 
-  it("display work title and subtitle", () => {
+  it.skip("display work title and subtitle", () => {
     cy.get(".my-work .section-title").contains("My Work");
     cy.get(".my-work .section-subtitle").should(
       "have.text",
@@ -33,7 +33,7 @@ describe("sections' title and subtitle", () => {
     );
   });
 
-  it("display contact title and subtitle", () => {
+  it.skip("display contact title and subtitle", () => {
     cy.get(".contact-me .section-title").contains("Contact Me");
     cy.get(".contact-me .section-subtitle").should("have.text", "get in touch");
   });

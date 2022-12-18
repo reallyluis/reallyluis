@@ -1,0 +1,27 @@
+---
+export interface Props {
+  contactAPI: string;
+}
+const { contactAPI } = Astro.props;
+---
+
+<section class="contact-me" id="contact" data-nosnippet>
+  <h2 class="section-title">Contact Me</h2>
+  <p class="section-subtitle">get in touch</p>
+  <div>
+    <contact-form contactAPI={contactAPI}></contact-form>
+  </div>
+  <img
+    src="/img/contact.webp"
+    loading="lazy"
+    width="200"
+    height="366"
+    alt="Smartphone on desk."
+  />
+</section>
+
+<script>
+  import ContactForm from "@components/ContactForm";
+
+  customElements.define("contact-form", ContactForm);
+</script>

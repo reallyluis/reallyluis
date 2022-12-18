@@ -274,52 +274,52 @@ h3 {
   z-index: 1000;
 }
 
-.darkmode-toggle {
-  display: inline-block;
-  margin: 0 5em 0 0;
-  padding-top: 0.7em;
+// .darkmode-toggle {
+//   display: inline-block;
+//   margin: 0 5em 0 0;
+//   padding-top: 0.7em;
 
-  input {
-    height: 0;
-    visibility: hidden;
-    width: 0;
-  }
+//   input {
+//     height: 0;
+//     visibility: hidden;
+//     width: 0;
+//   }
 
-  label {
-    background: var(--clr-gray);
-    border-radius: 1em;
-    cursor: pointer;
-    display: inline-block;
-    height: 1.25em;
-    position: relative;
-    width: 2.5em;
+//   label {
+//     background: var(--clr-gray);
+//     border-radius: 1em;
+//     cursor: pointer;
+//     display: inline-block;
+//     height: 1.25em;
+//     position: relative;
+//     width: 2.5em;
 
-    &::after {
-      background: var(--clr-light);
-      background-image: url("/img/svg/lightbulb-dark.svg");
-      border-radius: 0.8em;
-      content: "";
-      height: 1em;
-      left: 0.1em;
-      position: absolute;
-      top: 0.1em;
-      width: 1em;
+//     &::after {
+//       background: var(--clr-light);
+//       background-image: url("/img/svg/lightbulb-dark.svg");
+//       border-radius: 0.8em;
+//       content: "";
+//       height: 1em;
+//       left: 0.1em;
+//       position: absolute;
+//       top: 0.1em;
+//       width: 1em;
 
-      @media (prefers-reduced-motion: no-preference) {
-        transition: all ease 0.3s;
-      }
-    }
+//       @media (prefers-reduced-motion: no-preference) {
+//         transition: all ease 0.3s;
+//       }
+//     }
 
-    &:has(input:checked) {
-      background: var(--clr-accent);
-    }
+//     &:has(input:checked) {
+//       background: var(--clr-accent);
+//     }
 
-    &:has(input:checked)::after {
-      background-image: url("/img/svg/lightbulb-light.svg");
-      transform: translateX(1.25em); /* TODO: use vars, width - height */
-    }
-  }
-}
+//     &:has(input:checked)::after {
+//       background-image: url("/img/svg/lightbulb-light.svg");
+//       transform: translateX(1.25em); /* TODO: use vars, width - height */
+//     }
+//   }
+// }
 
 @media (max-width: 899px) {
   .nav-open {
@@ -354,10 +354,10 @@ h3 {
 }
 
 @media (min-width: 900px) {
-  .darkmode-toggle {
-    margin-right: 0;
-    z-index: 101;
-  }
+  // .darkmode-toggle {
+  //   margin-right: 0;
+  //   z-index: 101;
+  // }
 
   .logo {
     z-index: 101;

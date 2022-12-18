@@ -8,7 +8,6 @@
     "outDir": "./dist",
     "rootDirs": ["./"],
     "jsx": "preserve",
-    "jsxImportSource": "preact",
     "importsNotUsedAsValues": "error",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -22,7 +21,7 @@
     },
     "types": ["cloudflare", "jest", "node"],
     "typeRoots": ["./**/node_modules/@types"],
-    "lib": ["DOM.Iterable"],
+    "lib": ["DOM", "DOM.Iterable"],
     "downlevelIteration": true,
     "isolatedModules": true,
     "noEmit": true
