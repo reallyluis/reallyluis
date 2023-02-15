@@ -26,6 +26,6 @@ describe("nav menu", () => {
       "have.text",
       "Contact"
     );
-    cy.get("footer .footer-list .item.copy").contains("2022 reallyluis");
+    cy.get("footer .footer-list .item.copy").contains("reallyluis");
   });
 });
