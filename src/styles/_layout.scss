@@ -151,6 +151,8 @@ strong {
 
 /* Buttons */
 .btn {
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
   background-color: var(--clr-accent);
   color: var(--fc-dark);
   cursor: pointer;
@@ -166,7 +168,7 @@ strong {
     transition: var(--std-transform);
 
     &:hover {
-      transform: scale(0.97);
+      transform: scale(0.92) translateZ(0);
     }
   }
 }
