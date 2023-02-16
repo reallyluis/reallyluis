@@ -1,3 +1,32 @@
+/* font-face definitions --------------------------------------- */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  src: url("/fonts/sourcesanspro-light.woff2") format("woff2"),
+       url("/fonts/sourcesanspro-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  src: url("/fonts/sourcesanspro-regular.woff2") format("woff2"),
+       url("/fonts/sourcesanspro-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  src: url("/fonts/sourcesanspro-bold.woff2") format("woff2"),
+       url("/fonts/sourcesanspro-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 900;
+  src: url("/fonts/sourcesanspro-black.woff2") format("woff2"),
+       url("/fonts/sourcesanspro-black.woff") format("woff");
+}
+
 /* Setting custom properties ----------------------------------- */
 :root {
   --bs: 0.25em 0.25em 0.75em rgb(0 0 0 / 25%),
@@ -51,19 +80,32 @@ body.darkmode-on {
   --gs-filter: grayscale(0.25);
 }
 
-/* Setting custom properties ----------------------------------- */
-
-/* General Styles */
+/* Normalize Styles */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  font: inherit;
+  margin: 0;
+  padding: 0;
 }
 
+html {
+  color-scheme: dark light;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* General Styles */
 body {
   --bs: 0.25em 0.25em 0.75em rgb(0 0 0 / 25%),
     0.125em 0.125em 0.25em rgb(0 0 0 / 15%);
@@ -78,8 +120,10 @@ body {
   font-display: optional;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
+  font-weight: 300;
   line-height: 1.6;
   margin: 0;
+  min-height: 100vh;
   overflow: hidden;
 
   &::after {
@@ -96,6 +140,7 @@ body {
 main {
   height: 100vh;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 
   &.disable-scroll {
     overflow: hidden;
@@ -151,6 +196,8 @@ strong {
 
 /* Buttons */
 .btn {
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
   background-color: var(--clr-accent);
   color: var(--fc-dark);
   cursor: pointer;
@@ -166,7 +213,7 @@ strong {
     transition: var(--std-transform);
 
     &:hover {
-      transform: scale(0.97);
+      transform: scale(0.92) translateZ(0);
     }
   }
 }
@@ -174,14 +221,17 @@ strong {
 /* Typography */
 h1 {
   font-size: var(--fs-h1);
+  font-weight: 700;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  font-weight: 700;
 }
 
 h3 {
   font-size: var(--fs-h3);
+  font-weight: 700;
 }
 
 h1,
@@ -227,7 +277,7 @@ h3 {
   top: 0;
   z-index: 100;
 
-  .link {
+  a {
     color: var(--fc-light);
     font-size: var(--fs-h2);
     font-weight: var(--fw-bold);
@@ -237,7 +287,7 @@ h3 {
       transition: color 0.3s ease-in-out;
 
       &:hover,
-      &.link-selected {
+      &[aria-current="page"] {
         color: var(--clr-dark-gray);
       }
     }
@@ -256,7 +306,7 @@ h3 {
     @media (orientation: landscape) {
       flex-direction: row;
 
-      .link {
+      a {
         font-size: var(--fs-h3);
       }
     }
@@ -273,53 +323,6 @@ h3 {
   top: 1em;
   z-index: 1000;
 }
-
-// .darkmode-toggle {
-//   display: inline-block;
-//   margin: 0 5em 0 0;
-//   padding-top: 0.7em;
-
-//   input {
-//     height: 0;
-//     visibility: hidden;
-//     width: 0;
-//   }
-
-//   label {
-//     background: var(--clr-gray);
-//     border-radius: 1em;
-//     cursor: pointer;
-//     display: inline-block;
-//     height: 1.25em;
-//     position: relative;
-//     width: 2.5em;
-
-//     &::after {
-//       background: var(--clr-light);
-//       background-image: url("/img/svg/lightbulb-dark.svg");
-//       border-radius: 0.8em;
-//       content: "";
-//       height: 1em;
-//       left: 0.1em;
-//       position: absolute;
-//       top: 0.1em;
-//       width: 1em;
-
-//       @media (prefers-reduced-motion: no-preference) {
-//         transition: all ease 0.3s;
-//       }
-//     }
-
-//     &:has(input:checked) {
-//       background: var(--clr-accent);
-//     }
-
-//     &:has(input:checked)::after {
-//       background-image: url("/img/svg/lightbulb-light.svg");
-//       transform: translateX(1.25em); /* TODO: use vars, width - height */
-//     }
-//   }
-// }
 
 @media (max-width: 899px) {
   .nav-open {
@@ -354,11 +357,6 @@ h3 {
 }
 
 @media (min-width: 900px) {
-  // .darkmode-toggle {
-  //   margin-right: 0;
-  //   z-index: 101;
-  // }
-
   .logo {
     z-index: 101;
   }
@@ -368,7 +366,7 @@ h3 {
     display: inline-block;
     position: absolute;
 
-    .link {
+    a {
       color: var(--fc-accent);
       font-size: var(--fs-body);
       font-weight: var(--fw-semi-bold);

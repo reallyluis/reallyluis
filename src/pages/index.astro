@@ -30,7 +30,7 @@ const { abouts, skills, works } =
   <PageError mailToEmail={mailToEmail} />
   <PageControls />
   <Header domain={domain} />
-  <Introduction name="Luis" title="full-stack developer" />
+  <Introduction name="Luis" title="full stack developer" />
   <Skills skills={skills} />
   <About abouts={abouts} />
   <Work works={works} />
@@ -55,13 +55,13 @@ const { abouts, skills, works } =
 
       if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
         if (sectionId) {
-          const allLinks = document.querySelectorAll("nav .link");
+          const allLinks = document.querySelectorAll("nav a");
           const navLink = document.querySelector(
-            `nav .link[href*=${sectionId}]`
+            `nav a[href*=${sectionId}]`
           );
 
-          allLinks.forEach((link) => link.classList.remove("link-selected"));
-          navLink?.classList.add("link-selected");
+          allLinks.forEach((link) => link.removeAttribute("aria-current"));
+          navLink?.setAttribute("aria-current", "page");
         }
 
         if (sectionId === "home") {
