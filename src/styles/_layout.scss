@@ -80,13 +80,36 @@ body.darkmode-on {
   --gs-filter: grayscale(0.25);
 }
 
-/* General Styles */
+/* Normalize Styles */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+* {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* General Styles */
 body {
   --bs: 0.25em 0.25em 0.75em rgb(0 0 0 / 25%),
     0.125em 0.125em 0.25em rgb(0 0 0 / 15%);
@@ -201,14 +224,17 @@ strong {
 /* Typography */
 h1 {
   font-size: var(--fs-h1);
+  font-weight: 700;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  font-weight: 700;
 }
 
 h3 {
   font-size: var(--fs-h3);
+  font-weight: 700;
 }
 
 h1,

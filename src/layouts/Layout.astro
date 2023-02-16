@@ -179,21 +179,12 @@ const { title, name } = Astro.props;
       href="/img/icons/apple-splash-1136-640.jpg"
       media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
     />
-    <!-- Preconnects -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <!-- Preloads -->
-    <link rel="preload" as="font" href="/fonts/sourcesanspro-light.woff2" type="font/woff2" crossorigin />
-    <link rel="preload" as="font" href="/fonts/sourcesanspro-regular.woff2" type="font/woff2" crossorigin />
-    <link rel="preload" as="font" href="/fonts/sourcesanspro-bold.woff2" type="font/woff2" crossorigin />
-    <link rel="preload" as="font" href="/fonts/sourcesanspro-black.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/sourcesanspro-light.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/fonts/sourcesanspro-regular.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/fonts/sourcesanspro-bold.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/fonts/sourcesanspro-black.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="image" href="/img/self.webp" />
-    <!-- Stylesheets -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <main>
