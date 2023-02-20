@@ -1,6 +1,7 @@
 header {
+  -webkit-backdrop-filter: blur(10px) contrast(100%); /* stylelint-disable-line property-no-vendor-prefix */
+  backdrop-filter: blur(10px) contrast(100%);
   background-color: transparent;
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   left: 0;
