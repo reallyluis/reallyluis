@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe("sections' content", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
 
@@ -17,14 +17,14 @@ describe("sections' content", () => {
     );
   });
 
-  it.skip("display about content", () => {
+  it("display about content", () => {
     cy.get(".about-me > div > p:nth-child(1)").contains(
       "I have worked in several"
     );
     cy.get(".about-me > div > p:nth-child(2)").contains("looking forward to");
   });
 
-  it.skip("display work content", () => {
+  it("display work content", () => {
     cy.get(".my-work .portfolio > .item:nth-child(1) .title").should(
       "have.text",
       "Fundraising"
@@ -35,7 +35,7 @@ describe("sections' content", () => {
     );
   });
 
-  it.skip("display contact content", () => {
+  it("display contact content", () => {
     cy.get("#contact label:nth-child(2) span").should("have.text", "Email");
   });
 });
