@@ -1,14 +1,11 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  moduleDirectories: ["node_modules", "<rootDir>/"],
-  preset: "ts-jest",
-  testEnvironment: "jsdom",
   bail: true,
-  testMatch: ["<rootDir>/tests/**/*.test.(j|t)s?(x)"],
-  testPathIgnorePatterns: ["<rootDir>/node_modules/"],
-  testEnvironmentOptions: {
-    url: "http://127.0.0.1:3000",
-  },
+  collectCoverageFrom: ["src/**/*.ts*"],
+  coveragePathIgnorePatterns: [".d.ts"],
+  maxWorkers: "50%",
+  moduleDirectories: ["node_modules", "<rootDir>/"],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   moduleNameMapper: {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@layouts/(.*)$": "<rootDir>/src/layouts/$1",
@@ -19,7 +16,12 @@ module.exports = {
     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^@workers/(.*)$": "<rootDir>/workers/$1",
   },
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
-  maxConcurrency: 1,
+  preset: "ts-jest",
   setupFilesAfterEnv: ["./jest.setup.js"],
+  testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    url: "http://127.0.0.1:3000",
+  },
+  testMatch: ["<rootDir>/tests/**/*.test.(j|t)s?(x)"],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/"],
 };
