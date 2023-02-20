@@ -5,7 +5,6 @@
   form {
     display: flex;
     flex-direction: column;
-    height: 420px;
     padding: 5px;
 
     &.hide {
@@ -89,7 +88,7 @@
 }
 
 .success-message {
-  height: 420px;
+  height: 350px;
   padding: 3.25em 0;
 
   strong {
