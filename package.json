@@ -41,6 +41,7 @@
     "cypress:install": "cypress install",
     "cypress:local": "BASE_URL=http://127.0.0.1:3000 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
     "cypress:open": "cypress open --config-file=cypress.config.ts",
+    "cypress:stage": "BASE_URL=https://staging.reallyluis.pages.dev cypress run",
     "dev": "astro dev",
     "lint": "eslint \"{src,tests,workers}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
     "prettier": "prettier --write .",

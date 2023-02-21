@@ -56,9 +56,7 @@ const { abouts, skills, works } =
       if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
         if (sectionId) {
           const allLinks = document.querySelectorAll("nav a");
-          const navLink = document.querySelector(
-            `nav a[href*=${sectionId}]`
-          );
+          const navLink = document.querySelector(`nav a[href*=${sectionId}]`);
 
           allLinks.forEach((link) => link.removeAttribute("aria-current"));
           navLink?.setAttribute("aria-current", "page");

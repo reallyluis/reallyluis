@@ -3,28 +3,28 @@
   font-family: "Source Sans Pro";
   font-weight: 300;
   src: url("/fonts/sourcesanspro-light.woff2") format("woff2"),
-       url("/fonts/sourcesanspro-light.woff") format("woff");
+    url("/fonts/sourcesanspro-light.woff") format("woff");
 }
 
 @font-face {
   font-family: "Source Sans Pro";
   font-weight: 400;
   src: url("/fonts/sourcesanspro-regular.woff2") format("woff2"),
-       url("/fonts/sourcesanspro-regular.woff") format("woff");
+    url("/fonts/sourcesanspro-regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "Source Sans Pro";
   font-weight: 700;
   src: url("/fonts/sourcesanspro-bold.woff2") format("woff2"),
-       url("/fonts/sourcesanspro-bold.woff") format("woff");
+    url("/fonts/sourcesanspro-bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "Source Sans Pro";
   font-weight: 900;
   src: url("/fonts/sourcesanspro-black.woff2") format("woff2"),
-       url("/fonts/sourcesanspro-black.woff") format("woff");
+    url("/fonts/sourcesanspro-black.woff") format("woff");
 }
 
 /* Setting custom properties ----------------------------------- */
@@ -33,8 +33,8 @@
     0.125em 0.125em 0.25em rgb(0 0 0 / 15%);
   --clr-accent: #0d85ff;
   --clr-dark: #111;
-  --clr-dark-gray: #777;
-  --clr-gray: #bbb;
+  --clr-dark-gray: #555;
+  --clr-gray: #ddd;
   --clr-light: #fff;
   --clr-mod: rgb(20 20 20 / 75%);
   --fc-accent: #0d85ff;
@@ -62,18 +62,9 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --clr-accent: #0030a1;
-    --clr-light: #333;
-    --fc-accent: #eee;
-    --fc-dark: #ddd;
-    --gs-filter: grayscale(0.25);
-  }
-}
-
 body.darkmode-on {
   --clr-accent: #0030a1;
+  --clr-dark-gray: #ccc;
   --clr-light: #333;
   --fc-accent: #eee;
   --fc-dark: #ddd;
@@ -248,6 +239,10 @@ h3 {
 .section-subtitle {
   font-size: var(--fs-h3);
   margin: 0;
+}
+
+.section-content {
+  margin-bottom: 1.25em;
 }
 
 .intro .section-subtitle,

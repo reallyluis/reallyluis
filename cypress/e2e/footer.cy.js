@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe("nav menu", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
 

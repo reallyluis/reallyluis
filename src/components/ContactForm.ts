@@ -74,7 +74,7 @@ const sendContact = async (
       "Content-Type": "application/json; charset=UTF-8",
     },
     body: JSON.stringify(data),
-  }).finally(callback);
+  }).finally(() => setTimeout(callback, 1000));
 
   return await response.json();
 };
