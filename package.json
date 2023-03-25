@@ -48,7 +48,7 @@
     "prettier": "prettier --write .",
     "preview": "astro preview",
     "start": "astro dev",
-    "start:wrangler": "wrangler pages dev -- npm start --kv=abouts",
+    "start:wrangler": "wrangler pages dev -- npm start",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "test": "jest",
     "test:coverage": "jest --coverage"

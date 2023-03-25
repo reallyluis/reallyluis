@@ -1,4 +1,4 @@
-import expect from "expect";
+import { describe, expect, test } from "@jest/globals";
 import { corsHeaders } from "../../workers/contact/src/index";
 
 describe("corsHeaders", () => {
