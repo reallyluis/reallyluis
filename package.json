@@ -8,6 +8,7 @@
   },
   "description": "A portfolio website by reallyluis.",
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230307.0",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
@@ -47,7 +48,7 @@
     "prettier": "prettier --write .",
     "preview": "astro preview",
     "start": "astro dev",
-    "start:wrangler": "wrangler pages dev -- npm start",
+    "start:wrangler": "wrangler pages dev -- npm start --kv=abouts",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "test": "jest",
     "test:coverage": "jest --coverage"

@@ -1,4 +1,6 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["functions/**/*"],
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
