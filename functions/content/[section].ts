@@ -36,9 +36,8 @@ const getContent = async (context, section?: string): Promise<Data> => {
 };
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const params =  context.params.catchall;
-  const section: string = (Array.isArray(params) ? params[0] : params).toString();
-  const data: Data = SECTIONS.indexOf(section) >= 0 ?
+  const section: string = JSON.stringify(context.params.section);
+  const data: Data = SECTIONS.indexOf(section) > -1 ?
     await getContent(context, section) :
     await getContent(context);
 
