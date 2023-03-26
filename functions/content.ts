@@ -17,7 +17,7 @@ export const getContent = async (context) => {
       const dataList = await dataSet.list();
 
       for (let i=0; i<dataList.keys.length; i++) {
-        const k = dataList.keys[i];
+        const k = dataList.keys[i].name;
         const value = await dataSet.get(k);
 
         data[key][k] = value;
