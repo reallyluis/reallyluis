@@ -24,6 +24,10 @@ const getContent = async (context, section?: string): Promise<Data | Error> => {
         const k = dataList.keys[j].name;
         const value = await dataSet.get(k);
 
+        if (!data[key]) {
+          data[key] = {};
+        }
+
         data[key][k] = value;
       }
     }
@@ -36,9 +40,9 @@ const getContent = async (context, section?: string): Promise<Data | Error> => {
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const section: string = context.params.section.toString();
-  const data: Data | Error = SECTIONS.indexOf(section) > -1 ?
-    await getContent(context, section) :
-    await getContent(context);
+  const data: Data | Error = SECTIONS.indexOf(section) > -1
+    ? await getContent(context, section)
+    : await getContent(context);
 
   return new Response(JSON.stringify({
     meta: {
