@@ -1,7 +1,5 @@
 interface Env {
-  abouts: KVNamespace;
-  skills: KVNamespace;
-  works: KVNamespace;
+  [key: string]: KVNamespace;
 }
 
 interface Data {
