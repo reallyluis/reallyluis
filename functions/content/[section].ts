@@ -17,12 +17,13 @@ const getContent = async (context, section?: string): Promise<Data | Error> => {
   const sections: string[] = section ? [section] : SECTIONS;
 
   try {
-    for (const key in sections) {
+    for (let i = 0; i < sections.length; i++) {
+      const key = sections[i];
       const dataSet = context.env[key];
       const dataList = await dataSet.list();
 
-      for (let i=0; i<dataList.keys.length; i++) {
-        const k = dataList.keys[i].name;
+      for (let j = 0; j < dataList.keys.length; j++) {
+        const k = dataList.keys[j].name;
         const value = await dataSet.get(k);
 
         data[key][k] = value;
@@ -45,7 +46,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     meta: {
       timestamp: new Date(),
       section,
-      default: SECTIONS,
     },
     data,
   }, null, 2), {
