@@ -36,7 +36,7 @@ const getContent = async (context, section?: string): Promise<Data> => {
 };
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const section: string = JSON.stringify(context.params.section);
+  const section: string = context.params.section.toString();
   const data: Data = SECTIONS.indexOf(section) > -1 ?
     await getContent(context, section) :
     await getContent(context);
