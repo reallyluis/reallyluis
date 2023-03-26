@@ -12,7 +12,7 @@ interface Data {
 
 const SECTIONS: string[] = ["abouts", "skils", "works"];
 
-const getContent = async (context, section?: string): Promise<Data> => {
+const getContent = async (context, section?: string): Promise<Data | Error> => {
   const data: Data = {};
   const sections: string[] = section ? [section] : SECTIONS;
 
@@ -29,7 +29,7 @@ const getContent = async (context, section?: string): Promise<Data> => {
       }
     }
   } catch (error) {
-    console.error((error as Error)?.message);
+    return error as Error;
   }
 
   return data;
@@ -37,12 +37,18 @@ const getContent = async (context, section?: string): Promise<Data> => {
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const section: string = context.params.section.toString();
-  console.log(section, SECTIONS.indexOf(section));
-  const data: Data = SECTIONS.indexOf(section) > -1 ?
+  const data: Data | Error = SECTIONS.indexOf(section) > -1 ?
     await getContent(context, section) :
     await getContent(context);
 
-  return new Response(JSON.stringify(data, null, 2), {
+  return new Response(JSON.stringify({
+    meta: {
+      timestamp: new Date(),
+      section,
+      default: SECTIONS,
+    },
+    data,
+  }, null, 2), {
     headers: {
       "Content-Type": "application/json;charset=UTF-8",
       "Cache-Control": "public, max-age=86400",
