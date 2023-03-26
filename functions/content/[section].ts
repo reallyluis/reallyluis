@@ -1,23 +1,23 @@
-interface Env {
-  [key: string]: KVNamespace;
-}
-
 interface Data {
   [key: string]: {
     [key: string]: string;
   };
 }
 
-const SECTIONS: string[] = ["abouts", "skils", "works"];
+interface Env {
+  [key: string]: KVNamespace;
+}
 
-const getContent = async (context, section?: string): Promise<Data | Error> => {
+const SECTIONS: string[] = ["abouts", "skills", "works"];
+
+const getContent = async (env: Env, section?: string): Promise<Data | Error> => {
   const data: Data = {};
   const sections: string[] = section ? [section] : SECTIONS;
 
   try {
     for (let i = 0; i < sections.length; i++) {
       const key = sections[i];
-      const dataSet = context.env[key];
+      const dataSet = env[key];
       const dataList = await dataSet.list();
 
       for (let j = 0; j < dataList.keys.length; j++) {
@@ -38,11 +38,11 @@ const getContent = async (context, section?: string): Promise<Data | Error> => {
   return data;
 };
 
-export const onRequest: PagesFunction<Env> = async (context) => {
-  const section: string = context.params.section.toString();
+export const onRequest: PagesFunction<Env> = async ({env, params}): Promise<Response> => {
+  const section: string = params.section.toString();
   const data: Data | Error = SECTIONS.indexOf(section) > -1
-    ? await getContent(context, section)
-    : await getContent(context);
+    ? await getContent(env, section)
+    : await getContent(env);
 
   return new Response(JSON.stringify({
     meta: {
@@ -56,4 +56,4 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       "Cache-Control": "public, max-age=86400",
     },
   });
-}
+};
