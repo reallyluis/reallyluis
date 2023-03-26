@@ -14,7 +14,7 @@ const SECTIONS: string[] = ["abouts", "skils", "works"];
 
 const getContent = async (context, section?: string): Promise<Data> => {
   const data: Data = {};
-  const sections = section ? [section] : SECTIONS
+  const sections: string[] = section ? [section] : SECTIONS;
 
   try {
     for (const key in sections) {
@@ -37,6 +37,7 @@ const getContent = async (context, section?: string): Promise<Data> => {
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const section: string = context.params.section.toString();
+  console.log(section, SECTIONS.indexOf(section));
   const data: Data = SECTIONS.indexOf(section) > -1 ?
     await getContent(context, section) :
     await getContent(context);
