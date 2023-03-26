@@ -4,15 +4,20 @@ interface Env {
   works: KVNamespace;
 }
 
-export const getContent = async (context) => {
-  const data: { [key: string]: { [key: string]: string } } = {
-    abouts: {},
-    skills: {},
-    works: {},
+interface Data {
+  [key: string]: {
+    [key: string]: string;
   };
+}
+
+const SECTIONS: string[] = ["abouts", "skils", "works"];
+
+const getContent = async (context, section?: string): Promise<Data> => {
+  const data: Data = {};
+  const sections = section ? [section] : SECTIONS
 
   try {
-    for (const key in data) {
+    for (const key in sections) {
       const dataSet = context.env[key];
       const dataList = await dataSet.list();
 
@@ -31,7 +36,11 @@ export const getContent = async (context) => {
 };
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const data: { [key: string]: { [key: string]: string } } = await getContent(context);
+  const params =  context.params.catchall;
+  const section: string = (Array.isArray(params) ? params[0] : params).toString();
+  const data: Data = SECTIONS.indexOf(section) >= 0 ?
+    await getContent(context, section) :
+    await getContent(context);
 
   return new Response(JSON.stringify(data, null, 2), {
     headers: {
