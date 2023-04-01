@@ -47,7 +47,7 @@ const sendEmail = async (data: EmailData, env: Env) => {
           ],
           dynamic_template_data: {
             name: name,
-            from: email,
+            email: email,
             comment: comment,
           },
         },
