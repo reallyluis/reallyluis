@@ -44,6 +44,7 @@
     "cypress:stage": "BASE_URL=https://staging.reallyluis.pages.dev cypress run",
     "dev": "astro dev",
     "lint": "eslint \"{src,tests,workers}/**/*.{astro,js,jsx,mjs,ts,tsx}\"",
+    "preinstall": "npx only-allow pnpm",
     "prettier": "prettier --write .",
     "preview": "astro preview",
     "start": "astro dev",

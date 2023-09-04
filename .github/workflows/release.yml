@@ -29,7 +29,7 @@ jobs:
       COMMIT_SHA: ${{ github.sha }}
       DOMAIN: reallyluis.com
       ENVIRONMENT: production
-      RUN_CMD: npm run cypress:ci -- --record --group production --key
+      RUN_CMD: pnpm cypress:ci -- --record --group production --key
     secrets:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}

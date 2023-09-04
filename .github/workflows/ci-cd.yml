@@ -54,7 +54,7 @@ jobs:
       COMMIT_SHA: ${{ github.sha }}
       DOMAIN: reallyluis.com
       ENVIRONMENT: staging
-      RUN_CMD: npm run cypress:stage -- --record --group staging --key
+      RUN_CMD: pnpm cypress:stage -- --record --group staging --key
     secrets:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_PAGES_API: ${{ secrets.CLOUDFLARE_PAGES_API }}
