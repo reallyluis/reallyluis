@@ -8,7 +8,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .about-me {
     display: grid;
     grid-column-gap: 2em;

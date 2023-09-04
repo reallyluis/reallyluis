@@ -59,7 +59,7 @@
     }
   }
 }
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .my-services {
     .service p {
       filter: blur(0.25em);
@@ -94,7 +94,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (width >= 800px) {
   .services {
     display: flex;
     margin-left: auto;

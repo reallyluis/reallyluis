@@ -58,7 +58,7 @@
 }
 
 /* RECOMMENDED SETS TO CONSIDER: 300, 600, 900, 1200 */
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .intro {
     display: grid;
     grid-column-gap: 1em;
