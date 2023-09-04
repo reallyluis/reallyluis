@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0] - 2023-9-4
+
+### Changed
+
+- migrate to pnpm
+- upgrade astro and other upgrades
+
 ## [3.0.0] - 2022-11-25
 
 ### Changed

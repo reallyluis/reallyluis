@@ -33,18 +33,24 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: "16.17.x"
+          node-version: "18.17.x"
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
 
       - name: Cache node_modules
         id: node-modules
         uses: actions/cache@v3
         with:
           path: "./node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-modules-${{ hashFiles('./pnpm-lock.yaml') }}
 
       - name: Run install
         if: steps.node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Cache dist
         id: dist
@@ -55,7 +61,7 @@ jobs:
 
       - name: Run Build
         if: steps.dist.outputs.cache-hit != 'true'
-        run: npm run build
+        run: pnpm build
         env:
           CI: true
           CONTACT_API: ${{ secrets.CONTACT_API }}
