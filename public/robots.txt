@@ -1,2 +1,5 @@
-user-agent: *
-sitemap: https://reallyluis.com/sitemap-file.xml
+User-agent: *
+Allow: /$
+Allow: /sitemap-file.xml
+Disallow: /
+Sitemap: https://reallyluis.com/sitemap-file.xml
