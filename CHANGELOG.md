@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - upgrade astrojs to v4
+- fix missing autocomplete attr
+- upgrade other outdated packages
 
 ## [4.0.0] - 2023-9-4
 
