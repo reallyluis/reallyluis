@@ -21,6 +21,7 @@ formTemplate.innerHTML = `
       name="email"
       value=""
       placeholder="email"
+      autocomplete="on"
       required
     />
   </label>
