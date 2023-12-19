@@ -51,7 +51,7 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 -->
 
 [![reallyluis](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/87cut1/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/87cut1/runs)
-[![GitHub CI](https://github.com/reallyluis/reallyluis/workflows/GitHub%20CI/badge.svg)](https://github.com/reallyluis/reallyluis)
+[![GitHub CI](https://github.com/reallyluis/reallyluis/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/reallyluis/reallyluis)
 [![GitHub issues](https://img.shields.io/github/issues/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/issues)
 [![GitHub license](https://img.shields.io/github/license/reallyluis/reallyluis?style=svg)](https://github.com/reallyluis/reallyluis/blob/main/LICENSE)
 
