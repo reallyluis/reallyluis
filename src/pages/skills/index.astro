@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Skills from "@components/Skills.astro";
+import { EMPTY_DATA, getContent } from "@utils/index";
+
+const contentAPI = import.meta.env.CONTENT_API;
+const data = import.meta.env.DATA ?? EMPTY_DATA;
+const environment = import.meta.env.ENVIRONMENT;
+
+const { skills } =
+  environment === "dev" ? JSON.parse(data) : await getContent(contentAPI);
+---
+
+<Layout title="Professional Website" name="Luis">
+  <Skills skills={skills} />
+</Layout>

@@ -18,7 +18,6 @@
       "@utils/*": ["src/utils/*"],
       "@workers/*": ["workers/*"]
     },
-    "types": ["cloudflare", "jest", "node"],
     "typeRoots": ["./**/node_modules/@types"],
     "lib": ["DOM", "DOM.Iterable"],
     "downlevelIteration": true,

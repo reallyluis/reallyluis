@@ -7,7 +7,7 @@ const { skills } = Astro.props;
 const skillsOrder = ["Frontend", "Backend", "Data"];
 ---
 
-<section class="my-services" id="services" data-nosnippet>
+<section class="my-services animate-in" id="services" data-nosnippet>
   <h2 class="section-title">What I do</h2>
   <div class="services">
     {
@@ -19,5 +19,5 @@ const skillsOrder = ["Frontend", "Backend", "Data"];
       ))
     }
   </div>
-  <a href="#work" class="btn">My Work</a>
+  <a href="/work" class="btn">My Work</a>
 </section>

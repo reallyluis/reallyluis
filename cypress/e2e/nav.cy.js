@@ -8,23 +8,23 @@ describe("nav menu", () => {
   it("display nav links", () => {
     cy.get("header .nav .list .item:nth-child(1) a").should(
       "contain.text",
-      "Home"
+      "Home",
     );
     cy.get("header .nav .list .item:nth-child(2) a").should(
       "contain.text",
-      "Skills"
+      "Skills",
     );
     cy.get("header .nav .list .item:nth-child(3) a").should(
       "contain.text",
-      "About"
+      "About",
     );
     cy.get("header .nav .list .item:nth-child(4) a").should(
       "contain.text",
-      "Work"
+      "Work",
     );
     cy.get("header .nav .list .item:nth-child(5) a").should(
       "contain.text",
-      "Contact"
+      "Contact",
     );
   });
 });

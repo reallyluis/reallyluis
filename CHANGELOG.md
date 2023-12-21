@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.0] - 2023-03-xx
+
+### Changed
+
 ## [7.0.0] - 2024-03-16
 
 ### Changed

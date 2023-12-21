@@ -1,5 +1,3 @@
 User-agent: *
-Allow: /$
-Allow: /sitemap-file.xml
-Disallow: /
+Allow: /
 Sitemap: https://reallyluis.com/sitemap-file.xml
