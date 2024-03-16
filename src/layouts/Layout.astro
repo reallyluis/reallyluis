@@ -7,6 +7,7 @@ export interface Props {
 }
 
 const { title, name } = Astro.props;
+const pageTitle = `${name}' ${title}`;
 ---
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ const { title, name } = Astro.props;
     />
     <meta property="og:image" content="https://reallyluis.com/img/self.webp" />
     <meta property="og:title" content={`${name}' Professional Website`} />
-    <title>{name}' {title}</title>
+    <title>{pageTitle}</title>
     <link rel="manifest" href="/manifest.webmanifest" />
     <link
       rel="icon"

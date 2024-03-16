@@ -336,6 +336,11 @@ h3 {
 
     .nav {
       display: block;
+      height: 100vh;
+
+      .list {
+        flex-direction: column;
+      }
     }
 
     .nav-toggle {
