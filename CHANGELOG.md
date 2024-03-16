@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0] - 2024-03-16
+
+### Changed
+
+- upgrade several outdated packages
+- minor bug fixes
+
 ## [5.0.0] - 2023-12-18
 
 ### Changed
