@@ -30,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18.17.x"
+          node-version: "20.11.x"
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         name: Install pnpm
         with:
           version: 8
@@ -43,7 +43,7 @@ jobs:
 
       - name: Cache node_modules
         id: node-modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: "./node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('./pnpm-lock.yaml') }}
@@ -54,7 +54,7 @@ jobs:
 
       - name: Cache dist
         id: dist
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: "./dist"
           key: ${{ runner.os }}-${{ inputs.ENVIRONMENT }}-dist-${{ inputs.COMMIT_SHA }}
