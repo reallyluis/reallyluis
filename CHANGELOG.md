@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.0] - 2024-03-16
+
+### Changed
+
+- upgrade node
+- minor bug fix
+
 ## [6.0.0] - 2024-03-16
 
 ### Changed
