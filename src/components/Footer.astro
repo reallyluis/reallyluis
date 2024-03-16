@@ -4,7 +4,6 @@ export interface Props {
   version: string;
 }
 
-const currentYear = new Date().getFullYear();
 const { mailToEmail, version } = Astro.props;
 ---
 
@@ -153,8 +152,14 @@ const { mailToEmail, version } = Astro.props;
       <a href="#contact">Contact</a>
     </li>
     <li class="item copy">
-      &copy; {currentYear} reallyluis.com
+      &copy; <span class="copyright"></span> reallyluis.com
     </li>
   </ul>
   <div class="version">{version}</div>
 </footer>
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".copyright").textContent = new Date().getFullYear();
+  });
+</script>
