@@ -39,7 +39,7 @@
     "build": "astro build",
     "cypress:ci": "cypress run",
     "cypress:install": "cypress install",
-    "cypress:local": "BASE_URL=http://127.0.0.1:3000 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
+    "cypress:local": "BASE_URL=http://localhost:4321 cypress run --record false --key $(grep CYPRESS_KEY .env | cut -d '=' -f2)",
     "cypress:open": "cypress open --config-file=cypress.config.js",
     "cypress:stage": "BASE_URL=https://staging.reallyluis.pages.dev cypress run",
     "dev": "astro dev",

@@ -5,9 +5,9 @@ export interface Props {
 const { domain } = Astro.props;
 ---
 
-<header data-nosnippet>
+<header transition:persist data-nosnippet>
   <div class="logo">
-    <a aria-label={`${domain} Logo`} href="#home">
+    <a aria-label={`${domain} Logo`} href="/">
       <img
         src="/img/icons/manifest-icon-192.png"
         width="48"
@@ -26,19 +26,19 @@ const { domain } = Astro.props;
   <nav class="nav">
     <ul class="list">
       <li class="item">
-        <a href="#home"> Home</a>
+        <a href="/"> Home</a>
       </li>
       <li class="item">
-        <a href="#services"> Skills</a>
+        <a href="/skills"> Skills</a>
       </li>
       <li class="item">
-        <a href="#about"> About</a>
+        <a href="/about"> About</a>
       </li>
       <li class="item">
-        <a href="#work"> Work</a>
+        <a href="/work"> Work</a>
       </li>
       <li class="item">
-        <a href="#contact"> Contact</a>
+        <a href="/contact"> Contact</a>
       </li>
     </ul>
   </nav>

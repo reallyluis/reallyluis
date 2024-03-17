@@ -66,7 +66,7 @@ interface DataProps {
 const sendContact = async (
   contactApi: string,
   data: DataProps,
-  callback: () => void
+  callback: () => void,
 ) => {
   const response = await fetch(contactApi, {
     method: "POST",

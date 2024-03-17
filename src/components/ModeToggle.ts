@@ -57,7 +57,7 @@ template.innerHTML = `
   transform: translateX(1.25em); /* TODO: use vars, width - height */
 }
 </style>
-<div class="darkmode-toggle">
+<div class="darkmode-toggle" transition:persist>
   <label for="mode-toggle">
     <input
       type="checkbox"
@@ -77,8 +77,8 @@ const isDarkMode =
   window.localStorage.getItem("darkmode") == undefined
     ? !!mediaStatus
     : localStorage.getItem("darkmode") === "true"
-    ? true
-    : false;
+      ? true
+      : false;
 
 class ModeToggle extends HTMLElement {
   constructor() {

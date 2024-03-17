@@ -8,23 +8,23 @@ describe("nav menu", () => {
   it("display footer links", () => {
     cy.get("footer .footer-list .item:nth-child(1) a").should(
       "have.text",
-      "Top"
+      "Home",
     );
     cy.get("footer .footer-list .item:nth-child(2) a").should(
       "have.text",
-      "Skills"
+      "Skills",
     );
     cy.get("footer .footer-list .item:nth-child(3) a").should(
       "have.text",
-      "About"
+      "About",
     );
     cy.get("footer .footer-list .item:nth-child(4) a").should(
       "have.text",
-      "Work"
+      "Work",
     );
     cy.get("footer .footer-list .item:nth-child(5) a").should(
       "have.text",
-      "Contact"
+      "Contact",
     );
     cy.get("footer .footer-list .item.copy").contains("reallyluis");
   });

@@ -1,10 +1,22 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import PageControls from "@components/PageControls.astro";
+import PageError from "@components/PageError.astro";
+import PageLoad from "@components/PageLoad.astro";
+import json from "@root/package.json";
+
 import "@styles/styles.scss";
 
 export interface Props {
   title: string;
   name: string;
 }
+
+const domain = import.meta.env.DOMAIN;
+const mailToEmail = import.meta.env.FOOTER_MAILTO_EMAIL;
+const version = json.version;
 
 const { title, name } = Astro.props;
 const pageTitle = `${name}' ${title}`;
@@ -181,39 +193,27 @@ const pageTitle = `${name}' ${title}`;
       media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
     />
     <!-- Preloads -->
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/sourcesanspro-light.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/sourcesanspro-regular.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/sourcesanspro-bold.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/sourcesanspro-black.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link rel="preload" as="image" href="/img/self.webp" />
+    {Astro.url.pathname === "/" && <link rel="preload" as="image" href="/img/self.webp" />}
+    <ViewTransitions />
   </head>
   <body>
     <main>
+      <PageLoad />
+      <PageError mailToEmail={mailToEmail} />
+      <PageControls />
+      <Header domain={domain} />
       <slot />
+      <Footer mailToEmail={mailToEmail} version={version} />
     </main>
   </body>
 </html>
+
+<script>
+  setTimeout(() => {
+    const pageLoading = document.querySelector(".page-loading");
+
+    if (pageLoading) {
+      pageLoading.classList.add("hide");
+    }
+  }, 150);
+</script>

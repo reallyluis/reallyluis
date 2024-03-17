@@ -1,0 +1,10 @@
+---
+import Contact from "@components/Contact.astro";
+import Layout from "@layouts/Layout.astro";
+
+const contactAPI = import.meta.env.CONTACT_API;
+---
+
+<Layout title="Professional Website" name="Luis">
+  <Contact contactAPI={contactAPI} />
+</Layout>

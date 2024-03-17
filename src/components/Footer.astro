@@ -7,7 +7,7 @@ export interface Props {
 const { mailToEmail, version } = Astro.props;
 ---
 
-<footer class="footer" data-nosnippet>
+<footer class="footer" transition:persist data-nosnippet>
   <ul class="social-list">
     <li class="item">
       <a
@@ -137,19 +137,19 @@ const { mailToEmail, version } = Astro.props;
   </ul>
   <ul class="footer-list" data-nosnippet>
     <li class="item">
-      <a href="#home">Top</a>
+      <a href="/">Home</a>
     </li>
     <li class="item">
-      <a href="#services">Skills</a>
+      <a href="/skills">Skills</a>
     </li>
     <li class="item">
-      <a href="#about">About</a>
+      <a href="/about">About</a>
     </li>
     <li class="item">
-      <a href="#work">Work</a>
+      <a href="/work">Work</a>
     </li>
     <li class="item">
-      <a href="#contact">Contact</a>
+      <a href="/contact">Contact</a>
     </li>
     <li class="item copy">
       &copy; <span class="copyright"></span> reallyluis.com
