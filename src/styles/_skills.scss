@@ -32,8 +32,7 @@
 
   p {
     background-color: var(--clr-mod);
-    border-color: var(--fc-light);
-    border: 1px solid;
+    border: 1px solid var(--fc-light);
     border-image-slice: 1;
     border-image-source: linear-gradient(
       45deg,
