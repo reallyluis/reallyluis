@@ -52,15 +52,7 @@ jobs:
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Cache dist
-        id: dist
-        uses: actions/cache@v4
-        with:
-          path: "./dist"
-          key: ${{ runner.os }}-${{ inputs.ENVIRONMENT }}-dist-${{ inputs.COMMIT_SHA }}
-
       - name: Run Build
-        if: steps.dist.outputs.cache-hit != 'true'
         run: pnpm build
         env:
           CI: true
@@ -69,3 +61,10 @@ jobs:
           DOMAIN: ${{ inputs.DOMAIN }}
           ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
           FOOTER_MAILTO_EMAIL: ${{ secrets.FOOTER_MAILTO_EMAIL }}
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ inputs.ENVIRONMENT }}-${{ inputs.COMMIT_SHA }}
+          path: ./dist
+          retention-days: 1

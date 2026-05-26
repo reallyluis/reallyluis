@@ -63,11 +63,7 @@ interface DataProps {
   comment: string | undefined;
 }
 
-const sendContact = async (
-  contactApi: string,
-  data: DataProps,
-  callback: () => void
-) => {
+const sendContact = async (contactApi: string, data: DataProps) => {
   const response = await fetch(contactApi, {
     method: "POST",
     mode: "cors",
@@ -75,9 +71,13 @@ const sendContact = async (
       "Content-Type": "application/json; charset=UTF-8",
     },
     body: JSON.stringify(data),
-  }).finally(() => setTimeout(callback, 1000));
+  });
 
-  return await response.json();
+  if (!response.ok) {
+    throw new Error(`Request failed with status ${response.status}`);
+  }
+
+  return response.json();
 };
 
 class ContactForm extends HTMLElement {
@@ -90,20 +90,38 @@ class ContactForm extends HTMLElement {
   connectedCallback() {
     const contactAPI = this.getAttribute("contactAPI");
     const form = this.querySelector<HTMLFormElement>("form");
-    const renderForm = () => this.renderForm();
-    const renderSentMessage = () => this.renderSentMessage();
-    const submit = (e: Event) => {
+    const submit = async (e: Event) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
+      const submitBtn = form.querySelector<HTMLButtonElement>("#contact-submit");
       const contact = {
         name: form.fname.value,
         email: form.email.value,
         comment: form.comment.value,
       };
 
-      if (contactAPI) {
-        renderSentMessage();
-        sendContact(contactAPI, contact, renderForm);
+      if (!contactAPI) return;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      try {
+        await sendContact(contactAPI, contact);
+        this.renderSentMessage();
+      } catch {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send";
+        }
+        const existing = form.querySelector(".error-message");
+        if (!existing) {
+          const err = document.createElement("p");
+          err.className = "error-message";
+          err.textContent = "Something went wrong. Please try again.";
+          form.appendChild(err);
+        }
       }
     };
 

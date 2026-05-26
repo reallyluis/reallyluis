@@ -12,8 +12,10 @@ interface EmailData {
   comment: string;
 }
 
+export const ALLOWED_ORIGIN = "https://www.reallyluis.com";
+
 export const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
   "Access-Control-Max-Age": "86400",
 };
@@ -139,7 +141,7 @@ const getResponse = (status = 405, message = "Method Not Allowed") => {
 
   return new Response(response, {
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
       "Content-Length": response.length.toString(),
       "Content-Type": "application/json; charset=UTF-8",
       Vary: "Origin",
