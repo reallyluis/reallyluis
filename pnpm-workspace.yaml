@@ -1,4 +1,4 @@
 packages:
-  - 'workers/**'
-  # exclude test directories
+  # workers are managed independently; add them here after running pnpm install locally
+  - '!**/workers/**'
   - '!**/test/**'
